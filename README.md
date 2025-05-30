@@ -1,36 +1,78 @@
-# CleanFlow of Ohio - Static Website
+# CleanFlow Ohio Static Marketing Website
 
-This repository contains the source code for the CleanFlow of Ohio static website. The site is built with HTML, CSS, and JavaScript.
+A mobile-first, responsive HTML/CSS/JS marketing site designed for gutter cleaning services. Simple, modern, SEO-friendly, and easy to customize. Currently deployed on [Vercel](https://vercel.com/).
 
-## Deployment to Vercel
+## 📦 Features
 
-This site can be easily deployed to Vercel, a platform for static sites and Serverless Functions.
+- **Fully Responsive:** Optimized for mobile, tablet, and desktop.
+- **SEO-Ready:** Includes sitemap (`sitemap.xml`) and clean, semantic HTML structure.
+- **Pages Included:**
+  - Home (`index.html`)
+  - Services (`services.html`)
+  - About (`about.html`)
+- **Easy to Customize:** Simple file structure, clear CSS classes, minimal JavaScript.
+- **Quick Deployment:** Seamless deployment via [Vercel](https://vercel.com/).
 
-Follow these steps to deploy the site:
+## 🚀 Quick Start
 
-1.  **Sign up or Log in to Vercel:**
-    *   Go to [vercel.com](https://vercel.com) and sign up for a free account or log in if you already have one.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/cleanflow-ohio.git
+   cd cleanflow-ohio
 
-2.  **Connect Your Git Repository:**
-    *   Once logged in, click on the "Add New..." button and select "Project".
-    *   Vercel will ask to connect to your Git provider (GitHub, GitLab, Bitbucket). Authorize Vercel to access your repositories.
-    *   Select the repository that contains this project.
+2. Modify content
 
-3.  **Configure Your Project:**
-    *   **Project Name:** Vercel will automatically use your repository name, but you can change it.
-    *   **Framework Preset:** Vercel should automatically detect that this is a static site (HTML/CSS/JS). If not, you can select "Other" or leave it as is.
-    *   **Root Directory:** Ensure the "Root Directory" is set to the base of your repository (it should be by default, showing `index.html` at the root).
-    *   **Build and Output Settings:** For a simple static site like this, you typically don't need to change these.
-        *   The "Build Command" can usually be left empty or toggled off.
-        *   The "Output Directory" can also be left empty or toggled off if Vercel correctly identifies the root as the serving directory.
-        *   "Install Command" can also be left empty.
+Edit HTML files in the root directory to customize page content.
 
-4.  **Deploy:**
-    *   Click the "Deploy" button.
-    *   Vercel will clone your repository, and since there's no build step for this simple static site, it will deploy the files directly.
-    *   Once the deployment is complete (usually within a minute or two), Vercel will provide you with a URL where your live site can be accessed (e.g., `your-project-name.vercel.app`).
+Adjust CSS in the style.css file.
 
-5.  **Future Updates:**
-    *   By default, Vercel sets up a CI/CD pipeline. Any time you push changes to your `main` branch (or the branch you deployed), Vercel will automatically redeploy your site with the latest changes.
+Update images/assets in the assets/ directory.
 
-That's it! Your static website should now be live on Vercel.
+
+
+3. Deploy to Vercel (Recommended)
+
+Create a free account at Vercel.
+
+Connect your GitHub repository.
+
+Follow the guided setup, leaving default settings as-is.
+
+Your website will automatically deploy when you push changes to GitHub.
+
+
+
+
+🗂 Repository Structure
+
+cleanflow-ohio/
+├── script.js              # Main JavaScript file
+├── style.css              # Main CSS file
+├── index.html             # Homepage
+├── services.html          # Services description page
+├── about.html             # Company/about page
+└── sitemap.xml            # SEO sitemap
+
+🛠 Technologies Used
+
+HTML5 & CSS3: Semantic structure and responsive styling.
+
+Vanilla JavaScript: Simple interactions, no heavy libraries.
+
+Vercel: Easy and fast hosting and deployment.
+
+
+🔐 Security
+
+No backend or sensitive server-side code included. Completely static frontend.
+
+Hosted via Vercel’s secure infrastructure.
+
+
+📌 Contributing
+
+Feel free to fork and modify for your own business! Contributions are welcome. Just submit a pull request.
+
+📄 License
+
+Distributed under the MIT License. See LICENSE for details.
