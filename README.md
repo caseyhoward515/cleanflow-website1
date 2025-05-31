@@ -76,3 +76,11 @@ Feel free to fork and modify for your own business! Contributions are welcome. J
 📄 License
 
 Distributed under the MIT License. See LICENSE for details.
+
+---
+
+## Project Overview
+
+**Project description:** Static marketing site for CleanFlow of Ohio.
+
+**Note:** Iteration 1: Security Hardening—CSP added, inline JS externalized to assets/main.js, robots.txt added, CODEBASE.md generated.

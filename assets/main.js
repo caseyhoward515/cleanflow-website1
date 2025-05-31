@@ -70,28 +70,6 @@
             }
         }
         
-        // Page Navigation
-        function showPage(page) {
-            const pages = document.querySelectorAll('.page');
-            const navLinks = document.querySelectorAll('nav ul li a');
-            
-            // Hide all pages
-            pages.forEach(p => p.style.display = 'none');
-            
-            // Remove active class from all links
-            navLinks.forEach(link => link.classList.remove('active'));
-            
-            // Show selected page and set active link
-            document.getElementById(`${page}-page`).style.display = 'block';
-            document.getElementById(`${page}-link`).classList.add('active');
-            
-            // Close mobile menu if open
-            navMenu.classList.remove('active');
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-
         // Toggle Signs Content
         function toggleSign(element) {
             element.classList.toggle('active');
@@ -173,14 +151,18 @@
             const service = document.getElementById('service').value;
             
             const subject = "New Quote Request from " + name;
-            const body = "Name: " + name + "%0D%0APhone: " + phone + "%0D%0AService: " + service;
+            // Encode each part of the body separately
+            const encodedName = encodeURIComponent(name);
+            const encodedPhone = encodeURIComponent(phone);
+            const encodedService = encodeURIComponent(service);
+            const body = "Name: " + encodedName + "%0D%0APhone: " + encodedPhone + "%0D%0AService: " + encodedService;
             
             window.location.href = "mailto:cleanflowofohio@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + body;
             
             const messageDiv = document.getElementById('formMessage');
             messageDiv.style.display = 'block';
             messageDiv.classList.add('success');
-            messageDiv.innerHTML = "Thank you! Your quote request has been sent. We'll contact you shortly.";
+            messageDiv.textContent = "Thank you! Your quote request has been sent. We'll contact you shortly.";
             
             // Reset form
             document.getElementById('quoteForm').reset();
