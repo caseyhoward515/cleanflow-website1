@@ -101,7 +101,7 @@ This document provides a high-level overview of the project's file structure. Ea
 
 ## `README.md`
 
-- **Purpose:** Provides a general introduction and overview of the project.
+- **Purpose:** Provides a general introduction and overview of the project. Updated in Iteration 6 with new company/about content.
 - **Functionality:** Typically includes a project description, installation instructions, usage examples, and contribution guidelines. Serves as the main entry point for anyone visiting the repository.
 
 ---
