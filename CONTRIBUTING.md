@@ -31,6 +31,8 @@ You can suggest enhancements by opening a new issue on the GitHub repository and
 
 ## Pull Requests
 
+For an overview of past iterations and project structure, see [docs/documentation.md](./docs/documentation.md).
+
 We welcome pull requests for bug fixes and enhancements.
 
 1.  **Fork the repository:** Click the "Fork" button at the top right of the repository page.

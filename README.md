@@ -13,6 +13,10 @@ A mobile-first, responsive HTML/CSS/JS marketing site designed for gutter cleani
 - **Easy to Customize:** Simple file structure, clear CSS classes, minimal JavaScript.
 - **Quick Deployment:** Seamless deployment via [Vercel](https://vercel.com/).
 
+## Documentation
+
+See [docs/documentation.md](./docs/documentation.md) for a full history of iterations and high-level project overview.
+
 ## 🚀 Quick Start
 
 1. **Clone the repository**

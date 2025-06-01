@@ -79,3 +79,16 @@ This document provides a high-level overview of the project's file structure. Ea
 - **Purpose:** Contains all the CSS rules for styling the website.
 - **Functionality:** Defines the visual appearance of all HTML pages, including layout, typography, colors, responsiveness, and animations. It uses CSS variables for theming and is structured to style various components like headers, footers, buttons, forms, and specific sections of the website.
 ---
+
+## `docs/`
+
+- **Purpose:** A central folder for high-level project history and documentation.
+- **Functionality:** Contains documents that provide an overview of the project's evolution, architectural decisions, and iteration history.
+
+---
+
+## `docs/documentation.md`
+
+- **Purpose:** Chronological log of each iteration and summary of changes.
+- **Functionality:** Provides a detailed history of the project's development, including changes made in each iteration, branch names, and key features or updates implemented.
+---
