@@ -1527,6 +1527,52 @@
         .page-content {
             padding-top: 100px; /* Adjusts for fixed header height */
         }
+
+/*--------------------------------------------------------------
+# Testimonials Section Styles
+--------------------------------------------------------------*/
+        #testimonials {
+            padding: 80px 0;
+            background-color: var(--light); /* Or any other suitable background */
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .testimonial-author h4 {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-author p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 0;
+        }
         
 /*--------------------------------------------------------------
 # Checkmark List Styles

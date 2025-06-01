@@ -26,3 +26,19 @@ This document provides a chronological log of each completed iteration, detailin
 -   Implemented accessibility enhancements in footers (nav tags, aria-labels).
 -   Updated `CODEBASE.md` to include `privacy.html` and `terms.html`.
 -   Updated `docs/documentation.md` with this iteration's summary.
+
+## Iteration 6 (branch: iteration-6-readme-aboutme)
+
+-   **Initial Goal:** Add a new "About Me" section to the main `README.md` file.
+-   **Outcome:** This approach was deemed inappropriate for the repository's scope. The "About Me" content was considered too personal for a project README, which should focus on the project itself rather than individual contributor details.
+-   **Decision:** The changes to `README.md` in this iteration were not merged. A course correction was planned for Iteration 6.1.
+
+## Iteration 6.1 (branch: iteration-6.1-aboutme-sitefix)
+
+-   **Course Correction:** Address the "About Me" content appropriately by integrating it into the website, not the project's README.
+-   **Actions Taken:**
+    -   The `README.md` file was preserved in its clean state from Iteration 5 (no "About Me" section was added to it).
+    -   The new "About Me" text, originally intended for the README, was correctly applied to the "Our Story" section within the `about.html` page of the website.
+    -   No changes were made to `README.md` in this iteration.
+-   **Confirmation:** The website's "About Me" section (specifically the "Our Story" part on `about.html`) was successfully updated with the intended content in this branch.
+-   Updated `docs/documentation.md` with the history for Iterations 6 and 6.1.
