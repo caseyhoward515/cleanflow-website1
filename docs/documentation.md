@@ -15,3 +15,14 @@ This document provides a chronological log of each completed iteration, detailin
 -   Added HTML comments in `index.html`, `services.html`, and `about.html`.
 -   Added CSS comments in `style.css`.
 -   Added JSDoc comments in `assets/main.js`.
+
+## Iteration Three (branch: iteration-5-footer-fix)
+
+-   Patched non-functional footer navigation links in `index.html`, `about.html`, and `services.html`.
+-   Linked footer items (`Home`, `About`, `Services`, `Contact`) to their respective pages/sections.
+-   Created and linked `privacy.html` and `terms.html` from the footer.
+-   Added basic content to `privacy.html` (no cookie tracking, data use for service requests only).
+-   Added basic content to `terms.html` (usage terms, liability disclaimer).
+-   Implemented accessibility enhancements in footers (nav tags, aria-labels).
+-   Updated `CODEBASE.md` to include `privacy.html` and `terms.html`.
+-   Updated `docs/documentation.md` with this iteration's summary.

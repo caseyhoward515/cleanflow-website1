@@ -13,10 +13,16 @@ This document provides a high-level overview of the project's file structure. Ea
 -   `README.md`
 -   `about.html`
 -   `index.html`
+-   `privacy.html`
+    -   _Purpose:_ Contains the company's privacy policy, detailing data handling practices.
+    -   _Functionality:_ It's a static page with no cookie tracking or third-party sharing of information collected via forms, which is used solely for service requests.
 -   `robots.txt`
 -   `services.html`
 -   `sitemap.xml`
 -   `style.css`
+-   `terms.html`
+    -   _Purpose:_ Outlines the terms of use for the website, including liability disclaimers and information accuracy.
+    -   _Functionality:_ It's a static page clarifying user agreement upon using the site.
 -   `assets/` folder (with `assets/main.js`)
 -   `docs/` folder (with `docs/documentation.md`)
 
@@ -121,6 +127,17 @@ This document provides a high-level overview of the project's file structure. Ea
 
 ---
 
+## `privacy.html`
+
+- **Purpose:** Contains the company's privacy policy.
+- **Functionality:** Details data handling practices, stating that information collected via forms is used solely for service requests and not shared with third parties. Confirms no cookie tracking. Static HTML page.
+
+---
+
+## `robots.txt`
+
+---
+
 ## `robots.txt`
 
 - **Purpose:** Provides instructions to web crawlers (e.g., search engine bots) about which pages or sections of the website should not be crawled or indexed.
@@ -146,6 +163,14 @@ This document provides a high-level overview of the project's file structure. Ea
 
 - **Purpose:** Contains all the CSS rules for styling the website.
 - **Functionality:** Defines the visual appearance of all HTML pages, including layout, typography, colors, responsiveness, and animations. It uses CSS variables for theming and is structured to style various components like headers, footers, buttons, forms, and specific sections of the website.
+
+---
+
+## `terms.html`
+
+- **Purpose:** Outlines the terms of use for the CleanFlow of Ohio website.
+- **Functionality:** Includes liability disclaimers and statements on information accuracy. Confirms user agreement upon site usage. Static HTML page.
+
 ---
 
 ## `docs/`
