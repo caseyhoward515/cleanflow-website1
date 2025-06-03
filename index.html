@@ -567,26 +567,23 @@
     </div>
     
     <!-- AOS Animation Library -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Seasonal Tabs Functionality
     const seasonTabs = document.querySelectorAll('.season-tab');
     const seasonContents = document.querySelectorAll('.season-content');
-    seasonTabs.forEach(tab => {
-      tab.addEventListener('click', function() {
-        // Remove 'active' from all tabs and content
-        seasonTabs.forEach(t => t.classList.remove('active'));
-        seasonContents.forEach(c => c.classList.remove('active'));
 
-        // Add 'active' to the clicked tab and its content
-        tab.classList.add('active');
-        const seasonName = tab.getAttribute('data-season');
-        document.getElementById(seasonName + '-content').classList.add('active');
-      });
+    seasonTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            seasonTabs.forEach(t => t.classList.remove('active'));
+            seasonContents.forEach(c => c.classList.remove('active'));
+            tab.classList.add('active');
+            const seasonName = tab.getAttribute('data-season');
+            document.getElementById(seasonName + '-content').classList.add('active');
+        });
     });
-  });
+});
 </script>
 </body>
 </html>
