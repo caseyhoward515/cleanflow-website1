@@ -568,7 +568,22 @@
     
     <!-- AOS Animation Library -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="script.js"></script>
+<script src="script.js"></script>
+<script>
+  // Seasonal Tabs Functionality
+  const seasonTabs = document.querySelectorAll('.season-tab');
+  const seasonContents = document.querySelectorAll('.season-content');
+  seasonTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove 'active' from all tabs and content
+      seasonTabs.forEach(t => t.classList.remove('active'));
+      seasonContents.forEach(c => c.classList.remove('active'));
+      // Add 'active' to the clicked tab and its content
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.season + '-content').classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>
 
