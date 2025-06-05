@@ -1,3 +1,475 @@
+### File: LICENSE
+
+```text
+MIT License
+
+Copyright (c) 2024 The CleanFlow Ohio Project Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+### File: README.md
+
+```markdown
+# CleanFlow Ohio Static Marketing Website
+
+A mobile-first, responsive HTML/CSS/JS marketing site designed for gutter cleaning services. Simple, modern, SEO-friendly, and easy to customize. Currently deployed on [Vercel](https://vercel.com/).
+
+## 📦 Features
+
+- **Fully Responsive:** Optimized for mobile, tablet, and desktop.
+- **SEO-Ready:** Includes sitemap (`sitemap.xml`) and clean, semantic HTML structure.
+- **Pages Included:**
+  - Home (`index.html`)
+  - Services (`services.html`)
+  - About (`about.html`)
+- **Easy to Customize:** Simple file structure, clear CSS classes, minimal JavaScript.
+- **Quick Deployment:** Seamless deployment via [Vercel](https://vercel.com/).
+
+## 🚀 Quick Start
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/cleanflow-ohio.git
+   cd cleanflow-ohio
+
+2. Modify content
+
+Edit HTML files in the root directory to customize page content.
+
+Adjust CSS in the style.css file.
+
+Update images/assets in the assets/ directory.
+
+
+
+3. Deploy to Vercel (Recommended)
+
+Create a free account at Vercel.
+
+Connect your GitHub repository.
+
+Follow the guided setup, leaving default settings as-is.
+
+Your website will automatically deploy when you push changes to GitHub.
+
+
+
+
+🗂 Repository Structure
+
+cleanflow-ohio/
+├── script.js              # Main JavaScript file
+├── style.css              # Main CSS file
+├── index.html             # Homepage
+├── services.html          # Services description page
+├── about.html             # Company/about page
+└── sitemap.xml            # SEO sitemap
+
+🛠 Technologies Used
+
+HTML5 & CSS3: Semantic structure and responsive styling.
+
+Vanilla JavaScript: Simple interactions, no heavy libraries.
+
+Vercel: Easy and fast hosting and deployment.
+
+
+🔐 Security
+
+No backend or sensitive server-side code included. Completely static frontend.
+
+Hosted via Vercel’s secure infrastructure.
+
+
+📌 Contributing
+
+Feel free to fork and modify for your own business! Contributions are welcome. Just submit a pull request.
+
+📄 License
+
+Distributed under the MIT License. See LICENSE for details.
+```
+
+### File: about.html
+
+```html
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CleanFlow of Ohio | Dayton Gutter Experts</title>
+    <meta name="description" content="Learn about CleanFlow of Ohio, your trusted, owner-operated gutter cleaning and maintenance specialist with over 20 years of experience in Dayton and surrounding areas.">
+    <meta name="keywords" content="about us, gutter company Dayton, experienced gutter cleaner, local gutter service, CleanFlow of Ohio story">
+    <link rel="canonical" href="https://www.cleanflowohio.com/about" /><!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+<!-- AOS Animation Library -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- Top Contact Bar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-container">
+                <div class="topbar-item">
+                    <i class="fas fa-phone-alt"></i> Call or Text: <a href="tel:9374780689">937-478-0689</a>
+                </div>
+                <div class="topbar-item">
+                    <i class="fas fa-envelope"></i> Email: <a href="mailto:cleanflowofohio@gmail.com">cleanflowofohio@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </div><!-- Header -->
+<header id="header">
+    <div class="container">
+        <div class="header-container">
+            <div class="logo" onclick="location.href='index.html'">
+                CleanFlow<span>of Ohio</span>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html" id="home-link">Home</a></li>
+                    <li><a href="services.html" id="services-link">Services</a></li>
+                    <li><a href="about.html" id="about-link" class="active">About</a></li>
+                    <li><i class="fas fa-times close-menu" id="close-menu"></i></li>
+                </ul>
+                <!-- Theme Toggle Button START --> <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme"> <i class="fas fa-sun"></i> <span class="toggle-text">Light</span> </button> <!-- Theme Toggle Button END -->
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+            <a href="tel:9374780689" class="phone-btn">
+                <i class="fas fa-phone-alt"></i>
+                <span>937-478-0689</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- About Page Content -->
+<div id="about-page-content" class="page-content"> <!-- Changed ID to avoid conflict if script.js uses it -->
+    <section id="about-hero">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h1>About CleanFlow of Ohio</h1>
+                <p>Your trusted premium gutter maintenance, cleaning, and protection experts serving Dayton and surrounding communities.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-story">
+        <div class="container">
+            <div class="about-content" data-aos="fade-up">
+                <div class="about-text">
+
+  <h2>Our Story</h2>
+  <p>At CleanFlow of Ohio, we provide premium gutter maintenance, cleaning, and protection services throughout Montgomery County and the surrounding area. From routine cleanouts and screen installation to alignment checks, sealing, and full system upkeep, we handle every job with precision and pride.</p>  <p>I’ve been in this industry for over 20 years. CleanFlow is the result of experience, high standards, and a deep commitment to doing the job right. My crew and I are professionals. No temps. Just skilled people I trust to show up early, work clean, and treat every home with respect.</p>  <p>What sets us apart isn’t just the work. It’s how we show up. I genuinely enjoy helping people. Always have. There’s something satisfying about showing up, solving a messy problem, and hearing, “Wow, that was smooth.” That kind of reaction is what keeps us going.</p>  <p>We offer a premium service because that’s what I expect at my own home. I believe in quality over quantity. Details matter. Communication matters. And trust? That’s everything.</p>  <p>Supporting CleanFlow means working with a local business that takes pride in every job, large or small. No corporate scripts. No cut corners. Just real pros who care about doing things right and leaving you with one less thing to worry about.</p>
+</div><div class="about-image">
+                    <img src="https://nedstevens.com/wp-content/uploads/2020/12/gutter-cleaning-hero-new.jpg" alt="CleanFlow of Ohio - Professional Gutter Service">
+                    <div class="experience-badge">
+                        <span>20+</span>
+                        <span>Years</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-choose" class="bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Why Choose CleanFlow of Ohio</h2>
+                <p>I'm committed to providing the highest quality gutter services in the Dayton area.</p>
+            </div>
+
+            <div class="grid grid-3 mt-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card">
+                    <div class="service-content text-center">
+                        <i class="fas fa-medal" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3>Quality Workmanship</h3>
+                        <p>Every job is completed to the highest standards with attention to detail and thorough inspection to ensure proper water flow.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-content text-center">
+                        <i class="fas fa-dollar-sign" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3>Fair & Competitive Pricing</h3>
+                        <p>I provide honest, upfront pricing with no hidden fees or surprise charges. You'll always know the cost before work begins.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-content text-center">
+                        <i class="fas fa-bolt" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3>Fast Service</h3>
+                        <p>I respect your time and work efficiently, often providing same-day service when you need it most.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-content text-center">
+                        <i class="fas fa-check-double" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3>Satisfaction Guaranteed</h3>
+                        <p>I stand behind my work with a satisfaction guarantee. If you're not happy with the service, I'll make it right.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-content text-center">
+                        <i class="fas fa-handshake" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3>Honest & Reliable</h3>
+                        <p>I provide straightforward advice and never recommend services you don't need. Your trust is my top priority.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-content text-center">
+                        <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3>Locally Owned & Operated</h3>
+                        <p>As a local business, I take pride in serving our community with integrity and building lasting relationships.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section class="badge-section">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Our Credentials</h2>
+                <p>Trusted expertise you can count on</p>
+            </div>
+
+            <div class="badges" data-aos="fade-up">
+                <div class="badge-item">
+                    <i class="fas fa-award badge-icon"></i>
+                    <div class="badge-title">20+ Years Experience</div>
+                </div>
+
+                <div class="badge-item">
+                    <i class="fas fa-user-check badge-icon"></i>
+                    <div class="badge-title">Fully Insured</div>
+                </div>
+
+                <div class="badge-item">
+                    <i class="fas fa-thumbs-up badge-icon"></i>
+                    <div class="badge-title">Satisfaction Guaranteed</div>
+                </div>
+
+                <div class="badge-item">
+                    <i class="fas fa-tools badge-icon"></i>
+                    <div class="badge-title">Professional Equipment</div>
+                </div>
+
+                <div class="badge-item">
+                    <i class="fas fa-house-user badge-icon"></i>
+                    <div class="badge-title">Locally Owned & Operated</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="service-area">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Our Service Area</h2>
+                <p>CleanFlow of Ohio proudly serves homes throughout Dayton and surrounding communities.</p>
+            </div>
+
+            <div class="grid grid-2 gap-2 mt-4" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <h3>Montgomery County</h3>
+                    <ul class="checkmark-list">
+                        <li>Dayton</li>
+                        <li>Oakwood</li>
+                        <li>Kettering</li>
+                        <li>Centerville</li>
+                        <li>Miamisburg</li>
+                        <li>West Carrollton</li>
+                        <li>Moraine</li>
+                        <li>Huber Heights</li>
+                        <li>Vandalia</li>
+                        <li>Englewood</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Greene County</h3>
+                    <ul class="checkmark-list">
+                        <li>Beavercreek</li>
+                        <li>Bellbrook</li>
+                        <li>Fairborn</li>
+                        <li>Xenia</li>
+                        <li>Yellow Springs</li>
+                        <li>Cedarville</li>
+                        <li>Jamestown</li>
+                    </ul>
+                    <p class="mt-4">Don't see your location? Give me a call to check if I service your area!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-info" class="bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Contact Information</h2>
+                <p>Reach out to me for all your gutter cleaning and maintenance needs.</p>
+            </div>
+
+            <div class="grid grid-3 mt-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a>
+                    <p>Call or text for a free estimate</p>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 8am - 6pm</p>
+                    <p>Saturday: 8am - 3pm</p>
+                    <p>Sunday: Closed</p>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Service Area</h3>
+                    <p>Serving Dayton and surrounding areas</p>
+                    <p>Montgomery & Greene Counties</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Ready to Experience the CleanFlow Difference?</h2>
+                <p>Contact me today to schedule your professional gutter service with Dayton's most trusted gutter specialist.</p>
+                <a href="tel:9374780689" class="phone-number">
+                    <i class="fas fa-phone-alt"></i> 937-478-0689
+                </a>
+                <div class="text-option">Text me a photo of your gutters for a quick estimate – I respond within hours!</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-about">
+                <a href="index.html" class="footer-logo">
+                    CleanFlow<span>of Ohio</span>
+                </a>
+                <p>Professional gutter cleaning and protection services in Dayton and surrounding areas. With over 20 years of experience, I provide quality workmanship and exceptional customer service.</p>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p><a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a></p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p><a href="mailto:cleanflowofohio@gmail.com">cleanflowofohio@gmail.com</a></p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-globe"></i>
+                        <p><a href="http://bit.ly/CleanFlowOhio" target="_blank">bit.ly/CleanFlowOhio</a></p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Monday - Friday: 8am - 6pm<br>Saturday: 8am - 3pm<br>Sunday: Closed</p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Serving Dayton and surrounding areas<br>Montgomery & Greene Counties</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#calculator">Cost Estimator</a></li>
+                    <li><a href="index.html#signs">Signs You Need Service</a></li>
+                    <li><a href="index.html#calendar">Maintenance Guide</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="services.html#gutter-cleaning-service">Gutter Cleaning</a></li>
+                    <li><a href="services.html#gutter-repairs-service">Gutter Repairs</a></li>
+                    <li><a href="services.html#gutter-protection-service">Gutter Guards</a></li>
+                    <li><a href="services.html#service-faq">Maintenance FAQs</a></li>
+                    <li><a href="about.html#service-area">Service Areas</a></li>
+                    <li><a href="tel:9374780689">Get a Quote</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving Montgomery & Greene Counties since 2003</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top -->
+<div class="back-to-top" id="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- AOS Animation Library -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
+
+
+</html>
+```
+
+### File: codebase.md
+
+```markdown
 ## `LICENSE`
 ```
 MIT License
@@ -464,7 +936,7 @@ Distributed under the MIT License. See LICENSE for details.
 ```
 
 ## `index.html`
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -515,11 +987,11 @@ Distributed under the MIT License. See LICENSE for details.
                         <li><a href="about.html" id="about-link">About</a></li>
                         <li><i class="fas fa-times close-menu" id="close-menu"></i></li>
                     </ul>
+                    <!-- Theme Toggle Button START --> <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme"> <i class="fas fa-sun"></i> <span class="toggle-text">Light</span> </button> <!-- Theme Toggle Button END -->
                     <div class="menu-toggle" id="menu-toggle">
                         <i class="fas fa-bars"></i>
                     </div>
                 </nav>
-                <!-- Theme Toggle Button START --> <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme"> <i class="fas fa-sun"></i> <span class="toggle-text">Light</span> </button> <!-- Theme Toggle Button END -->
                 <a href="tel:9374780689" class="phone-btn">
                     <i class="fas fa-phone-alt"></i>
                     <span>937-478-0689</span>
@@ -1061,8 +1533,9 @@ Distributed under the MIT License. See LICENSE for details.
 
 ```
 
-## `script.js`
-```
+### File: script.js
+
+```javascript
 // Initialize AOS Animation
 AOS.init({
     duration: 800,
@@ -1298,8 +1771,9 @@ if (quoteForm) {
 // Dark Mode Toggle Functionality document.addEventListener('DOMContentLoaded', function() { const themeToggleBtn = document.getElementById('theme-toggle-btn'); const body = document.body; // Gracefully handle if the button isn't found on a page if (!themeToggleBtn) { // console.log("Theme toggle button not found on this page."); return; } const toggleTextEl = themeToggleBtn.querySelector('.toggle-text'); const toggleIconEl = themeToggleBtn.querySelector('i.fas'); if (!toggleTextEl || !toggleIconEl) { // console.error("Theme toggle button is missing internal text or icon elements."); return; } const applyTheme = (theme) => { if (theme === 'dark') { body.classList.add('dark-mode'); if (toggleIconEl) { toggleIconEl.classList.remove('fa-sun'); toggleIconEl.classList.add('fa-moon'); } if (toggleTextEl) toggleTextEl.textContent = 'Dark'; themeToggleBtn.setAttribute('aria-label', 'Switch to light mode'); } else { body.classList.remove('dark-mode'); if (toggleIconEl) { toggleIconEl.classList.remove('fa-moon'); toggleIconEl.classList.add('fa-sun'); } if (toggleTextEl) toggleTextEl.textContent = 'Light'; themeToggleBtn.setAttribute('aria-label', 'Switch to dark mode'); } }; themeToggleBtn.addEventListener('click', () => { const currentThemeIsDark = body.classList.contains('dark-mode'); const newTheme = currentThemeIsDark ? 'light' : 'dark'; localStorage.setItem('theme', newTheme); applyTheme(newTheme); }); // Load saved theme or detect system preference const savedTheme = localStorage.getItem('theme'); const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; if (savedTheme) { applyTheme(savedTheme); } else if (prefersDark) { applyTheme('dark'); } else { applyTheme('dark'); // Default to dark } // Optional: Listen for OS theme changes if no user override has been set if (window.matchMedia) { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => { if (!localStorage.getItem('theme')) { // Only if user hasn't manually set a preference applyTheme(e.matches ? 'dark' : 'light'); } }); } });
 ```
 
-## `services.html`
-```
+### File: services.html
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1351,11 +1825,11 @@ if (quoteForm) {
                         <li><a href="about.html" id="about-link">About</a></li>
                         <li><i class="fas fa-times close-menu" id="close-menu"></i></li>
                     </ul>
+                    <!-- Theme Toggle Button START --> <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme"> <i class="fas fa-sun"></i> <span class="toggle-text">Light</span> </button> <!-- Theme Toggle Button END -->
                     <div class="menu-toggle" id="menu-toggle">
                         <i class="fas fa-bars"></i>
                     </div>
                 </nav>
-                <!-- Theme Toggle Button START --> <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme"> <i class="fas fa-sun"></i> <span class="toggle-text">Light</span> </button> <!-- Theme Toggle Button END -->
                 <a href="tel:9374780689" class="phone-btn">
                     <i class="fas fa-phone-alt"></i>
                     <span>937-478-0689</span>
@@ -1741,8 +2215,9 @@ if (quoteForm) {
 </html>
 ```
 
-## `sitemap.xml`
-```
+### File: sitemap.xml
+
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.cleanflowohio.com/</loc><priority>1.0</priority></url>
@@ -1751,8 +2226,9 @@ if (quoteForm) {
 </urlset>
 ```
 
-## `style.css`
-```
+### File: style.css
+
+```css
 :root {
             --primary-dark: #1e3c72;
             --primary: #2c5aa0;
@@ -2059,6 +2535,13 @@ if (quoteForm) {
             margin-left: 5px;
         }
 
+        header nav { /* Target the nav element within the header */
+            display: flex;
+            align-items: center;
+            /* flex-grow: 1; /* Allow nav to take available space if needed */
+            /* justify-content: space-between; /* Adjust as needed */
+        }
+
         nav ul {
             display: flex;
             gap: 30px;
@@ -2191,7 +2674,7 @@ if (quoteForm) {
             }
         }
 
-/* Dark Mode Styles */ body.dark-mode { --primary-dark: #4A7BC8; --primary: #5887D1; --primary-light: #6B9EEA; --accent: #f39c12; /* Kept same for visibility, can be adjusted later */ --accent-dark: #e67e22; /* Kept same */ --light: #1E2125; /* Dark page background */ --dark: #F0F0F0; /* Light default text */ --gray: #A0A0A0; /* Lighter gray for dark mode */ /* Specific variables for dark mode elements */ --card-bg-dm: #2B2F33; --input-bg-dm: #33383D; --border-color-dm: #40454A; --header-bg-dm: rgba(27, 30, 33, 0.95); --footer-bg-dm: #111315; --topbar-bg-dm: #111315; --box-shadow-dm: 0 5px 15px rgba(255, 255, 255, 0.03); /* Softer, lighter shadow */ --box-shadow-stronger-dm: 0 8px 25px rgba(255, 255, 255, 0.05); background-color: var(--light); color: var(--dark); } body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 { color: var(--primary); /* Headers use the adjusted primary color */ } body.dark-mode a { /* General links */ color: var(--accent); } body.dark-mode a:hover { color: var(--primary-light); } /* Elements that had light backgrounds */ body.dark-mode .lead-form, body.dark-mode .service-card, body.dark-mode .calculator-card, body.dark-mode .sign-card, body.dark-mode .season-card, body.dark-mode .benefit-card, body.dark-mode .contact-info-card, body.dark-mode .accordion-header, body.dark-mode .badge-item, body.dark-mode .warning-box { /* Assuming warning box needs dark mode adjustment */ background-color: var(--card-bg-dm); box-shadow: var(--box-shadow-dm); color: var(--dark); /* Ensure text inside is light */ } body.dark-mode .accordion-content { /* Accordion content often has white background */ background-color: var(--card-bg-dm); color: var(--dark); } body.dark-mode .accordion-header.active { background-color: var(--primary); color: #FFFFFF; /* Ensure text is white on active primary bg */ } body.dark-mode .accordion-header.active h3, body.dark-mode .accordion-header.active i { color: #FFFFFF; } body.dark-mode .lead-form input, body.dark-mode .lead-form select, body.dark-mode .calculator-form input, body.dark-mode .calculator-form select { background-color: var(--input-bg-dm); color: var(--dark); border: 1px solid var(--border-color-dm); } body.dark-mode .lead-form input::placeholder, body.dark-mode .calculator-form input::placeholder { color: var(--gray); } body.dark-mode .form-group label { color: var(--dark); } body.dark-mode .result-box { background-color: var(--card-bg-dm); border: 1px solid var(--border-color-dm); } body.dark-mode .result-title { color: var(--primary); } body.dark-mode .topbar { background-color: var(--topbar-bg-dm); color: var(--gray); } body.dark-mode .topbar a { color: var(--accent); } body.dark-mode .topbar a:hover { color: #ffffff; } body.dark-mode header { background-color: var(--header-bg-dm); box-shadow: var(--box-shadow-stronger-dm); } body.dark-mode .logo { color: var(--primary); } body.dark-mode .logo span { color: var(--accent); } body.dark-mode nav ul li a { color: var(--gray); } body.dark-mode nav ul li a:hover, body.dark-mode nav ul li a.active { color: var(--accent); } body.dark-mode nav ul li a.active::after, body.dark-mode nav ul li a:hover::after { background: var(--accent); } body.dark-mode .menu-toggle i, body.dark-mode .close-menu i { /* Ensure mobile menu icons are visible */ color: var(--dark); } body.dark-mode .phone-btn { /* Main CTA phone button in header */ background-color: var(--accent); color: #1E2125; /* Dark text on bright accent */ } body.dark-mode .phone-btn:hover { background-color: var(--accent-dark); } body.dark-mode .phone-btn i { color: #1E2125; } /* Button styling for dark mode */ body.dark-mode .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: #1E2125; /* Dark text on bright accent */ } body.dark-mode .btn-primary:hover { background: linear-gradient(135deg, var(--accent-dark) 0%, #c56e1f 100%); transform: translateY(-3px); } body.dark-mode .btn-accent { background: var(--primary); color: var(--dark); /* Light text on primary */ } body.dark-mode .btn-accent:hover { background: var(--primary-dark); transform: translateY(-3px); } body.dark-mode footer { background: var(--footer-bg-dm); border-top: 1px solid var(--border-color-dm); } body.dark-mode .footer-about p, body.dark-mode .footer-contact-item p, body.dark-mode .footer-links ul li a, body.dark-mode .footer-bottom p { color: var(--gray); } body.dark-mode .footer-logo { color: var(--primary); } body.dark-mode .footer-logo span { color: var(--accent); } body.dark-mode .footer-links h4 { color: var(--dark); } body.dark-mode .footer-links ul li a:hover { color: var(--accent); } body.dark-mode .footer-contact-item i { color: var(--primary); } body.dark-mode .footer-contact-item a { color: var(--accent); } body.dark-mode .back-to-top { background: var(--accent); color: #1E2125; /* Dark text on accent */ } body.dark-mode .back-to-top:hover { background: var(--accent-dark); } /* Theme Toggle Button Styles */ .theme-toggle-btn { background-color: transparent; border: 1px solid var(--gray); /* Default light mode border */ color: var(--dark); /* Default light mode text */ padding: 6px 10px; border-radius: 20px; cursor: pointer; font-size: 13px; display: inline-flex; /* Changed to inline-flex */ align-items: center; gap: 6px; transition: all 0.3s ease; /* margin-left: 15px; /* Remove specific margin, will be placed in HTML structure */ } .theme-toggle-btn:hover { border-color: var(--primary); background-color: var(--primary-light); color: white; } .theme-toggle-btn .fas { /* Target Font Awesome icons specifically */ font-size: 14px; line-height: 1; /* Ensure icon aligns well with text */ } /* Dark mode specific toggle button styles */ body.dark-mode .theme-toggle-btn { border-color: var(--gray); color: var(--dark); } body.dark-mode .theme-toggle-btn:hover { border-color: var(--accent); background-color: var(--accent); color: #1E2125; /* Dark text on accent button */ }
+/* Dark Mode Styles */ body.dark-mode { --primary-dark: #4A7BC8; --primary: #5887D1; --primary-light: #6B9EEA; --accent: #f39c12; /* Kept same for visibility, can be adjusted later */ --accent-dark: #e67e22; /* Kept same */ --light: #121212; /* Dark page background */ --dark: #F0F0F0; /* Light default text */ --gray: #A0A0A0; /* Lighter gray for dark mode */ /* Specific variables for dark mode elements */ --card-bg-dm: #2B2F33; --input-bg-dm: #33383D; --border-color-dm: #40454A; --header-bg-dm: var(--light); --footer-bg-dm: var(--light); --topbar-bg-dm: var(--light); --box-shadow-dm: 0 5px 15px rgba(255, 255, 255, 0.03); /* Softer, lighter shadow */ --box-shadow-stronger-dm: 0 8px 25px rgba(255, 255, 255, 0.05); background-color: var(--light); color: var(--dark); } body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 { color: var(--primary); /* Headers use the adjusted primary color */ } body.dark-mode a { /* General links */ color: var(--accent); } body.dark-mode a:hover { color: var(--primary-light); } /* Elements that had light backgrounds */ body.dark-mode .lead-form, body.dark-mode .service-card, body.dark-mode .calculator-card, body.dark-mode .sign-card, body.dark-mode .season-card, body.dark-mode .benefit-card, body.dark-mode .contact-info-card, body.dark-mode .accordion-header, body.dark-mode .badge-item, body.dark-mode .warning-box { /* Assuming warning box needs dark mode adjustment */ background-color: var(--card-bg-dm); box-shadow: var(--box-shadow-dm); color: var(--dark); /* Ensure text inside is light */ } body.dark-mode .accordion-content { /* Accordion content often has white background */ background-color: var(--card-bg-dm); color: var(--dark); } body.dark-mode .accordion-header.active { background-color: var(--primary); color: #FFFFFF; /* Ensure text is white on active primary bg */ } body.dark-mode .accordion-header.active h3, body.dark-mode .accordion-header.active i { color: #FFFFFF; } body.dark-mode .lead-form input, body.dark-mode .lead-form select, body.dark-mode .calculator-form input, body.dark-mode .calculator-form select { background-color: var(--input-bg-dm); color: var(--dark); border: 1px solid var(--border-color-dm); } body.dark-mode .lead-form input::placeholder, body.dark-mode .calculator-form input::placeholder { color: var(--gray); } body.dark-mode .form-group label { color: var(--dark); } body.dark-mode .result-box { background-color: var(--card-bg-dm); border: 1px solid var(--border-color-dm); } body.dark-mode .result-title { color: var(--primary); } body.dark-mode .topbar { background-color: var(--topbar-bg-dm); color: var(--gray); } body.dark-mode .topbar a { color: var(--accent); } body.dark-mode .topbar a:hover { color: #ffffff; } body.dark-mode header { background-color: var(--header-bg-dm); box-shadow: var(--box-shadow-stronger-dm); } body.dark-mode .logo { color: var(--primary); } body.dark-mode .logo span { color: var(--accent); } body.dark-mode nav ul li a { color: var(--gray); } body.dark-mode nav ul li a:hover, body.dark-mode nav ul li a.active { color: var(--accent); } body.dark-mode nav ul li a.active::after, body.dark-mode nav ul li a:hover::after { background: var(--accent); } body.dark-mode .menu-toggle i, body.dark-mode .close-menu i { /* Ensure mobile menu icons are visible */ color: var(--dark); } body.dark-mode .phone-btn { /* Main CTA phone button in header */ background-color: var(--accent); color: #1E2125; /* Dark text on bright accent */ } body.dark-mode .phone-btn:hover { background-color: var(--accent-dark); } body.dark-mode .phone-btn i { color: #1E2125; } /* Button styling for dark mode */ body.dark-mode .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: #1E2125; /* Dark text on bright accent */ } body.dark-mode .btn-primary:hover { background: linear-gradient(135deg, var(--accent-dark) 0%, #c56e1f 100%); transform: translateY(-3px); } body.dark-mode .btn-accent { background: var(--primary); color: var(--dark); /* Light text on primary */ } body.dark-mode .btn-accent:hover { background: var(--primary-dark); transform: translateY(-3px); } body.dark-mode footer { background: var(--footer-bg-dm); border-top: 1px solid var(--border-color-dm); } body.dark-mode .footer-about p, body.dark-mode .footer-contact-item p, body.dark-mode .footer-links ul li a, body.dark-mode .footer-bottom p { color: var(--gray); } body.dark-mode .footer-logo { color: var(--primary); } body.dark-mode .footer-logo span { color: var(--accent); } body.dark-mode .footer-links h4 { color: var(--dark); } body.dark-mode .footer-links ul li a:hover { color: var(--accent); } body.dark-mode .footer-contact-item i { color: var(--primary); } body.dark-mode .footer-contact-item a { color: var(--accent); } body.dark-mode .back-to-top { background: var(--accent); color: #1E2125; /* Dark text on accent */ } body.dark-mode .back-to-top:hover { background: var(--accent-dark); } /* Theme Toggle Button Styles */ .theme-toggle-btn { background-color: transparent; border: 1px solid var(--gray); /* Default light mode border */ color: var(--dark); /* Default light mode text */ padding: 6px 10px; border-radius: 20px; cursor: pointer; font-size: 13px; display: inline-flex; /* Changed to inline-flex */ align-items: center; gap: 6px; transition: all 0.3s ease; align-self: center; margin-left: 20px; margin-right: 15px; } .theme-toggle-btn:hover { border-color: var(--primary); background-color: var(--primary-light); color: white; } .theme-toggle-btn .fas { /* Target Font Awesome icons specifically */ font-size: 14px; line-height: 1; /* Ensure icon aligns well with text */ } /* Dark mode specific toggle button styles */ body.dark-mode .theme-toggle-btn { border-color: var(--gray); color: var(--dark); } body.dark-mode .theme-toggle-btn:hover { border-color: var(--accent); background-color: var(--accent); color: #1E2125; /* Dark text on accent button */ }
 
         /* Lead Form */
         .lead-form-section {
@@ -3317,6 +3800,11 @@ if (quoteForm) {
                 transition: all 0.5s ease;
                 z-index: 1001;
                 box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+            }
+
+            body.dark-mode nav ul { /* Mobile menu background in dark mode */
+                background-color: var(--light);
+                box-shadow: -5px 0 20px rgba(255, 255, 255, 0.05);
             }
 
             nav ul.active {
