@@ -1,4 +1,4 @@
-### File: LICENSE
+## `LICENSE`
 ```
 MIT License
 
@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-### File: README.md
+## `README.md`
 ```
 # CleanFlow Ohio Static Marketing Website
 
@@ -105,8 +105,8 @@ Feel free to fork and modify for your own business! Contributions are welcome. J
 Distributed under the MIT License. See LICENSE for details.
 ```
 
-### File: about.html
-```html
+## `about.html`
+```
 <!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -158,6 +158,7 @@ Distributed under the MIT License. See LICENSE for details.
                     <i class="fas fa-bars"></i>
                 </div>
             </nav>
+            <!-- Theme Toggle Button START --> <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme"> <i class="fas fa-sun"></i> <span class="toggle-text">Light</span> </button> <!-- Theme Toggle Button END -->
             <a href="tel:9374780689" class="phone-btn">
                 <i class="fas fa-phone-alt"></i>
                 <span>937-478-0689</span>
@@ -458,10 +459,12 @@ Distributed under the MIT License. See LICENSE for details.
 <!-- AOS Animation Library -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="script.js"></script>
+
+
 ```
 
-### File: index.html
-```html
+## `index.html`
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -516,6 +519,7 @@ Distributed under the MIT License. See LICENSE for details.
                         <i class="fas fa-bars"></i>
                     </div>
                 </nav>
+                <!-- Theme Toggle Button START --> <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme"> <i class="fas fa-sun"></i> <span class="toggle-text">Light</span> </button> <!-- Theme Toggle Button END -->
                 <a href="tel:9374780689" class="phone-btn">
                     <i class="fas fa-phone-alt"></i>
                     <span>937-478-0689</span>
@@ -1054,10 +1058,11 @@ Distributed under the MIT License. See LICENSE for details.
 </script>
 </body>
 </html>
+
 ```
 
-### File: script.js
-```javascript
+## `script.js`
+```
 // Initialize AOS Animation
 AOS.init({
     duration: 800,
@@ -1289,10 +1294,12 @@ if (quoteForm) {
         }, 5000);
     });
 }
+
+// Dark Mode Toggle Functionality document.addEventListener('DOMContentLoaded', function() { const themeToggleBtn = document.getElementById('theme-toggle-btn'); const body = document.body; // Gracefully handle if the button isn't found on a page if (!themeToggleBtn) { // console.log("Theme toggle button not found on this page."); return; } const toggleTextEl = themeToggleBtn.querySelector('.toggle-text'); const toggleIconEl = themeToggleBtn.querySelector('i.fas'); if (!toggleTextEl || !toggleIconEl) { // console.error("Theme toggle button is missing internal text or icon elements."); return; } const applyTheme = (theme) => { if (theme === 'dark') { body.classList.add('dark-mode'); if (toggleIconEl) { toggleIconEl.classList.remove('fa-sun'); toggleIconEl.classList.add('fa-moon'); } if (toggleTextEl) toggleTextEl.textContent = 'Dark'; themeToggleBtn.setAttribute('aria-label', 'Switch to light mode'); } else { body.classList.remove('dark-mode'); if (toggleIconEl) { toggleIconEl.classList.remove('fa-moon'); toggleIconEl.classList.add('fa-sun'); } if (toggleTextEl) toggleTextEl.textContent = 'Light'; themeToggleBtn.setAttribute('aria-label', 'Switch to dark mode'); } }; themeToggleBtn.addEventListener('click', () => { const currentThemeIsDark = body.classList.contains('dark-mode'); const newTheme = currentThemeIsDark ? 'light' : 'dark'; localStorage.setItem('theme', newTheme); applyTheme(newTheme); }); // Load saved theme or detect system preference const savedTheme = localStorage.getItem('theme'); const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; if (savedTheme) { applyTheme(savedTheme); } else if (prefersDark) { applyTheme('dark'); } else { applyTheme('dark'); // Default to dark } // Optional: Listen for OS theme changes if no user override has been set if (window.matchMedia) { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => { if (!localStorage.getItem('theme')) { // Only if user hasn't manually set a preference applyTheme(e.matches ? 'dark' : 'light'); } }); } });
 ```
 
-### File: services.html
-```html
+## `services.html`
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1348,6 +1355,7 @@ if (quoteForm) {
                         <i class="fas fa-bars"></i>
                     </div>
                 </nav>
+                <!-- Theme Toggle Button START --> <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme"> <i class="fas fa-sun"></i> <span class="toggle-text">Light</span> </button> <!-- Theme Toggle Button END -->
                 <a href="tel:9374780689" class="phone-btn">
                     <i class="fas fa-phone-alt"></i>
                     <span>937-478-0689</span>
@@ -1733,8 +1741,8 @@ if (quoteForm) {
 </html>
 ```
 
-### File: sitemap.xml
-```xml
+## `sitemap.xml`
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.cleanflowohio.com/</loc><priority>1.0</priority></url>
@@ -1743,8 +1751,8 @@ if (quoteForm) {
 </urlset>
 ```
 
-### File: style.css
-```css
+## `style.css`
+```
 :root {
             --primary-dark: #1e3c72;
             --primary: #2c5aa0;
@@ -2182,6 +2190,8 @@ if (quoteForm) {
                 transform: translateY(-10px);
             }
         }
+
+/* Dark Mode Styles */ body.dark-mode { --primary-dark: #4A7BC8; --primary: #5887D1; --primary-light: #6B9EEA; --accent: #f39c12; /* Kept same for visibility, can be adjusted later */ --accent-dark: #e67e22; /* Kept same */ --light: #1E2125; /* Dark page background */ --dark: #F0F0F0; /* Light default text */ --gray: #A0A0A0; /* Lighter gray for dark mode */ /* Specific variables for dark mode elements */ --card-bg-dm: #2B2F33; --input-bg-dm: #33383D; --border-color-dm: #40454A; --header-bg-dm: rgba(27, 30, 33, 0.95); --footer-bg-dm: #111315; --topbar-bg-dm: #111315; --box-shadow-dm: 0 5px 15px rgba(255, 255, 255, 0.03); /* Softer, lighter shadow */ --box-shadow-stronger-dm: 0 8px 25px rgba(255, 255, 255, 0.05); background-color: var(--light); color: var(--dark); } body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 { color: var(--primary); /* Headers use the adjusted primary color */ } body.dark-mode a { /* General links */ color: var(--accent); } body.dark-mode a:hover { color: var(--primary-light); } /* Elements that had light backgrounds */ body.dark-mode .lead-form, body.dark-mode .service-card, body.dark-mode .calculator-card, body.dark-mode .sign-card, body.dark-mode .season-card, body.dark-mode .benefit-card, body.dark-mode .contact-info-card, body.dark-mode .accordion-header, body.dark-mode .badge-item, body.dark-mode .warning-box { /* Assuming warning box needs dark mode adjustment */ background-color: var(--card-bg-dm); box-shadow: var(--box-shadow-dm); color: var(--dark); /* Ensure text inside is light */ } body.dark-mode .accordion-content { /* Accordion content often has white background */ background-color: var(--card-bg-dm); color: var(--dark); } body.dark-mode .accordion-header.active { background-color: var(--primary); color: #FFFFFF; /* Ensure text is white on active primary bg */ } body.dark-mode .accordion-header.active h3, body.dark-mode .accordion-header.active i { color: #FFFFFF; } body.dark-mode .lead-form input, body.dark-mode .lead-form select, body.dark-mode .calculator-form input, body.dark-mode .calculator-form select { background-color: var(--input-bg-dm); color: var(--dark); border: 1px solid var(--border-color-dm); } body.dark-mode .lead-form input::placeholder, body.dark-mode .calculator-form input::placeholder { color: var(--gray); } body.dark-mode .form-group label { color: var(--dark); } body.dark-mode .result-box { background-color: var(--card-bg-dm); border: 1px solid var(--border-color-dm); } body.dark-mode .result-title { color: var(--primary); } body.dark-mode .topbar { background-color: var(--topbar-bg-dm); color: var(--gray); } body.dark-mode .topbar a { color: var(--accent); } body.dark-mode .topbar a:hover { color: #ffffff; } body.dark-mode header { background-color: var(--header-bg-dm); box-shadow: var(--box-shadow-stronger-dm); } body.dark-mode .logo { color: var(--primary); } body.dark-mode .logo span { color: var(--accent); } body.dark-mode nav ul li a { color: var(--gray); } body.dark-mode nav ul li a:hover, body.dark-mode nav ul li a.active { color: var(--accent); } body.dark-mode nav ul li a.active::after, body.dark-mode nav ul li a:hover::after { background: var(--accent); } body.dark-mode .menu-toggle i, body.dark-mode .close-menu i { /* Ensure mobile menu icons are visible */ color: var(--dark); } body.dark-mode .phone-btn { /* Main CTA phone button in header */ background-color: var(--accent); color: #1E2125; /* Dark text on bright accent */ } body.dark-mode .phone-btn:hover { background-color: var(--accent-dark); } body.dark-mode .phone-btn i { color: #1E2125; } /* Button styling for dark mode */ body.dark-mode .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: #1E2125; /* Dark text on bright accent */ } body.dark-mode .btn-primary:hover { background: linear-gradient(135deg, var(--accent-dark) 0%, #c56e1f 100%); transform: translateY(-3px); } body.dark-mode .btn-accent { background: var(--primary); color: var(--dark); /* Light text on primary */ } body.dark-mode .btn-accent:hover { background: var(--primary-dark); transform: translateY(-3px); } body.dark-mode footer { background: var(--footer-bg-dm); border-top: 1px solid var(--border-color-dm); } body.dark-mode .footer-about p, body.dark-mode .footer-contact-item p, body.dark-mode .footer-links ul li a, body.dark-mode .footer-bottom p { color: var(--gray); } body.dark-mode .footer-logo { color: var(--primary); } body.dark-mode .footer-logo span { color: var(--accent); } body.dark-mode .footer-links h4 { color: var(--dark); } body.dark-mode .footer-links ul li a:hover { color: var(--accent); } body.dark-mode .footer-contact-item i { color: var(--primary); } body.dark-mode .footer-contact-item a { color: var(--accent); } body.dark-mode .back-to-top { background: var(--accent); color: #1E2125; /* Dark text on accent */ } body.dark-mode .back-to-top:hover { background: var(--accent-dark); } /* Theme Toggle Button Styles */ .theme-toggle-btn { background-color: transparent; border: 1px solid var(--gray); /* Default light mode border */ color: var(--dark); /* Default light mode text */ padding: 6px 10px; border-radius: 20px; cursor: pointer; font-size: 13px; display: inline-flex; /* Changed to inline-flex */ align-items: center; gap: 6px; transition: all 0.3s ease; /* margin-left: 15px; /* Remove specific margin, will be placed in HTML structure */ } .theme-toggle-btn:hover { border-color: var(--primary); background-color: var(--primary-light); color: white; } .theme-toggle-btn .fas { /* Target Font Awesome icons specifically */ font-size: 14px; line-height: 1; /* Ensure icon aligns well with text */ } /* Dark mode specific toggle button styles */ body.dark-mode .theme-toggle-btn { border-color: var(--gray); color: var(--dark); } body.dark-mode .theme-toggle-btn:hover { border-color: var(--accent); background-color: var(--accent); color: #1E2125; /* Dark text on accent button */ }
 
         /* Lead Form */
         .lead-form-section {
