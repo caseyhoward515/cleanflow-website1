@@ -1,942 +1,4 @@
-### File: LICENSE
-
-```text
-MIT License
-
-Copyright (c) 2024 The CleanFlow Ohio Project Contributors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
-### File: README.md
-
-```markdown
-# CleanFlow Ohio Static Marketing Website
-
-A mobile-first, responsive HTML/CSS/JS marketing site designed for gutter cleaning services. Simple, modern, SEO-friendly, and easy to customize. Currently deployed on [Vercel](https://vercel.com/).
-
-## 📦 Features
-
-- **Fully Responsive:** Optimized for mobile, tablet, and desktop.
-- **SEO-Ready:** Includes sitemap (`sitemap.xml`) and clean, semantic HTML structure.
-- **Pages Included:**
-  - Home (`index.html`)
-  - Services (`services.html`)
-  - About (`about.html`)
-- **Easy to Customize:** Simple file structure, clear CSS classes, minimal JavaScript.
-- **Quick Deployment:** Seamless deployment via [Vercel](https://vercel.com/).
-
-## 🚀 Quick Start
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/cleanflow-ohio.git
-   cd cleanflow-ohio
-
-2. Modify content
-
-Edit HTML files in the root directory to customize page content.
-
-Adjust CSS in the style.css file.
-
-Update images/assets in the assets/ directory.
-
-
-
-3. Deploy to Vercel (Recommended)
-
-Create a free account at Vercel.
-
-Connect your GitHub repository.
-
-Follow the guided setup, leaving default settings as-is.
-
-Your website will automatically deploy when you push changes to GitHub.
-
-
-
-
-🗂 Repository Structure
-
-cleanflow-ohio/
-├── script.js              # Main JavaScript file
-├── style.css              # Main CSS file
-├── index.html             # Homepage
-├── services.html          # Services description page
-├── about.html             # Company/about page
-└── sitemap.xml            # SEO sitemap
-
-🛠 Technologies Used
-
-HTML5 & CSS3: Semantic structure and responsive styling.
-
-Vanilla JavaScript: Simple interactions, no heavy libraries.
-
-Vercel: Easy and fast hosting and deployment.
-
-
-🔐 Security
-
-No backend or sensitive server-side code included. Completely static frontend.
-
-Hosted via Vercel’s secure infrastructure.
-
-
-📌 Contributing
-
-Feel free to fork and modify for your own business! Contributions are welcome. Just submit a pull request.
-
-📄 License
-
-Distributed under the MIT License. See LICENSE for details.
-```
-
-### File: about.html
-
-```html
-<!DOCTYPE html><html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About CleanFlow of Ohio | Dayton Gutter Experts</title>
-    <meta name="description" content="Learn about CleanFlow of Ohio, your trusted, owner-operated gutter cleaning and maintenance specialist with over 20 years of experience in Dayton and surrounding areas.">
-    <meta name="keywords" content="about us, gutter company Dayton, experienced gutter cleaner, local gutter service, CleanFlow of Ohio story">
-    <link rel="canonical" href="https://www.cleanflowohio.com/about" /><!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-
-<!-- AOS Animation Library -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
-</head>
-<body>
-    <!-- Top Contact Bar -->
-    <div class="topbar">
-        <div class="container">
-            <div class="topbar-container">
-                <div class="topbar-item">
-                    <i class="fas fa-phone-alt"></i> Call or Text: <a href="tel:9374780689">937-478-0689</a>
-                </div>
-                <div class="topbar-item">
-                    <i class="fas fa-envelope"></i> Email: <a href="mailto:cleanflowofohio@gmail.com">cleanflowofohio@gmail.com</a>
-                </div>
-            </div>
-        </div>
-    </div><!-- Header -->
-<header id="header">
-    <div class="container">
-        <div class="header-container">
-            <div class="logo" onclick="location.href='index.html'">
-                CleanFlow<span>of Ohio</span>
-            </div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="index.html" id="home-link">Home</a></li>
-                    <li><a href="services.html" id="services-link">Services</a></li>
-                    <li><a href="about.html" id="about-link" class="active">About</a></li>
-                    <li><i class="fas fa-times close-menu" id="close-menu"></i></li>
-                </ul>
-                <!-- Theme Toggle Button START --> <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme"> <i class="fas fa-sun"></i> <span class="toggle-text">Light</span> </button> <!-- Theme Toggle Button END -->
-                <div class="menu-toggle" id="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-            <a href="tel:9374780689" class="phone-btn">
-                <i class="fas fa-phone-alt"></i>
-                <span>937-478-0689</span>
-            </a>
-        </div>
-    </div>
-</header>
-
-<!-- About Page Content -->
-<div id="about-page-content" class="page-content"> <!-- Changed ID to avoid conflict if script.js uses it -->
-    <section id="about-hero">
-        <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <h1>About CleanFlow of Ohio</h1>
-                <p>Your trusted premium gutter maintenance, cleaning, and protection experts serving Dayton and surrounding communities.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about-story">
-        <div class="container">
-            <div class="about-content" data-aos="fade-up">
-                <div class="about-text">
-
-  <h2>Our Story</h2>
-  <p>At CleanFlow of Ohio, we provide premium gutter maintenance, cleaning, and protection services throughout Montgomery County and the surrounding area. From routine cleanouts and screen installation to alignment checks, sealing, and full system upkeep, we handle every job with precision and pride.</p>  <p>I’ve been in this industry for over 20 years. CleanFlow is the result of experience, high standards, and a deep commitment to doing the job right. My crew and I are professionals. No temps. Just skilled people I trust to show up early, work clean, and treat every home with respect.</p>  <p>What sets us apart isn’t just the work. It’s how we show up. I genuinely enjoy helping people. Always have. There’s something satisfying about showing up, solving a messy problem, and hearing, “Wow, that was smooth.” That kind of reaction is what keeps us going.</p>  <p>We offer a premium service because that’s what I expect at my own home. I believe in quality over quantity. Details matter. Communication matters. And trust? That’s everything.</p>  <p>Supporting CleanFlow means working with a local business that takes pride in every job, large or small. No corporate scripts. No cut corners. Just real pros who care about doing things right and leaving you with one less thing to worry about.</p>
-</div><div class="about-image">
-                    <img src="https://nedstevens.com/wp-content/uploads/2020/12/gutter-cleaning-hero-new.jpg" alt="CleanFlow of Ohio - Professional Gutter Service">
-                    <div class="experience-badge">
-                        <span>20+</span>
-                        <span>Years</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="why-choose" class="bg-light">
-        <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <h2 style="margin-left:auto;margin-right:auto;">Why Choose CleanFlow of Ohio</h2>
-                <p>I'm committed to providing the highest quality gutter services in the Dayton area.</p>
-            </div>
-
-            <div class="grid grid-3 mt-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-card">
-                    <div class="service-content text-center">
-                        <i class="fas fa-medal" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h3>Quality Workmanship</h3>
-                        <p>Every job is completed to the highest standards with attention to detail and thorough inspection to ensure proper water flow.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-content text-center">
-                        <i class="fas fa-dollar-sign" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h3>Fair & Competitive Pricing</h3>
-                        <p>I provide honest, upfront pricing with no hidden fees or surprise charges. You'll always know the cost before work begins.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-content text-center">
-                        <i class="fas fa-bolt" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h3>Fast Service</h3>
-                        <p>I respect your time and work efficiently, often providing same-day service when you need it most.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-content text-center">
-                        <i class="fas fa-check-double" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h3>Satisfaction Guaranteed</h3>
-                        <p>I stand behind my work with a satisfaction guarantee. If you're not happy with the service, I'll make it right.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-content text-center">
-                        <i class="fas fa-handshake" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h3>Honest & Reliable</h3>
-                        <p>I provide straightforward advice and never recommend services you don't need. Your trust is my top priority.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-content text-center">
-                        <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h3>Locally Owned & Operated</h3>
-                        <p>As a local business, I take pride in serving our community with integrity and building lasting relationships.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certification Section -->
-    <section class="badge-section">
-        <div class="container">
-            <div class="text-center" data-aos="fade-up">
-                <h2 style="margin-left:auto;margin-right:auto;">Our Credentials</h2>
-                <p>Trusted expertise you can count on</p>
-            </div>
-
-            <div class="badges" data-aos="fade-up">
-                <div class="badge-item">
-                    <i class="fas fa-award badge-icon"></i>
-                    <div class="badge-title">20+ Years Experience</div>
-                </div>
-
-                <div class="badge-item">
-                    <i class="fas fa-user-check badge-icon"></i>
-                    <div class="badge-title">Fully Insured</div>
-                </div>
-
-                <div class="badge-item">
-                    <i class="fas fa-thumbs-up badge-icon"></i>
-                    <div class="badge-title">Satisfaction Guaranteed</div>
-                </div>
-
-                <div class="badge-item">
-                    <i class="fas fa-tools badge-icon"></i>
-                    <div class="badge-title">Professional Equipment</div>
-                </div>
-
-                <div class="badge-item">
-                    <i class="fas fa-house-user badge-icon"></i>
-                    <div class="badge-title">Locally Owned & Operated</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="service-area">
-        <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <h2 style="margin-left:auto;margin-right:auto;">Our Service Area</h2>
-                <p>CleanFlow of Ohio proudly serves homes throughout Dayton and surrounding communities.</p>
-            </div>
-
-            <div class="grid grid-2 gap-2 mt-4" data-aos="fade-up" data-aos-delay="100">
-                <div>
-                    <h3>Montgomery County</h3>
-                    <ul class="checkmark-list">
-                        <li>Dayton</li>
-                        <li>Oakwood</li>
-                        <li>Kettering</li>
-                        <li>Centerville</li>
-                        <li>Miamisburg</li>
-                        <li>West Carrollton</li>
-                        <li>Moraine</li>
-                        <li>Huber Heights</li>
-                        <li>Vandalia</li>
-                        <li>Englewood</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3>Greene County</h3>
-                    <ul class="checkmark-list">
-                        <li>Beavercreek</li>
-                        <li>Bellbrook</li>
-                        <li>Fairborn</li>
-                        <li>Xenia</li>
-                        <li>Yellow Springs</li>
-                        <li>Cedarville</li>
-                        <li>Jamestown</li>
-                    </ul>
-                    <p class="mt-4">Don't see your location? Give me a call to check if I service your area!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact-info" class="bg-light">
-        <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <h2 style="margin-left:auto;margin-right:auto;">Contact Information</h2>
-                <p>Reach out to me for all your gutter cleaning and maintenance needs.</p>
-            </div>
-
-            <div class="grid grid-3 mt-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="contact-info-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <h3>Phone</h3>
-                    <a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a>
-                    <p>Call or text for a free estimate</p>
-                </div>
-
-                <div class="contact-info-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Business Hours</h3>
-                    <p>Monday - Friday: 8am - 6pm</p>
-                    <p>Saturday: 8am - 3pm</p>
-                    <p>Sunday: Closed</p>
-                </div>
-
-                <div class="contact-info-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h3>Service Area</h3>
-                    <p>Serving Dayton and surrounding areas</p>
-                    <p>Montgomery & Greene Counties</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content" data-aos="fade-up">
-                <h2>Ready to Experience the CleanFlow Difference?</h2>
-                <p>Contact me today to schedule your professional gutter service with Dayton's most trusted gutter specialist.</p>
-                <a href="tel:9374780689" class="phone-number">
-                    <i class="fas fa-phone-alt"></i> 937-478-0689
-                </a>
-                <div class="text-option">Text me a photo of your gutters for a quick estimate – I respond within hours!</div>
-            </div>
-        </div>
-    </section>
-</div>
-
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="footer-top">
-            <div class="footer-about">
-                <a href="index.html" class="footer-logo">
-                    CleanFlow<span>of Ohio</span>
-                </a>
-                <p>Professional gutter cleaning and protection services in Dayton and surrounding areas. With over 20 years of experience, I provide quality workmanship and exceptional customer service.</p>
-                <div class="footer-contact">
-                    <div class="footer-contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <p><a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a></p>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <p><a href="mailto:cleanflowofohio@gmail.com">cleanflowofohio@gmail.com</a></p>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-globe"></i>
-                        <p><a href="http://bit.ly/CleanFlowOhio" target="_blank">bit.ly/CleanFlowOhio</a></p>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-clock"></i>
-                        <p>Monday - Friday: 8am - 6pm<br>Saturday: 8am - 3pm<br>Sunday: Closed</p>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Serving Dayton and surrounding areas<br>Montgomery & Greene Counties</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="index.html#calculator">Cost Estimator</a></li>
-                    <li><a href="index.html#signs">Signs You Need Service</a></li>
-                    <li><a href="index.html#calendar">Maintenance Guide</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-links">
-                <h4>Our Services</h4>
-                <ul>
-                    <li><a href="services.html#gutter-cleaning-service">Gutter Cleaning</a></li>
-                    <li><a href="services.html#gutter-repairs-service">Gutter Repairs</a></li>
-                    <li><a href="services.html#gutter-protection-service">Gutter Guards</a></li>
-                    <li><a href="services.html#service-faq">Maintenance FAQs</a></li>
-                    <li><a href="about.html#service-area">Service Areas</a></li>
-                    <li><a href="tel:9374780689">Get a Quote</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2024 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving Montgomery & Greene Counties since 2003</p>
-        </div>
-    </div>
-</footer>
-
-<!-- Back to Top -->
-<div class="back-to-top" id="back-to-top">
-    <i class="fas fa-arrow-up"></i>
-</div>
-
-<!-- AOS Animation Library -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="script.js"></script>
-
-
-</html>
-```
-
-### File: codebase.md
-
-```markdown
-## `LICENSE`
-```
-MIT License
-
-Copyright (c) 2024 The CleanFlow Ohio Project Contributors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
-## `README.md`
-```
-# CleanFlow Ohio Static Marketing Website
-
-A mobile-first, responsive HTML/CSS/JS marketing site designed for gutter cleaning services. Simple, modern, SEO-friendly, and easy to customize. Currently deployed on [Vercel](https://vercel.com/).
-
-## 📦 Features
-
-- **Fully Responsive:** Optimized for mobile, tablet, and desktop.
-- **SEO-Ready:** Includes sitemap (`sitemap.xml`) and clean, semantic HTML structure.
-- **Pages Included:**
-  - Home (`index.html`)
-  - Services (`services.html`)
-  - About (`about.html`)
-- **Easy to Customize:** Simple file structure, clear CSS classes, minimal JavaScript.
-- **Quick Deployment:** Seamless deployment via [Vercel](https://vercel.com/).
-
-## 🚀 Quick Start
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/cleanflow-ohio.git
-   cd cleanflow-ohio
-
-2. Modify content
-
-Edit HTML files in the root directory to customize page content.
-
-Adjust CSS in the style.css file.
-
-Update images/assets in the assets/ directory.
-
-
-
-3. Deploy to Vercel (Recommended)
-
-Create a free account at Vercel.
-
-Connect your GitHub repository.
-
-Follow the guided setup, leaving default settings as-is.
-
-Your website will automatically deploy when you push changes to GitHub.
-
-
-
-
-🗂 Repository Structure
-
-cleanflow-ohio/
-├── script.js              # Main JavaScript file
-├── style.css              # Main CSS file
-├── index.html             # Homepage
-├── services.html          # Services description page
-├── about.html             # Company/about page
-└── sitemap.xml            # SEO sitemap
-
-🛠 Technologies Used
-
-HTML5 & CSS3: Semantic structure and responsive styling.
-
-Vanilla JavaScript: Simple interactions, no heavy libraries.
-
-Vercel: Easy and fast hosting and deployment.
-
-
-🔐 Security
-
-No backend or sensitive server-side code included. Completely static frontend.
-
-Hosted via Vercel’s secure infrastructure.
-
-
-📌 Contributing
-
-Feel free to fork and modify for your own business! Contributions are welcome. Just submit a pull request.
-
-📄 License
-
-Distributed under the MIT License. See LICENSE for details.
-```
-
-## `about.html`
-```
-<!DOCTYPE html><html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About CleanFlow of Ohio | Dayton Gutter Experts</title>
-    <meta name="description" content="Learn about CleanFlow of Ohio, your trusted, owner-operated gutter cleaning and maintenance specialist with over 20 years of experience in Dayton and surrounding areas.">
-    <meta name="keywords" content="about us, gutter company Dayton, experienced gutter cleaner, local gutter service, CleanFlow of Ohio story">
-    <link rel="canonical" href="https://www.cleanflowohio.com/about" /><!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-
-<!-- AOS Animation Library -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
-</head>
-<body>
-    <!-- Top Contact Bar -->
-    <div class="topbar">
-        <div class="container">
-            <div class="topbar-container">
-                <div class="topbar-item">
-                    <i class="fas fa-phone-alt"></i> Call or Text: <a href="tel:9374780689">937-478-0689</a>
-                </div>
-                <div class="topbar-item">
-                    <i class="fas fa-envelope"></i> Email: <a href="mailto:cleanflowofohio@gmail.com">cleanflowofohio@gmail.com</a>
-                </div>
-            </div>
-        </div>
-    </div><!-- Header -->
-<header id="header">
-    <div class="container">
-        <div class="header-container">
-            <div class="logo" onclick="location.href='index.html'">
-                CleanFlow<span>of Ohio</span>
-            </div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="index.html" id="home-link">Home</a></li>
-                    <li><a href="services.html" id="services-link">Services</a></li>
-                    <li><a href="about.html" id="about-link" class="active">About</a></li>
-                    <li><i class="fas fa-times close-menu" id="close-menu"></i></li>
-                </ul>
-                <div class="menu-toggle" id="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-            <!-- Theme Toggle Button START --> <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme"> <i class="fas fa-sun"></i> <span class="toggle-text">Light</span> </button> <!-- Theme Toggle Button END -->
-            <a href="tel:9374780689" class="phone-btn">
-                <i class="fas fa-phone-alt"></i>
-                <span>937-478-0689</span>
-            </a>
-        </div>
-    </div>
-</header>
-
-<!-- About Page Content -->
-<div id="about-page-content" class="page-content"> <!-- Changed ID to avoid conflict if script.js uses it -->
-    <section id="about-hero">
-        <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <h1>About CleanFlow of Ohio</h1>
-                <p>Your trusted premium gutter maintenance, cleaning, and protection experts serving Dayton and surrounding communities.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about-story">
-        <div class="container">
-            <div class="about-content" data-aos="fade-up">
-                <div class="about-text">
-
-  <h2>Our Story</h2>
-  <p>At CleanFlow of Ohio, we provide premium gutter maintenance, cleaning, and protection services throughout Montgomery County and the surrounding area. From routine cleanouts and screen installation to alignment checks, sealing, and full system upkeep, we handle every job with precision and pride.</p>  <p>I’ve been in this industry for over 20 years. CleanFlow is the result of experience, high standards, and a deep commitment to doing the job right. My crew and I are professionals. No temps. Just skilled people I trust to show up early, work clean, and treat every home with respect.</p>  <p>What sets us apart isn’t just the work. It’s how we show up. I genuinely enjoy helping people. Always have. There’s something satisfying about showing up, solving a messy problem, and hearing, “Wow, that was smooth.” That kind of reaction is what keeps us going.</p>  <p>We offer a premium service because that’s what I expect at my own home. I believe in quality over quantity. Details matter. Communication matters. And trust? That’s everything.</p>  <p>Supporting CleanFlow means working with a local business that takes pride in every job, large or small. No corporate scripts. No cut corners. Just real pros who care about doing things right and leaving you with one less thing to worry about.</p>
-</div><div class="about-image">
-                    <img src="https://nedstevens.com/wp-content/uploads/2020/12/gutter-cleaning-hero-new.jpg" alt="CleanFlow of Ohio - Professional Gutter Service">
-                    <div class="experience-badge">
-                        <span>20+</span>
-                        <span>Years</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="why-choose" class="bg-light">
-        <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <h2 style="margin-left:auto;margin-right:auto;">Why Choose CleanFlow of Ohio</h2>
-                <p>I'm committed to providing the highest quality gutter services in the Dayton area.</p>
-            </div>
-
-            <div class="grid grid-3 mt-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-card">
-                    <div class="service-content text-center">
-                        <i class="fas fa-medal" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h3>Quality Workmanship</h3>
-                        <p>Every job is completed to the highest standards with attention to detail and thorough inspection to ensure proper water flow.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-content text-center">
-                        <i class="fas fa-dollar-sign" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h3>Fair & Competitive Pricing</h3>
-                        <p>I provide honest, upfront pricing with no hidden fees or surprise charges. You'll always know the cost before work begins.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-content text-center">
-                        <i class="fas fa-bolt" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h3>Fast Service</h3>
-                        <p>I respect your time and work efficiently, often providing same-day service when you need it most.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-content text-center">
-                        <i class="fas fa-check-double" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h3>Satisfaction Guaranteed</h3>
-                        <p>I stand behind my work with a satisfaction guarantee. If you're not happy with the service, I'll make it right.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-content text-center">
-                        <i class="fas fa-handshake" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h3>Honest & Reliable</h3>
-                        <p>I provide straightforward advice and never recommend services you don't need. Your trust is my top priority.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-content text-center">
-                        <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
-                        <h3>Locally Owned & Operated</h3>
-                        <p>As a local business, I take pride in serving our community with integrity and building lasting relationships.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certification Section -->
-    <section class="badge-section">
-        <div class="container">
-            <div class="text-center" data-aos="fade-up">
-                <h2 style="margin-left:auto;margin-right:auto;">Our Credentials</h2>
-                <p>Trusted expertise you can count on</p>
-            </div>
-
-            <div class="badges" data-aos="fade-up">
-                <div class="badge-item">
-                    <i class="fas fa-award badge-icon"></i>
-                    <div class="badge-title">20+ Years Experience</div>
-                </div>
-
-                <div class="badge-item">
-                    <i class="fas fa-user-check badge-icon"></i>
-                    <div class="badge-title">Fully Insured</div>
-                </div>
-
-                <div class="badge-item">
-                    <i class="fas fa-thumbs-up badge-icon"></i>
-                    <div class="badge-title">Satisfaction Guaranteed</div>
-                </div>
-
-                <div class="badge-item">
-                    <i class="fas fa-tools badge-icon"></i>
-                    <div class="badge-title">Professional Equipment</div>
-                </div>
-
-                <div class="badge-item">
-                    <i class="fas fa-house-user badge-icon"></i>
-                    <div class="badge-title">Locally Owned & Operated</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="service-area">
-        <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <h2 style="margin-left:auto;margin-right:auto;">Our Service Area</h2>
-                <p>CleanFlow of Ohio proudly serves homes throughout Dayton and surrounding communities.</p>
-            </div>
-
-            <div class="grid grid-2 gap-2 mt-4" data-aos="fade-up" data-aos-delay="100">
-                <div>
-                    <h3>Montgomery County</h3>
-                    <ul class="checkmark-list">
-                        <li>Dayton</li>
-                        <li>Oakwood</li>
-                        <li>Kettering</li>
-                        <li>Centerville</li>
-                        <li>Miamisburg</li>
-                        <li>West Carrollton</li>
-                        <li>Moraine</li>
-                        <li>Huber Heights</li>
-                        <li>Vandalia</li>
-                        <li>Englewood</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3>Greene County</h3>
-                    <ul class="checkmark-list">
-                        <li>Beavercreek</li>
-                        <li>Bellbrook</li>
-                        <li>Fairborn</li>
-                        <li>Xenia</li>
-                        <li>Yellow Springs</li>
-                        <li>Cedarville</li>
-                        <li>Jamestown</li>
-                    </ul>
-                    <p class="mt-4">Don't see your location? Give me a call to check if I service your area!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact-info" class="bg-light">
-        <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <h2 style="margin-left:auto;margin-right:auto;">Contact Information</h2>
-                <p>Reach out to me for all your gutter cleaning and maintenance needs.</p>
-            </div>
-
-            <div class="grid grid-3 mt-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="contact-info-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <h3>Phone</h3>
-                    <a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a>
-                    <p>Call or text for a free estimate</p>
-                </div>
-
-                <div class="contact-info-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Business Hours</h3>
-                    <p>Monday - Friday: 8am - 6pm</p>
-                    <p>Saturday: 8am - 3pm</p>
-                    <p>Sunday: Closed</p>
-                </div>
-
-                <div class="contact-info-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h3>Service Area</h3>
-                    <p>Serving Dayton and surrounding areas</p>
-                    <p>Montgomery & Greene Counties</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content" data-aos="fade-up">
-                <h2>Ready to Experience the CleanFlow Difference?</h2>
-                <p>Contact me today to schedule your professional gutter service with Dayton's most trusted gutter specialist.</p>
-                <a href="tel:9374780689" class="phone-number">
-                    <i class="fas fa-phone-alt"></i> 937-478-0689
-                </a>
-                <div class="text-option">Text me a photo of your gutters for a quick estimate – I respond within hours!</div>
-            </div>
-        </div>
-    </section>
-</div>
-
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="footer-top">
-            <div class="footer-about">
-                <a href="index.html" class="footer-logo">
-                    CleanFlow<span>of Ohio</span>
-                </a>
-                <p>Professional gutter cleaning and protection services in Dayton and surrounding areas. With over 20 years of experience, I provide quality workmanship and exceptional customer service.</p>
-                <div class="footer-contact">
-                    <div class="footer-contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <p><a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a></p>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <p><a href="mailto:cleanflowofohio@gmail.com">cleanflowofohio@gmail.com</a></p>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-globe"></i>
-                        <p><a href="http://bit.ly/CleanFlowOhio" target="_blank">bit.ly/CleanFlowOhio</a></p>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-clock"></i>
-                        <p>Monday - Friday: 8am - 6pm<br>Saturday: 8am - 3pm<br>Sunday: Closed</p>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Serving Dayton and surrounding areas<br>Montgomery & Greene Counties</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="index.html#calculator">Cost Estimator</a></li>
-                    <li><a href="index.html#signs">Signs You Need Service</a></li>
-                    <li><a href="index.html#calendar">Maintenance Guide</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-links">
-                <h4>Our Services</h4>
-                <ul>
-                    <li><a href="services.html#gutter-cleaning-service">Gutter Cleaning</a></li>
-                    <li><a href="services.html#gutter-repairs-service">Gutter Repairs</a></li>
-                    <li><a href="services.html#gutter-protection-service">Gutter Guards</a></li>
-                    <li><a href="services.html#service-faq">Maintenance FAQs</a></li>
-                    <li><a href="about.html#service-area">Service Areas</a></li>
-                    <li><a href="tel:9374780689">Get a Quote</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2024 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving Montgomery & Greene Counties since 2003</p>
-        </div>
-    </div>
-</footer>
-
-<!-- Back to Top -->
-<div class="back-to-top" id="back-to-top">
-    <i class="fas fa-arrow-up"></i>
-</div>
-
-<!-- AOS Animation Library -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="script.js"></script>
-
-
-```
-
-## `index.html`
-```html
+### File: index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1531,249 +593,364 @@ Distributed under the MIT License. See LICENSE for details.
 </body>
 </html>
 
-```
+### File: about.html
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CleanFlow of Ohio | Dayton Gutter Experts</title>
+    <meta name="description" content="Learn about CleanFlow of Ohio, your trusted, owner-operated gutter cleaning and maintenance specialist with over 20 years of experience in Dayton and surrounding areas.">
+    <meta name="keywords" content="about us, gutter company Dayton, experienced gutter cleaner, local gutter service, CleanFlow of Ohio story">
+    <link rel="canonical" href="https://www.cleanflowohio.com/about" /><!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-### File: script.js
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 
-```javascript
-// Initialize AOS Animation
-AOS.init({
-    duration: 800,
-    easing: 'ease-in-out',
-    once: true,
-    mirror: false
-});
+<!-- AOS Animation Library -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-// Navigation Menu Toggle
-const menuToggle = document.getElementById('menu-toggle');
-const navMenu = document.getElementById('nav-menu');
-const closeMenu = document.getElementById('close-menu');
+</head>
+<body>
+    <!-- Top Contact Bar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-container">
+                <div class="topbar-item">
+                    <i class="fas fa-phone-alt"></i> Call or Text: <a href="tel:9374780689">937-478-0689</a>
+                </div>
+                <div class="topbar-item">
+                    <i class="fas fa-envelope"></i> Email: <a href="mailto:cleanflowofohio@gmail.com">cleanflowofohio@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </div><!-- Header -->
+<header id="header">
+    <div class="container">
+        <div class="header-container">
+            <div class="logo" onclick="location.href='index.html'">
+                CleanFlow<span>of Ohio</span>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html" id="home-link">Home</a></li>
+                    <li><a href="services.html" id="services-link">Services</a></li>
+                    <li><a href="about.html" id="about-link" class="active">About</a></li>
+                    <li><i class="fas fa-times close-menu" id="close-menu"></i></li>
+                </ul>
+                <!-- Theme Toggle Button START --> <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme"> <i class="fas fa-sun"></i> <span class="toggle-text">Light</span> </button> <!-- Theme Toggle Button END -->
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+            <a href="tel:9374780689" class="phone-btn">
+                <i class="fas fa-phone-alt"></i>
+                <span>937-478-0689</span>
+            </a>
+        </div>
+    </div>
+</header>
 
-if (menuToggle && navMenu && closeMenu) { // Check if all nav elements exist
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.add('active');
-    });
+<!-- About Page Content -->
+<div id="about-page-content" class="page-content"> <!-- Changed ID to avoid conflict if script.js uses it -->
+    <section id="about-hero">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h1>About CleanFlow of Ohio</h1>
+                <p>Your trusted premium gutter maintenance, cleaning, and protection experts serving Dayton and surrounding communities.</p>
+            </div>
+        </div>
+    </section>
 
-    closeMenu.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-    });
-}
+    <section id="about-story">
+        <div class="container">
+            <div class="about-content" data-aos="fade-up">
+                <div class="about-text">
 
-// Sticky Header & Back to Top Button Visibility
-const header = document.getElementById('header'); // Define header once
-const backToTop = document.getElementById('back-to-top'); // Define backToTop once
+  <h2>Our Story</h2>
+  <p>At CleanFlow of Ohio, we provide premium gutter maintenance, cleaning, and protection services throughout Montgomery County and the surrounding area. From routine cleanouts and screen installation to alignment checks, sealing, and full system upkeep, we handle every job with precision and pride.</p>  <p>I’ve been in this industry for over 20 years. CleanFlow is the result of experience, high standards, and a deep commitment to doing the job right. My crew and I are professionals. No temps. Just skilled people I trust to show up early, work clean, and treat every home with respect.</p>  <p>What sets us apart isn’t just the work. It’s how we show up. I genuinely enjoy helping people. Always have. There’s something satisfying about showing up, solving a messy problem, and hearing, “Wow, that was smooth.” That kind of reaction is what keeps us going.</p>  <p>We offer a premium service because that’s what I expect at my own home. I believe in quality over quantity. Details matter. Communication matters. And trust? That’s everything.</p>  <p>Supporting CleanFlow means working with a local business that takes pride in every job, large or small. No corporate scripts. No cut corners. Just real pros who care about doing things right and leaving you with one less thing to worry about.</p>
+</div><div class="about-image">
+                    <img src="https://nedstevens.com/wp-content/uploads/2020/12/gutter-cleaning-hero-new.jpg" alt="CleanFlow of Ohio - Professional Gutter Service">
+                    <div class="experience-badge">
+                        <span>20+</span>
+                        <span>Years</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-if (header && backToTop) { // Check if header and backToTop exist
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.classList.add('sticky');
-            backToTop.classList.add('active');
-        } else {
-            header.classList.remove('sticky');
-            backToTop.classList.remove('active');
-        }
-    });
+    <section id="why-choose" class="bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Why Choose CleanFlow of Ohio</h2>
+                <p>I'm committed to providing the highest quality gutter services in the Dayton area.</p>
+            </div>
 
-    // Back to Top Click Handler
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
+            <div class="grid grid-3 mt-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card">
+                    <div class="service-content text-center">
+                        <i class="fas fa-medal" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3>Quality Workmanship</h3>
+                        <p>Every job is completed to the highest standards with attention to detail and thorough inspection to ensure proper water flow.</p>
+                    </div>
+                </div>
 
+                <div class="service-card">
+                    <div class="service-content text-center">
+                        <i class="fas fa-dollar-sign" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3>Fair & Competitive Pricing</h3>
+                        <p>I provide honest, upfront pricing with no hidden fees or surprise charges. You'll always know the cost before work begins.</p>
+                    </div>
+                </div>
 
-// Scroll Down (Hero Section) Click Handler
-const scrollDownButton = document.getElementById('scroll-down');
-if (scrollDownButton) {
-    scrollDownButton.addEventListener('click', () => {
-        const nextSection = document.getElementById('warning');
-        if (nextSection) {
-            nextSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-}
+                <div class="service-card">
+                    <div class="service-content text-center">
+                        <i class="fas fa-bolt" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3>Fast Service</h3>
+                        <p>I respect your time and work efficiently, often providing same-day service when you need it most.</p>
+                    </div>
+                </div>
 
-// Accordion Toggle
-function toggleAccordion(element) {
-    const content = element.nextElementSibling;
-    const isActive = element.classList.contains('active');
+                <div class="service-card">
+                    <div class="service-content text-center">
+                        <i class="fas fa-check-double" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3>Satisfaction Guaranteed</h3>
+                        <p>I stand behind my work with a satisfaction guarantee. If you're not happy with the service, I'll make it right.</p>
+                    </div>
+                </div>
 
-    // Close all other accordion items
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-    const accordionContents = document.querySelectorAll('.accordion-content');
+                <div class="service-card">
+                    <div class="service-content text-center">
+                        <i class="fas fa-handshake" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3>Honest & Reliable</h3>
+                        <p>I provide straightforward advice and never recommend services you don't need. Your trust is my top priority.</p>
+                    </div>
+                </div>
 
-    accordionHeaders.forEach(header => {
-        if (header !== element) {
-            header.classList.remove('active');
-        }
-    });
-    accordionContents.forEach(cont => {
-        if (cont !== content) {
-            cont.classList.remove('active');
-            cont.style.maxHeight = null;
-        }
-    });
+                <div class="service-card">
+                    <div class="service-content text-center">
+                        <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3>Locally Owned & Operated</h3>
+                        <p>As a local business, I take pride in serving our community with integrity and building lasting relationships.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // Open or close the clicked accordion item
-    if (!isActive) {
-        element.classList.add('active');
-        if (content) { // Check if content exists
-             content.classList.add('active');
-             content.style.maxHeight = content.scrollHeight + "px";
-        }
-    } else {
-        element.classList.remove('active');
-        if (content) { // Check if content exists
-            content.classList.remove('active');
-            content.style.maxHeight = null;
-        }
-    }
-}
+    <!-- Certification Section -->
+    <section class="badge-section">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Our Credentials</h2>
+                <p>Trusted expertise you can count on</p>
+            </div>
 
-// Page Navigation (This function was not in the original assets/main.js)
-// Ensure this is intended and correctly implemented if you've moved to a single-page app style.
-function showPage(page) {
-    const pages = document.querySelectorAll('.page');
-    const navLinks = document.querySelectorAll('nav ul li a');
+            <div class="badges" data-aos="fade-up">
+                <div class="badge-item">
+                    <i class="fas fa-award badge-icon"></i>
+                    <div class="badge-title">20+ Years Experience</div>
+                </div>
 
-    // Hide all pages
-    pages.forEach(p => p.style.display = 'none');
+                <div class="badge-item">
+                    <i class="fas fa-user-check badge-icon"></i>
+                    <div class="badge-title">Fully Insured</div>
+                </div>
 
-    // Remove active class from all links
-    navLinks.forEach(link => link.classList.remove('active'));
+                <div class="badge-item">
+                    <i class="fas fa-thumbs-up badge-icon"></i>
+                    <div class="badge-title">Satisfaction Guaranteed</div>
+                </div>
 
-    // Show selected page and set active link
-    const pageElement = document.getElementById(`${page}-page`);
-    const linkElement = document.getElementById(`${page}-link`);
+                <div class="badge-item">
+                    <i class="fas fa-tools badge-icon"></i>
+                    <div class="badge-title">Professional Equipment</div>
+                </div>
 
-    if (pageElement) pageElement.style.display = 'block';
-    if (linkElement) linkElement.classList.add('active');
+                <div class="badge-item">
+                    <i class="fas fa-house-user badge-icon"></i>
+                    <div class="badge-title">Locally Owned & Operated</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // Close mobile menu if open
-    if (navMenu) navMenu.classList.remove('active');
+    <section id="service-area">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Our Service Area</h2>
+                <p>CleanFlow of Ohio proudly serves homes throughout Dayton and surrounding communities.</p>
+            </div>
 
-    // Scroll to top
-    window.scrollTo(0, 0);
-}
+            <div class="grid grid-2 gap-2 mt-4" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <h3>Montgomery County</h3>
+                    <ul class="checkmark-list">
+                        <li>Dayton</li>
+                        <li>Oakwood</li>
+                        <li>Kettering</li>
+                        <li>Centerville</li>
+                        <li>Miamisburg</li>
+                        <li>West Carrollton</li>
+                        <li>Moraine</li>
+                        <li>Huber Heights</li>
+                        <li>Vandalia</li>
+                        <li>Englewood</li>
+                    </ul>
+                </div>
 
-// Toggle Signs Content
-function toggleSign(element) {
-    element.classList.toggle('active');
-}
+                <div>
+                    <h3>Greene County</h3>
+                    <ul class="checkmark-list">
+                        <li>Beavercreek</li>
+                        <li>Bellbrook</li>
+                        <li>Fairborn</li>
+                        <li>Xenia</li>
+                        <li>Yellow Springs</li>
+                        <li>Cedarville</li>
+                        <li>Jamestown</li>
+                    </ul>
+                    <p class="mt-4">Don't see your location? Give me a call to check if I service your area!</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-// Season Tabs
-const seasonTabs = document.querySelectorAll('.season-tab');
-if (seasonTabs.length > 0) {
-    seasonTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            seasonTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
+    <section id="contact-info" class="bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Contact Information</h2>
+                <p>Reach out to me for all your gutter cleaning and maintenance needs.</p>
+            </div>
 
-            document.querySelectorAll('.season-content').forEach(content => {
-                content.classList.remove('active');
-            });
+            <div class="grid grid-3 mt-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a>
+                    <p>Call or text for a free estimate</p>
+                </div>
 
-            const season = tab.dataset.season;
-            const activeSeasonContent = document.getElementById(`${season}-content`);
-            if (activeSeasonContent) {
-                activeSeasonContent.classList.add('active');
-            }
-        });
-    });
-}
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 8am - 6pm</p>
+                    <p>Saturday: 8am - 3pm</p>
+                    <p>Sunday: Closed</p>
+                </div>
 
-// Gutter Cleaning Cost Calculator
-const calculateBtn = document.getElementById('calculateBtn');
-const linearFeetInput = document.getElementById('linearFeet');
-const storiesSelect = document.getElementById('stories');
-const debrisSelect = document.getElementById('debris');
-const estimatedPriceEl = document.getElementById('estimatedPrice'); // Define once
-const resultBoxEl = document.getElementById('resultBox'); // Define once
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Service Area</h3>
+                    <p>Serving Dayton and surrounding areas</p>
+                    <p>Montgomery & Greene Counties</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-function calculatePrice() {
-    // Ensure elements exist before trying to use them
-    if (!linearFeetInput || !storiesSelect || !debrisSelect || !estimatedPriceEl || !resultBoxEl) {
-        console.error("Calculator elements not found.");
-        return;
-    }
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Ready to Experience the CleanFlow Difference?</h2>
+                <p>Contact me today to schedule your professional gutter service with Dayton's most trusted gutter specialist.</p>
+                <a href="tel:9374780689" class="phone-number">
+                    <i class="fas fa-phone-alt"></i> 937-478-0689
+                </a>
+                <div class="text-option">Text me a photo of your gutters for a quick estimate – I respond within hours!</div>
+            </div>
+        </div>
+    </section>
+</div>
 
-    const linearFeet = parseFloat(linearFeetInput.value) || 0;
-    const stories = storiesSelect.value;
-    const debris = debrisSelect.value;
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-about">
+                <a href="index.html" class="footer-logo">
+                    CleanFlow<span>of Ohio</span>
+                </a>
+                <p>Professional gutter cleaning and protection services in Dayton and surrounding areas. With over 20 years of experience, I provide quality workmanship and exceptional customer service.</p>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p><a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a></p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p><a href="mailto:cleanflowofohio@gmail.com">cleanflowofohio@gmail.com</a></p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-globe"></i>
+                        <p><a href="http://bit.ly/CleanFlowOhio" target="_blank">bit.ly/CleanFlowOhio</a></p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Monday - Friday: 8am - 6pm<br>Saturday: 8am - 3pm<br>Sunday: Closed</p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Serving Dayton and surrounding areas<br>Montgomery & Greene Counties</p>
+                    </div>
+                </div>
+            </div>
 
-    let ratePerFoot = 0;
-    switch (debris) {
-        case 'light': ratePerFoot = 0.75; break;
-        case 'medium': ratePerFoot = 0.85; break;
-        case 'heavy': ratePerFoot = 0.95; break;
-        default: ratePerFoot = 0.85;
-    }
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#calculator">Cost Estimator</a></li>
+                    <li><a href="index.html#signs">Signs You Need Service</a></li>
+                    <li><a href="index.html#calendar">Maintenance Guide</a></li>
+                </ul>
+            </div>
 
-    let price = linearFeet * ratePerFoot;
-    if (price < 135) {
-        price = 135;
-    }
-    if (stories === '2') {
-        price += 50;
-    }
+            <div class="footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="services.html#gutter-cleaning-service">Gutter Cleaning</a></li>
+                    <li><a href="services.html#gutter-repairs-service">Gutter Repairs</a></li>
+                    <li><a href="services.html#gutter-protection-service">Gutter Guards</a></li>
+                    <li><a href="services.html#service-faq">Maintenance FAQs</a></li>
+                    <li><a href="about.html#service-area">Service Areas</a></li>
+                    <li><a href="tel:9374780689">Get a Quote</a></li>
+                </ul>
+            </div>
+        </div>
 
-    estimatedPriceEl.textContent = '$' + price.toFixed(2);
-    resultBoxEl.classList.add('active');
-}
+        <div class="footer-bottom">
+            <p>&copy; 2024 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving Montgomery & Greene Counties since 2003</p>
+        </div>
+    </div>
+</footer>
 
-if (calculateBtn) calculateBtn.addEventListener('click', calculatePrice);
-if (linearFeetInput) linearFeetInput.addEventListener('input', calculatePrice);
-if (storiesSelect) storiesSelect.addEventListener('change', calculatePrice);
-if (debrisSelect) debrisSelect.addEventListener('change', calculatePrice);
+<!-- Back to Top -->
+<div class="back-to-top" id="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</div>
 
+<!-- AOS Animation Library -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
 
-// Quote Form Submission
-const quoteForm = document.getElementById('quoteForm');
-if (quoteForm) {
-    quoteForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const nameInput = document.getElementById('name');
-        const phoneInput = document.getElementById('phone');
-        const serviceSelect = document.getElementById('service');
-        const messageDiv = document.getElementById('formMessage'); // Define once
-
-        // Ensure form elements exist
-        if (!nameInput || !phoneInput || !serviceSelect || !messageDiv) {
-            console.error("Quote form elements not found.");
-            return;
-        }
-
-        const name = nameInput.value;
-        const phone = phoneInput.value;
-        const service = serviceSelect.value;
-
-        const subject = "New Quote Request from " + name;
-        const body = "Name: " + encodeURIComponent(name) + "%0D%0APhone: " + encodeURIComponent(phone) + "%0D%0AService: " + encodeURIComponent(service);
-
-        window.location.href = "mailto:cleanflowofohio@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + body;
-
-        messageDiv.style.display = 'block';
-        messageDiv.classList.add('success');
-        messageDiv.textContent = "Thank you! Your quote request has been sent. We'll contact you shortly.";
-
-        quoteForm.reset();
-
-        setTimeout(function() {
-            messageDiv.style.display = 'none';
-            messageDiv.classList.remove('success');
-        }, 5000);
-    });
-}
-
-// Dark Mode Toggle Functionality document.addEventListener('DOMContentLoaded', function() { const themeToggleBtn = document.getElementById('theme-toggle-btn'); const body = document.body; // Gracefully handle if the button isn't found on a page if (!themeToggleBtn) { // console.log("Theme toggle button not found on this page."); return; } const toggleTextEl = themeToggleBtn.querySelector('.toggle-text'); const toggleIconEl = themeToggleBtn.querySelector('i.fas'); if (!toggleTextEl || !toggleIconEl) { // console.error("Theme toggle button is missing internal text or icon elements."); return; } const applyTheme = (theme) => { if (theme === 'dark') { body.classList.add('dark-mode'); if (toggleIconEl) { toggleIconEl.classList.remove('fa-sun'); toggleIconEl.classList.add('fa-moon'); } if (toggleTextEl) toggleTextEl.textContent = 'Dark'; themeToggleBtn.setAttribute('aria-label', 'Switch to light mode'); } else { body.classList.remove('dark-mode'); if (toggleIconEl) { toggleIconEl.classList.remove('fa-moon'); toggleIconEl.classList.add('fa-sun'); } if (toggleTextEl) toggleTextEl.textContent = 'Light'; themeToggleBtn.setAttribute('aria-label', 'Switch to dark mode'); } }; themeToggleBtn.addEventListener('click', () => { const currentThemeIsDark = body.classList.contains('dark-mode'); const newTheme = currentThemeIsDark ? 'light' : 'dark'; localStorage.setItem('theme', newTheme); applyTheme(newTheme); }); // Load saved theme or detect system preference const savedTheme = localStorage.getItem('theme'); const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; if (savedTheme) { applyTheme(savedTheme); } else if (prefersDark) { applyTheme('dark'); } else { applyTheme('dark'); // Default to dark } // Optional: Listen for OS theme changes if no user override has been set if (window.matchMedia) { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => { if (!localStorage.getItem('theme')) { // Only if user hasn't manually set a preference applyTheme(e.matches ? 'dark' : 'light'); } }); } });
-```
+</body>
+</html>
 
 ### File: services.html
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2213,22 +1390,309 @@ if (quoteForm) {
     <script src="script.js"></script>
 </body>
 </html>
-```
 
-### File: sitemap.xml
+### File: script.js
+// Initialize AOS Animation
+AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+});
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.cleanflowohio.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://www.cleanflowohio.com/services.html</loc></url>
-  <url><loc>https://www.cleanflowohio.com/about.html</loc></url>
-</urlset>
-```
+// Navigation Menu Toggle
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+const closeMenu = document.getElementById('close-menu');
+
+if (menuToggle && navMenu && closeMenu) { // Check if all nav elements exist
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+    });
+}
+
+// Sticky Header & Back to Top Button Visibility
+const header = document.getElementById('header'); // Define header once
+const backToTop = document.getElementById('back-to-top'); // Define backToTop once
+
+if (header && backToTop) { // Check if header and backToTop exist
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('sticky');
+            backToTop.classList.add('active');
+        } else {
+            header.classList.remove('sticky');
+            backToTop.classList.remove('active');
+        }
+    });
+
+    // Back to Top Click Handler
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+
+// Scroll Down (Hero Section) Click Handler
+const scrollDownButton = document.getElementById('scroll-down');
+if (scrollDownButton) {
+    scrollDownButton.addEventListener('click', () => {
+        const nextSection = document.getElementById('warning');
+        if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+}
+
+// Accordion Toggle
+function toggleAccordion(element) {
+    const content = element.nextElementSibling;
+    const isActive = element.classList.contains('active');
+
+    // Close all other accordion items
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    const accordionContents = document.querySelectorAll('.accordion-content');
+
+    accordionHeaders.forEach(header => {
+        if (header !== element) {
+            header.classList.remove('active');
+        }
+    });
+    accordionContents.forEach(cont => {
+        if (cont !== content) {
+            cont.classList.remove('active');
+            cont.style.maxHeight = null;
+        }
+    });
+
+    // Open or close the clicked accordion item
+    if (!isActive) {
+        element.classList.add('active');
+        if (content) { // Check if content exists
+             content.classList.add('active');
+             content.style.maxHeight = content.scrollHeight + "px";
+        }
+    } else {
+        element.classList.remove('active');
+        if (content) { // Check if content exists
+            content.classList.remove('active');
+            content.style.maxHeight = null;
+        }
+    }
+}
+
+// Page Navigation (This function was not in the original assets/main.js)
+// Ensure this is intended and correctly implemented if you've moved to a single-page app style.
+function showPage(page) {
+    const pages = document.querySelectorAll('.page');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    // Hide all pages
+    pages.forEach(p => p.style.display = 'none');
+
+    // Remove active class from all links
+    navLinks.forEach(link => link.classList.remove('active'));
+
+    // Show selected page and set active link
+    const pageElement = document.getElementById(`${page}-page`);
+    const linkElement = document.getElementById(`${page}-link`);
+
+    if (pageElement) pageElement.style.display = 'block';
+    if (linkElement) linkElement.classList.add('active');
+
+    // Close mobile menu if open
+    if (navMenu) navMenu.classList.remove('active');
+
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+
+// Toggle Signs Content
+function toggleSign(element) {
+    element.classList.toggle('active');
+}
+
+// Season Tabs
+const seasonTabs = document.querySelectorAll('.season-tab');
+if (seasonTabs.length > 0) {
+    seasonTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            seasonTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            document.querySelectorAll('.season-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            const season = tab.dataset.season;
+            const activeSeasonContent = document.getElementById(`${season}-content`);
+            if (activeSeasonContent) {
+                activeSeasonContent.classList.add('active');
+            }
+        });
+    });
+}
+
+// Gutter Cleaning Cost Calculator
+const calculateBtn = document.getElementById('calculateBtn');
+const linearFeetInput = document.getElementById('linearFeet');
+const storiesSelect = document.getElementById('stories');
+const debrisSelect = document.getElementById('debris');
+const estimatedPriceEl = document.getElementById('estimatedPrice'); // Define once
+const resultBoxEl = document.getElementById('resultBox'); // Define once
+
+function calculatePrice() {
+    // Ensure elements exist before trying to use them
+    if (!linearFeetInput || !storiesSelect || !debrisSelect || !estimatedPriceEl || !resultBoxEl) {
+        console.error("Calculator elements not found.");
+        return;
+    }
+
+    const linearFeet = parseFloat(linearFeetInput.value) || 0;
+    const stories = storiesSelect.value;
+    const debris = debrisSelect.value;
+
+    let ratePerFoot = 0;
+    switch (debris) {
+        case 'light': ratePerFoot = 0.75; break;
+        case 'medium': ratePerFoot = 0.85; break;
+        case 'heavy': ratePerFoot = 0.95; break;
+        default: ratePerFoot = 0.85;
+    }
+
+    let price = linearFeet * ratePerFoot;
+    if (price < 135) {
+        price = 135;
+    }
+    if (stories === '2') {
+        price += 50;
+    }
+
+    estimatedPriceEl.textContent = '$' + price.toFixed(2);
+    resultBoxEl.classList.add('active');
+}
+
+if (calculateBtn) calculateBtn.addEventListener('click', calculatePrice);
+if (linearFeetInput) linearFeetInput.addEventListener('input', calculatePrice);
+if (storiesSelect) storiesSelect.addEventListener('change', calculatePrice);
+if (debrisSelect) debrisSelect.addEventListener('change', calculatePrice);
+
+
+// Quote Form Submission
+const quoteForm = document.getElementById('quoteForm');
+if (quoteForm) {
+    quoteForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nameInput = document.getElementById('name');
+        const phoneInput = document.getElementById('phone');
+        const serviceSelect = document.getElementById('service');
+        const messageDiv = document.getElementById('formMessage'); // Define once
+
+        // Ensure form elements exist
+        if (!nameInput || !phoneInput || !serviceSelect || !messageDiv) {
+            console.error("Quote form elements not found.");
+            return;
+        }
+
+        const name = nameInput.value;
+        const phone = phoneInput.value;
+        const service = serviceSelect.value;
+
+        const subject = "New Quote Request from " + name;
+        const body = "Name: " + encodeURIComponent(name) + "%0D%0APhone: " + encodeURIComponent(phone) + "%0D%0AService: " + encodeURIComponent(service);
+
+        window.location.href = "mailto:cleanflowofohio@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + body;
+
+        messageDiv.style.display = 'block';
+        messageDiv.classList.add('success');
+        messageDiv.textContent = "Thank you! Your quote request has been sent. We'll contact you shortly.";
+
+        quoteForm.reset();
+
+        setTimeout(function() {
+            messageDiv.style.display = 'none';
+            messageDiv.classList.remove('success');
+        }, 5000);
+    });
+}
+
+// Dark Mode Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const body = document.body;
+
+    // Gracefully handle if the button isn't found on a page
+    if (!themeToggleBtn) {
+        // console.log("Theme toggle button not found on this page.");
+        return;
+    }
+
+    const toggleTextEl = themeToggleBtn.querySelector('.toggle-text');
+    const toggleIconEl = themeToggleBtn.querySelector('i.fas');
+
+    if (!toggleTextEl || !toggleIconEl) {
+        // console.error("Theme toggle button is missing internal text or icon elements.");
+        return;
+    }
+
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            body.classList.add('dark-mode');
+            if (toggleIconEl) {
+                toggleIconEl.classList.remove('fa-sun');
+                toggleIconEl.classList.add('fa-moon');
+            }
+            if (toggleTextEl) toggleTextEl.textContent = 'Dark';
+            themeToggleBtn.setAttribute('aria-label', 'Switch to light mode');
+        } else {
+            body.classList.remove('dark-mode');
+            if (toggleIconEl) {
+                toggleIconEl.classList.remove('fa-moon');
+                toggleIconEl.classList.add('fa-sun');
+            }
+            if (toggleTextEl) toggleTextEl.textContent = 'Light';
+            themeToggleBtn.setAttribute('aria-label', 'Switch to dark mode');
+        }
+    };
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentThemeIsDark = body.classList.contains('dark-mode');
+        const newTheme = currentThemeIsDark ? 'light' : 'dark';
+        localStorage.setItem('theme', newTheme);
+        applyTheme(newTheme);
+    });
+
+    // Load saved theme or detect system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else if (prefersDark) {
+        applyTheme('dark');
+    } else {
+        applyTheme('dark'); // Default to dark
+    }
+
+    // Optional: Listen for OS theme changes if no user override has been set
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) { // Only if user hasn't manually set a preference
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+});
 
 ### File: style.css
-
-```css
 :root {
             --primary-dark: #1e3c72;
             --primary: #2c5aa0;
@@ -3919,4 +3383,114 @@ if (quoteForm) {
                 margin-top: 0;
             }
         }
-```
+
+### File: README.md
+# CleanFlow Ohio Static Marketing Website
+
+A mobile-first, responsive HTML/CSS/JS marketing site designed for gutter cleaning services. Simple, modern, SEO-friendly, and easy to customize. Currently deployed on [Vercel](https://vercel.com/).
+
+## 📦 Features
+
+- **Fully Responsive:** Optimized for mobile, tablet, and desktop.
+- **SEO-Ready:** Includes sitemap (`sitemap.xml`) and clean, semantic HTML structure.
+- **Pages Included:**
+  - Home (`index.html`)
+  - Services (`services.html`)
+  - About (`about.html`)
+- **Easy to Customize:** Simple file structure, clear CSS classes, minimal JavaScript.
+- **Quick Deployment:** Seamless deployment via [Vercel](https://vercel.com/).
+
+## 🚀 Quick Start
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/cleanflow-ohio.git
+   cd cleanflow-ohio
+
+2. Modify content
+
+Edit HTML files in the root directory to customize page content.
+
+Adjust CSS in the style.css file.
+
+Update images/assets in the assets/ directory.
+
+
+
+3. Deploy to Vercel (Recommended)
+
+Create a free account at Vercel.
+
+Connect your GitHub repository.
+
+Follow the guided setup, leaving default settings as-is.
+
+Your website will automatically deploy when you push changes to GitHub.
+
+
+
+
+🗂 Repository Structure
+
+cleanflow-ohio/
+├── script.js              # Main JavaScript file
+├── style.css              # Main CSS file
+├── index.html             # Homepage
+├── services.html          # Services description page
+├── about.html             # Company/about page
+└── sitemap.xml            # SEO sitemap
+
+🛠 Technologies Used
+
+HTML5 & CSS3: Semantic structure and responsive styling.
+
+Vanilla JavaScript: Simple interactions, no heavy libraries.
+
+Vercel: Easy and fast hosting and deployment.
+
+
+🔐 Security
+
+No backend or sensitive server-side code included. Completely static frontend.
+
+Hosted via Vercel’s secure infrastructure.
+
+
+📌 Contributing
+
+Feel free to fork and modify for your own business! Contributions are welcome. Just submit a pull request.
+
+📄 License
+
+Distributed under the MIT License. See LICENSE for details.
+
+### File: LICENSE
+MIT License
+
+Copyright (c) 2024 The CleanFlow Ohio Project Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+### File: sitemap.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.cleanflowohio.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.cleanflowohio.com/services.html</loc></url>
+  <url><loc>https://www.cleanflowohio.com/about.html</loc></url>
+</urlset>
