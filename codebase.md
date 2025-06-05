@@ -3494,3 +3494,11 @@ SOFTWARE.
   <url><loc>https://www.cleanflowohio.com/services.html</loc></url>
   <url><loc>https://www.cleanflowohio.com/about.html</loc></url>
 </urlset>
+
+## Brand Color Palette
+| Token | Hex | Intended Use |
+|-------|-----|-------------|
+| --clr-primary        | #064420 | Buttons, links, headlines |
+| --clr-accent         | #6FDF5C | Highlights, call‑to‑action accents |
+| --clr-neutral‑light  | #F7F7F7 | Section backgrounds, cards |
+| --clr-neutral‑dark   | #1F1F1F | Base text, footer |
