@@ -1,11 +1,22 @@
 {
   "redirects": [
-    { "source": "/services", "destination": "/services.html", "permanent": true },
-    { "source": "/about",    "destination": "/about.html",    "permanent": true },
-
-    /* optional canonical host – keep it or delete if you prefer both hosts live */
-    { "source": "https://cleanflowohio.com/:path*",
+    {
+      "source": "/services",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "cleanflowohio.com" }
+      ],
       "destination": "https://www.cleanflowohio.com/:path*",
-      "permanent": true }
+      "permanent": true
+    }
   ]
 }
