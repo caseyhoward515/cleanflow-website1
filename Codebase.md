@@ -2968,11 +2968,3 @@ SOFTWARE.
     <priority>0.8</priority>
   </url>
 </urlset>
-```
-Google Search Suggestions
-Display of Search Suggestions is required when using Grounding with Google Search. Learn more
-royalty free professional gutter cleaning on roof
-royalty free clean suburban house roofline gutters
-royalty free friendly gutter service technician
-unbranded gutter repair service photo
-stock photo man cleaning gutters
