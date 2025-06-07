@@ -1,78 +1,60 @@
 # CleanFlow Ohio Static Marketing Website
 
-A mobile-first, responsive HTML/CSS/JS marketing site designed for gutter cleaning services. Simple, modern, SEO-friendly, and easy to customize. Currently deployed on [Vercel](https://vercel.com/).
+A mobile-first, responsive HTML/CSS/JS marketing site designed for a professional gutter cleaning service. This site is simple, modern, SEO-friendly, and easy to customize.
 
 ## 📦 Features
 
-- **Fully Responsive:** Optimized for mobile, tablet, and desktop.
-- **SEO-Ready:** Includes sitemap (`sitemap.xml`) and clean, semantic HTML structure.
-- **Pages Included:**
+- **Fully Responsive:** Optimized for mobile, tablet, and desktop viewing.
+- **SEO-Ready:** Includes a `sitemap.xml` and utilizes a clean, semantic HTML structure with canonical URLs.
+- **Three Core Pages:**
   - Home (`index.html`)
   - Services (`services.html`)
   - About (`about.html`)
-- **Easy to Customize:** Simple file structure, clear CSS classes, minimal JavaScript.
-- **Quick Deployment:** Seamless deployment via [Vercel](https://vercel.com/).
+- **Modern Features:** Includes a dark mode toggle, an interactive cost estimator, and smooth animations.
+- **Easy to Customize:** Built with simple file structure, clear CSS variables, and minimal JavaScript.
 
 ## 🚀 Quick Start
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/cleanflow-ohio.git
-   cd cleanflow-ohio
+1. **Clone or Download the Repository**
+    To get a local copy up and running, clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/cleanflow-ohio.git
+    cd cleanflow-ohio
+    ```
 
-2. Modify content
+2. **Customize Content**
+    * **Text & Info:** Edit the `.html` files (`index.html`, `about.html`, `services.html`) to change text, contact information, and service details.
+    * **Styling:** Adjust colors, fonts, and layout in `style.css`. Key brand colors are located in the `:root` section for easy updates.
+    * **Functionality:** Modify interactive elements in `script.js`.
 
-Edit HTML files in the root directory to customize page content.
+3. **Deploy**
+    This static site can be deployed on any static web host. [Vercel](https://vercel.com/) and [Netlify](https://www.netlify.com/) are excellent free options that integrate directly with GitHub for automatic deployments.
 
-Adjust CSS in the style.css file.
+## 🗂 Repository Structure
 
-Update images/assets in the assets/ directory.
-
-
-
-3. Deploy to Vercel (Recommended)
-
-Create a free account at Vercel.
-
-Connect your GitHub repository.
-
-Follow the guided setup, leaving default settings as-is.
-
-Your website will automatically deploy when you push changes to GitHub.
-
-
-
-
-🗂 Repository Structure
-
+```
 cleanflow-ohio/
-├── script.js              # Main JavaScript file
-├── style.css              # Main CSS file
-├── index.html             # Homepage
-├── services.html          # Services description page
-├── about.html             # Company/about page
-└── sitemap.xml            # SEO sitemap
+├── index.html # Homepage
+├── about.html # About Us page
+├── services.html # Services description page
+├── style.css # Main CSS file for all styling
+├── script.js # Main JavaScript file for interactivity
+├── sitemap.xml # SEO sitemap
+├── README.md # You are here
+└── LICENSE # Project license
+```
 
-🛠 Technologies Used
+## 🛠 Technologies Used
 
-HTML5 & CSS3: Semantic structure and responsive styling.
+* **HTML5 & CSS3:** Semantic structure and modern, responsive styling with Flexbox and Grid.
+* **Vanilla JavaScript:** Simple, lightweight interactions with no heavy libraries.
+* **AOS (Animate On Scroll) Library:** For smooth, subtle scroll animations.
+* **Font Awesome:** For icons used throughout the site.
 
-Vanilla JavaScript: Simple interactions, no heavy libraries.
+## 🔐 Security
 
-Vercel: Easy and fast hosting and deployment.
+This is a completely static frontend website. It contains no backend logic or database, making it inherently secure from common server-side vulnerabilities.
 
+## 📄 License
 
-🔐 Security
-
-No backend or sensitive server-side code included. Completely static frontend.
-
-Hosted via Vercel’s secure infrastructure.
-
-
-📌 Contributing
-
-Feel free to fork and modify for your own business! Contributions are welcome. Just submit a pull request.
-
-📄 License
-
-Distributed under the MIT License. See LICENSE for details.
+Distributed under the MIT License. See `LICENSE` for more information.

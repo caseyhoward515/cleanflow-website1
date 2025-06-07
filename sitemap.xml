@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Home page -->
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.cleanflowohio.com/</loc>
-    <lastmod>2025-06-06</lastmod><!-- update this date whenever you make major edits -->
-    <changefreq>monthly</changefreq>
-    <priority>1.00</priority>
+    <loc>https://www.cleanflowohio.com/index.html</loc>
+    <priority>1.0</priority>
   </url>
-
-  <!-- Services page (pretty URL that rewrites to services.html) -->
   <url>
-    <loc>https://www.cleanflowohio.com/services</loc>
-    <lastmod>2025-06-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <loc>https://www.cleanflowohio.com/services.html</loc>
+    <priority>0.9</priority>
   </url>
-
-  <!-- About page (pretty URL that rewrites to about.html) -->
   <url>
-    <loc>https://www.cleanflowohio.com/about</loc>
-    <lastmod>2025-06-06</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <loc>https://www.cleanflowohio.com/about.html</loc>
+    <priority>0.8</priority>
   </url>
-
 </urlset>
