@@ -6,21 +6,67 @@
     <title>CleanFlow of Ohio | Professional Gutter Cleaning & Protection</title>
     <meta name="description" content="CleanFlow of Ohio provides professional gutter cleaning, maintenance, and protection services in Dayton and surrounding areas. Protect your home from water damage with our expert gutter services.">
     <meta name="keywords" content="gutter cleaning, gutter protection, gutter maintenance, gutter repairs, gutter guards, Dayton gutter cleaning, Montgomery County gutter services, Greene County gutter services, professional gutter cleaning, seamless gutters">
-    
-    <!-- Google Fonts -->
+    <link rel="canonical" href="https://www.cleanflowohio.com/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cleanflowohio.com/">
+    <meta property="og:title" content="CleanFlow of Ohio | Professional Gutter Cleaning">
+    <meta property="og:description" content="Professional gutter cleaning, maintenance, and protection in Dayton. 20+ years experience. Call 937-478-0689.">
+    <meta property="og:image" content="https://www.cleanflowohio.com/assets/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CleanFlow of Ohio | Professional Gutter Cleaning">
+    <meta name="twitter:description" content="Professional gutter cleaning in Dayton. 20+ years experience.">
+    <meta name="twitter:image" content="https://www.cleanflowohio.com/assets/og-image.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    
-    <!-- AOS Animation Library -->
+
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://www.cleanflowohio.com/#business",
+      "name": "CleanFlow of Ohio",
+      "description": "Professional gutter cleaning, maintenance, and protection services in Dayton and surrounding areas.",
+      "url": "https://www.cleanflowohio.com",
+      "telephone": "+1-937-478-0689",
+      "email": "cleanflowofohio@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dayton",
+        "addressRegion": "OH",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.7589,
+        "longitude": -84.1916
+      },
+      "areaServed": [
+        {"@type": "County", "name": "Montgomery County, Ohio"},
+        {"@type": "County", "name": "Greene County, Ohio"}
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      ],
+      "priceRange": "$$"
+    }
+    </script>
 </head>
 <body>
-    <!-- Top Contact Bar -->
     <div class="topbar">
         <div class="container">
             <div class="topbar-container">
@@ -33,8 +79,7 @@
             </div>
         </div>
     </div>
-    
-    <!-- Header -->
+
     <header id="header">
         <div class="container">
             <div class="header-container">
@@ -59,34 +104,29 @@
             </div>
         </div>
     </header>
-    
-    <!-- Home Page -->
+
     <div id="home-page" class="page">
-        <!-- Hero Section -->
         <section id="hero">
             <div class="container">
                 <div class="hero-content" data-aos="fade-up">
                     <h1>Professional Gutter Cleaning & Protection</h1>
                     <p>Prevent costly water damage with expert gutter maintenance from the most trusted service in Dayton and surrounding areas.</p>
                     <div class="hero-btns">
-            <!-- 1) Close the phone link immediately: -->
-            <a href="tel:9374780689" class="btn btn-accent btn-lg">
-              <i class="fas fa-phone-alt"></i> Call Now: 937-478-0689
-            </a>
-
-            <!-- 2) Update the second link to point at #calculator (instead of #quote) -->
-            <a href="#calculator" class="btn btn-accent btn-lg">
-              <i class="fas fa-calculator"></i> Click for Free Estimate
-            </a>
-          </div>
+                        <a href="tel:9374780689" class="btn btn-accent btn-lg">
+                            <i class="fas fa-phone-alt"></i> Call Now: 937-478-0689
+                        </a>
+                        <a href="#calculator" class="btn btn-accent btn-lg">
+                            <i class="fas fa-calculator"></i> Click for Free Estimate
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
-        
-        <!-- Lead Form Section -->
+
         <section id="quote" class="lead-form-section">
             <div class="container">
-                <form id="quoteForm" class="lead-form" data-aos="fade-up">
+                <form id="quoteForm" class="lead-form" data-aos="fade-up" action="https://formspree.io/f/xpqqeklz" method="POST">
+                    <input type="hidden" name="_next" value="https://www.cleanflowohio.com/?submitted=true">
                     <h3>Request Your Free Quote</h3>
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -105,11 +145,15 @@
                         <button type="submit" class="btn btn-primary">Send Request</button>
                     </div>
                     <div id="formMessage" class="form-message"></div>
+                    <noscript>
+                        <p style="color: var(--accent); font-weight: 600; text-align: center;">
+                            For fastest response, call or text 937-478-0689
+                        </p>
+                    </noscript>
                 </form>
             </div>
         </section>
-        
-        <!-- Warning Box -->
+
         <section id="warning" class="py-5">
             <div class="container">
                 <div class="warning-box" data-aos="fade-up">
@@ -120,8 +164,7 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Process Section -->
+
         <section class="section-pad" style="background:#fff">
             <div class="container">
                 <h2 style="margin-bottom:2.5rem;">How It Works</h2>
@@ -144,15 +187,14 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Services Overview -->
+
         <section id="services-overview" class="section-pad" style="background:var(--light);">
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
                     <h2 style="margin-left:auto;margin-right:auto;">Our Services</h2>
                     <p>Professional gutter cleaning and protection services to keep your home safe and dry.</p>
                 </div>
-                
+
                 <div class="grid grid-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card">
                         <div class="service-image">
@@ -166,7 +208,7 @@
                             </a>
                         </div>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-image">
                             <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2023/08/01151936/Gutter_iStock-1310417362-e1747423219898.jpeg" alt="Gutter Repairs and Maintenance">
@@ -179,7 +221,7 @@
                             </a>
                         </div>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-image">
                             <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2022/06/29223354/gutter_guard_image_for_blog_2400px-scaled.jpeg" alt="Gutter Guard Protection Systems">
@@ -196,14 +238,13 @@
             </div>
         </section>
 
-        <!-- Gutter Cleaning Calculator -->
         <section id="calculator" class="section-pad">
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
                     <h2 style="margin-left:auto;margin-right:auto;">Gutter Cleaning Cost Estimator</h2>
                     <p>Get a quick estimate for your gutter cleaning service</p>
                 </div>
-                
+
                 <div class="calculator-card" data-aos="fade-up">
                     <div class="calculator-form">
                         <div class="grid">
@@ -227,11 +268,11 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                         <div class="text-center mt-2">
                             <button class="btn btn-primary" id="calculateBtn">Calculate Estimate</button>
                         </div>
-                        
+
                         <div class="result-box" id="resultBox">
                             <div class="result-title">Estimated Cost</div>
                             <div class="result-price" id="estimatedPrice">$200 - $300</div>
@@ -241,15 +282,14 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Signs You Need Gutter Cleaning -->
+
         <section id="signs" class="signs-section">
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
                     <h2 style="margin-left:auto;margin-right:auto;">Signs You Need Gutter Cleaning</h2>
                     <p>Click on each sign to learn more</p>
                 </div>
-                
+
                 <div class="signs-grid" data-aos="fade-up">
                     <div class="sign-card" onclick="toggleSign(this)">
                         <i class="fas fa-tint"></i>
@@ -258,7 +298,7 @@
                             <p>If you notice water spilling over the sides of your gutters during rainfall, it's a clear indication they're clogged with debris and need immediate cleaning to prevent water damage.</p>
                         </div>
                     </div>
-                    
+
                     <div class="sign-card" onclick="toggleSign(this)">
                         <i class="fas fa-seedling"></i>
                         <h3>Plants Growing</h3>
@@ -266,7 +306,7 @@
                             <p>Seeds carried by wind or birds can settle in debris-filled gutters and actually start growing plants. If you see greenery sprouting from your gutters, it's definitely time for a cleaning.</p>
                         </div>
                     </div>
-                    
+
                     <div class="sign-card" onclick="toggleSign(this)">
                         <i class="fas fa-water"></i>
                         <h3>Water Stains</h3>
@@ -274,7 +314,7 @@
                             <p>Water stains on your home's exterior siding or foundation walls are indicators that water isn't being properly channeled away from your home, often due to clogged gutters.</p>
                         </div>
                     </div>
-                    
+
                     <div class="sign-card" onclick="toggleSign(this)">
                         <i class="fas fa-weight-hanging"></i>
                         <h3>Sagging Gutters</h3>
@@ -282,7 +322,7 @@
                             <p>Gutters sagging or pulling away from the roofline typically means they're weighed down with debris and water. This extra weight can eventually cause them to detach completely.</p>
                         </div>
                     </div>
-                    
+
                     <div class="sign-card" onclick="toggleSign(this)">
                         <i class="fas fa-bug"></i>
                         <h3>Pest Infestations</h3>
@@ -290,7 +330,7 @@
                             <p>Standing water and decomposing debris in gutters create perfect breeding grounds for mosquitoes, carpenter ants, rodents, and other pests you don't want around your home.</p>
                         </div>
                     </div>
-                    
+
                     <div class="sign-card" onclick="toggleSign(this)">
                         <i class="fas fa-icicles"></i>
                         <h3>Ice Dams</h3>
@@ -301,22 +341,21 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Seasonal Maintenance Calendar -->
+
         <section id="calendar" class="calendar-section">
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
                     <h2 style="margin-left:auto;margin-right:auto;">Seasonal Gutter Maintenance Guide</h2>
                     <p>Keep your gutters functioning properly year-round</p>
                 </div>
-                
+
                 <div class="season-tabs" data-aos="fade-up">
                     <div class="season-tab active" data-season="spring">Spring</div>
                     <div class="season-tab" data-season="summer">Summer</div>
                     <div class="season-tab" data-season="fall">Fall</div>
                     <div class="season-tab" data-season="winter">Winter</div>
                 </div>
-                
+
                 <div class="season-content active" id="spring-content" data-aos="fade-up">
                     <div class="season-card">
                         <div class="season-header">
@@ -336,7 +375,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="season-content" id="summer-content">
                     <div class="season-card">
                         <div class="season-header">
@@ -356,7 +395,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="season-content" id="fall-content">
                     <div class="season-card">
                         <div class="season-header">
@@ -376,7 +415,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="season-content" id="winter-content">
                     <div class="season-card">
                         <div class="season-header">
@@ -399,14 +438,13 @@
             </div>
         </section>
 
-        <!-- Benefits Section -->
         <section id="benefits" class="benefits-section">
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
                     <h2 style="margin-left:auto;margin-right:auto;">Benefits of Professional Gutter Cleaning</h2>
                     <p>Why proper gutter maintenance is essential for your home</p>
                 </div>
-                
+
                 <div class="benefits-grid" data-aos="fade-up">
                     <div class="benefit-card">
                         <div class="benefit-icon">
@@ -415,7 +453,7 @@
                         <h3 class="benefit-title">Protect Your Foundation</h3>
                         <p>Properly functioning gutters direct water away from your home's foundation, preventing cracks, leaks, and costly structural damage.</p>
                     </div>
-                    
+
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <i class="fas fa-paint-brush"></i>
@@ -423,7 +461,7 @@
                         <h3 class="benefit-title">Preserve Exterior</h3>
                         <p>Clean gutters prevent water overflow that can damage siding, fascia boards, and painted surfaces on your home's exterior.</p>
                     </div>
-                    
+
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <i class="fas fa-seedling"></i>
@@ -431,7 +469,7 @@
                         <h3 class="benefit-title">Protect Landscaping</h3>
                         <p>Properly diverted rainwater protects your garden beds, plants and prevents soil erosion around your property.</p>
                     </div>
-                    
+
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <i class="fas fa-bug-slash"></i>
@@ -442,15 +480,14 @@
                 </div>
             </div>
         </section>
-        
-        <!-- What You Get Section -->
+
         <section id="what-you-get" class="section-pad">
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
                     <h2 style="margin-left:auto;margin-right:auto;">What You Get With Every Service</h2>
                     <p>I provide comprehensive gutter services with attention to detail and customer satisfaction.</p>
                 </div>
-                
+
                 <div class="grid grid-2 mt-4" data-aos="fade-up" data-aos-delay="100">
                     <div>
                         <ul class="checkmark-list">
@@ -469,8 +506,7 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Special Offer -->
+
         <section id="special-offer">
             <div class="container">
                 <div class="special-offer" data-aos="fade-up">
@@ -482,8 +518,7 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Bottom CTA -->
+
         <section class="bottom-cta" id="contact">
             <div class="container">
                 <div data-aos="fade-up">
@@ -496,8 +531,7 @@
             </div>
         </section>
     </div>
-    
-    <!-- Footer -->
+
     <footer>
         <div class="container">
             <div class="footer-top">
@@ -517,11 +551,11 @@
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-globe"></i>
-                            <p><a href="https://CleanFlowOhio.com" target="_blank">CleanFlowOhio.com</a></p>
+                            <p><a href="https://www.cleanflowohio.com" target="_blank">www.cleanflowohio.com</a></p>
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-clock"></i>
-                            <p>Monday - Friday: 8am - 6pm<br>Saturday: 8am - 3pm<br>Sunday: Closed</p>
+                            <p>Open 24 Hours<br>7 Days a Week</p>
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-map-marker-alt"></i>
@@ -529,7 +563,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
@@ -541,7 +575,7 @@
                         <li><a href="index.html#calendar">Maintenance Guide</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4>Our Services</h4>
                     <ul>
@@ -554,40 +588,18 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2024 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving Montgomery & Greene Counties since 2003</p>
+                <p>&copy; 2026 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving Montgomery & Greene Counties since 2003</p>
             </div>
         </div>
     </footer>
-    
-    <!-- Back to Top -->
+
     <div class="back-to-top" id="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </div>
-    
-    <!-- AOS Animation Library -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="script.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Seasonal Tabs Functionality
-    const seasonTabs = document.querySelectorAll('.season-tab');
-    const seasonContents = document.querySelectorAll('.season-content');
-    seasonTabs.forEach(tab => {
-      tab.addEventListener('click', function() {
-        // Remove 'active' from all tabs and content
-        seasonTabs.forEach(t => t.classList.remove('active'));
-        seasonContents.forEach(c => c.classList.remove('active'));
 
-        // Add 'active' to the clicked tab and its content
-        tab.classList.add('active');
-        const seasonName = tab.getAttribute('data-season');
-        document.getElementById(seasonName + '-content').classList.add('active');
-      });
-    });
-  });
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
-
