@@ -11,7 +11,7 @@ const menuToggle = document.getElementById('menu-toggle');
 const navMenu = document.getElementById('nav-menu');
 const closeMenu = document.getElementById('close-menu');
 
-if (menuToggle && navMenu && closeMenu) { // Check if all nav elements exist
+if (menuToggle && navMenu && closeMenu) {
     menuToggle.addEventListener('click', () => {
         navMenu.classList.add('active');
     });
@@ -22,10 +22,10 @@ if (menuToggle && navMenu && closeMenu) { // Check if all nav elements exist
 }
 
 // Sticky Header & Back to Top Button Visibility
-const header = document.getElementById('header'); // Define header once
-const backToTop = document.getElementById('back-to-top'); // Define backToTop once
+const header = document.getElementById('header');
+const backToTop = document.getElementById('back-to-top');
 
-if (header && backToTop) { // Check if header and backToTop exist
+if (header && backToTop) {
     window.addEventListener('scroll', () => {
         if (window.scrollY > 100) {
             header.classList.add('sticky');
@@ -44,7 +44,6 @@ if (header && backToTop) { // Check if header and backToTop exist
         });
     });
 }
-
 
 // Scroll Down (Hero Section) Click Handler
 const scrollDownButton = document.getElementById('scroll-down');
@@ -81,43 +80,17 @@ function toggleAccordion(element) {
     // Open or close the clicked accordion item
     if (!isActive) {
         element.classList.add('active');
-        if (content) { // Check if content exists
-             content.classList.add('active');
-             content.style.maxHeight = content.scrollHeight + "px";
+        if (content) {
+            content.classList.add('active');
+            content.style.maxHeight = content.scrollHeight + "px";
         }
     } else {
         element.classList.remove('active');
-        if (content) { // Check if content exists
+        if (content) {
             content.classList.remove('active');
             content.style.maxHeight = null;
         }
     }
-}
-
-// Page Navigation (This function was not in the original assets/main.js)
-// Ensure this is intended and correctly implemented if you've moved to a single-page app style.
-function showPage(page) {
-    const pages = document.querySelectorAll('.page');
-    const navLinks = document.querySelectorAll('nav ul li a');
-
-    // Hide all pages
-    pages.forEach(p => p.style.display = 'none');
-
-    // Remove active class from all links
-    navLinks.forEach(link => link.classList.remove('active'));
-
-    // Show selected page and set active link
-    const pageElement = document.getElementById(`${page}-page`);
-    const linkElement = document.getElementById(`${page}-link`);
-
-    if (pageElement) pageElement.style.display = 'block';
-    if (linkElement) linkElement.classList.add('active');
-
-    // Close mobile menu if open
-    if (navMenu) navMenu.classList.remove('active');
-
-    // Scroll to top
-    window.scrollTo(0, 0);
 }
 
 // Toggle Signs Content
@@ -151,11 +124,10 @@ const calculateBtn = document.getElementById('calculateBtn');
 const linearFeetInput = document.getElementById('linearFeet');
 const storiesSelect = document.getElementById('stories');
 const debrisSelect = document.getElementById('debris');
-const estimatedPriceEl = document.getElementById('estimatedPrice'); // Define once
-const resultBoxEl = document.getElementById('resultBox'); // Define once
+const estimatedPriceEl = document.getElementById('estimatedPrice');
+const resultBoxEl = document.getElementById('resultBox');
 
 function calculatePrice() {
-    // Ensure elements exist before trying to use them
     if (!linearFeetInput || !storiesSelect || !debrisSelect || !estimatedPriceEl || !resultBoxEl) {
         console.error("Calculator elements not found.");
         return;
@@ -190,42 +162,19 @@ if (linearFeetInput) linearFeetInput.addEventListener('input', calculatePrice);
 if (storiesSelect) storiesSelect.addEventListener('change', calculatePrice);
 if (debrisSelect) debrisSelect.addEventListener('change', calculatePrice);
 
-
 // Quote Form Submission
 const quoteForm = document.getElementById('quoteForm');
 if (quoteForm) {
-    quoteForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const nameInput = document.getElementById('name');
-        const phoneInput = document.getElementById('phone');
-        const serviceSelect = document.getElementById('service');
-        const messageDiv = document.getElementById('formMessage'); // Define once
-
-        // Ensure form elements exist
-        if (!nameInput || !phoneInput || !serviceSelect || !messageDiv) {
-            console.error("Quote form elements not found.");
-            return;
+    // Check if returning from successful submission
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted') === 'true') {
+        const messageDiv = document.getElementById('formMessage');
+        if (messageDiv) {
+            messageDiv.style.display = 'block';
+            messageDiv.classList.add('success');
+            messageDiv.textContent = "Thank you! Your quote request has been sent. We'll contact you shortly.";
+            // Clean URL
+            window.history.replaceState({}, document.title, window.location.pathname);
         }
-
-        const name = nameInput.value;
-        const phone = phoneInput.value;
-        const service = serviceSelect.value;
-
-        const subject = "New Quote Request from " + name;
-        const body = "Name: " + encodeURIComponent(name) + "%0D%0APhone: " + encodeURIComponent(phone) + "%0D%0AService: " + encodeURIComponent(service);
-
-        window.location.href = "mailto:cleanflowofohio@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + body;
-
-        messageDiv.style.display = 'block';
-        messageDiv.classList.add('success');
-        messageDiv.textContent = "Thank you! Your quote request has been sent. We'll contact you shortly.";
-
-        quoteForm.reset();
-
-        setTimeout(function() {
-            messageDiv.style.display = 'none';
-            messageDiv.classList.remove('success');
-        }, 5000);
-    });
+    }
 }
