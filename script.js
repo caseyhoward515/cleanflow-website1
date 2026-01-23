@@ -1,10 +1,12 @@
-// Initialize AOS Animation
-AOS.init({
-    duration: 800,
-    easing: 'ease-in-out',
-    once: true,
-    mirror: false
-});
+// Initialize AOS Animation (Guarded to prevent crashes)
+if (typeof AOS !== 'undefined') {
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+    });
+}
 
 // Navigation Menu Toggle
 const menuToggle = document.getElementById('menu-toggle');
@@ -142,23 +144,46 @@ function calculatePrice() {
     const stories = storiesSelect.value;
     const debris = debrisSelect.value;
 
-    let ratePerFoot = 0;
+    // --- NEW PRICING LOGIC (2026 Market Rates) ---
+    let baseRate = 0;
+    
+    // Increased base rates to account for insurance/labor
     switch (debris) {
-        case 'light': ratePerFoot = 0.75; break;
-        case 'medium': ratePerFoot = 0.85; break;
-        case 'heavy': ratePerFoot = 0.95; break;
-        default: ratePerFoot = 0.85;
+        case 'light': baseRate = 1.15; break;
+        case 'medium': baseRate = 1.35; break;
+        case 'heavy': baseRate = 1.85; break;
+        default: baseRate = 1.35;
     }
 
-    let price = linearFeet * ratePerFoot;
-    if (price < 135) {
-        price = 135;
-    }
+    // 2-Story Surcharge: Now adds $0.40/ft instead of flat $50
     if (stories === '2') {
-        price += 50;
+        baseRate += 0.40; 
     }
 
-    estimatedPriceEl.textContent = '$' + price.toFixed(2);
+    let estimatedTotal = linearFeet * baseRate;
+
+    // Minimum Service Charge
+    if (estimatedTotal < 150) {
+        estimatedTotal = 150;
+    }
+
+    // Calculate Range (Low = Calc Price, High = Calc Price + 25%)
+    let highEnd = estimatedTotal * 1.25;
+
+    // Update the display text to show a range
+    estimatedPriceEl.textContent = '$' + Math.ceil(estimatedTotal) + ' - $' + Math.ceil(highEnd);
+    
+    // Add a disclaimer if not already there (Dynamically adding text)
+    let disclaimer = resultBoxEl.querySelector('.dynamic-disclaimer');
+    if (!disclaimer) {
+        disclaimer = document.createElement('p');
+        disclaimer.className = 'result-note dynamic-disclaimer';
+        disclaimer.style.marginTop = '5px';
+        disclaimer.style.fontStyle = 'italic';
+        disclaimer.innerHTML = 'Range allows for factors like steep roofs or gutter guards.';
+        resultBoxEl.appendChild(disclaimer);
+    }
+
     resultBoxEl.classList.add('active');
 }
 
@@ -177,7 +202,7 @@ if (quoteForm) {
         if (messageDiv) {
             messageDiv.style.display = 'block';
             messageDiv.classList.add('success');
-            messageDiv.textContent = "Thank you! Your quote request has been sent. We'll contact you shortly.";
+            messageDiv.textContent = "Thank you! Your quote request has been sent. I will reach out shortly.";
             // Clean URL
             window.history.replaceState({}, document.title, window.location.pathname);
         }
