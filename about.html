@@ -33,11 +33,9 @@
             border-bottom: 1px solid rgba(0,0,0,0.06);
         }
 
-        /* Prevent any unwanted pseudo-icons on this page only */
-        .warning-box::before {
-            display: none !important;
-            content: none !important;
-        }
+        /* About page: full-width text when image is removed */
+        #about-story .about-content { display: block; }
+        #about-story .about-text { max-width: 900px; margin: 0 auto; }
     </style>
 </head>
 
@@ -127,16 +125,6 @@
                     CleanFlow is a local business built on trust, consistency, and attention to detail.
                     When you hire us, you’re working directly with people who care about the outcome, not a call center or a franchise.
                 </p>
-            </div>
-
-            <div class="about-image">
-                <img
-                    src="images/casey-cleanflow-headshot.jpg"
-                    alt="Casey, owner of CleanFlow of Ohio, professional gutter cleaning and maintenance specialist in Dayton Ohio">
-                <div class="experience-badge">
-                    <span>20+</span>
-                    <span>Years</span>
-                </div>
             </div>
 
         </div>
