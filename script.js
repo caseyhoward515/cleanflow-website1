@@ -21,28 +21,33 @@ if (menuToggle && navMenu && closeMenu) {
     });
 }
 
-// Sticky Header & Back to Top Button Visibility
+// Sticky Header, Back to Top & Floating CTA Visibility
 const header = document.getElementById('header');
 const backToTop = document.getElementById('back-to-top');
+const floatingCta = document.getElementById('floating-cta');
 
-if (header && backToTop) {
+if (header) {
     window.addEventListener('scroll', () => {
         if (window.scrollY > 100) {
             header.classList.add('sticky');
-            backToTop.classList.add('active');
+            if (backToTop) backToTop.classList.add('active');
+            if (floatingCta) floatingCta.classList.add('active');
         } else {
             header.classList.remove('sticky');
-            backToTop.classList.remove('active');
+            if (backToTop) backToTop.classList.remove('active');
+            if (floatingCta) floatingCta.classList.remove('active');
         }
     });
 
     // Back to Top Click Handler
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTop) {
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-    });
+    }
 }
 
 // Scroll Down (Hero Section) Click Handler
