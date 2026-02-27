@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CleanFlow of Ohio | Professional Gutter Cleaning & Protection</title>
     <meta name="description" content="CleanFlow of Ohio provides professional gutter cleaning, maintenance, and protection services in Dayton and surrounding areas. Protect your home from water damage with our expert gutter services.">
-    <meta name="keywords" content="gutter cleaning, gutter protection, gutter maintenance, gutter repairs, gutter guards, Dayton gutter cleaning, Montgomery County gutter services, Greene County gutter services, professional gutter cleaning, seamless gutters">
+    <meta name="keywords" content="gutter cleaning, gutter protection, gutter maintenance, gutter repairs, gutter guards, Dayton gutter cleaning, Montgomery County gutter services, Greene County gutter services, professional gutter cleaning, seamless gutters, dryer vent cleaning">
     <link rel="canonical" href="https://www.cleanflowohio.com/" />
 
     <meta property="og:type" content="website">
@@ -45,24 +45,25 @@
         "addressRegion": "OH",
         "addressCountry": "US"
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 39.7589,
-        "longitude": -84.1916
-      },
       "areaServed": [
-        {"@type": "County", "name": "Montgomery County, Ohio"},
-        {"@type": "County", "name": "Greene County, Ohio"}
+        {"@type": "City", "name": "Dayton, Ohio"},
+        {"@type": "City", "name": "Centerville, Ohio"},
+        {"@type": "City", "name": "Washington Township, Ohio"},
+        {"@type": "City", "name": "Kettering, Ohio"},
+        {"@type": "City", "name": "Oakwood, Ohio"},
+        {"@type": "City", "name": "Beavercreek, Ohio"}
       ],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "00:00",
-          "closes": "23:59"
-        }
-      ],
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Cleaning"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Repairs"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Guard Installation"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dryer Vent Cleaning"}}
+        ]
+      }
     }
     </script>
 </head>
@@ -138,7 +139,8 @@
                         <select id="service" name="service">
                             <option value="Gutter Cleaning">Gutter Cleaning</option>
                             <option value="Gutter Guards">Gutter Guards</option>
-                            <option value="Both Services">Both Services</option>
+                            <option value="Dryer Vent Cleaning">Dryer Vent Cleaning</option>
+                            <option value="Multiple Services">Multiple Services</option>
                         </select>
                     </div>
                     <div class="form-submit">
@@ -510,8 +512,13 @@
         <section id="special-offer">
             <div class="container">
                 <div class="special-offer" data-aos="fade-up">
-                    <div class="offer-title">Scheduling Oakwood Neighbors This Week</div>
-                    <div class="offer-text">I prefer working neighborhood by neighborhood for efficiency – call now for priority scheduling and faster service!</div>
+                    <div class="offer-title"><i class="fas fa-fire-extinguisher"></i> NEW SERVICE: Dryer Vent Cleaning</div>
+                    <div class="offer-text">Reduce fire risk and improve dryer efficiency. Clogged dryer vents cause 2,900 house fires every year.</div>
+                    <div style="font-size: 2rem; font-weight: 700; margin: 15px 0;">$99 Limited Time Offer</div>
+                    <div style="font-size: 0.95rem; margin-bottom: 20px; opacity: 0.9;">Mention this offer when booking • Regular price starts at $135</div>
+                    <a href="services/dryer-vent-cleaning.html" class="btn btn-primary btn-lg" style="margin-right: 10px;">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
                     <a href="tel:9374780689" class="btn btn-primary btn-lg">
                         <i class="fas fa-phone-alt"></i> Call Now: 937-478-0689
                     </a>
@@ -582,7 +589,7 @@
                         <li><a href="services.html#gutter-cleaning-service">Gutter Cleaning</a></li>
                         <li><a href="services.html#gutter-repairs-service">Gutter Repairs</a></li>
                         <li><a href="services.html#gutter-protection-service">Gutter Guards</a></li>
-                        <li><a href="services.html#service-faq">Maintenance FAQs</a></li>
+                        <li><a href="services/dryer-vent-cleaning.html">Dryer Vent Cleaning</a></li>
                         <li><a href="about.html#service-area">Service Areas</a></li>
                         <li><a href="tel:9374780689">Get a Quote</a></li>
                     </ul>
@@ -590,7 +597,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving Montgomery & Greene Counties since 2003</p>
+                <p>&copy; 2003-2026 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving Montgomery & Greene Counties</p>
             </div>
         </div>
     </footer>
