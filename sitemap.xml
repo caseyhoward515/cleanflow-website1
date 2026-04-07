@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.cleanflowohio.com/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>https://www.cleanflowohio.com/services</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
@@ -19,9 +19,22 @@
     <priority>0.50</priority>
   </url>
   <url>
-    <loc>https://www.cleanflowohio.com/services/dryer-vent-cleaning</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://www.cleanflowohio.com/painting</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.cleanflowohio.com/installation</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.cleanflowohio.com/dryer-vents</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 </urlset>
+
