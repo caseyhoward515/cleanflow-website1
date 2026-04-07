@@ -87,15 +87,31 @@
 </div></div></header>
 
 <div id="home-page" class="page">
-    <section id="hero"><div class="container"><div class="hero-content" data-aos="fade-up">
-        <h1>Professional Gutter Cleaning & Protection</h1>
-        <p>Prevent costly water damage with expert gutter maintenance from the most trusted service in Dayton and surrounding areas.</p>
-        <div class="trust-ribbon">
+    <section id="hero"><div class="container"><div class="hero-content">
+        <h1 data-aos="fade-up" data-aos-duration="800">Professional Gutter Cleaning & Protection</h1>
+        <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">Prevent costly water damage with expert gutter maintenance from the most trusted service in Dayton and surrounding areas.</p>
+        <div class="trust-ribbon" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
             <a href="/painting" class="ribbon-item" aria-label="Exterior Painting Services"><img src="assets/mascots/mascot-painter.png" alt="" role="presentation"></a>
             <a href="/installation" class="ribbon-item" aria-label="Gutter Installation Services"><img src="assets/mascots/mascot-hammer.png" alt="" role="presentation"></a>
             <a href="/drainage" class="ribbon-item" aria-label="Drainage Solutions"><img src="assets/mascots/mascot-drainage.png" alt="" role="presentation"></a>
         </div>
-        <div class="hero-btns">
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+            <div class="hero-stat">
+                <span class="hero-stat-number" data-count="20">0</span><span class="hero-stat-plus">+</span>
+                <span class="hero-stat-label">Years Experience</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <span class="hero-stat-number" data-count="5">0</span><span class="hero-stat-star">&#9733;</span>
+                <span class="hero-stat-label">Google Rated</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <span class="hero-stat-number" data-count="1000">0</span><span class="hero-stat-plus">+</span>
+                <span class="hero-stat-label">Gutters Cleaned</span>
+            </div>
+        </div>
+        <div class="hero-btns" data-aos="fade-up" data-aos-delay="800" data-aos-duration="800">
             <a href="tel:9374780689" class="btn btn-accent btn-lg btn-pulse"><i class="fas fa-phone-alt"></i> Call Now: 937-478-0689</a>
             <a href="#calculator" class="btn btn-accent btn-lg"><i class="fas fa-calculator"></i> Free Cost Calculator</a>
         </div>
@@ -283,5 +299,38 @@
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
 <script src="script.js" defer></script>
+<script>
+// Animated counters - counts up when scrolled into view
+document.addEventListener('DOMContentLoaded', function() {
+    const counters = document.querySelectorAll('.hero-stat-number');
+    let counted = false;
+    function countUp() {
+        if (counted) return;
+        const heroStats = document.querySelector('.hero-stats');
+        if (!heroStats) return;
+        const rect = heroStats.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            counted = true;
+            counters.forEach(function(counter) {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                const timer = setInterval(function() {
+                    current += step;
+                    if (current >= target) {
+                        counter.textContent = target.toLocaleString();
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, 16);
+            });
+        }
+    }
+    window.addEventListener('scroll', countUp);
+    countUp();
+});
+</script>
 </body>
 </html>
