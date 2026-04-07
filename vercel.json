@@ -1,25 +1,36 @@
 {
   "rewrites": [
-    {"source": "/services", "destination": "/services.html"},
-    {"source": "/about", "destination": "/about.html"},
-    {"source": "/services/dryer-vent-cleaning", "destination": "/services/dryer-vent-cleaning.html"}
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/painting", "destination": "/services/exterior-painting.html" },
+    { "source": "/installation", "destination": "/services/gutter-installation.html" },
+    { "source": "/drainage", "destination": "/services/drainage-solutions.html" },
+    { "source": "/dryer-vents", "destination": "/services/dryer-vent-cleaning.html" },
+    { "source": "/services/dryer-vent-cleaning", "destination": "/services/dryer-vent-cleaning.html" },
+    { "source": "/gutter-cleaning", "destination": "/services/gutter-cleaning.html" },
+    { "source": "/gutter-guards", "destination": "/services/gutter-guards.html" }
   ],
   "redirects": [
     {
+      "source": "/services.html",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
-      "has": [{"type": "host", "value": "cleanflowohio.com"}],
+      "has": [{ "type": "host", "value": "cleanflowohio.com" }],
       "destination": "https://www.cleanflowohio.com/:path*",
       "permanent": true
     }
   ],
   "headers": [
     {
-      "source": "/(.*)\\.(jpg|jpeg|png|gif|webp|svg|ico)",
-      "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]
+      "source": "/(.*)\\.(?:jpg|jpeg|png|gif|webp|svg|ico)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
       "source": "/(.*)",
-      "headers": [{"key": "Cache-Control", "value": "public, max-age=0, must-revalidate"}]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
     }
   ]
 }
