@@ -208,3 +208,26 @@ if (quoteForm) {
         }
     }
 }
+// Radial Menu Logic
+const servicesLinks = document.querySelectorAll('#services-link');
+const radialOverlay = document.getElementById('radial-menu-overlay');
+const radialClose = document.querySelector('.radial-close');
+
+if (radialOverlay && radialClose) {
+  servicesLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault(); 
+      radialOverlay.classList.add('active');
+    });
+  });
+
+  radialClose.addEventListener('click', () => {
+    radialOverlay.classList.remove('active');
+  });
+
+  radialOverlay.addEventListener('click', (e) => {
+    if (e.target === radialOverlay) {
+      radialOverlay.classList.remove('active');
+    }
+  });
+}
