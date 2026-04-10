@@ -209,23 +209,32 @@ if (quoteForm) {
     }
 }
 
-// Radial Menu Logic
-const servicesLinks = document.querySelectorAll('#services-link');
+// --------------------------------------------------------
+// RADIAL MENU LOGIC (Smarter Interception)
+// --------------------------------------------------------
+const headerFooterLinks = document.querySelectorAll('header a, footer a');
 const radialOverlay = document.getElementById('radial-menu-overlay');
 const radialClose = document.querySelector('.radial-close');
 
 if (radialOverlay && radialClose) {
-  servicesLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault(); 
-      radialOverlay.classList.add('active');
-    });
+  headerFooterLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    
+    // We ONLY want to intercept the main Services page links.
+    // We ignore links inside the radial menu itself, and we ignore footer links that have #anchor tags (like services.html#gutter-cleaning)
+    if (href === 'services.html' || href === '../services.html' || href === '/services' || href === '/services.html') {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            radialOverlay.classList.add('active');
+        });
+    }
   });
 
   radialClose.addEventListener('click', () => {
     radialOverlay.classList.remove('active');
   });
 
+  // Close if clicking anywhere outside the buttons
   radialOverlay.addEventListener('click', (e) => {
     if (e.target === radialOverlay) {
       radialOverlay.classList.remove('active');
