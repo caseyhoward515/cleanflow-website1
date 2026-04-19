@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CleanFlow of Ohio | Professional Gutter Cleaning & Protection</title>
-    <meta name="description" content="CleanFlow of Ohio provides professional gutter cleaning, maintenance, and protection services in Dayton and surrounding areas. Protect your home from water damage with our expert gutter services.">
-    <meta name="keywords" content="gutter cleaning, gutter protection, gutter maintenance, gutter repairs, gutter guards, Dayton gutter cleaning, Montgomery County gutter services, Greene County gutter services, professional gutter cleaning, seamless gutters, dryer vent cleaning">
+    <meta name="description" content="Professional gutter cleaning in Dayton, Centerville, Kettering, and the Miami Valley. Owner-operated, 20+ years experience, 44 five-star reviews, BBB A+. Call 937-478-0689.">
+    <meta name="keywords" content="gutter cleaning, gutter protection, gutter maintenance, gutter repairs, gutter guards, Dayton gutter cleaning, Centerville gutter cleaning, Kettering gutter cleaning, Montgomery County gutter services, Greene County gutter services, professional gutter cleaning, seamless gutters, dryer vent cleaning">
     <link rel="canonical" href="https://www.cleanflowohio.com/" />
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.cleanflowohio.com/">
     <meta property="og:title" content="CleanFlow of Ohio | Professional Gutter Cleaning">
-    <meta property="og:description" content="Professional gutter cleaning, maintenance, and protection in Dayton. 20+ years experience. Call 937-478-0689.">
+    <meta property="og:description" content="Professional gutter cleaning in Dayton. Owner-operated, 20+ years experience, 44 five-star reviews. Call 937-478-0689.">
     <meta property="og:image" content="https://www.cleanflowohio.com/assets/og-image.jpg">
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CleanFlow of Ohio | Professional Gutter Cleaning">
-    <meta name="twitter:description" content="Professional gutter cleaning in Dayton. 20+ years experience.">
+    <meta name="twitter:description" content="Professional gutter cleaning in Dayton. Owner-operated, 20+ years experience.">
     <meta name="twitter:image" content="https://www.cleanflowohio.com/assets/og-image.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,13 +29,78 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
+    <!-- Scoped styles for review ticker (added with reviews update, keeps style.css untouched) -->
+    <style>
+        .review-ticker {
+            background: linear-gradient(90deg, #fff 0%, #f8f9fa 50%, #fff 100%);
+            border-top: 1px solid #e9ecef;
+            border-bottom: 1px solid #e9ecef;
+            padding: 14px 0;
+            margin: 0 auto 40px;
+            overflow: hidden;
+            position: relative;
+            max-width: 100%;
+            mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+        }
+        .review-ticker-track {
+            display: flex;
+            gap: 40px;
+            width: max-content;
+            animation: ticker-scroll 90s linear infinite;
+            will-change: transform;
+        }
+        .review-ticker:hover .review-ticker-track {
+            animation-play-state: paused;
+        }
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+            color: var(--dark);
+            flex-shrink: 0;
+        }
+        .ticker-item i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        .ticker-item strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        @keyframes ticker-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .review-ticker-track {
+                animation: none;
+            }
+            .review-ticker {
+                overflow-x: auto;
+            }
+        }
+        @media screen and (max-width: 767.98px) {
+            .ticker-item {
+                font-size: 0.85rem;
+            }
+            .review-ticker-track {
+                gap: 28px;
+                animation-duration: 60s;
+            }
+        }
+    </style>
+
+    <!-- PRIMARY LocalBusiness schema with AggregateRating -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "@id": "https://www.cleanflowohio.com/#business",
       "name": "CleanFlow of Ohio",
-      "description": "Professional gutter cleaning, maintenance, and protection services in Dayton and surrounding areas.",
+      "description": "Professional gutter cleaning, maintenance, and protection services in Dayton and the Miami Valley.",
       "url": "https://www.cleanflowohio.com",
       "telephone": "+1-937-478-0689",
       "email": "cleanflowofohio@gmail.com",
@@ -51,9 +116,20 @@
         {"@type": "City", "name": "Washington Township, Ohio"},
         {"@type": "City", "name": "Kettering, Ohio"},
         {"@type": "City", "name": "Oakwood, Ohio"},
-        {"@type": "City", "name": "Beavercreek, Ohio"}
+        {"@type": "City", "name": "Beavercreek, Ohio"},
+        {"@type": "City", "name": "Bellbrook, Ohio"},
+        {"@type": "City", "name": "Miamisburg, Ohio"},
+        {"@type": "City", "name": "Fairborn, Ohio"},
+        {"@type": "City", "name": "Xenia, Ohio"}
       ],
       "priceRange": "$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "44",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Services",
@@ -61,9 +137,68 @@
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Cleaning"}},
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Repairs"}},
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Guard Installation"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seamless Gutter Installation"}},
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dryer Vent Cleaning"}}
         ]
       }
+    }
+    </script>
+
+    <!-- FAQPage schema (matches on-page FAQ block below) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How often should I have my gutters cleaned?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most homes in the Dayton area need gutter cleaning at least twice a year — once in late spring after the seed and bud drop, and once in late fall after the leaves have fallen. Homes with pine trees, heavy tree cover, or older gutters may need more frequent service."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does professional gutter cleaning cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most single-story homes in the Miami Valley run in the range of $185 to $300 depending on linear footage and debris level. Two-story homes and homes with heavy debris are priced higher. Use our online calculator for an estimate or call 937-478-0689 for an exact quote."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you clean gutters with gutter guards already installed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Many gutter guard systems still need periodic cleaning, especially under the guards. We carefully lift, clean beneath, and reseat the guards without damaging them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's included in a standard gutter cleaning?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every cleaning includes hand removal of all debris from gutters and roof valleys, full downspout flushing and flow testing, minor repairs like resealing joints and realigning sections, before and after photos, and complete cleanup of debris from the property."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are you insured?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, CleanFlow of Ohio is fully insured. Proof of insurance is available on request before any work begins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What areas do you serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We serve Dayton, Centerville, Kettering, Washington Township, Oakwood, Beavercreek, Bellbrook, Miamisburg, Fairborn, Xenia, and the surrounding Miami Valley area across Montgomery and Greene Counties."
+          }
+        }
+      ]
     }
     </script>
 </head>
@@ -129,7 +264,7 @@
             <div class="container">
                 <div class="hero-content" data-aos="fade-up">
                     <h1>Professional Gutter Cleaning & Protection</h1>
-                    <p>Prevent costly water damage with expert gutter maintenance from the most trusted service in Dayton and surrounding areas.</p>
+                    <p>Protect your Dayton-area home from costly water damage with expert gutter maintenance from the Miami Valley's most trusted owner-operated service.</p>
                     <div class="hero-btns">
                         <a href="tel:9374780689" class="btn btn-accent btn-lg btn-pulse">
                             <i class="fas fa-phone-alt"></i> Call Now: 937-478-0689
@@ -137,6 +272,34 @@
                         <a href="#calculator" class="btn btn-accent btn-lg">
                             <i class="fas fa-calculator"></i> Free Cost Calculator
                         </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Trust strip directly under hero -->
+        <section class="trust-strip" aria-label="Trust indicators">
+            <div class="container">
+                <div class="trust-strip-grid">
+                    <div class="trust-item">
+                        <i class="fas fa-star"></i>
+                        <span><strong>5.0</strong> · 44 Google Reviews</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-award"></i>
+                        <span>BBB <strong>A+</strong></span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Fully Insured</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-clock"></i>
+                        <span><strong>20+</strong> Years Experience</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Owner-Operated</span>
                     </div>
                 </div>
             </div>
@@ -171,6 +334,177 @@
                         </p>
                     </noscript>
                 </form>
+            </div>
+        </section>
+
+        <!-- NEW: Reviews section -->
+        <section id="reviews" class="reviews-section">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <h2 style="margin-left:auto;margin-right:auto;">What Miami Valley Homeowners Say</h2>
+                    <p>Real reviews from real neighbors · 5.0 average across 44 Google reviews</p>
+                </div>
+
+                <!-- Scrolling trust ticker — rotating short quotes from many reviewers -->
+                <div class="review-ticker" data-aos="fade-up" aria-label="Rotating customer reviews">
+                    <div class="review-ticker-track">
+                        <!-- Set 1 -->
+                        <div class="ticker-item"><i class="fas fa-star"></i>"Such friendly, hard working & helpful folks!!!" <strong>— Libby B.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"They did a great job and were a pleasure to work with!" <strong>— Michael D.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"Very friendly and did a great job at a great price!" <strong>— Mark S.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"Very professional, extremely excellent work." <strong>— Tammy A.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"They go above and beyond. Polite, thorough." <strong>— Saundra L.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"Friendly, efficient, fair price. Photos after cleanup." <strong>— Mary L.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"Fabulous! Sent photos of the very clean gutters." <strong>— Michael M.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"Excellent communication, showed up on time, outstanding work!" <strong>— Mitchel G.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"Reasonable cost, friendly and professional." <strong>— Josh B.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"Answered first call, scheduled same day." <strong>— Rick S.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"So kind, and they know their stuff! 10/10." <strong>— Paige P.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"Figured out what no one else could. Very grateful." <strong>— Dr. P</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"Wonderful service!!!" <strong>— Theresa N.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"Above and beyond my expectations." <strong>— Linda B.</strong></div>
+                        <div class="ticker-item"><i class="fas fa-star"></i>"Prompt, efficient and affordable. Super friendly." <strong>— Samantha M.</strong></div>
+                        <!-- Set 2 (duplicated for seamless loop) -->
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"Such friendly, hard working & helpful folks!!!" <strong>— Libby B.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"They did a great job and were a pleasure to work with!" <strong>— Michael D.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"Very friendly and did a great job at a great price!" <strong>— Mark S.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"Very professional, extremely excellent work." <strong>— Tammy A.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"They go above and beyond. Polite, thorough." <strong>— Saundra L.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"Friendly, efficient, fair price. Photos after cleanup." <strong>— Mary L.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"Fabulous! Sent photos of the very clean gutters." <strong>— Michael M.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"Excellent communication, showed up on time, outstanding work!" <strong>— Mitchel G.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"Reasonable cost, friendly and professional." <strong>— Josh B.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"Answered first call, scheduled same day." <strong>— Rick S.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"So kind, and they know their stuff! 10/10." <strong>— Paige P.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"Figured out what no one else could. Very grateful." <strong>— Dr. P</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"Wonderful service!!!" <strong>— Theresa N.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"Above and beyond my expectations." <strong>— Linda B.</strong></div>
+                        <div class="ticker-item" aria-hidden="true"><i class="fas fa-star"></i>"Prompt, efficient and affordable. Super friendly." <strong>— Samantha M.</strong></div>
+                    </div>
+                </div>
+
+                <!-- Featured reviews — the detailed story-tellers -->
+                <div class="reviews-grid" data-aos="fade-up">
+                    <!-- REVIEW CARD 1 — Hank Brittain (drainage story, shows range) -->
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Casey and his wife installed drain pipes to move water from the gutters away from the house. Substantial trenching needed to be done — they encountered quite a bit of rocks and construction debris, but they did not change the estimated price. Casey kept us informed, worked some weekends to catch up, and when he encountered something unexpected he set up a meeting to discuss solutions. Hard work ethic and professionalism — highly recommend CleanFlow."</p>
+                        <div class="review-meta">
+                            <div class="review-author">— Hank B.</div>
+                            <div class="review-location">January 2026</div>
+                        </div>
+                        <div class="review-source">
+                            <i class="fab fa-google"></i> Google Review
+                        </div>
+                    </div>
+
+                    <!-- REVIEW CARD 2 — Erin Elizabeth (weekend, small business angle) -->
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"I couldn't be happier with my experience with CleanFlow of Ohio. Casey squeezed in a last minute appointment for me on a weekend to clean and pressure wash my gutters. The pricing was very transparent, great communication, punctual, efficient, and a great job done. If you are looking to support a small local business run by quality folks delivering great work, I'd definitely recommend CleanFlow of Ohio."</p>
+                        <div class="review-meta">
+                            <div class="review-author">— Erin E.</div>
+                            <div class="review-location">March 2026</div>
+                        </div>
+                        <div class="review-source">
+                            <i class="fab fa-google"></i> Google Review
+                        </div>
+                    </div>
+
+                    <!-- REVIEW CARD 3 — Jen Butler (on time, knowledgeable) -->
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Casey arrived on time to our meeting, was knowledgeable about our gutter system, and left our gutters in great condition. I would highly recommend CleanFlow of Ohio for your gutter and roofing needs."</p>
+                        <div class="review-meta">
+                            <div class="review-author">— Jen B.</div>
+                            <div class="review-location">March 2026</div>
+                        </div>
+                        <div class="review-source">
+                            <i class="fab fa-google"></i> Google Review
+                        </div>
+                    </div>
+
+                    <!-- REVIEW CARD 4 — GetBioAlerts (strongest hook) -->
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"By far the best company we've ever worked with! We called them for one problem, and they managed to solve 3! 5 stars across the board. We love our new gutters!"</p>
+                        <div class="review-meta">
+                            <div class="review-author">— GetBioAlerts</div>
+                            <div class="review-location">March 2026</div>
+                        </div>
+                        <div class="review-source">
+                            <i class="fab fa-google"></i> Google Review
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3" data-aos="fade-up">
+                    <a href="https://www.google.com/search?q=CleanFlow+of+Ohio" target="_blank" rel="noopener" class="btn btn-primary">
+                        <i class="fab fa-google"></i> Read All 44 Reviews on Google
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Before/After proof section -->
+        <section id="proof" class="proof-section">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <h2 style="margin-left:auto;margin-right:auto;">Real Work, Real Results</h2>
+                    <p>Actual before-and-after photos from jobs in the Dayton area</p>
+                </div>
+
+                <div class="proof-grid" data-aos="fade-up">
+                    <!-- BEFORE/AFTER PAIR 1 — Replace placeholder divs with <img> tags pointing to your photos -->
+                    <div class="proof-pair">
+                        <div class="proof-image proof-before">
+                            <div class="proof-placeholder">
+                                <i class="fas fa-image"></i>
+                                <span>BEFORE</span>
+                                <small>assets/before-1.jpg</small>
+                            </div>
+                            <span class="proof-label">BEFORE</span>
+                        </div>
+                        <div class="proof-image proof-after">
+                            <div class="proof-placeholder">
+                                <i class="fas fa-image"></i>
+                                <span>AFTER</span>
+                                <small>assets/after-1.jpg</small>
+                            </div>
+                            <span class="proof-label proof-label-after">AFTER</span>
+                        </div>
+                    </div>
+
+                    <!-- BEFORE/AFTER PAIR 2 -->
+                    <div class="proof-pair">
+                        <div class="proof-image proof-before">
+                            <div class="proof-placeholder">
+                                <i class="fas fa-image"></i>
+                                <span>BEFORE</span>
+                                <small>assets/before-2.jpg</small>
+                            </div>
+                            <span class="proof-label">BEFORE</span>
+                        </div>
+                        <div class="proof-image proof-after">
+                            <div class="proof-placeholder">
+                                <i class="fas fa-image"></i>
+                                <span>AFTER</span>
+                                <small>assets/after-2.jpg</small>
+                            </div>
+                            <span class="proof-label proof-label-after">AFTER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-center mt-3" style="color: var(--gray); font-style: italic;">Every job documented with photos so you can see exactly what was done — even if you aren't home.</p>
             </div>
         </section>
 
@@ -212,26 +546,34 @@
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
                     <h2 style="margin-left:auto;margin-right:auto;">Our Services</h2>
-                    <p>Professional gutter cleaning and protection services to keep your home safe and dry.</p>
+                    <p>Professional gutter cleaning and related exterior services to keep your home safe and dry.</p>
                 </div>
 
                 <div class="grid grid-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="https://cdn.prod.website-files.com/614a070736f4a72073561d14/614a732f2f7c6cfc52315c10_gutter-cleaning-before-after.jpg" alt="Professional Gutter Cleaning Service">
+                            <div class="proof-placeholder" style="height: 200px;">
+                                <i class="fas fa-broom"></i>
+                                <span>Gutter Cleaning</span>
+                                <small>assets/service-cleaning.jpg</small>
+                            </div>
                         </div>
                         <div class="service-content">
                             <h3>Gutter Cleaning</h3>
                             <p>Complete removal of debris from gutters and downspouts to ensure proper water flow, preventing damage to your home.</p>
-                            <a href="services.html#gutter-cleaning-service" class="service-btn">
-                                Learn More <i class="fas fa-arrow-right"></i>
+                            <a href="#calculator" class="service-btn">
+                                Get Your Estimate <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
 
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2023/08/01151936/Gutter_iStock-1310417362-e1747423219898.jpeg" alt="Gutter Repairs and Maintenance">
+                            <div class="proof-placeholder" style="height: 200px;">
+                                <i class="fas fa-tools"></i>
+                                <span>Gutter Repairs</span>
+                                <small>assets/service-repairs.jpg</small>
+                            </div>
                         </div>
                         <div class="service-content">
                             <h3>Gutter Repairs</h3>
@@ -244,7 +586,11 @@
 
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2022/06/29223354/gutter_guard_image_for_blog_2400px-scaled.jpeg" alt="Gutter Guard Protection Systems">
+                            <div class="proof-placeholder" style="height: 200px;">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Gutter Protection</span>
+                                <small>assets/service-guards.jpg</small>
+                            </div>
                         </div>
                         <div class="service-content">
                             <h3>Gutter Protection</h3>
@@ -254,6 +600,10 @@
                             </a>
                         </div>
                     </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <p style="color: var(--gray); margin-bottom: 15px;">Also offering: <a href="services/gutter-installation.html">Seamless Gutter Installation</a> · <a href="services/dryer-vent-cleaning.html">Dryer Vent Cleaning</a></p>
                 </div>
             </div>
         </section>
@@ -527,6 +877,101 @@
             </div>
         </section>
 
+        <!-- NEW: FAQ section on homepage -->
+        <section id="faq" class="section-pad" style="background: var(--light);">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <h2 style="margin-left:auto;margin-right:auto;">Gutter Cleaning FAQ</h2>
+                    <p>The most common questions Dayton-area homeowners ask</p>
+                </div>
+
+                <div class="accordion" data-aos="fade-up">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>How often should I have my gutters cleaned?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Most homes in the Dayton area need gutter cleaning at least twice a year — once in late spring after the seed and bud drop, and once in late fall after the leaves have fallen. Homes with pine trees, heavy tree cover, or older gutters may need more frequent service. I can assess your specific property and recommend a maintenance schedule.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>How much does professional gutter cleaning cost?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Most single-story homes in the Miami Valley run in the range of $185 to $300 depending on linear footage and debris level. Two-story homes and homes with heavy debris are priced higher. Use the calculator above for an instant estimate or call 937-478-0689 for an exact quote.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Do you clean gutters with gutter guards already installed?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Yes. Many gutter guard systems still need periodic cleaning — especially under the guards where fine debris settles. I carefully lift, clean beneath, and reseat the guards without damaging them.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>What's included in a standard gutter cleaning?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Every cleaning includes hand removal of all debris from gutters and roof valleys, full downspout flushing and flow testing, minor repairs like resealing joints and realigning sections, before and after photos, and complete cleanup of debris from the property. Nothing is left behind.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Are you insured?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Yes, CleanFlow of Ohio is fully insured. Proof of insurance is available on request before any work begins — it protects your property and gives you peace of mind.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>What areas do you serve?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>We serve Dayton, Centerville, Kettering, Washington Township, Oakwood, Beavercreek, Bellbrook, Miamisburg, Fairborn, Xenia, and the surrounding Miami Valley area across Montgomery and Greene Counties. If you're not sure whether you're in our service area, just give us a call.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Named service area list -->
+        <section id="service-area" class="section-pad" style="background: #fff;">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <h2 style="margin-left:auto;margin-right:auto;">Proudly Serving the Miami Valley</h2>
+                    <p>Owner-operated gutter service across Montgomery & Greene Counties</p>
+                </div>
+
+                <div class="area-chips" data-aos="fade-up">
+                    <span class="area-chip"><i class="fas fa-map-marker-alt"></i> Dayton</span>
+                    <span class="area-chip"><i class="fas fa-map-marker-alt"></i> Centerville</span>
+                    <span class="area-chip"><i class="fas fa-map-marker-alt"></i> Kettering</span>
+                    <span class="area-chip"><i class="fas fa-map-marker-alt"></i> Washington Township</span>
+                    <span class="area-chip"><i class="fas fa-map-marker-alt"></i> Oakwood</span>
+                    <span class="area-chip"><i class="fas fa-map-marker-alt"></i> Beavercreek</span>
+                    <span class="area-chip"><i class="fas fa-map-marker-alt"></i> Bellbrook</span>
+                    <span class="area-chip"><i class="fas fa-map-marker-alt"></i> Miamisburg</span>
+                    <span class="area-chip"><i class="fas fa-map-marker-alt"></i> Fairborn</span>
+                    <span class="area-chip"><i class="fas fa-map-marker-alt"></i> Xenia</span>
+                </div>
+            </div>
+        </section>
+
         <section id="special-offer">
             <div class="container">
                 <div class="special-offer" data-aos="fade-up">
@@ -548,7 +993,7 @@
             <div class="container">
                 <div data-aos="fade-up">
                     <h2>Ready for Clog-Free Gutters?</h2>
-                    <p>Call now for a free estimate and to schedule your professional gutter service.</p>
+                    <p>Call now for a free estimate and to schedule your professional gutter service in the Dayton area.</p>
                     <a href="tel:9374780689" class="btn btn-accent btn-lg btn-pulse">
                         <i class="fas fa-phone-alt"></i> 937-478-0689
                     </a>
@@ -593,23 +1038,23 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li><a href="services.html">All Services</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="index.html#calculator">Cost Calculator</a></li>
-                        <li><a href="index.html#signs">Signs You Need Service</a></li>
-                        <li><a href="index.html#calendar">Maintenance Guide</a></li>
+                        <li><a href="index.html#reviews">Reviews</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
                     <h4>Our Services</h4>
                     <ul>
-                        <li><a href="services/gutter-installation.html">Gutter Installation</a></li>
-                        <li><a href="services.html#gutter-cleaning-service">Gutter Cleaning</a></li>
+                        <li><a href="index.html#services-overview">Gutter Cleaning</a></li>
                         <li><a href="services.html#gutter-repairs-service">Gutter Repairs</a></li>
                         <li><a href="services.html#gutter-protection-service">Gutter Guards</a></li>
+                        <li><a href="services/gutter-installation.html">Gutter Installation</a></li>
                         <li><a href="services/dryer-vent-cleaning.html">Dryer Vent Cleaning</a></li>
-                        <li><a href="about.html#service-area">Service Areas</a></li>
+                        <li><a href="index.html#service-area">Service Areas</a></li>
                         <li><a href="tel:9374780689">Get a Quote</a></li>
                     </ul>
                 </div>
