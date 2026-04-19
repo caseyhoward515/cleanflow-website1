@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | CleanFlow of Ohio - Gutter Cleaning, Repairs & Protection</title>
-    <meta name="description" content="Professional gutter cleaning, repair, protection, and dryer vent cleaning services in the greater Miami Valley area. Expert maintenance serving your local community.">
-    <meta name="keywords" content="gutter cleaning services, gutter repair, gutter guards, gutter protection, dryer vent cleaning, Miami Valley gutter services, professional gutter maintenance">
+    <title>Full Service Menu | CleanFlow of Ohio - Repairs, Gutter Guards & Dryer Vents</title>
+    <meta name="description" content="Full service menu from CleanFlow of Ohio: gutter repairs, gutter guard installation, dryer vent cleaning, and more. Serving the Miami Valley.">
+    <meta name="keywords" content="gutter repair Dayton, gutter guards Miami Valley, dryer vent cleaning, home exterior services, gutter repair Centerville">
     <link rel="canonical" href="https://www.cleanflowohio.com/services" />
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.cleanflowohio.com/services">
-    <meta property="og:title" content="Our Services | CleanFlow of Ohio">
-    <meta property="og:description" content="Professional gutter cleaning, repair, and protection services. Expert maintenance for the greater Miami Valley area.">
+    <meta property="og:title" content="Full Service Menu | CleanFlow of Ohio">
+    <meta property="og:description" content="Gutter repairs, gutter guards, dryer vent cleaning, and more. Serving the Miami Valley.">
     <meta property="og:image" content="https://www.cleanflowohio.com/assets/og-image.jpg">
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Our Services | CleanFlow of Ohio">
-    <meta name="twitter:description" content="Professional gutter cleaning, repair, and protection services in the Miami Valley.">
+    <meta name="twitter:title" content="Full Service Menu | CleanFlow of Ohio">
+    <meta name="twitter:description" content="Gutter repairs, gutter guards, dryer vents, and more.">
     <meta name="twitter:image" content="https://www.cleanflowohio.com/assets/og-image.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +29,7 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
+    <!-- Reference to primary LocalBusiness via @id, minimal stub here -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -37,40 +38,43 @@
       "name": "CleanFlow of Ohio",
       "url": "https://www.cleanflowohio.com",
       "telephone": "+1-937-478-0689",
-      "email": "cleanflowofohio@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Dayton",
         "addressRegion": "OH",
         "addressCountry": "US"
-      },
-      "priceRange": "$$",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Services",
-        "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Cleaning"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Repairs"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Guard Installation"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dryer Vent Cleaning"}}
-        ]
       }
     }
     </script>
 
+    <!-- BreadcrumbList schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cleanflowohio.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://www.cleanflowohio.com/services"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Narrow FAQ schema scoped to repairs/guards (NOT gutter cleaning — that lives on homepage) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How often should I have my gutters cleaned?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most homes should have gutters cleaned at least twice a year - once in the spring and once in the fall after the leaves have fallen. If you have pine trees or other debris-dropping trees near your home, you may need more frequent cleanings."
-          }
-        },
         {
           "@type": "Question",
           "name": "What are the signs that I need gutter repairs?",
@@ -85,22 +89,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes, quality gutter guards work effectively when properly installed. While no system completely eliminates maintenance, gutter guards can significantly reduce cleaning frequency to several years between cleanings."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What areas do you serve?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "CleanFlow of Ohio proudly serves the greater Miami Valley area."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does a typical gutter cleaning take?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "For most average-sized homes with moderate debris, a thorough cleaning takes about 1-2 hours. Homes with multiple stories or heavily clogged gutters may take longer."
           }
         }
       ]
@@ -168,38 +156,34 @@
         <section id="services-hero">
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
-                    <h1>Our Services</h1>
-                    <p>Comprehensive gutter cleaning and home protection services to keep your home safe from water damage and fire hazards.</p>
+                    <h1>Full Service Menu</h1>
+                    <p>Professional home exterior services from an owner-operated team. Gutter repairs, gutter guards, dryer vent cleaning, and more.</p>
                 </div>
             </div>
         </section>
 
+        <!-- SOFTENED: Gutter cleaning block compressed, points to homepage for detail -->
         <section id="gutter-cleaning-service" class="service-detail-section">
             <div class="container">
                 <div class="service-detail" data-aos="fade-up">
                     <div class="service-detail-image">
-                        <img src="https://cdn.prod.website-files.com/614a070736f4a72073561d14/614a732f2f7c6cfc52315c10_gutter-cleaning-before-after.jpg" alt="Gutter Cleaning Before and After">
+                        <div class="proof-placeholder" style="height: 300px;">
+                            <i class="fas fa-broom"></i>
+                            <span>Gutter Cleaning</span>
+                            <small>assets/service-cleaning.jpg</small>
+                        </div>
                     </div>
                     <div class="service-detail-content">
                         <h2>Gutter Cleaning</h2>
-                        <p class="service-desc">Complete removal of leaves, debris, and blockages from your gutters and downspouts to ensure proper water flow away from your home.</p>
-
-                        <h3>What's Included:</h3>
-                        <ul class="checkmark-list">
-                            <li>Hand removal of all debris from gutters</li>
-                            <li>Flushing and testing of all downspouts</li>
-                            <li>Minor repairs and resealing of joints</li>
-                            <li>Inspection for any issues or damage</li>
-                            <li>Before and after photos</li>
-                            <li>Complete cleanup of all debris</li>
-                        </ul>
+                        <p class="service-desc">Complete debris removal, downspout flushing, minor repairs, before-and-after photos, and full cleanup. Starting at $185 for standard homes.</p>
 
                         <div class="pricing-note">
-                            <i class="fas fa-tag"></i>
-                            Starting at <strong>$185</strong> for standard homes
+                            <i class="fas fa-info-circle"></i>
+                            For detailed pricing, our cost calculator, seasonal maintenance guide, and frequently asked questions, visit our <strong>gutter cleaning homepage</strong>.
                         </div>
 
-                        <a href="index.html#calculator" class="btn btn-primary mt-3">Get Your Estimate</a>
+                        <a href="index.html" class="btn btn-primary mt-3">See Full Gutter Cleaning Details →</a>
+                        <a href="index.html#calculator" class="btn btn-accent mt-3">Get an Estimate</a>
                     </div>
                 </div>
             </div>
@@ -209,7 +193,11 @@
             <div class="container">
                 <div class="service-detail reverse" data-aos="fade-up">
                     <div class="service-detail-image">
-                        <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2023/08/01151936/Gutter_iStock-1310417362-e1747423219898.jpeg" alt="Gutter Repair Service">
+                        <div class="proof-placeholder" style="height: 300px;">
+                            <i class="fas fa-tools"></i>
+                            <span>Gutter Repairs</span>
+                            <small>assets/service-repairs.jpg</small>
+                        </div>
                     </div>
                     <div class="service-detail-content">
                         <h2>Gutter Repairs</h2>
@@ -240,7 +228,11 @@
             <div class="container">
                 <div class="service-detail" data-aos="fade-up">
                     <div class="service-detail-image">
-                        <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2022/06/29223354/gutter_guard_image_for_blog_2400px-scaled.jpeg" alt="Gutter Guard Protection">
+                        <div class="proof-placeholder" style="height: 300px;">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Gutter Guards</span>
+                            <small>assets/service-guards.jpg</small>
+                        </div>
                     </div>
                     <div class="service-detail-content">
                         <h2>Gutter Protection</h2>
@@ -276,7 +268,11 @@
 
                 <div class="service-detail" data-aos="fade-up" style="margin-top: 40px;">
                     <div class="service-detail-image">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Dryer Vent Cleaning Service">
+                        <div class="proof-placeholder" style="height: 300px;">
+                            <i class="fas fa-fire-extinguisher"></i>
+                            <span>Dryer Vent Cleaning</span>
+                            <small>assets/service-dryer-vent.jpg</small>
+                        </div>
                     </div>
                     <div class="service-detail-content">
                         <h2><i class="fas fa-fire-extinguisher" style="color: var(--accent); margin-right: 10px;"></i>Dryer Vent Cleaning</h2>
@@ -301,34 +297,19 @@
                         <a href="tel:9374780689" class="btn btn-primary mt-3 btn-pulse">Call Now</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="service-gallery" class="section-pad">
-            <div class="container">
-                <div class="section-header text-center" data-aos="fade-up">
-                    <h2 style="margin-left:auto;margin-right:auto;">Our Work</h2>
-                    <p>See the difference professional gutter cleaning makes</p>
-                </div>
-
-                <div class="gallery-grid" data-aos="fade-up">
-                    <div class="gallery-item">
-                        <img src="https://images.squarespace-cdn.com/content/v1/6563ac7666f1f6169a77f1f5/7af4c2ba-5db0-4ed6-b2ea-3f4f66026e2a/Cleaning+before+and+after.JPG" alt="Gutter Cleaning Before and After">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
+                <div class="service-detail reverse" data-aos="fade-up" style="margin-top: 40px;">
+                    <div class="service-detail-image">
+                        <div class="proof-placeholder" style="height: 300px;">
+                            <i class="fas fa-home"></i>
+                            <span>Seamless Gutter Installation</span>
+                            <small>assets/service-installation.jpg</small>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://nedstevens.com/wp-content/uploads/2025/01/gutter-cleaning-staff-roof.jpg" alt="Professional Gutter Service">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://static.wixstatic.com/media/6bc844_e4b19ee527ca45bd91bfcc2a0f10cd8c~mv2.jpg/v1/fill/w_640,h_432,al_t,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/6bc844_e4b19ee527ca45bd91bfcc2a0f10cd8c~mv2.jpg" alt="Gutter Guard Installation">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
+                    <div class="service-detail-content">
+                        <h2><i class="fas fa-home" style="color: var(--primary); margin-right: 10px;"></i>Seamless Gutter Installation</h2>
+                        <p class="service-desc">Custom-fabricated 5-inch and 6-inch seamless aluminum gutters installed on-site. Durable .032 gauge aluminum, custom fit to your roofline, installed right the first time.</p>
+                        <a href="services/gutter-installation.html" class="btn btn-primary mt-3">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -337,21 +318,11 @@
         <section id="service-faq" class="section-pad alt-bg">
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
-                    <h2 style="margin-left:auto;margin-right:auto;">Frequently Asked Questions</h2>
-                    <p>Common questions about gutter services</p>
+                    <h2 style="margin-left:auto;margin-right:auto;">Questions About Repairs & Guards</h2>
+                    <p>For gutter cleaning FAQs, visit our <a href="index.html#faq">gutter cleaning homepage</a></p>
                 </div>
 
                 <div class="accordion" data-aos="fade-up">
-                    <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>How often should I have my gutters cleaned?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="accordion-content">
-                            <p>Most homes should have gutters cleaned at least twice a year - once in the spring and once in the fall after the leaves have fallen. However, if you have pine trees or other debris-dropping trees near your home, you may need more frequent cleanings. I can assess your specific situation and recommend a maintenance schedule.</p>
-                        </div>
-                    </div>
-
                     <div class="accordion-item">
                         <div class="accordion-header" onclick="toggleAccordion(this)">
                             <span>What are the signs that I need gutter repairs?</span>
@@ -374,21 +345,11 @@
 
                     <div class="accordion-item">
                         <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>What areas do you serve?</span>
+                            <span>How long does a typical gutter repair take?</span>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="accordion-content">
-                            <p>CleanFlow of Ohio proudly serves the greater Miami Valley area. If you're unsure if we service your specific neighborhood, please give me a call!</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>How long does a typical gutter cleaning take?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="accordion-content">
-                            <p>The time required depends on the size of your home and the condition of your gutters. For most average-sized homes with moderate debris, a thorough cleaning takes about 1-2 hours. Homes with multiple stories or heavily clogged gutters may take longer. I pride myself on being thorough rather than rushing through the job.</p>
+                            <p>Most minor repairs — joint sealing, realigning a section, replacing a hanger — can be done in the same visit as a cleaning. Larger repairs or multiple-section work may take a couple of hours. I'll give you a clear scope and timeline before starting.</p>
                         </div>
                     </div>
                 </div>
@@ -456,7 +417,7 @@
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <p>Serving the greater Miami Valley area</p>
+                            <p>Serving Dayton and the Miami Valley</p>
                         </div>
                     </div>
                 </div>
@@ -465,30 +426,30 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li><a href="services.html">All Services</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="index.html#calculator">Cost Calculator</a></li>
-                        <li><a href="index.html#signs">Signs You Need Service</a></li>
-                        <li><a href="index.html#calendar">Maintenance Guide</a></li>
+                        <li><a href="index.html#reviews">Reviews</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
                     <h4>Our Services</h4>
                     <ul>
-                        <li><a href="services/gutter-installation.html">Gutter Installation</a></li>
-                        <li><a href="services.html#gutter-cleaning-service">Gutter Cleaning</a></li>
+                        <li><a href="index.html#services-overview">Gutter Cleaning</a></li>
                         <li><a href="services.html#gutter-repairs-service">Gutter Repairs</a></li>
                         <li><a href="services.html#gutter-protection-service">Gutter Guards</a></li>
+                        <li><a href="services/gutter-installation.html">Gutter Installation</a></li>
                         <li><a href="services/dryer-vent-cleaning.html">Dryer Vent Cleaning</a></li>
-                        <li><a href="about.html#service-area">Service Areas</a></li>
+                        <li><a href="index.html#service-area">Service Areas</a></li>
                         <li><a href="tel:9374780689">Get a Quote</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2003-2026 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving the greater Miami Valley area</p>
+                <p>&copy; 2003-2026 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving Montgomery & Greene Counties</p>
             </div>
         </div>
     </footer>
