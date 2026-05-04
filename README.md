@@ -1,78 +1,65 @@
-# CleanFlow Ohio Static Marketing Website
+```markdown
+# 💧 CleanFlow of Ohio | Official Website
 
-A mobile-first, responsive HTML/CSS/JS marketing site designed for gutter cleaning services. Simple, modern, SEO-friendly, and easy to customize. Currently deployed on [Vercel](https://vercel.com/).
+> A high-performance, mobile-first static marketing website designed for seamless gutter installation, maintenance, and exterior home services in the greater Miami Valley.
 
-## 📦 Features
+---
 
-- **Fully Responsive:** Optimized for mobile, tablet, and desktop.
-- **SEO-Ready:** Includes sitemap (`sitemap.xml`) and clean, semantic HTML structure.
-- **Pages Included:**
-  - Home (`index.html`)
-  - Services (`services.html`)
-  - About (`about.html`)
-- **Easy to Customize:** Simple file structure, clear CSS classes, minimal JavaScript.
-- **Quick Deployment:** Seamless deployment via [Vercel](https://vercel.com/).
+## 🌟 Project Overview
 
-## 🚀 Quick Start
+This repository contains the custom-built, SEO-optimized frontend for **CleanFlow of Ohio**. Engineered without the bloat of heavy frameworks, this site guarantees lightning-fast load times, perfect mobile responsiveness, and a high-converting user experience. It acts as a dedicated funnel for both routine maintenance and high-ticket installation services.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/cleanflow-ohio.git
-   cd cleanflow-ohio
+## ✨ Core Features
 
-2. Modify content
+* **Lightning Fast Performance:** Built purely with semantic HTML5, modern CSS3, and Vanilla JavaScript.
+* **SEO Dominant:** Features fully integrated Schema.org JSON-LD markup, deeply localized keyword targeting for the Miami Valley, and a perfectly structured `sitemap.xml`.
+* **Interactive UI/UX:** Includes a completely custom, animated radial overlay menu to make mobile navigation smooth and engaging.
+* **Conversion-Driven Tools:** Integrated dynamic cost calculators, floating Call-To-Action (CTA) buttons, and expanding accordion FAQs to build customer trust.
+* **Zero-Friction Hosting:** Configured specifically for edge-network deployment via Vercel.
 
-Edit HTML files in the root directory to customize page content.
+---
 
-Adjust CSS in the style.css file.
+## 📂 Site Architecture
 
-Update images/assets in the assets/ directory.
-
-
-
-3. Deploy to Vercel (Recommended)
-
-Create a free account at Vercel.
-
-Connect your GitHub repository.
-
-Follow the guided setup, leaving default settings as-is.
-
-Your website will automatically deploy when you push changes to GitHub.
-
-
-
-
-🗂 Repository Structure
-
+```text
 cleanflow-ohio/
-├── script.js              # Main JavaScript file
-├── style.css              # Main CSS file
-├── index.html             # Homepage
-├── services.html          # Services description page
-├── about.html             # Company/about page
-└── sitemap.xml            # SEO sitemap
+├── assets/
+│   ├── mascot.png                       # Brand mascot / logo
+│   ├── gutter-install-before-after.jpg  # Installation social proof
+│   └── og-image.jpg                     # Social media sharing graphic
+├── services/
+│   ├── dryer-vent-cleaning.html         # Specialized service funnel
+│   └── gutter-installation.html         # High-ticket installation funnel
+├── script.js          # Core logic (Nav, radial menu, calculator, animations)
+├── style.css          # Global stylesheet and responsive media queries
+├── index.html         # Primary landing page
+├── services.html      # General services overview
+├── about.html         # Trust-building and company history page
+├── sitemap.xml        # Search engine indexing map
+├── robots.txt         # Crawler directives
+└── vercel.json        # Advanced routing and caching configurations
 
-🛠 Technologies Used
+```
+## 🚀 Deployment & Local Setup
+This project is built to be strictly static, requiring no backend databases or complex build steps.
+**To run locally for testing:**
+ 1. Clone the repository to your local machine:
+   ```bash
+   git clone [https://github.com/yourusername/cleanflow-ohio.git](https://github.com/yourusername/cleanflow-ohio.git)
+   
+   ```
+ 2. Open the folder and simply double-click index.html to view it in your browser.
+**To deploy live to Vercel:**
+ 1. Log into your Vercel dashboard.
+ 2. Click **Add New Project** and import this GitHub repository.
+ 3. Leave all build settings as their default values.
+ 4. Click **Deploy**. Vercel will automatically read the vercel.json file and set up your clean URL routing and SSL certificates.
+## 🔐 Security & Infrastructure
+ * **Frontend Only:** Completely static architecture eliminates traditional database vulnerabilities.
+ * **Edge Caching:** vercel.json strictly controls browser caching for immediate load times.
+ * **Always Encrypted:** Forced HTTPS and SSL management handled natively via Vercel.
+## 📄 License
+This software is distributed under the MIT License. See the LICENSE file in the repository for more information.
+```
 
-HTML5 & CSS3: Semantic structure and responsive styling.
-
-Vanilla JavaScript: Simple interactions, no heavy libraries.
-
-Vercel: Easy and fast hosting and deployment.
-
-
-🔐 Security
-
-No backend or sensitive server-side code included. Completely static frontend.
-
-Hosted via Vercel’s secure infrastructure.
-
-
-📌 Contributing
-
-Feel free to fork and modify for your own business! Contributions are welcome. Just submit a pull request.
-
-📄 License
-
-Distributed under the MIT License. See LICENSE for details.
+```

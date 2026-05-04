@@ -2,7 +2,8 @@
   "rewrites": [
     {"source": "/services", "destination": "/services.html"},
     {"source": "/about", "destination": "/about.html"},
-    {"source": "/services/dryer-vent-cleaning", "destination": "/services/dryer-vent-cleaning.html"}
+    {"source": "/services/dryer-vent-cleaning", "destination": "/services/dryer-vent-cleaning.html"},
+    {"source": "/services/gutter-installation", "destination": "/services/gutter-installation.html"}
   ],
   "redirects": [
     {
