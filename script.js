@@ -1,243 +1,319 @@
-// Initialize AOS Animation (Guarded to prevent crashes)
-if (typeof AOS !== 'undefined') {
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-    });
-}
+(function () {
+  "use strict";
 
-// Navigation Menu Toggle
-const menuToggle = document.getElementById('menu-toggle');
-const navMenu = document.getElementById('nav-menu');
-const closeMenu = document.getElementById('close-menu');
+  function formatMoney(amount) {
+    return "$" + Math.round(amount).toLocaleString("en-US");
+  }
 
-if (menuToggle && navMenu && closeMenu) {
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.add('active');
-    });
+  function getSizeAdjustment(linearFeet) {
+    if (linearFeet <= 160) return 0;
+    if (linearFeet <= 220) return 20;
+    if (linearFeet <= 280) return 40;
+    if (linearFeet <= 350) return 70;
+    return 110;
+  }
 
-    closeMenu.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-    });
-}
+  function getDebrisAdjustment(debrisLevel) {
+    const debrisAdjustments = {
+      light: -15,
+      medium: 0,
+      heavy: 45
+    };
 
-// Sticky Header, Back to Top & Floating CTA Visibility
-const header = document.getElementById('header');
-const backToTop = document.getElementById('back-to-top');
-const floatingCta = document.getElementById('floating-cta');
+    return debrisAdjustments[debrisLevel] || 0;
+  }
 
-if (header) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.classList.add('sticky');
-            if (backToTop) backToTop.classList.add('active');
-            if (floatingCta) floatingCta.classList.add('active');
-        } else {
-            header.classList.remove('sticky');
-            if (backToTop) backToTop.classList.remove('active');
-            if (floatingCta) floatingCta.classList.remove('active');
-        }
-    });
+  function calculateGutterEstimate() {
+    const linearFeetInput = document.getElementById("linearFeet");
+    const storiesInput = document.getElementById("stories");
+    const debrisInput = document.getElementById("debris");
+    const resultBox = document.getElementById("resultBox");
+    const estimatedPrice = document.getElementById("estimatedPrice");
 
-    // Back to Top Click Handler
-    if (backToTop) {
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+    if (!linearFeetInput || !storiesInput || !debrisInput || !resultBox || !estimatedPrice) {
+      return;
     }
-}
 
-// Scroll Down (Hero Section) Click Handler
-const scrollDownButton = document.getElementById('scroll-down');
-if (scrollDownButton) {
-    scrollDownButton.addEventListener('click', () => {
-        const nextSection = document.getElementById('warning');
-        if (nextSection) {
-            nextSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-}
+    const linearFeet = Number(linearFeetInput.value);
+    const stories = storiesInput.value;
+    const debrisLevel = debrisInput.value;
 
-// Accordion Toggle
-function toggleAccordion(element) {
-    const content = element.nextElementSibling;
-    const isActive = element.classList.contains('active');
+    if (!linearFeet || linearFeet < 50) {
+      estimatedPrice.textContent = "Enter at least 50 linear feet";
+      resultBox.style.display = "block";
+      resultBox.classList.add("active");
+      return;
+    }
 
-    // Close all other accordion items
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-    const accordionContents = document.querySelectorAll('.accordion-content');
+    const basePrice = stories === "2" ? 235 : 185;
+    const sizeAdjustment = getSizeAdjustment(linearFeet);
+    const debrisAdjustment = getDebrisAdjustment(debrisLevel);
 
-    accordionHeaders.forEach(header => {
-        if (header !== element) {
-            header.classList.remove('active');
-        }
-    });
-    accordionContents.forEach(cont => {
-        if (cont !== content) {
-            cont.classList.remove('active');
-            cont.style.maxHeight = null;
-        }
-    });
+    let lowEstimate = basePrice + sizeAdjustment + debrisAdjustment;
 
-    // Open or close the clicked accordion item
-    if (!isActive) {
-        element.classList.add('active');
-        if (content) {
-            content.classList.add('active');
-            content.style.maxHeight = content.scrollHeight + "px";
-        }
+    // Keep the calculator lead-friendly but not unrealistically low.
+    if (stories === "1") {
+      lowEstimate = Math.max(lowEstimate, 170);
     } else {
-        element.classList.remove('active');
-        if (content) {
-            content.classList.remove('active');
-            content.style.maxHeight = null;
-        }
+      lowEstimate = Math.max(lowEstimate, 220);
     }
-}
 
-// Toggle Signs Content
-function toggleSign(element) {
-    element.classList.toggle('active');
-}
+    const highEstimate = lowEstimate + 50;
 
-// Season Tabs
-const seasonTabs = document.querySelectorAll('.season-tab');
-if (seasonTabs.length > 0) {
-    seasonTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            seasonTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
+    estimatedPrice.textContent = `${formatMoney(lowEstimate)} - ${formatMoney(highEstimate)}`;
 
-            document.querySelectorAll('.season-content').forEach(content => {
-                content.classList.remove('active');
-            });
+    const resultTitle = resultBox.querySelector(".result-title");
+    const resultNote = resultBox.querySelector(".result-note");
 
-            const season = tab.dataset.season;
-            const activeSeasonContent = document.getElementById(`${season}-content`);
-            if (activeSeasonContent) {
-                activeSeasonContent.classList.add('active');
-            }
-        });
+    if (resultTitle) {
+      resultTitle.textContent = "Estimated Starting Range";
+    }
+
+    if (resultNote) {
+      resultNote.innerHTML = 'This is a starting estimate. Final pricing may vary depending on access, roof height, gutter guards, debris level, roof pitch, downspout clogs, and overall job difficulty. For an accurate quote, call or text <a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a>.';
+    }
+
+    resultBox.style.display = "block";
+    resultBox.classList.add("active");
+
+    resultBox.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
     });
-}
+  }
 
-// Gutter Cleaning Cost Calculator
-const calculateBtn = document.getElementById('calculateBtn');
-const linearFeetInput = document.getElementById('linearFeet');
-const storiesSelect = document.getElementById('stories');
-const debrisSelect = document.getElementById('debris');
-const estimatedPriceEl = document.getElementById('estimatedPrice');
-const resultBoxEl = document.getElementById('resultBox');
+  function toggleSign(card) {
+    if (!card) return;
+    card.classList.toggle("active");
+  }
 
-function calculatePrice() {
-    if (!linearFeetInput || !storiesSelect || !debrisSelect || !estimatedPriceEl || !resultBoxEl) {
-        console.error("Calculator elements not found.");
-        return;
+  window.toggleSign = toggleSign;
+
+  function initAOS() {
+    if (window.AOS) {
+      window.AOS.init({
+        duration: 800,
+        once: true,
+        offset: 80
+      });
+    }
+  }
+
+  function initMobileMenu() {
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.getElementById("nav-menu");
+    const closeMenu = document.getElementById("close-menu");
+
+    if (!menuToggle || !navMenu) return;
+
+    function openMenu() {
+      navMenu.classList.add("active");
+      document.body.classList.add("menu-open");
     }
 
-    const linearFeet = parseFloat(linearFeetInput.value) || 0;
-    const stories = storiesSelect.value;
-    const debris = debrisSelect.value;
-
-    // --- NEW PRICING LOGIC (2026 Market Rates) ---
-    let baseRate = 0;
-    
-    // Increased base rates to account for insurance/labor
-    switch (debris) {
-        case 'light': baseRate = 1.15; break;
-        case 'medium': baseRate = 1.35; break;
-        case 'heavy': baseRate = 1.85; break;
-        default: baseRate = 1.35;
+    function closeMobileMenu() {
+      navMenu.classList.remove("active");
+      document.body.classList.remove("menu-open");
     }
 
-    // 2-Story Surcharge: Now adds $0.40/ft instead of flat $50
-    if (stories === '2') {
-        baseRate += 0.40; 
+    menuToggle.addEventListener("click", openMenu);
+
+    if (closeMenu) {
+      closeMenu.addEventListener("click", closeMobileMenu);
     }
 
-    let estimatedTotal = linearFeet * baseRate;
+    navMenu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeMobileMenu);
+    });
+  }
 
-    // Minimum Service Charge
-    if (estimatedTotal < 150) {
-        estimatedTotal = 150;
+  function initRadialMenu() {
+    const radialOverlay = document.getElementById("radial-menu-overlay");
+    const radialClose = document.querySelector(".radial-close");
+
+    if (!radialOverlay) return;
+
+    function closeRadialMenu() {
+      radialOverlay.classList.remove("active");
+      document.body.classList.remove("radial-menu-open");
     }
 
-    // Calculate Range (Low = Calc Price, High = Calc Price + 25%)
-    let highEnd = estimatedTotal * 1.25;
-
-    // Update the display text to show a range
-    estimatedPriceEl.textContent = '$' + Math.ceil(estimatedTotal) + ' - $' + Math.ceil(highEnd);
-    
-    // Add a disclaimer if not already there (Dynamically adding text)
-    let disclaimer = resultBoxEl.querySelector('.dynamic-disclaimer');
-    if (!disclaimer) {
-        disclaimer = document.createElement('p');
-        disclaimer.className = 'result-note dynamic-disclaimer';
-        disclaimer.style.marginTop = '5px';
-        disclaimer.style.fontStyle = 'italic';
-        disclaimer.innerHTML = 'Range allows for factors like steep roofs or gutter guards.';
-        resultBoxEl.appendChild(disclaimer);
+    if (radialClose) {
+      radialClose.addEventListener("click", closeRadialMenu);
     }
 
-    resultBoxEl.classList.add('active');
-}
+    radialOverlay.addEventListener("click", function (event) {
+      if (event.target === radialOverlay) {
+        closeRadialMenu();
+      }
+    });
 
-if (calculateBtn) calculateBtn.addEventListener('click', calculatePrice);
-if (linearFeetInput) linearFeetInput.addEventListener('input', calculatePrice);
-if (storiesSelect) storiesSelect.addEventListener('change', calculatePrice);
-if (debrisSelect) debrisSelect.addEventListener('change', calculatePrice);
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeRadialMenu();
+      }
+    });
+  }
 
-// Quote Form Submission
-const quoteForm = document.getElementById('quoteForm');
-if (quoteForm) {
-    // Check if returning from successful submission
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('submitted') === 'true') {
-        const messageDiv = document.getElementById('formMessage');
-        if (messageDiv) {
-            messageDiv.style.display = 'block';
-            messageDiv.classList.add('success');
-            messageDiv.textContent = "Thank you! Your quote request has been sent. I will reach out shortly.";
-            // Clean URL
-            window.history.replaceState({}, document.title, window.location.pathname);
+  function initCalculator() {
+    const calculateBtn = document.getElementById("calculateBtn");
+
+    if (!calculateBtn) return;
+
+    calculateBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+      calculateGutterEstimate();
+    });
+
+    const inputs = ["linearFeet", "stories", "debris"]
+      .map(function (id) {
+        return document.getElementById(id);
+      })
+      .filter(Boolean);
+
+    inputs.forEach(function (input) {
+      input.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          calculateGutterEstimate();
         }
-    }
-}
+      });
+    });
+  }
 
-// --------------------------------------------------------
-// RADIAL MENU LOGIC (Smarter Interception)
-// --------------------------------------------------------
-const headerFooterLinks = document.querySelectorAll('header a, footer a');
-const radialOverlay = document.getElementById('radial-menu-overlay');
-const radialClose = document.querySelector('.radial-close');
+  function initSeasonTabs() {
+    const tabs = document.querySelectorAll(".season-tab");
+    const contents = document.querySelectorAll(".season-content");
 
-if (radialOverlay && radialClose) {
-  headerFooterLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    
-    // We ONLY want to intercept the main Services page links.
-    // We ignore links inside the radial menu itself, and we ignore footer links that have #anchor tags (like services.html#gutter-cleaning)
-    if (href === 'services.html' || href === '../services.html' || href === '/services' || href === '/services.html') {
-        link.addEventListener('click', (e) => {
-            e.preventDefault(); 
-            radialOverlay.classList.add('active');
+    if (!tabs.length || !contents.length) return;
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        const season = tab.getAttribute("data-season");
+
+        tabs.forEach(function (item) {
+          item.classList.remove("active");
         });
-    }
-  });
 
-  radialClose.addEventListener('click', () => {
-    radialOverlay.classList.remove('active');
-  });
+        contents.forEach(function (content) {
+          content.classList.remove("active");
+        });
 
-  // Close if clicking anywhere outside the buttons
-  radialOverlay.addEventListener('click', (e) => {
-    if (e.target === radialOverlay) {
-      radialOverlay.classList.remove('active');
+        tab.classList.add("active");
+
+        const activeContent = document.getElementById(season + "-content");
+        if (activeContent) {
+          activeContent.classList.add("active");
+        }
+      });
+    });
+  }
+
+  function initSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        const href = link.getAttribute("href");
+
+        if (!href || href === "#") return;
+
+        const target = document.querySelector(href);
+
+        if (!target) return;
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+    });
+  }
+
+  function initScrollEffects() {
+    const header = document.getElementById("header");
+    const backToTop = document.getElementById("back-to-top");
+    const floatingCta = document.getElementById("floating-cta");
+
+    function handleScroll() {
+      const scrolled = window.scrollY > 120;
+
+      if (header) {
+        header.classList.toggle("scrolled", window.scrollY > 40);
+      }
+
+      if (backToTop) {
+        backToTop.classList.toggle("active", scrolled);
+      }
+
+      if (floatingCta) {
+        floatingCta.classList.toggle("active", scrolled);
+      }
     }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    if (backToTop) {
+      backToTop.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+  }
+
+  function initQuoteFormStatus() {
+    const formMessage = document.getElementById("formMessage");
+
+    if (!formMessage) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const submitted = params.get("submitted");
+
+    if (submitted === "true") {
+      formMessage.textContent = "Thank you. Your quote request was sent successfully. We will follow up as soon as possible.";
+      formMessage.classList.add("success");
+      formMessage.style.display = "block";
+    }
+
+    if (submitted === "error") {
+      formMessage.textContent = "Something went wrong. Please call or text 937-478-0689 for the fastest response.";
+      formMessage.classList.add("error");
+      formMessage.style.display = "block";
+    }
+  }
+
+  function initActiveNavLinks() {
+    const currentPath = window.location.pathname;
+    const links = document.querySelectorAll("nav a");
+
+    links.forEach(function (link) {
+      const href = link.getAttribute("href");
+
+      if (!href) return;
+
+      link.classList.remove("active");
+
+      if (
+        (currentPath === "/" && href === "index.html") ||
+        currentPath.endsWith(href)
+      ) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    initAOS();
+    initMobileMenu();
+    initRadialMenu();
+    initCalculator();
+    initSeasonTabs();
+    initSmoothScrolling();
+    initScrollEffects();
+    initQuoteFormStatus();
+    initActiveNavLinks();
   });
-}
+})();
