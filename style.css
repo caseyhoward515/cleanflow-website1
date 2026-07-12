@@ -382,6 +382,10 @@ nav ul li a.active::after {
     color: var(--dark);
 }
 
+.close-menu {
+    display: none;
+}
+
 .phone-btn {
     display: flex;
     align-items: center;
@@ -1345,8 +1349,8 @@ footer {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255,255,255,0.14);
-    border: 1px solid rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
     color: white;
     border-radius: 999px;
     padding: 8px 16px;
@@ -1356,6 +1360,8 @@ footer {
     font-size: 0.82rem;
     margin-bottom: 18px;
     backdrop-filter: blur(10px);
+    cursor: default;
+    box-shadow: none;
 }
 
 .hero-kicker:before {
@@ -1370,21 +1376,24 @@ footer {
     justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
-    margin: 22px auto 28px;
+    margin: 22px auto 30px;
 }
 
 .service-hero-badges span {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255,255,255,0.12);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.09);
+    color: rgba(255,255,255,0.92);
+    border: 1px solid rgba(255,255,255,0.16);
     border-radius: 999px;
     padding: 9px 14px;
     font-weight: 600;
     font-size: 0.92rem;
     backdrop-filter: blur(10px);
+    cursor: default;
+    box-shadow: none;
+    opacity: 0.9;
 }
 
 .service-hero-badges i {
@@ -1394,8 +1403,83 @@ footer {
 .services-hero-actions {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 18px;
     flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.hero-main-cta,
+.hero-call-cta {
+    min-width: 275px;
+    min-height: 66px;
+    border-radius: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.hero-main-cta {
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: white;
+    box-shadow:
+        0 18px 38px rgba(243, 156, 18, 0.36),
+        0 0 0 0 rgba(243, 156, 18, 0.55);
+    animation: heroPrimaryPulse 2.4s infinite;
+}
+
+.hero-main-cta:hover {
+    color: white;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow:
+        0 24px 52px rgba(243, 156, 18, 0.48),
+        0 0 0 8px rgba(243, 156, 18, 0.12);
+}
+
+.hero-call-cta {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    border-color: rgba(243, 156, 18, 0.75);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10), 0 16px 34px rgba(0,0,0,0.16);
+    backdrop-filter: blur(10px);
+}
+
+.hero-call-cta:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16), 0 22px 48px rgba(0,0,0,0.24);
+}
+
+.hero-main-cta i,
+.hero-call-cta i {
+    color: white;
+    font-size: 17px;
+}
+
+@keyframes heroPrimaryPulse {
+    0% {
+        box-shadow:
+            0 18px 38px rgba(243, 156, 18, 0.36),
+            0 0 0 0 rgba(243, 156, 18, 0.55);
+    }
+    70% {
+        box-shadow:
+            0 18px 38px rgba(243, 156, 18, 0.36),
+            0 0 0 16px rgba(243, 156, 18, 0);
+    }
+    100% {
+        box-shadow:
+            0 18px 38px rgba(243, 156, 18, 0.36),
+            0 0 0 0 rgba(243, 156, 18, 0);
+    }
 }
 
 .service-card-showcase-section {
@@ -2256,6 +2340,7 @@ footer {
     }
 
     .close-menu {
+        display: block;
         position: absolute;
         top: 20px;
         right: 20px;
@@ -2395,6 +2480,15 @@ footer {
     .services-hero-actions {
         flex-direction: column;
         align-items: center;
+    }
+
+    .hero-main-cta,
+    .hero-call-cta {
+        width: 100%;
+        max-width: 360px;
+        min-width: 0;
+        min-height: 62px;
+        border-radius: 16px;
     }
 
     .two-column-list {
