@@ -132,7 +132,7 @@
                 <nav>
                     <ul id="nav-menu">
                         <li><a href="index.html" id="home-link">Home</a></li>
-                        <li><a href="services.html" id="services-link" class="active">Services</a></li>
+                        <li><a href="services.html" id="services-link" class="active" data-service-menu-trigger="true">Services</a></li>
                         <li><a href="about.html" id="about-link">About</a></li>
                         <li><i class="fas fa-times close-menu" id="close-menu"></i></li>
                     </ul>
@@ -150,7 +150,7 @@
 
     <div id="radial-menu-overlay" class="radial-overlay">
       <div class="radial-menu-center">
-        <div class="radial-close"><i class="fas fa-times"></i></div>
+        <div class="radial-close" aria-label="Close service menu"><i class="fas fa-times"></i></div>
         <a href="services/gutter-installation.html" class="radial-item item-1">
           <i class="fas fa-tools"></i>
           <span>New Gutter Installation</span>
@@ -167,11 +167,98 @@
     </div>
 
     <div id="services-page" class="page page-content">
-        <section id="services-hero">
+        <section id="services-hero" class="services-hero-wow">
+            <div class="container">
+                <div class="section-header text-center services-hero-content" data-aos="fade-up">
+                    <div class="hero-kicker">CleanFlow of Ohio Services</div>
+                    <h1>Choose the Right Service for Your Home</h1>
+                    <p>Comprehensive gutter cleaning, gutter protection, dryer vent cleaning, seamless gutter installation, and drainage-related services to help protect your home from water damage, clogs, and exterior headaches.</p>
+
+                    <div class="service-hero-badges">
+                        <span><i class="fas fa-camera"></i> Photo Documentation</span>
+                        <span><i class="fas fa-water"></i> Flow Testing</span>
+                        <span><i class="fas fa-shield-alt"></i> Lifetime Guard Warranty</span>
+                    </div>
+
+                    <div class="services-hero-actions">
+                        <a href="#service-selector" class="btn btn-accent btn-lg">
+                            <i class="fas fa-hand-pointer"></i> Choose a Service
+                        </a>
+                        <a href="tel:9374780689" class="btn btn-primary btn-lg btn-pulse">
+                            <i class="fas fa-phone-alt"></i> Call 937-478-0689
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="service-selector" class="service-selector-section">
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
-                    <h1>Our Services</h1>
-                    <p>Comprehensive gutter cleaning, gutter protection, dryer vent cleaning, seamless gutter installation, and drainage-related services to help protect your home.</p>
+                    <h2 style="margin-left:auto;margin-right:auto;">What Do You Need Help With?</h2>
+                    <p>Tap a service below to jump right to the details. This section keeps the page easy to use and gives visitors a clear path to the service they need.</p>
+                </div>
+
+                <div class="service-jump-grid" data-aos="fade-up" data-aos-delay="100">
+                    <a href="#gutter-cleaning-service" class="service-jump-card">
+                        <div class="service-jump-icon"><i class="fas fa-broom"></i></div>
+                        <div class="service-jump-content">
+                            <span class="service-jump-label">Most Common</span>
+                            <h3>Gutter Cleaning</h3>
+                            <p>Debris removal, downspout flushing, photos, and flow testing.</p>
+                        </div>
+                        <span class="service-jump-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="#gutter-repairs-service" class="service-jump-card">
+                        <div class="service-jump-icon"><i class="fas fa-wrench"></i></div>
+                        <div class="service-jump-content">
+                            <span class="service-jump-label">Fix Water Issues</span>
+                            <h3>Gutter Repairs</h3>
+                            <p>Leaks, loose sections, sagging gutters, hangers, and downspouts.</p>
+                        </div>
+                        <span class="service-jump-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="#gutter-protection-service" class="service-jump-card">
+                        <div class="service-jump-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="service-jump-content">
+                            <span class="service-jump-label">Lifetime Warranty</span>
+                            <h3>Gutter Guards</h3>
+                            <p>Reduce clogs and protect the system with professional installation.</p>
+                        </div>
+                        <span class="service-jump-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="services/gutter-installation.html" class="service-jump-card service-jump-featured">
+                        <div class="service-jump-icon"><i class="fas fa-tools"></i></div>
+                        <div class="service-jump-content">
+                            <span class="service-jump-label">Dedicated Page</span>
+                            <h3>New Gutter Installation</h3>
+                            <p>Seamless gutter replacement and installation with clean routing.</p>
+                        </div>
+                        <span class="service-jump-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="services/dryer-vent-cleaning.html" class="service-jump-card service-jump-hot">
+                        <div class="service-jump-icon"><i class="fas fa-fire-extinguisher"></i></div>
+                        <div class="service-jump-content">
+                            <span class="service-jump-label">Summer Special</span>
+                            <h3>Dryer Vent Cleaning</h3>
+                            <p>$150 summer special. Improve airflow and reduce fire risk.</p>
+                        </div>
+                        <span class="service-jump-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="#underground-drainage-service" class="service-jump-card">
+                        <div class="service-jump-icon"><i class="fas fa-water"></i></div>
+                        <div class="service-jump-content">
+                            <span class="service-jump-label">Water Management</span>
+                            <h3>Drainage Solutions</h3>
+                            <p>Downspout extensions, pooling water, and runoff concerns.</p>
+                        </div>
+                        <span class="service-jump-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -183,7 +270,13 @@
                         <img src="https://cdn.prod.website-files.com/614a070736f4a72073561d14/614a732f2f7c6cfc52315c10_gutter-cleaning-before-after.jpg" alt="Gutter Cleaning Before and After">
                     </div>
                     <div class="service-detail-content">
-                        <h2>Gutter Cleaning</h2>
+                        <div class="service-detail-header">
+                            <div class="service-icon"><i class="fas fa-broom"></i></div>
+                            <div>
+                                <span class="service-eyebrow">Clean, flush, document</span>
+                                <h2>Gutter Cleaning</h2>
+                            </div>
+                        </div>
                         <p class="service-desc">Complete removal of leaves, debris, and blockages from your gutters and downspouts to ensure proper water flow away from your home.</p>
 
                         <h3>What's Included:</h3>
@@ -214,7 +307,13 @@
                         <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2023/08/01151936/Gutter_iStock-1310417362-e1747423219898.jpeg" alt="Gutter Repair Service">
                     </div>
                     <div class="service-detail-content">
-                        <h2>Gutter Repairs</h2>
+                        <div class="service-detail-header">
+                            <div class="service-icon"><i class="fas fa-wrench"></i></div>
+                            <div>
+                                <span class="service-eyebrow">Leaks, sagging, loose sections</span>
+                                <h2>Gutter Repairs</h2>
+                            </div>
+                        </div>
                         <p class="service-desc">Professional repair services for leaking, sagging, or damaged gutters. I restore your gutters to proper working condition whenever repair is the right option.</p>
 
                         <h3>Common Repairs:</h3>
@@ -245,7 +344,13 @@
                         <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2022/06/29223354/gutter_guard_image_for_blog_2400px-scaled.jpeg" alt="Gutter Guard Protection">
                     </div>
                     <div class="service-detail-content">
-                        <h2>Gutter Protection</h2>
+                        <div class="service-detail-header">
+                            <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div>
+                                <span class="service-eyebrow">Reduce clogs long term</span>
+                                <h2>Gutter Protection</h2>
+                            </div>
+                        </div>
                         <p class="service-desc">High-quality gutter guard installation to reduce clogs, protect your gutter system, and provide long-term peace of mind with a lifetime warranty.</p>
 
                         <h3>Benefits of Gutter Guards:</h3>
@@ -271,13 +376,19 @@
 
         <section id="underground-drainage-service" class="service-detail-section alt-bg">
             <div class="container">
-                <div class="service-detail reverse" data-aos="fade-up">
-                    <div class="service-detail-content">
-                        <h2>Underground Drainage & Downspout Extensions</h2>
+                <div class="service-detail service-detail-single" data-aos="fade-up">
+                    <div class="service-detail-content drainage-feature-panel">
+                        <div class="service-detail-header">
+                            <div class="service-icon"><i class="fas fa-water"></i></div>
+                            <div>
+                                <span class="service-eyebrow">Move water away from the home</span>
+                                <h2>Underground Drainage & Downspout Extensions</h2>
+                            </div>
+                        </div>
                         <p class="service-desc">Water problems often start where the gutter system ends. CleanFlow of Ohio helps with underground downspout extensions, roof runoff management, yard drainage concerns, and pooling water around homes, foundations, sidewalks, patios, and landscaping.</p>
 
                         <h3>Common Drainage Concerns:</h3>
-                        <ul class="checkmark-list">
+                        <ul class="checkmark-list two-column-list">
                             <li>Water pooling near the foundation</li>
                             <li>Downspouts dumping water too close to the home</li>
                             <li>Standing water in the yard after heavy rain</li>
@@ -309,7 +420,13 @@
                         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Dryer Vent Cleaning Service">
                     </div>
                     <div class="service-detail-content">
-                        <h2><i class="fas fa-fire-extinguisher" style="color: var(--accent); margin-right: 10px;"></i>Dryer Vent Cleaning</h2>
+                        <div class="service-detail-header">
+                            <div class="service-icon service-icon-hot"><i class="fas fa-fire-extinguisher"></i></div>
+                            <div>
+                                <span class="service-eyebrow">Summer special</span>
+                                <h2>Dryer Vent Cleaning</h2>
+                            </div>
+                        </div>
                         <p class="service-desc">Professional dryer vent cleaning to reduce fire risk, improve dryer efficiency, and lower drying times. A clogged vent can make your dryer work harder and create a serious safety concern.</p>
 
                         <h3>What's Included:</h3>
@@ -321,9 +438,9 @@
                             <li>Photo documentation of work completed</li>
                         </ul>
 
-                        <div class="pricing-note" style="background: #fff3cd; border-left: 4px solid var(--accent); padding: 15px; margin: 20px 0;">
+                        <div class="pricing-note dryer-special-note">
                             <i class="fas fa-tag"></i>
-                            <strong style="color: var(--accent);">SUMMER SPECIAL: $150</strong> regularly $200. Save $50 when you mention this special at booking or service.<br>
+                            <strong>SUMMER SPECIAL: $150</strong> regularly $200. Save $50 when you mention this special at booking or service.<br>
                             <small>Valid through September 1, 2026. Standard one-story, ground-level access only. Roof access, difficult ladder placement, elevated exterior vents, unusually long vent runs, or heavily restricted systems may require a custom quote.</small>
                         </div>
 
