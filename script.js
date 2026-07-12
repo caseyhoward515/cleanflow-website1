@@ -51,7 +51,6 @@
 
     let lowEstimate = basePrice + sizeAdjustment + debrisAdjustment;
 
-    // Keep the calculator lead-friendly but not unrealistically low.
     if (stories === "1") {
       lowEstimate = Math.max(lowEstimate, 170);
     } else {
@@ -175,6 +174,7 @@
       document.body.classList.add("radial-menu-open");
 
       const navMenu = document.getElementById("nav-menu");
+
       if (navMenu) {
         navMenu.classList.remove("active");
       }
@@ -213,112 +213,6 @@
 
     window.openRadialMenu = openRadialMenu;
     window.closeRadialMenu = closeRadialMenu;
-  }
-
-  function initServiceCarousel() {
-    const carousel = document.querySelector("[data-service-carousel]");
-
-    if (!carousel) return;
-
-    const section = carousel.closest(".service-showcase-section") || document;
-    const slides = Array.from(carousel.querySelectorAll("[data-service-slide]"));
-    const tabs = Array.from(section.querySelectorAll("[data-service-tab]"));
-    const previousButton = carousel.querySelector("[data-carousel-prev]");
-    const nextButton = carousel.querySelector("[data-carousel-next]");
-
-    if (!slides.length) return;
-
-    let currentIndex = slides.findIndex(function (slide) {
-      return slide.classList.contains("active");
-    });
-
-    if (currentIndex < 0) {
-      currentIndex = 0;
-    }
-
-    let autoRotateTimer = null;
-
-    function normalizeIndex(index) {
-      if (index < 0) return slides.length - 1;
-      if (index >= slides.length) return 0;
-      return index;
-    }
-
-    function showSlide(index) {
-      const nextIndex = normalizeIndex(index);
-      currentIndex = nextIndex;
-
-      slides.forEach(function (slide, slideIndex) {
-        const isActive = slideIndex === nextIndex;
-        slide.classList.toggle("active", isActive);
-        slide.setAttribute("aria-hidden", isActive ? "false" : "true");
-      });
-
-      tabs.forEach(function (tab, tabIndex) {
-        const isActive = tabIndex === nextIndex;
-        tab.classList.toggle("active", isActive);
-        tab.setAttribute("aria-selected", isActive ? "true" : "false");
-      });
-    }
-
-    function goToNextSlide() {
-      showSlide(currentIndex + 1);
-    }
-
-    function goToPreviousSlide() {
-      showSlide(currentIndex - 1);
-    }
-
-    function stopAutoRotate() {
-      if (autoRotateTimer) {
-        window.clearInterval(autoRotateTimer);
-        autoRotateTimer = null;
-      }
-    }
-
-    function startAutoRotate() {
-      stopAutoRotate();
-
-      autoRotateTimer = window.setInterval(function () {
-        goToNextSlide();
-      }, 7000);
-    }
-
-    if (previousButton) {
-      previousButton.addEventListener("click", function () {
-        stopAutoRotate();
-        goToPreviousSlide();
-        startAutoRotate();
-      });
-    }
-
-    if (nextButton) {
-      nextButton.addEventListener("click", function () {
-        stopAutoRotate();
-        goToNextSlide();
-        startAutoRotate();
-      });
-    }
-
-    tabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        const requestedIndex = Number(tab.getAttribute("data-service-tab"));
-
-        if (Number.isNaN(requestedIndex)) return;
-
-        stopAutoRotate();
-        showSlide(requestedIndex);
-        startAutoRotate();
-      });
-    });
-
-    carousel.addEventListener("mouseenter", stopAutoRotate);
-    carousel.addEventListener("mouseleave", startAutoRotate);
-    carousel.addEventListener("focusin", stopAutoRotate);
-    carousel.addEventListener("focusout", startAutoRotate);
-
-    showSlide(currentIndex);
-    startAutoRotate();
   }
 
   function initCalculator() {
@@ -368,6 +262,7 @@
         tab.classList.add("active");
 
         const activeContent = document.getElementById(season + "-content");
+
         if (activeContent) {
           activeContent.classList.add("active");
         }
@@ -487,7 +382,6 @@
     initAOS();
     initMobileMenu();
     initRadialMenu();
-    initServiceCarousel();
     initCalculator();
     initSeasonTabs();
     initSmoothScrolling();
