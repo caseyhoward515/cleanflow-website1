@@ -406,6 +406,40 @@ nav ul li a.active::after {
     color: var(--accent);
 }
 
+.floating-service-trigger {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 998;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 14px 20px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 14px 34px rgba(30, 60, 114, 0.28);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.floating-service-trigger i {
+    color: var(--accent);
+    font-size: 18px;
+}
+
+.floating-service-trigger:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 46px rgba(30, 60, 114, 0.36);
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+}
+
 .floating-cta {
     position: fixed;
     bottom: 90px;
@@ -2326,6 +2360,17 @@ footer {
 
     .topbar-item {
         font-size: 0.85rem;
+    }
+
+    .floating-service-trigger {
+        left: 15px;
+        bottom: 18px;
+        padding: 13px 16px;
+        font-size: 12px;
+    }
+
+    .floating-service-trigger i {
+        font-size: 17px;
     }
 
     .floating-cta {
