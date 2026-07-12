@@ -148,24 +148,6 @@
         </div>
     </header>
 
-    <div id="radial-menu-overlay" class="radial-overlay">
-      <div class="radial-menu-center">
-        <div class="radial-close" aria-label="Close service menu"><i class="fas fa-times"></i></div>
-        <a href="services/gutter-installation.html" class="radial-item item-1">
-          <i class="fas fa-tools"></i>
-          <span>New Gutter Installation</span>
-        </a>
-        <a href="services/dryer-vent-cleaning.html" class="radial-item item-2">
-          <i class="fas fa-fire-extinguisher"></i>
-          <span>Dryer Vent Cleaning</span>
-        </a>
-        <a href="services.html#service-selector" class="radial-item item-3">
-          <i class="fas fa-broom"></i>
-          <span>Gutter Cleaning & More</span>
-        </a>
-      </div>
-    </div>
-
     <div id="services-page" class="page page-content">
         <section id="services-hero" class="services-hero-wow">
             <div class="container">
@@ -184,9 +166,6 @@
                         <a href="#service-selector" class="btn btn-accent btn-lg">
                             <i class="fas fa-hand-pointer"></i> Explore Services
                         </a>
-                        <a href="#" class="btn btn-primary btn-lg" data-service-menu-trigger="true">
-                            <i class="fas fa-circle-nodes"></i> Quick Service Wheel
-                        </a>
                         <a href="tel:9374780689" class="btn btn-primary btn-lg btn-pulse">
                             <i class="fas fa-phone-alt"></i> Call 937-478-0689
                         </a>
@@ -195,160 +174,133 @@
             </div>
         </section>
 
-        <section id="service-selector" class="service-showcase-section">
+        <section id="service-selector" class="service-card-showcase-section">
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
-                    <h2 style="margin-left:auto;margin-right:auto;">Pick a Service and See What Fits</h2>
-                    <p>Use the carousel below to quickly compare services and jump straight to the one you need.</p>
+                    <h2 style="margin-left:auto;margin-right:auto;">What Can We Help With?</h2>
+                    <p>Choose the service that best fits your home. Each card below gives you a quick path to the details, pricing notes, and next step.</p>
                 </div>
 
-                <div class="service-carousel-wrap" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-carousel" data-service-carousel>
-                        <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous service" data-carousel-prev>
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-
-                        <div class="service-carousel-stage">
-                            <article class="service-slide active" data-service-slide="0">
-                                <div class="service-slide-visual service-slide-cleaning">
-                                    <i class="fas fa-broom"></i>
-                                    <span>Clean</span>
-                                </div>
-                                <div class="service-slide-content">
-                                    <span class="service-slide-kicker">Most common service</span>
-                                    <h3>Gutter Cleaning</h3>
-                                    <p>Debris removal, downspout flushing, flow checks, before and after photos, and cleanup when the job is complete.</p>
-                                    <ul class="service-slide-points">
-                                        <li>Starting at $185 for standard homes</li>
-                                        <li>Includes downspout flush and visible inspection</li>
-                                        <li>Great for spring, fall, and storm cleanup</li>
-                                    </ul>
-                                    <div class="service-slide-actions">
-                                        <a href="#gutter-cleaning-service" class="btn btn-primary">View Details</a>
-                                        <a href="index.html#calculator" class="btn btn-accent">Estimate Tool</a>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <article class="service-slide" data-service-slide="1">
-                                <div class="service-slide-visual service-slide-repair">
-                                    <i class="fas fa-wrench"></i>
-                                    <span>Repair</span>
-                                </div>
-                                <div class="service-slide-content">
-                                    <span class="service-slide-kicker">Fix leaks and sagging</span>
-                                    <h3>Gutter Repairs</h3>
-                                    <p>Repair support for leaking corners, loose sections, sagging gutters, separated joints, hangers, brackets, end caps, and downspout issues.</p>
-                                    <ul class="service-slide-points">
-                                        <li>Good option when replacement is not necessary</li>
-                                        <li>Targets problem areas causing overflow</li>
-                                        <li>Helps extend the life of the system</li>
-                                    </ul>
-                                    <div class="service-slide-actions">
-                                        <a href="#gutter-repairs-service" class="btn btn-primary">View Details</a>
-                                        <a href="tel:9374780689" class="btn btn-accent">Call Now</a>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <article class="service-slide" data-service-slide="2">
-                                <div class="service-slide-visual service-slide-guards">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>Protect</span>
-                                </div>
-                                <div class="service-slide-content">
-                                    <span class="service-slide-kicker">Lifetime warranty</span>
-                                    <h3>Gutter Protection</h3>
-                                    <p>Professionally installed gutter guards designed to reduce clogs, help prevent overflow, and protect the gutter system long term.</p>
-                                    <ul class="service-slide-points">
-                                        <li>Lifetime warranty on gutter guard installations</li>
-                                        <li>Helps reduce cleaning frequency</li>
-                                        <li>Professional bolt-in installation</li>
-                                    </ul>
-                                    <div class="service-slide-actions">
-                                        <a href="#gutter-protection-service" class="btn btn-primary">View Details</a>
-                                        <a href="tel:9374780689" class="btn btn-accent">Get Quote</a>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <article class="service-slide" data-service-slide="3">
-                                <div class="service-slide-visual service-slide-install">
-                                    <i class="fas fa-tools"></i>
-                                    <span>Install</span>
-                                </div>
-                                <div class="service-slide-content">
-                                    <span class="service-slide-kicker">Dedicated service page</span>
-                                    <h3>New Gutter Installation</h3>
-                                    <p>Seamless gutter replacement and installation with clean routing, proper sizing, and downspout planning for your home.</p>
-                                    <ul class="service-slide-points">
-                                        <li>5-inch and 6-inch gutter options</li>
-                                        <li>6-inch systems available with 3x4 downspouts</li>
-                                        <li>Dedicated installation page with more details</li>
-                                    </ul>
-                                    <div class="service-slide-actions">
-                                        <a href="services/gutter-installation.html" class="btn btn-primary">Open Installation Page</a>
-                                        <a href="tel:9374780689" class="btn btn-accent">Call Now</a>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <article class="service-slide" data-service-slide="4">
-                                <div class="service-slide-visual service-slide-dryer">
-                                    <i class="fas fa-fire-extinguisher"></i>
-                                    <span>Airflow</span>
-                                </div>
-                                <div class="service-slide-content">
-                                    <span class="service-slide-kicker">Summer special</span>
-                                    <h3>Dryer Vent Cleaning</h3>
-                                    <p>Professional dryer vent cleaning to improve airflow, lower drying times, and reduce lint buildup and fire risk.</p>
-                                    <ul class="service-slide-points">
-                                        <li>Summer special: $150, regularly $200</li>
-                                        <li>Valid through September 1, 2026</li>
-                                        <li>Dedicated dryer vent page available</li>
-                                    </ul>
-                                    <div class="service-slide-actions">
-                                        <a href="services/dryer-vent-cleaning.html" class="btn btn-primary">Open Dryer Vent Page</a>
-                                        <a href="tel:9374780689" class="btn btn-accent">Book Service</a>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <article class="service-slide" data-service-slide="5">
-                                <div class="service-slide-visual service-slide-drainage">
-                                    <i class="fas fa-water"></i>
-                                    <span>Drain</span>
-                                </div>
-                                <div class="service-slide-content">
-                                    <span class="service-slide-kicker">Water management</span>
-                                    <h3>Drainage Solutions</h3>
-                                    <p>Support for underground downspout extensions, pooling water, runoff problems, and water dumping too close to the home.</p>
-                                    <ul class="service-slide-points">
-                                        <li>Downspout extension planning</li>
-                                        <li>Pooling water and runoff assessments</li>
-                                        <li>Drainage page coming soon</li>
-                                    </ul>
-                                    <div class="service-slide-actions">
-                                        <a href="#underground-drainage-service" class="btn btn-primary">View Details</a>
-                                        <a href="tel:9374780689" class="btn btn-accent">Call for Assessment</a>
-                                    </div>
-                                </div>
-                            </article>
+                <div class="premium-service-grid">
+                    <article class="premium-service-card card-from-left" data-aos="fade-right" data-aos-delay="50">
+                        <div class="premium-service-media cleaning-card">
+                            <i class="fas fa-broom"></i>
                         </div>
+                        <div class="premium-service-body">
+                            <span class="premium-service-label">Most Common Service</span>
+                            <h3>Gutter Cleaning</h3>
+                            <p>Debris removal, downspout flushing, flow checks, before and after photos, and cleanup when the job is complete.</p>
+                            <ul>
+                                <li>Starting at $185 for standard homes</li>
+                                <li>Includes downspout flush and visible inspection</li>
+                                <li>Great for spring, fall, and storm cleanup</li>
+                            </ul>
+                            <div class="premium-service-actions">
+                                <a href="#gutter-cleaning-service" class="btn btn-primary">View Details</a>
+                                <a href="index.html#calculator" class="btn btn-accent">Estimate Tool</a>
+                            </div>
+                        </div>
+                    </article>
 
-                        <button class="carousel-arrow carousel-next" type="button" aria-label="Next service" data-carousel-next>
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
+                    <article class="premium-service-card card-from-right" data-aos="fade-left" data-aos-delay="100">
+                        <div class="premium-service-media repair-card">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <div class="premium-service-body">
+                            <span class="premium-service-label">Fix Water Issues</span>
+                            <h3>Gutter Repairs</h3>
+                            <p>Repair support for leaking corners, loose sections, sagging gutters, separated joints, hangers, brackets, end caps, and downspout issues.</p>
+                            <ul>
+                                <li>Good option when replacement is not necessary</li>
+                                <li>Targets problem areas causing overflow</li>
+                                <li>Helps extend the life of the gutter system</li>
+                            </ul>
+                            <div class="premium-service-actions">
+                                <a href="#gutter-repairs-service" class="btn btn-primary">View Details</a>
+                                <a href="tel:9374780689" class="btn btn-accent">Call Now</a>
+                            </div>
+                        </div>
+                    </article>
 
-                    <div class="service-carousel-tabs" role="tablist" aria-label="CleanFlow of Ohio services">
-                        <button type="button" class="active" data-service-tab="0">Cleaning</button>
-                        <button type="button" data-service-tab="1">Repairs</button>
-                        <button type="button" data-service-tab="2">Guards</button>
-                        <button type="button" data-service-tab="3">Installation</button>
-                        <button type="button" data-service-tab="4">Dryer Vents</button>
-                        <button type="button" data-service-tab="5">Drainage</button>
-                    </div>
+                    <article class="premium-service-card card-from-left" data-aos="fade-right" data-aos-delay="150">
+                        <div class="premium-service-media guards-card">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="premium-service-body">
+                            <span class="premium-service-label">Lifetime Warranty</span>
+                            <h3>Gutter Guards</h3>
+                            <p>Professionally installed gutter guards designed to reduce clogs, help prevent overflow, and protect your gutter system long term.</p>
+                            <ul>
+                                <li>Lifetime warranty on gutter guard installations</li>
+                                <li>Helps reduce cleaning frequency</li>
+                                <li>Professional bolt-in installation</li>
+                            </ul>
+                            <div class="premium-service-actions">
+                                <a href="#gutter-protection-service" class="btn btn-primary">View Details</a>
+                                <a href="tel:9374780689" class="btn btn-accent">Get Quote</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="premium-service-card card-from-right featured-service-card" data-aos="fade-left" data-aos-delay="200">
+                        <div class="premium-service-media install-card">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="premium-service-body">
+                            <span class="premium-service-label">Dedicated Service Page</span>
+                            <h3>New Gutter Installation</h3>
+                            <p>Seamless gutter replacement and installation with clean routing, proper sizing, and downspout planning for your home.</p>
+                            <ul>
+                                <li>5-inch and 6-inch gutter options</li>
+                                <li>6-inch systems available with 3x4 downspouts</li>
+                                <li>Dedicated installation page with more details</li>
+                            </ul>
+                            <div class="premium-service-actions">
+                                <a href="services/gutter-installation.html" class="btn btn-primary">Open Installation Page</a>
+                                <a href="tel:9374780689" class="btn btn-accent">Call Now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="premium-service-card card-from-left special-service-card" data-aos="fade-right" data-aos-delay="250">
+                        <div class="premium-service-media dryer-card">
+                            <i class="fas fa-fire-extinguisher"></i>
+                        </div>
+                        <div class="premium-service-body">
+                            <span class="premium-service-label">Summer Special</span>
+                            <h3>Dryer Vent Cleaning</h3>
+                            <p>Professional dryer vent cleaning to improve airflow, lower drying times, reduce lint buildup, and reduce fire risk.</p>
+                            <ul>
+                                <li>Summer special: $150, regularly $200</li>
+                                <li>Valid through September 1, 2026</li>
+                                <li>Dedicated dryer vent page available</li>
+                            </ul>
+                            <div class="premium-service-actions">
+                                <a href="services/dryer-vent-cleaning.html" class="btn btn-primary">Open Dryer Vent Page</a>
+                                <a href="tel:9374780689" class="btn btn-accent">Book Service</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="premium-service-card card-from-right" data-aos="fade-left" data-aos-delay="300">
+                        <div class="premium-service-media drainage-card">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="premium-service-body">
+                            <span class="premium-service-label">Water Management</span>
+                            <h3>Drainage Solutions</h3>
+                            <p>Support for underground downspout extensions, pooling water, runoff problems, and water dumping too close to the home.</p>
+                            <ul>
+                                <li>Downspout extension planning</li>
+                                <li>Pooling water and runoff assessments</li>
+                                <li>Drainage page coming soon</li>
+                            </ul>
+                            <div class="premium-service-actions">
+                                <a href="#underground-drainage-service" class="btn btn-primary">View Details</a>
+                                <a href="tel:9374780689" class="btn btn-accent">Call for Assessment</a>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
