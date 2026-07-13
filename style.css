@@ -418,30 +418,54 @@ nav ul li a.active::after {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    border: none;
+    border: 2px solid rgba(243, 156, 18, 0.85);
     border-radius: 999px;
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
-    padding: 14px 20px;
+    padding: 15px 22px;
     font-family: inherit;
     font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 14px 34px rgba(30, 60, 114, 0.28);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    box-shadow:
+        0 16px 36px rgba(30, 60, 114, 0.35),
+        0 0 0 0 rgba(243, 156, 18, 0.75);
+    transition: transform 0.3s ease, background 0.3s ease;
+    animation: floatingServiceHugePulse 1.75s infinite;
+    will-change: transform, box-shadow;
 }
 
 .floating-service-trigger i {
     color: var(--accent);
-    font-size: 18px;
+    font-size: 19px;
 }
 
 .floating-service-trigger:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 46px rgba(30, 60, 114, 0.36);
+    transform: translateY(-5px) scale(1.06);
     background: linear-gradient(135deg, var(--primary-light), var(--primary));
+}
+
+@keyframes floatingServiceHugePulse {
+    0% {
+        box-shadow:
+            0 16px 36px rgba(30, 60, 114, 0.35),
+            0 0 0 0 rgba(243, 156, 18, 0.78);
+        transform: translateY(0) scale(1);
+    }
+    55% {
+        box-shadow:
+            0 18px 42px rgba(30, 60, 114, 0.38),
+            0 0 0 24px rgba(243, 156, 18, 0);
+        transform: translateY(-2px) scale(1.045);
+    }
+    100% {
+        box-shadow:
+            0 16px 36px rgba(30, 60, 114, 0.35),
+            0 0 0 0 rgba(243, 156, 18, 0);
+        transform: translateY(0) scale(1);
+    }
 }
 
 .floating-cta {
@@ -2133,7 +2157,6 @@ footer {
     }
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
@@ -2186,8 +2209,8 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 64px;
-  height: 64px;
+  width: 66px;
+  height: 66px;
   background: var(--accent);
   color: white;
   border-radius: 50%;
@@ -2207,11 +2230,13 @@ footer {
 }
 
 .radial-item {
+  --tx: 0px;
+  --ty: 0px;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 150px;
-  height: 150px;
+  width: 138px;
+  height: 138px;
   background: white;
   border-radius: 50%;
   display: flex;
@@ -2221,19 +2246,25 @@ footer {
   text-align: center;
   text-decoration: none;
   color: var(--primary-dark);
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 1.2;
   box-shadow: 0 18px 40px rgba(0,0,0,0.28);
   opacity: 0;
   transform: translate(-50%, -50%) scale(0);
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 4px solid rgba(255,255,255,0.7);
+  padding: 13px;
 }
 
 .radial-item i {
-  font-size: 30px;
+  font-size: 28px;
   color: var(--primary);
   margin-bottom: 8px;
+}
+
+.radial-item span {
+  max-width: 110px;
 }
 
 .radial-item:hover {
@@ -2245,34 +2276,67 @@ footer {
   color: var(--accent);
 }
 
-.radial-overlay.active .item-1 {
-  transform: translate(-165%, -125%) scale(1);
+.radial-item.item-1 {
+  --tx: 0px;
+  --ty: -196px;
+}
+
+.radial-item.item-2 {
+  --tx: 170px;
+  --ty: -98px;
+}
+
+.radial-item.item-3 {
+  --tx: 170px;
+  --ty: 98px;
+}
+
+.radial-item.item-4 {
+  --tx: 0px;
+  --ty: 196px;
+}
+
+.radial-item.item-5 {
+  --tx: -170px;
+  --ty: 98px;
+}
+
+.radial-item.item-6 {
+  --tx: -170px;
+  --ty: -98px;
+}
+
+.radial-overlay.active .radial-item {
   opacity: 1;
-  transition-delay: 0.1s;
+  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1);
+}
+
+.radial-overlay.active .radial-item:hover {
+  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.06);
+}
+
+.radial-overlay.active .item-1 {
+  transition-delay: 0.05s;
 }
 
 .radial-overlay.active .item-2 {
-  transform: translate(65%, -125%) scale(1);
-  opacity: 1;
-  transition-delay: 0.2s;
+  transition-delay: 0.10s;
 }
 
 .radial-overlay.active .item-3 {
-  transform: translate(-50%, 65%) scale(1);
-  opacity: 1;
-  transition-delay: 0.3s;
+  transition-delay: 0.15s;
 }
 
-.radial-overlay.active .item-1:hover {
-  transform: translate(-165%, -125%) scale(1.06);
+.radial-overlay.active .item-4 {
+  transition-delay: 0.20s;
 }
 
-.radial-overlay.active .item-2:hover {
-  transform: translate(65%, -125%) scale(1.06);
+.radial-overlay.active .item-5 {
+  transition-delay: 0.25s;
 }
 
-.radial-overlay.active .item-3:hover {
-  transform: translate(-50%, 65%) scale(1.06);
+.radial-overlay.active .item-6 {
+  transition-delay: 0.30s;
 }
 
 @media screen and (max-width: 1199.98px) {
@@ -2478,7 +2542,7 @@ footer {
     .floating-service-trigger {
         left: 15px;
         bottom: 18px;
-        padding: 13px 16px;
+        padding: 14px 17px;
         font-size: 12px;
     }
 
@@ -2641,38 +2705,57 @@ footer {
         min-height: 240px;
     }
 
+    .radial-menu-center {
+        width: 70px;
+        height: 70px;
+    }
+
+    .radial-close {
+        width: 54px;
+        height: 54px;
+        font-size: 20px;
+    }
+
     .radial-item {
-        width: 112px;
-        height: 112px;
-        font-size: 12px;
-        padding: 10px;
+        width: 102px;
+        height: 102px;
+        font-size: 10.5px;
+        padding: 8px;
+        border-width: 3px;
     }
 
     .radial-item i {
-        font-size: 24px;
+        font-size: 21px;
+        margin-bottom: 5px;
     }
 
-    .radial-overlay.active .item-1 {
-        transform: translate(-132%, -112%) scale(1);
+    .radial-item.item-1 {
+        --tx: 0px;
+        --ty: -138px;
     }
 
-    .radial-overlay.active .item-2 {
-        transform: translate(32%, -112%) scale(1);
+    .radial-item.item-2 {
+        --tx: 118px;
+        --ty: -68px;
     }
 
-    .radial-overlay.active .item-3 {
-        transform: translate(-50%, 42%) scale(1);
+    .radial-item.item-3 {
+        --tx: 118px;
+        --ty: 68px;
     }
 
-    .radial-overlay.active .item-1:hover {
-        transform: translate(-132%, -112%) scale(1.05);
+    .radial-item.item-4 {
+        --tx: 0px;
+        --ty: 138px;
     }
 
-    .radial-overlay.active .item-2:hover {
-        transform: translate(32%, -112%) scale(1.05);
+    .radial-item.item-5 {
+        --tx: -118px;
+        --ty: 68px;
     }
 
-    .radial-overlay.active .item-3:hover {
-        transform: translate(-50%, 42%) scale(1.05);
+    .radial-item.item-6 {
+        --tx: -118px;
+        --ty: -68px;
     }
 }
