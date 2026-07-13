@@ -1,6 +1,16 @@
 (function () {
   "use strict";
 
+  const CALCULATOR_DISCOUNT_RATE = 0.20;
+
+  function roundToNearestFive(amount) {
+    return Math.round(amount / 5) * 5;
+  }
+
+  function applyCalculatorDiscount(amount) {
+    return roundToNearestFive(amount * (1 - CALCULATOR_DISCOUNT_RATE));
+  }
+
   function formatMoney(amount) {
     return "$" + Math.round(amount).toLocaleString("en-US");
   }
@@ -59,7 +69,10 @@
 
     const highEstimate = lowEstimate + 50;
 
-    estimatedPrice.textContent = `${formatMoney(lowEstimate)} - ${formatMoney(highEstimate)}`;
+    const discountedLowEstimate = applyCalculatorDiscount(lowEstimate);
+    const discountedHighEstimate = applyCalculatorDiscount(highEstimate);
+
+    estimatedPrice.textContent = `${formatMoney(discountedLowEstimate)} - ${formatMoney(discountedHighEstimate)}`;
 
     const resultTitle = resultBox.querySelector(".result-title");
     const resultNote = resultBox.querySelector(".result-note");
@@ -78,6 +91,86 @@
     resultBox.scrollIntoView({
       behavior: "smooth",
       block: "nearest"
+    });
+  }
+
+  function getServiceWheelMarkup() {
+    return `
+      <div class="radial-menu-center">
+        <div class="radial-close" aria-label="Close service menu">
+          <i class="fas fa-times"></i>
+        </div>
+
+        <a href="/services.html#gutter-cleaning-service" class="radial-item item-1">
+          <i class="fas fa-broom"></i>
+          <span>Gutter Cleaning</span>
+        </a>
+
+        <a href="/services.html#gutter-repairs-service" class="radial-item item-2">
+          <i class="fas fa-wrench"></i>
+          <span>Gutter Repairs</span>
+        </a>
+
+        <a href="/services.html#gutter-protection-service" class="radial-item item-3">
+          <i class="fas fa-shield-alt"></i>
+          <span>Gutter Guards</span>
+        </a>
+
+        <a href="/services/gutter-installation.html" class="radial-item item-4">
+          <i class="fas fa-tools"></i>
+          <span>New Gutter Installation</span>
+        </a>
+
+        <a href="/services/dryer-vent-cleaning.html" class="radial-item item-5">
+          <i class="fas fa-fire-extinguisher"></i>
+          <span>Dryer Vent Cleaning</span>
+        </a>
+
+        <a href="/services.html#underground-drainage-service" class="radial-item item-6">
+          <i class="fas fa-water"></i>
+          <span>Drainage Solutions</span>
+        </a>
+      </div>
+    `;
+  }
+
+  function ensureSitewideServiceWheel() {
+    let radialOverlay = document.getElementById("radial-menu-overlay");
+
+    if (!radialOverlay) {
+      radialOverlay = document.createElement("div");
+      radialOverlay.id = "radial-menu-overlay";
+      radialOverlay.className = "radial-overlay";
+      document.body.appendChild(radialOverlay);
+    }
+
+    radialOverlay.classList.add("radial-overlay");
+    radialOverlay.innerHTML = getServiceWheelMarkup();
+
+    const existingTriggers = document.querySelectorAll(".floating-service-trigger");
+
+    if (!existingTriggers.length) {
+      const floatingServiceTrigger = document.createElement("button");
+
+      floatingServiceTrigger.type = "button";
+      floatingServiceTrigger.className = "floating-service-trigger";
+      floatingServiceTrigger.setAttribute("data-service-menu-trigger", "true");
+      floatingServiceTrigger.setAttribute("aria-label", "Open service wheel");
+      floatingServiceTrigger.innerHTML = '<i class="fas fa-th-large"></i><span>Services</span>';
+
+      document.body.appendChild(floatingServiceTrigger);
+      return;
+    }
+
+    existingTriggers.forEach(function (trigger) {
+      trigger.setAttribute("data-service-menu-trigger", "true");
+      trigger.setAttribute("aria-label", "Open service wheel");
+
+      if (trigger.tagName.toLowerCase() === "button") {
+        trigger.type = "button";
+      }
+
+      trigger.innerHTML = '<i class="fas fa-th-large"></i><span>Services</span>';
     });
   }
 
@@ -379,6 +472,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    ensureSitewideServiceWheel();
     initAOS();
     initMobileMenu();
     initRadialMenu();
