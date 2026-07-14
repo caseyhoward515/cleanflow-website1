@@ -469,11 +469,11 @@
     });
   }
 
-  /* ============================================================
+  /*
      BATCH 1 ADDITION — Review Carousel
      Self-contained. Exits immediately on pages without the
      carousel. Touches no other feature.
-     ============================================================ */
+  */
 
   function initReviewCarousel() {
     const carousel = document.getElementById("review-carousel");
@@ -489,7 +489,7 @@
 
     if (!track || !cards.length) return;
 
-    const AUTO_DELAY = 9000;
+    const AUTO_DELAY = 12000;
     const RESUME_DELAY = 15000;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
