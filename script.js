@@ -96,40 +96,42 @@
 
   function getServiceWheelMarkup() {
     return `
-    <div class="radial-menu-center">
-      <div class="radial-close"><i class="fas fa-times"></i></div>
+      <div class="radial-menu-center">
+        <div class="radial-close" aria-label="Close service menu">
+          <i class="fas fa-times"></i>
+        </div>
 
-      <a href="/services.html#gutter-cleaning-service" class="radial-item item-1">
-        <i class="fas fa-broom"></i>
-        <span>Gutter Cleaning</span>
-      </a>
+        <a href="/services.html#gutter-cleaning-service" class="radial-item item-1">
+          <i class="fas fa-broom"></i>
+          <span>Gutter Cleaning</span>
+        </a>
 
-      <a href="/services.html#gutter-repairs-service" class="radial-item item-2">
-        <i class="fas fa-wrench"></i>
-        <span>Gutter Repairs</span>
-      </a>
+        <a href="/services.html#gutter-repairs-service" class="radial-item item-2">
+          <i class="fas fa-wrench"></i>
+          <span>Gutter Repairs</span>
+        </a>
 
-      <a href="/services.html#gutter-protection-service" class="radial-item item-3">
-        <i class="fas fa-shield-alt"></i>
-        <span>Gutter Guards</span>
-      </a>
+        <a href="/services.html#gutter-protection-service" class="radial-item item-3">
+          <i class="fas fa-shield-alt"></i>
+          <span>Gutter Guards</span>
+        </a>
 
-      <a href="/services/gutter-installation.html" class="radial-item item-4">
-        <i class="fas fa-tools"></i>
-        <span>New Gutter Installation</span>
-      </a>
+        <a href="/services/gutter-installation.html" class="radial-item item-4">
+          <i class="fas fa-tools"></i>
+          <span>New Gutter Installation</span>
+        </a>
 
-      <a href="/services/dryer-vent-cleaning.html" class="radial-item item-5">
-        <i class="fas fa-fire-extinguisher"></i>
-        <span>Dryer Vent Cleaning</span>
-      </a>
+        <a href="/services/dryer-vent-cleaning.html" class="radial-item item-5">
+          <i class="fas fa-fire-extinguisher"></i>
+          <span>Dryer Vent Cleaning</span>
+        </a>
 
-      <a href="/services.html#underground-drainage-service" class="radial-item item-6">
-        <i class="fas fa-water"></i>
-        <span>Drainage Solutions</span>
-      </a>
-    </div>
-  `;
+        <a href="/services.html#underground-drainage-service" class="radial-item item-6">
+          <i class="fas fa-water"></i>
+          <span>Drainage Solutions</span>
+        </a>
+      </div>
+    `;
   }
 
   function ensureSitewideServiceWheel() {
@@ -469,209 +471,6 @@
     });
   }
 
-  /*
-     BATCH 1 ADDITION — Review Carousel
-     Self-contained. Exits immediately on pages without the
-     carousel. Touches no other feature.
-  */
-
-  function initReviewCarousel() {
-    const carousel = document.getElementById("review-carousel");
-
-    if (!carousel) return;
-
-    const track = carousel.querySelector(".rc-track");
-    const cards = carousel.querySelectorAll(".review-card");
-    const prevBtn = carousel.querySelector(".rc-prev");
-    const nextBtn = carousel.querySelector(".rc-next");
-    const pauseBtn = carousel.querySelector(".rc-pause");
-    const dotsWrap = carousel.querySelector(".rc-dots");
-
-    if (!track || !cards.length) return;
-
-    const AUTO_DELAY = 12000;
-    const RESUME_DELAY = 15000;
-
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    let currentIndex = 0;
-    let autoTimer = null;
-    let resumeTimer = null;
-    let userPaused = false;
-    let hovered = false;
-
-    const dots = [];
-
-    if (dotsWrap) {
-      cards.forEach(function (card, i) {
-        const dot = document.createElement("button");
-        dot.type = "button";
-        dot.className = "rc-dot" + (i === 0 ? " active" : "");
-        dot.setAttribute("aria-label", "Go to review " + (i + 1));
-        dot.addEventListener("click", function () {
-          goTo(i);
-          interactionPause();
-        });
-        dotsWrap.appendChild(dot);
-        dots.push(dot);
-      });
-    }
-
-    function goTo(index) {
-      const clamped = (index + cards.length) % cards.length;
-      const card = cards[clamped];
-      const offset = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
-
-      track.scrollTo({
-        left: offset,
-        behavior: reducedMotion ? "auto" : "smooth"
-      });
-
-      currentIndex = clamped;
-      updateDots();
-    }
-
-    function updateDots() {
-      dots.forEach(function (dot, i) {
-        dot.classList.toggle("active", i === currentIndex);
-      });
-    }
-
-    function nearestIndex() {
-      const center = track.scrollLeft + track.clientWidth / 2;
-      let best = 0;
-      let bestDist = Infinity;
-
-      cards.forEach(function (card, i) {
-        const cardCenter = card.offsetLeft + card.clientWidth / 2;
-        const dist = Math.abs(cardCenter - center);
-
-        if (dist < bestDist) {
-          bestDist = dist;
-          best = i;
-        }
-      });
-
-      return best;
-    }
-
-    function startAuto() {
-      if (reducedMotion || userPaused || hovered) return;
-
-      stopAuto();
-
-      autoTimer = window.setInterval(function () {
-        goTo(currentIndex + 1);
-      }, AUTO_DELAY);
-    }
-
-    function stopAuto() {
-      if (autoTimer) {
-        window.clearInterval(autoTimer);
-        autoTimer = null;
-      }
-    }
-
-    function interactionPause() {
-      stopAuto();
-
-      if (resumeTimer) {
-        window.clearTimeout(resumeTimer);
-      }
-
-      resumeTimer = window.setTimeout(function () {
-        startAuto();
-      }, RESUME_DELAY);
-    }
-
-    if (prevBtn) {
-      prevBtn.addEventListener("click", function () {
-        goTo(currentIndex - 1);
-        interactionPause();
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener("click", function () {
-        goTo(currentIndex + 1);
-        interactionPause();
-      });
-    }
-
-    if (pauseBtn) {
-      const icon = pauseBtn.querySelector("i");
-
-      pauseBtn.addEventListener("click", function () {
-        userPaused = !userPaused;
-        pauseBtn.setAttribute("aria-pressed", String(userPaused));
-        pauseBtn.setAttribute("aria-label", userPaused ? "Resume automatic rotation" : "Pause automatic rotation");
-
-        if (icon) {
-          icon.className = userPaused ? "fas fa-play" : "fas fa-pause";
-        }
-
-        if (userPaused) {
-          stopAuto();
-
-          if (resumeTimer) {
-            window.clearTimeout(resumeTimer);
-            resumeTimer = null;
-          }
-        } else {
-          startAuto();
-        }
-      });
-    }
-
-    carousel.addEventListener("pointerenter", function () {
-      hovered = true;
-      stopAuto();
-    });
-
-    carousel.addEventListener("pointerleave", function () {
-      hovered = false;
-      startAuto();
-    });
-
-    carousel.addEventListener("focusin", function () {
-      stopAuto();
-    });
-
-    carousel.addEventListener("focusout", function () {
-      startAuto();
-    });
-
-    track.addEventListener("touchstart", function () {
-      interactionPause();
-    }, { passive: true });
-
-    track.addEventListener("pointerdown", function () {
-      interactionPause();
-    });
-
-    let scrollRaf = null;
-
-    track.addEventListener("scroll", function () {
-      if (scrollRaf) return;
-
-      scrollRaf = window.requestAnimationFrame(function () {
-        currentIndex = nearestIndex();
-        updateDots();
-        scrollRaf = null;
-      });
-    }, { passive: true });
-
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) {
-        stopAuto();
-      } else {
-        startAuto();
-      }
-    });
-
-    startAuto();
-  }
-
   document.addEventListener("DOMContentLoaded", function () {
     ensureSitewideServiceWheel();
     initAOS();
@@ -683,6 +482,5 @@
     initScrollEffects();
     initQuoteFormStatus();
     initActiveNavLinks();
-    initReviewCarousel();
   });
 })();
