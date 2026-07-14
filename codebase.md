@@ -21,7 +21,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
 ===== FILE: README.md =====
 # 💧 CleanFlow of Ohio | Official Website
 
@@ -151,7 +150,6 @@ Vercel uses `vercel.json` for:
 ## License
 
 This software is distributed under the MIT License. See the `LICENSE` file for details.
-
 ===== FILE: about.html =====
 <!DOCTYPE html>
 <html lang="en">
@@ -504,684 +502,769 @@ This software is distributed under the MIT License. See the `LICENSE` file for d
     <script src="script.js" defer></script>
 </body>
 </html>
-
 ===== FILE: index.html =====
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CleanFlow of Ohio | Professional Gutter Cleaning, Protection & Drainage</title>
-    <meta name="description" content="CleanFlow of Ohio provides professional gutter cleaning, gutter guards, seamless gutters, dryer vent cleaning, underground downspout extensions, and drainage solutions in Dayton and the greater Miami Valley.">
-    <meta name="keywords" content="gutter cleaning, gutter protection, gutter maintenance, gutter repairs, gutter guards, Dayton gutter cleaning, Montgomery County gutter services, Greene County gutter services, professional gutter cleaning, seamless gutters, dryer vent cleaning, underground downspout extensions, drainage solutions, French drains, pooling water yard drainage">
-    <link rel="canonical" href="https://www.cleanflowohio.com/" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleanFlow of Ohio | Professional Gutter Cleaning, Protection & Drainage</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.cleanflowohio.com/">
+<meta property="og:title" content="CleanFlow of Ohio | Professional Gutter Cleaning & Drainage Services">
+<meta property="og:description" content="Professional gutter cleaning, protection, installation, dryer vent cleaning, and drainage solutions in the greater Miami Valley. Call 937-478-0689.">
+<meta property="og:image" content="https://www.cleanflowohio.com/assets/og-image.jpg">
+<meta property="og:locale" content="en_US">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.cleanflowohio.com/">
-    <meta property="og:title" content="CleanFlow of Ohio | Professional Gutter Cleaning & Drainage Services">
-    <meta property="og:description" content="Professional gutter cleaning, protection, installation, dryer vent cleaning, and drainage solutions in the greater Miami Valley. Call 937-478-0689.">
-    <meta property="og:image" content="https://www.cleanflowohio.com/assets/og-image.jpg">
-    <meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CleanFlow of Ohio | Professional Gutter Cleaning">
+<meta name="twitter:description" content="Professional gutter cleaning, gutter protection, dryer vent cleaning, and drainage services in Dayton and the greater Miami Valley.">
+<meta name="twitter:image" content="https://www.cleanflowohio.com/assets/og-image.jpg">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CleanFlow of Ohio | Professional Gutter Cleaning">
-    <meta name="twitter:description" content="Professional gutter cleaning, gutter protection, dryer vent cleaning, and drainage services in Dayton and the greater Miami Valley.">
-    <meta name="twitter:image" content="https://www.cleanflowohio.com/assets/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://www.cleanflowohio.com/#business",
-      "name": "CleanFlow of Ohio",
-      "description": "Professional gutter cleaning, gutter protection, seamless gutter installation, dryer vent cleaning, underground downspout extensions, and drainage solutions in Dayton and the greater Miami Valley.",
-      "url": "https://www.cleanflowohio.com",
-      "telephone": "+1-937-478-0689",
-      "email": "cleanflowofohio@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dayton",
-        "addressRegion": "OH",
-        "addressCountry": "US"
-      },
-      "areaServed": [
-        {"@type": "City", "name": "Dayton, Ohio"},
-        {"@type": "City", "name": "Centerville, Ohio"},
-        {"@type": "City", "name": "Washington Township, Ohio"},
-        {"@type": "City", "name": "Kettering, Ohio"},
-        {"@type": "City", "name": "Oakwood, Ohio"},
-        {"@type": "City", "name": "Beavercreek, Ohio"}
-      ],
-      "priceRange": "$$",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Services",
-        "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Cleaning"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Repairs"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Guard Installation"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dryer Vent Cleaning"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seamless Gutter Installation"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Underground Downspout Extensions and Drainage Solutions"}}
-        ]
-      }
-    }
-    </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.cleanflowohio.com/#business",
+  "name": "CleanFlow of Ohio",
+  "description": "Professional gutter cleaning, gutter protection, seamless gutter installation, dryer vent cleaning, underground downspout extensions, and drainage solutions in Dayton and the greater Miami Valley.",
+  "url": "https://www.cleanflowohio.com",
+  "telephone": "+1-937-478-0689",
+  "email": "cleanflowofohio@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dayton",
+    "addressRegion": "OH",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Dayton, Ohio"},
+    {"@type": "City", "name": "Centerville, Ohio"},
+    {"@type": "City", "name": "Washington Township, Ohio"},
+    {"@type": "City", "name": "Kettering, Ohio"},
+    {"@type": "City", "name": "Oakwood, Ohio"},
+    {"@type": "City", "name": "Beavercreek, Ohio"}
+  ],
+  "priceRange": "$$",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Cleaning"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Repairs"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Guard Installation"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dryer Vent Cleaning"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seamless Gutter Installation"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Underground Downspout Extensions and Drainage Solutions"}}
+    ]
+  }
+}
+</script>
 </head>
 <body>
-    <div class="topbar">
-        <div class="container">
-            <div class="topbar-container">
-                <div class="topbar-item">
-                    <i class="fas fa-phone-alt"></i> Call or Text: <a href="tel:9374780689">937-478-0689</a>
-                </div>
-                <div class="topbar-item">
-                    <i class="fas fa-envelope"></i> Email: <a href="mailto:cleanflowofohio@gmail.com">cleanflowofohio@gmail.com</a>
-                </div>
+
+<div class="topbar">
+    <div class="container">
+        <div class="topbar-container">
+            <div class="topbar-item">
+                <i class="fas fa-phone-alt"></i> Call or Text: <a href="tel:9374780689">937-478-0689</a>
+            </div>
+            <div class="topbar-item">
+                <i class="fas fa-envelope"></i> Email: <a href="mailto:cleanflowofohio@gmail.com">cleanflowofohio@gmail.com</a>
             </div>
         </div>
     </div>
+</div>
 
-    <header id="header">
-        <div class="container">
-            <div class="header-container">
-                <div class="logo" onclick="location.href='index.html'">
-                    CleanFlow<span>of Ohio</span>
+<header id="header">
+    <div class="container">
+        <div class="header-container">
+            <div class="logo" onclick="location.href='index.html'">
+                CleanFlow<span>of Ohio</span>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html" id="home-link" class="active">Home</a></li>
+                    <li><a href="services.html" id="services-link">Services</a></li>
+                    <li><a href="about.html" id="about-link">About</a></li>
+                    <li><i class="fas fa-times close-menu" id="close-menu"></i></li>
+                </ul>
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
                 </div>
-                <nav>
-                    <ul id="nav-menu">
-                        <li><a href="index.html" id="home-link" class="active">Home</a></li>
-                        <li><a href="services.html" id="services-link">Services</a></li>
-                        <li><a href="about.html" id="about-link">About</a></li>
-                        <li><i class="fas fa-times close-menu" id="close-menu"></i></li>
-                    </ul>
-                    <div class="menu-toggle" id="menu-toggle">
-                        <i class="fas fa-bars"></i>
+            </nav>
+            <a href="tel:9374780689" class="phone-btn">
+                <i class="fas fa-phone-alt"></i>
+                <span>937-478-0689</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<div id="radial-menu-overlay" class="radial-overlay">
+  <div class="radial-menu-center">
+    <div class="radial-close"><i class="fas fa-times"></i></div>
+    <a href="services/gutter-installation.html" class="radial-item item-1">
+      <i class="fas fa-tools"></i>
+      <span>New Gutter Installation</span>
+    </a>
+    <a href="services/dryer-vent-cleaning.html" class="radial-item item-2">
+      <i class="fas fa-fire-extinguisher"></i>
+      <span>Dryer Vent Cleaning</span>
+    </a>
+    <a href="services.html" class="radial-item item-3">
+      <i class="fas fa-broom"></i>
+      <span>Gutter Cleaning & More</span>
+    </a>
+  </div>
+</div>
+
+<div id="home-page" class="page">
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Professional Gutter Cleaning & Protection</h1>
+                <p>Prevent costly water damage with expert gutter maintenance, gutter protection, seamless gutter installation, dryer vent cleaning, and drainage solutions from CleanFlow of Ohio.</p>
+                <div class="hero-btns">
+                    <a href="tel:9374780689" class="btn btn-accent btn-lg btn-pulse">
+                        <i class="fas fa-phone-alt"></i> Call Now: 937-478-0689
+                    </a>
+                    <a href="#calculator" class="btn btn-accent btn-lg">
+                        <i class="fas fa-calculator"></i> Free Cost Calculator
+                    </a>
+                </div>
+                <div class="trust-bar" role="note" aria-label="CleanFlow trust signals">
+                    <span class="trust-stars" aria-hidden="true">★★★★★</span>
+                    <a class="trust-link" href="GOOGLE_REVIEWS_LINK" target="_blank" rel="noopener">5-star rated on Google · 50+ Google reviews</a>
+                    <span class="trust-sep"></span>
+                    <span class="trust-item">A+ BBB Rated</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quote" class="lead-form-section">
+        <div class="container">
+            <form id="quoteForm" class="lead-form" data-aos="fade-up" action="https://formspree.io/f/xpqqeklz" method="POST">
+                <input type="hidden" name="_next" value="https://www.cleanflowohio.com/?submitted=true">
+                <h3>Request Your Free Quote</h3>
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <select id="service" name="service">
+                        <option value="Gutter Cleaning">Gutter Cleaning</option>
+                        <option value="Gutter Guards">Gutter Guards</option>
+                        <option value="Gutter Installation">Gutter Installation</option>
+                        <option value="Dryer Vent Cleaning">Dryer Vent Cleaning</option>
+                        <option value="Underground Drainage / Downspout Extensions">Underground Drainage / Downspout Extensions</option>
+                        <option value="Multiple Services">Multiple Services</option>
+                    </select>
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary btn-pulse">Send Request</button>
+                </div>
+                <div id="formMessage" class="form-message"></div>
+                <noscript>
+                    <p style="color: var(--accent); font-weight: 600; text-align: center;">
+                        For fastest response, call or text 937-478-0689
+                    </p>
+                </noscript>
+            </form>
+        </div>
+    </section>
+
+    <section id="warning" class="py-5">
+        <div class="container">
+            <div class="warning-box" data-aos="fade-up">
+                <div class="warning-content">
+                    <strong>Here's what most homeowners don't realize:</strong> When gutters clog, water doesn't just overflow. It backs up behind the gutters, slowly rotting your fascia boards and soffits from the inside out. <br>
+                    <span class="price-highlight">A $200 cleaning today can help prevent a $2,000+ repair tomorrow.</span>
+                </div>
+            </div>
+            <div class="text-center" data-aos="fade-up">
+                <div class="trust-bar trust-bar--light" role="note" aria-label="CleanFlow trust signals">
+                    <span class="trust-stars" aria-hidden="true">★★★★★</span>
+                    <a class="trust-link" href="GOOGLE_REVIEWS_LINK" target="_blank" rel="noopener">5-star rated on Google · 50+ Google reviews</a>
+                    <span class="trust-sep"></span>
+                    <span class="trust-item">A+ BBB Rated</span>
+                    <span class="trust-sep"></span>
+                    <span class="trust-item">Owner-Operated</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pad" style="background:#fff">
+        <div class="container">
+            <h2 style="margin-bottom:2.5rem;">How It Works</h2>
+            <div class="process" data-aos="fade-up">
+                <div class="step">
+                    <i class="fas fa-phone-volume"></i>
+                    <h3>1 • Schedule</h3>
+                    <p>Call, text, or use the quick form.</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-broom"></i>
+                    <h3>2 • We Clean / Install</h3>
+                    <p>On-time arrival and tidy workmanship.</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-thumbs-up"></i>
+                    <h3>3 • Peace of Mind</h3>
+                    <p>Cleaner gutters, better water flow, and fewer exterior headaches.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">What Miami Valley Homeowners Say</h2>
+                <p>Real Google reviews from local customers</p>
+            </div>
+
+            <div class="review-carousel" id="review-carousel" data-aos="fade-up" aria-roledescription="carousel" aria-label="Customer reviews">
+                <div class="rc-track" tabindex="0" aria-label="Customer reviews, swipe or use arrow buttons to browse">
+                    <figure class="review-card" role="group" aria-roledescription="slide" aria-label="Review 1 of 5">
+                        <div class="review-stars" aria-hidden="true">★★★★★</div>
+                        <blockquote>I could not be more happy and satisfied with the work, communication and price that CleanFlow delivered. Casey was friendly and helpful from our initial conversation. Arrived at my property on time the following day. Cleaned gutters and downspouts. Provided photos of his work. Just top notch all around. 10/10 highly recommend!</blockquote>
+                        <figcaption>
+                            <strong>Brian Stokes</strong>
+                            <span class="review-meta">Gutter Cleaning · Google Review</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="review-card" role="group" aria-roledescription="slide" aria-label="Review 2 of 5">
+                        <div class="review-stars" aria-hidden="true">★★★★★</div>
+                        <blockquote>Great professional cleaning- fair quote and readily available versus the competition. Gutters were filled to the brim with debris and not fully secure in some places. CleanFlow went out of their way to get gutter brackets in order to resecure gutters to fascia board. Nice to have peace of mind knowing my gutters are clean and ready for the next storm! For all your gutter needs, go with CleanFlow!</blockquote>
+                        <figcaption>
+                            <strong>Andrew Greenspan</strong>
+                            <span class="review-meta">Gutter Cleaning &amp; Repairs · Google Review</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="review-card" role="group" aria-roledescription="slide" aria-label="Review 3 of 5">
+                        <div class="review-stars" aria-hidden="true">★★★★★</div>
+                        <blockquote>The crew did a fantastic job. We had gutters clogged and drainage issues. They built a French drain system with additional drains to move the water and it works great. I highly recommend CleanFlow of Ohio for your rain water drainage issues.</blockquote>
+                        <figcaption>
+                            <strong>Mike Miller</strong>
+                            <span class="review-meta">Drainage Solutions · Google Review</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="review-card" role="group" aria-roledescription="slide" aria-label="Review 4 of 5">
+                        <div class="review-stars" aria-hidden="true">★★★★★</div>
+                        <blockquote>Casey came out early on a Sunday morning and took care of us. I have had two other companies look at my downspout problem and nobody could figure out why water would always back up… He quickly figured out what no one else could figure out in the past. I'm very grateful to Casey.</blockquote>
+                        <figcaption>
+                            <strong>Dr. P</strong>
+                            <span class="review-meta">Downspout &amp; Drainage · Google Review</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="review-card" role="group" aria-roledescription="slide" aria-label="Review 5 of 5">
+                        <div class="review-stars" aria-hidden="true">★★★★★</div>
+                        <blockquote>WOW !!! What a great job cleaning out my dryer vent. Worked for about 2 hours and now my dryer works great and eliminating a potential fire hazard Totally recommend!!</blockquote>
+                        <figcaption>
+                            <strong>Diane Metz</strong>
+                            <span class="review-meta">Dryer Vent Cleaning · Google Review</span>
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="rc-controls">
+                    <button type="button" class="rc-btn rc-prev" aria-label="Previous review">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="rc-dots" aria-hidden="true"></div>
+                    <button type="button" class="rc-btn rc-next" aria-label="Next review">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button type="button" class="rc-btn rc-pause" aria-label="Pause automatic rotation" aria-pressed="false">
+                        <i class="fas fa-pause"></i>
+                    </button>
+                </div>
+
+                <p class="rc-google-link">
+                    <a href="GOOGLE_REVIEWS_LINK" target="_blank" rel="noopener">Read all reviews on Google <i class="fas fa-arrow-right"></i></a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services-overview" class="section-pad" style="background:var(--light);">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Our Services</h2>
+                <p>Professional gutter, dryer vent, and drainage-related services to help protect your home.</p>
+            </div>
+
+            <div class="grid grid-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://cdn.prod.website-files.com/614a070736f4a72073561d14/614a732f2f7c6cfc52315c10_gutter-cleaning-before-after.jpg" alt="Professional Gutter Cleaning Service">
                     </div>
-                </nav>
-                <a href="tel:9374780689" class="phone-btn">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>937-478-0689</span>
+                    <div class="service-content">
+                        <h3>Gutter Cleaning</h3>
+                        <p>Complete removal of debris from gutters and downspouts to ensure proper water flow and help prevent water damage.</p>
+                        <a href="services.html#gutter-cleaning-service" class="service-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2023/08/01151936/Gutter_iStock-1310417362-e1747423219898.jpeg" alt="Gutter Repairs and Maintenance">
+                    </div>
+                    <div class="service-content">
+                        <h3>Gutter Repairs</h3>
+                        <p>Expert repairs for leaking gutters, sagging sections, loose hangers, separated joints, and downspout issues.</p>
+                        <a href="services.html#gutter-repairs-service" class="service-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2022/06/29223354/gutter_guard_image_for_blog_2400px-scaled.jpeg" alt="Gutter Guard Protection Systems">
+                    </div>
+                    <div class="service-content">
+                        <h3>Gutter Protection</h3>
+                        <p>High-quality gutter guards that reduce clogs, protect your gutter system, and include a lifetime warranty.</p>
+                        <a href="services.html#gutter-protection-service" class="service-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="drainage-overview" class="section-pad" style="background:#fff;">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Drainage & Downspout Solutions</h2>
+                <p>Moving roof runoff away from the home is just as important as keeping the gutters clean.</p>
+            </div>
+
+            <div class="warning-box" data-aos="fade-up" style="background: var(--light); border-color: var(--primary);">
+                <div class="warning-content">
+                    <strong>Need help with pooling water or downspout runoff?</strong><br><br>
+                    CleanFlow of Ohio also helps homeowners with underground downspout extensions, drainage solutions, water pooling near the home, yard drainage concerns, and runoff problems around foundations, walkways, patios, and landscaping.
+                    <br><br>
+                    <span class="price-highlight" style="color: var(--primary);">A dedicated drainage page is coming soon, but you can call now for a drainage assessment.</span>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="tel:9374780689" class="btn btn-primary btn-lg">
+                    <i class="fas fa-phone-alt"></i> Call for Drainage Assessment
                 </a>
             </div>
         </div>
-    </header>
+    </section>
 
-    <div id="radial-menu-overlay" class="radial-overlay">
-      <div class="radial-menu-center">
-        <div class="radial-close"><i class="fas fa-times"></i></div>
-        <a href="services/gutter-installation.html" class="radial-item item-1">
-          <i class="fas fa-tools"></i>
-          <span>New Gutter Installation</span>
-        </a>
-        <a href="services/dryer-vent-cleaning.html" class="radial-item item-2">
-          <i class="fas fa-fire-extinguisher"></i>
-          <span>Dryer Vent Cleaning</span>
-        </a>
-        <a href="services.html" class="radial-item item-3">
-          <i class="fas fa-broom"></i>
-          <span>Gutter Cleaning & More</span>
-        </a>
-      </div>
-    </div>
-
-    <div id="home-page" class="page">
-        <section id="hero">
-            <div class="container">
-                <div class="hero-content" data-aos="fade-up">
-                    <h1>Professional Gutter Cleaning & Protection</h1>
-                    <p>Prevent costly water damage with expert gutter maintenance, gutter protection, seamless gutter installation, dryer vent cleaning, and drainage solutions from CleanFlow of Ohio.</p>
-                    <div class="hero-btns">
-                        <a href="tel:9374780689" class="btn btn-accent btn-lg btn-pulse">
-                            <i class="fas fa-phone-alt"></i> Call Now: 937-478-0689
-                        </a>
-                        <a href="#calculator" class="btn btn-accent btn-lg">
-                            <i class="fas fa-calculator"></i> Free Cost Calculator
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="quote" class="lead-form-section">
-            <div class="container">
-                <form id="quoteForm" class="lead-form" data-aos="fade-up" action="https://formspree.io/f/xpqqeklz" method="POST">
-                    <input type="hidden" name="_next" value="https://www.cleanflowohio.com/?submitted=true">
-                    <h3>Request Your Free Quote</h3>
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <select id="service" name="service">
-                            <option value="Gutter Cleaning">Gutter Cleaning</option>
-                            <option value="Gutter Guards">Gutter Guards</option>
-                            <option value="Gutter Installation">Gutter Installation</option>
-                            <option value="Dryer Vent Cleaning">Dryer Vent Cleaning</option>
-                            <option value="Underground Drainage / Downspout Extensions">Underground Drainage / Downspout Extensions</option>
-                            <option value="Multiple Services">Multiple Services</option>
-                        </select>
-                    </div>
-                    <div class="form-submit">
-                        <button type="submit" class="btn btn-primary btn-pulse">Send Request</button>
-                    </div>
-                    <div id="formMessage" class="form-message"></div>
-                    <noscript>
-                        <p style="color: var(--accent); font-weight: 600; text-align: center;">
-                            For fastest response, call or text 937-478-0689
-                        </p>
-                    </noscript>
-                </form>
-            </div>
-        </section>
-
-        <section id="warning" class="py-5">
-            <div class="container">
-                <div class="warning-box" data-aos="fade-up">
-                    <div class="warning-content">
-                        <strong>Here's what most homeowners don't realize:</strong> When gutters clog, water doesn't just overflow. It backs up behind the gutters, slowly rotting your fascia boards and soffits from the inside out. <br>
-                        <span class="price-highlight">A $200 cleaning today can help prevent a $2,000+ repair tomorrow.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-pad" style="background:#fff">
-            <div class="container">
-                <h2 style="margin-bottom:2.5rem;">How It Works</h2>
-                <div class="process" data-aos="fade-up">
-                    <div class="step">
-                        <i class="fas fa-phone-volume"></i>
-                        <h3>1 • Schedule</h3>
-                        <p>Call, text, or use the quick form.</p>
-                    </div>
-                    <div class="step">
-                        <i class="fas fa-broom"></i>
-                        <h3>2 • We Clean / Install</h3>
-                        <p>On-time arrival and tidy workmanship.</p>
-                    </div>
-                    <div class="step">
-                        <i class="fas fa-thumbs-up"></i>
-                        <h3>3 • Peace of Mind</h3>
-                        <p>Cleaner gutters, better water flow, and fewer exterior headaches.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services-overview" class="section-pad" style="background:var(--light);">
-            <div class="container">
-                <div class="section-header text-center" data-aos="fade-up">
-                    <h2 style="margin-left:auto;margin-right:auto;">Our Services</h2>
-                    <p>Professional gutter, dryer vent, and drainage-related services to help protect your home.</p>
-                </div>
-
-                <div class="grid grid-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="https://cdn.prod.website-files.com/614a070736f4a72073561d14/614a732f2f7c6cfc52315c10_gutter-cleaning-before-after.jpg" alt="Professional Gutter Cleaning Service">
-                        </div>
-                        <div class="service-content">
-                            <h3>Gutter Cleaning</h3>
-                            <p>Complete removal of debris from gutters and downspouts to ensure proper water flow and help prevent water damage.</p>
-                            <a href="services.html#gutter-cleaning-service" class="service-btn">
-                                Learn More <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2023/08/01151936/Gutter_iStock-1310417362-e1747423219898.jpeg" alt="Gutter Repairs and Maintenance">
-                        </div>
-                        <div class="service-content">
-                            <h3>Gutter Repairs</h3>
-                            <p>Expert repairs for leaking gutters, sagging sections, loose hangers, separated joints, and downspout issues.</p>
-                            <a href="services.html#gutter-repairs-service" class="service-btn">
-                                Learn More <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2022/06/29223354/gutter_guard_image_for_blog_2400px-scaled.jpeg" alt="Gutter Guard Protection Systems">
-                        </div>
-                        <div class="service-content">
-                            <h3>Gutter Protection</h3>
-                            <p>High-quality gutter guards that reduce clogs, protect your gutter system, and include a lifetime warranty.</p>
-                            <a href="services.html#gutter-protection-service" class="service-btn">
-                                Learn More <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="drainage-overview" class="section-pad" style="background:#fff;">
-            <div class="container">
-                <div class="section-header text-center" data-aos="fade-up">
-                    <h2 style="margin-left:auto;margin-right:auto;">Drainage & Downspout Solutions</h2>
-                    <p>Moving roof runoff away from the home is just as important as keeping the gutters clean.</p>
-                </div>
-
-                <div class="warning-box" data-aos="fade-up" style="background: var(--light); border-color: var(--primary);">
-                    <div class="warning-content">
-                        <strong>Need help with pooling water or downspout runoff?</strong><br><br>
-                        CleanFlow of Ohio also helps homeowners with underground downspout extensions, drainage solutions, water pooling near the home, yard drainage concerns, and runoff problems around foundations, walkways, patios, and landscaping.
-                        <br><br>
-                        <span class="price-highlight" style="color: var(--primary);">A dedicated drainage page is coming soon, but you can call now for a drainage assessment.</span>
-                    </div>
-                </div>
-
-                <div class="text-center">
-                    <a href="tel:9374780689" class="btn btn-primary btn-lg">
-                        <i class="fas fa-phone-alt"></i> Call for Drainage Assessment
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="calculator" class="section-pad">
-            <div class="container">
-                <div class="section-header text-center" data-aos="fade-up">
-                    <h2 style="margin-left:auto;margin-right:auto;">Gutter Cleaning Cost Calculator</h2>
-                    <p>Get a quick estimate for your gutter cleaning service</p>
-                </div>
-
-                <div class="calculator-card" data-aos="fade-up">
-                    <div class="calculator-form">
-                        <div class="grid">
-                            <div class="form-group">
-                                <label for="linearFeet">Linear Feet of Gutters</label>
-                                <input type="number" id="linearFeet" placeholder="Enter linear feet (approximately house perimeter)" min="50" max="500">
-                            </div>
-                            <div class="form-group">
-                                <label for="stories">Number of Stories</label>
-                                <select id="stories">
-                                    <option value="1">1 Story</option>
-                                    <option value="2">2 Stories</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="debris">Debris Level</label>
-                                <select id="debris">
-                                    <option value="light">Light (Few trees nearby)</option>
-                                    <option value="medium" selected>Medium (Some trees nearby)</option>
-                                    <option value="heavy">Heavy (Many trees, pine needles, etc.)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="text-center mt-2">
-                            <button class="btn btn-primary" id="calculateBtn">Calculate Estimate</button>
-                        </div>
-
-                        <div class="result-box" id="resultBox">
-                            <div class="result-title">Estimated Cost</div>
-                            <div class="result-price" id="estimatedPrice">$200 - $300</div>
-                            <p class="result-note">This is just an estimate. For an accurate quote, please call us at <a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a> or send a photo of your gutters.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="signs" class="signs-section">
-            <div class="container">
-                <div class="section-header text-center" data-aos="fade-up">
-                    <h2 style="margin-left:auto;margin-right:auto;">Signs You Need Gutter Cleaning</h2>
-                    <p>Click on each sign to learn more</p>
-                </div>
-
-                <div class="signs-grid" data-aos="fade-up">
-                    <div class="sign-card" onclick="toggleSign(this)">
-                        <i class="fas fa-tint"></i>
-                        <h3>Overflowing Gutters</h3>
-                        <div class="sign-content">
-                            <p>If you notice water spilling over the sides of your gutters during rainfall, they're likely clogged with debris and need cleaning to prevent water damage.</p>
-                        </div>
-                    </div>
-
-                    <div class="sign-card" onclick="toggleSign(this)">
-                        <i class="fas fa-seedling"></i>
-                        <h3>Plants Growing</h3>
-                        <div class="sign-content">
-                            <p>Seeds carried by wind or birds can settle in debris-filled gutters and start growing. If you see greenery sprouting from your gutters, it's time for a cleaning.</p>
-                        </div>
-                    </div>
-
-                    <div class="sign-card" onclick="toggleSign(this)">
-                        <i class="fas fa-water"></i>
-                        <h3>Water Stains</h3>
-                        <div class="sign-content">
-                            <p>Water stains on siding or foundation walls can be a sign that water isn't being properly moved away from your home.</p>
-                        </div>
-                    </div>
-
-                    <div class="sign-card" onclick="toggleSign(this)">
-                        <i class="fas fa-weight-hanging"></i>
-                        <h3>Sagging Gutters</h3>
-                        <div class="sign-content">
-                            <p>Sagging gutters often mean the system is weighed down with debris and water. That extra weight can eventually cause sections to pull loose.</p>
-                        </div>
-                    </div>
-
-                    <div class="sign-card" onclick="toggleSign(this)">
-                        <i class="fas fa-bug"></i>
-                        <h3>Pest Infestations</h3>
-                        <div class="sign-content">
-                            <p>Standing water and decomposing debris in gutters can attract mosquitoes, carpenter ants, rodents, and other pests.</p>
-                        </div>
-                    </div>
-
-                    <div class="sign-card" onclick="toggleSign(this)">
-                        <i class="fas fa-icicles"></i>
-                        <h3>Ice Dams</h3>
-                        <div class="sign-content">
-                            <p>In winter, clogged gutters can contribute to ice dams and water backing up under shingles, which can lead to interior water damage.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="calendar" class="calendar-section">
-            <div class="container">
-                <div class="section-header text-center" data-aos="fade-up">
-                    <h2 style="margin-left:auto;margin-right:auto;">Seasonal Gutter Maintenance Guide</h2>
-                    <p>Keep your gutters functioning properly year-round</p>
-                </div>
-
-                <div class="season-tabs" data-aos="fade-up">
-                    <div class="season-tab active" data-season="spring">Spring</div>
-                    <div class="season-tab" data-season="summer">Summer</div>
-                    <div class="season-tab" data-season="fall">Fall</div>
-                    <div class="season-tab" data-season="winter">Winter</div>
-                </div>
-
-                <div class="season-content active" id="spring-content" data-aos="fade-up">
-                    <div class="season-card">
-                        <div class="season-header">
-                            <i class="fas fa-seedling season-icon"></i>
-                            <h3 class="season-title">Spring Gutter Maintenance</h3>
-                        </div>
-                        <p>Spring is a critical time for gutter cleaning as trees shed flowers, seeds, and pollen that can quickly clog your gutter system.</p>
-                        <ul class="checkmark-list mt-3">
-                            <li>Remove winter debris and accumulated leaves</li>
-                            <li>Check for and repair any winter damage</li>
-                            <li>Ensure downspouts are clear and directing water away from foundation</li>
-                            <li>Inspect gutters for proper pitch and alignment</li>
-                            <li>Consider gutter guard installation before heavy spring rains</li>
-                        </ul>
-                        <div class="mt-3">
-                            <a href="tel:9374780689" class="btn btn-accent">Schedule Spring Cleaning</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="season-content" id="summer-content">
-                    <div class="season-card">
-                        <div class="season-header">
-                            <i class="fas fa-sun season-icon"></i>
-                            <h3 class="season-title">Summer Gutter Maintenance</h3>
-                        </div>
-                        <p>Summer is the perfect time to inspect your gutters, clean out storm debris, and evaluate drainage concerns while weather conditions are favorable.</p>
-                        <ul class="checkmark-list mt-3">
-                            <li>Check for nests from birds, wasps, or other pests</li>
-                            <li>Inspect for sagging sections that need reinforcement</li>
-                            <li>Clear debris from summer storms</li>
-                            <li>Look for signs of rust or corrosion on metal gutters</li>
-                            <li>Watch for pooling water around downspouts and foundation areas</li>
-                        </ul>
-                        <div class="mt-3">
-                            <a href="tel:9374780689" class="btn btn-accent">Schedule Summer Maintenance</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="season-content" id="fall-content">
-                    <div class="season-card">
-                        <div class="season-header">
-                            <i class="fas fa-leaf season-icon"></i>
-                            <h3 class="season-title">Fall Gutter Maintenance</h3>
-                        </div>
-                        <p>Fall is the most important season for gutter maintenance as falling leaves and debris can quickly overwhelm your gutter system.</p>
-                        <ul class="checkmark-list mt-3">
-                            <li>Clean gutters after the majority of leaves have fallen</li>
-                            <li>Consider a second cleaning if you have many trees</li>
-                            <li>Check downspouts for clogs and proper drainage</li>
-                            <li>Inspect for loose gutter sections before winter</li>
-                            <li>Consider installing gutter guards for long-term protection</li>
-                        </ul>
-                        <div class="mt-3">
-                            <a href="tel:9374780689" class="btn btn-accent">Schedule Fall Cleaning</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="season-content" id="winter-content">
-                    <div class="season-card">
-                        <div class="season-header">
-                            <i class="fas fa-snowflake season-icon"></i>
-                            <h3 class="season-title">Winter Gutter Maintenance</h3>
-                        </div>
-                        <p>Winter presents unique challenges for gutter systems, including ice dams and potential damage from snow and ice weight.</p>
-                        <ul class="checkmark-list mt-3">
-                            <li>Monitor for ice dam formation during freeze and thaw cycles</li>
-                            <li>Check gutters after heavy snow or ice storms</li>
-                            <li>Look for signs of gutters pulling away due to ice weight</li>
-                            <li>Ensure downspouts are clear for melting snow drainage</li>
-                            <li>Plan for a comprehensive spring cleaning</li>
-                        </ul>
-                        <div class="mt-3">
-                            <a href="tel:9374780689" class="btn btn-accent">Schedule Winter Inspection</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="benefits" class="benefits-section">
-            <div class="container">
-                <div class="section-header text-center" data-aos="fade-up">
-                    <h2 style="margin-left:auto;margin-right:auto;">Benefits of Professional Gutter Cleaning</h2>
-                    <p>Why proper gutter maintenance is essential for your home</p>
-                </div>
-
-                <div class="benefits-grid" data-aos="fade-up">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h3 class="benefit-title">Protect Your Foundation</h3>
-                        <p>Properly functioning gutters direct water away from your home's foundation, helping prevent cracks, leaks, and structural damage.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <h3 class="benefit-title">Preserve Exterior</h3>
-                        <p>Clean gutters prevent overflow that can damage siding, fascia boards, soffits, and painted surfaces.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-seedling"></i>
-                        </div>
-                        <h3 class="benefit-title">Protect Landscaping</h3>
-                        <p>Properly diverted rainwater protects garden beds, plants, mulch, and soil around your property.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-bug-slash"></i>
-                        </div>
-                        <h3 class="benefit-title">Prevent Pests</h3>
-                        <p>Clean gutters help eliminate standing water and debris that attract mosquitoes, termites, rodents, and other pests.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="what-you-get" class="section-pad">
-            <div class="container">
-                <div class="section-header text-center" data-aos="fade-up">
-                    <h2 style="margin-left:auto;margin-right:auto;">What You Get With Every Service</h2>
-                    <p>I provide comprehensive gutter services with attention to detail and customer satisfaction.</p>
-                </div>
-
-                <div class="grid grid-2 mt-4" data-aos="fade-up" data-aos-delay="100">
-                    <div>
-                        <ul class="checkmark-list">
-                            <li>Hand removal of debris from gutters and roof valleys</li>
-                            <li>Complete downspout flush and flow testing</li>
-                            <li>Minor repairs such as resealing joints and realigning sections</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul class="checkmark-list">
-                            <li>Before and after photos of your gutters</li>
-                            <li>Honest assessment and recommendations</li>
-                            <li>Optional gutter guards with lifetime warranty</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="special-offer">
-            <div class="container">
-                <div class="special-offer" data-aos="fade-up">
-                    <div class="offer-title"><i class="fas fa-fire-extinguisher"></i> SUMMER SPECIAL: Dryer Vent Cleaning</div>
-                    <div class="offer-text">Professional dryer vent cleaning to reduce fire risk and improve dryer efficiency.</div>
-                    <div style="font-size: 2rem; font-weight: 700; margin: 15px 0;">$150 Summer Special</div>
-                    <div style="font-size: 0.95rem; margin-bottom: 20px; opacity: 0.9;">Regularly $200 • Save $50 when you mention this special • Valid through September 1, 2026</div>
-                    <div style="font-size: 0.9rem; margin-bottom: 20px; opacity: 0.9; max-width: 760px; margin-left: auto; margin-right: auto;">
-                        Promotional price applies to standard one-story, ground-level dryer vent access. Roof access, difficult ladder placement, elevated exterior vents, unusually long vent runs, or heavily restricted systems may require a custom quote.
-                    </div>
-                    <a href="services/dryer-vent-cleaning.html" class="btn btn-primary btn-lg" style="margin-right: 10px;">
-                        <i class="fas fa-info-circle"></i> Learn More
-                    </a>
-                    <a href="tel:9374780689" class="btn btn-primary btn-lg">
-                        <i class="fas fa-phone-alt"></i> Call Now: 937-478-0689
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="bottom-cta" id="contact">
-            <div class="container">
-                <div data-aos="fade-up">
-                    <h2>Ready for Better Water Flow?</h2>
-                    <p>Call now for a free estimate and to schedule your professional gutter, dryer vent, or drainage-related service.</p>
-                    <a href="tel:9374780689" class="btn btn-accent btn-lg btn-pulse">
-                        <i class="fas fa-phone-alt"></i> 937-478-0689
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <footer>
+    <section id="calculator" class="section-pad">
         <div class="container">
-            <div class="footer-top">
-                <div class="footer-about">
-                    <a href="index.html" class="footer-logo">
-                        CleanFlow<span>of Ohio</span>
-                    </a>
-                    <p>Professional gutter cleaning, gutter protection, dryer vent cleaning, seamless gutter installation, and drainage-related exterior services in Dayton and the greater Miami Valley.</p>
-                    <div class="footer-contact">
-                        <div class="footer-contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <p><a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a></p>
-                        </div>
-                        <div class="footer-contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <p><a href="mailto:cleanflowofohio@gmail.com">cleanflowofohio@gmail.com</a></p>
-                        </div>
-                        <div class="footer-contact-item">
-                            <i class="fas fa-globe"></i>
-                            <p><a href="https://www.cleanflowohio.com" target="_blank">www.cleanflowohio.com</a></p>
-                        </div>
-                        <div class="footer-contact-item">
-                            <i class="fas fa-clock"></i>
-                            <p>Open 24 Hours<br>7 Days a Week</p>
-                        </div>
-                        <div class="footer-contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <p>Serving Dayton and surrounding areas<br>Montgomery & Greene Counties</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="index.html#calculator">Cost Calculator</a></li>
-                        <li><a href="index.html#drainage-overview">Drainage Solutions</a></li>
-                        <li><a href="index.html#calendar">Maintenance Guide</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="services/gutter-installation.html">Gutter Installation</a></li>
-                        <li><a href="services.html#gutter-cleaning-service">Gutter Cleaning</a></li>
-                        <li><a href="services.html#gutter-repairs-service">Gutter Repairs</a></li>
-                        <li><a href="services.html#gutter-protection-service">Gutter Guards</a></li>
-                        <li><a href="services/dryer-vent-cleaning.html">Dryer Vent Cleaning</a></li>
-                        <li><a href="services.html#underground-drainage-service">Drainage Solutions</a></li>
-                        <li><a href="tel:9374780689">Get a Quote</a></li>
-                    </ul>
-                </div>
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Gutter Cleaning Cost Calculator</h2>
+                <p>Get a quick estimate for your gutter cleaning service</p>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2003-2026 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving Montgomery & Greene Counties</p>
+            <div class="calculator-card" data-aos="fade-up">
+                <div class="calculator-form">
+                    <div class="grid">
+                        <div class="form-group">
+                            <label for="linearFeet">Linear Feet of Gutters</label>
+                            <input type="number" id="linearFeet" placeholder="Enter linear feet (approximately house perimeter)" min="50" max="500">
+                        </div>
+                        <div class="form-group">
+                            <label for="stories">Number of Stories</label>
+                            <select id="stories">
+                                <option value="1">1 Story</option>
+                                <option value="2">2 Stories</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="debris">Debris Level</label>
+                            <select id="debris">
+                                <option value="light">Light (Few trees nearby)</option>
+                                <option value="medium" selected>Medium (Some trees nearby)</option>
+                                <option value="heavy">Heavy (Many trees, pine needles, etc.)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-2">
+                        <button class="btn btn-primary" id="calculateBtn">Calculate Estimate</button>
+                    </div>
+
+                    <div class="result-box" id="resultBox">
+                        <div class="result-title">Estimated Cost</div>
+                        <div class="result-price" id="estimatedPrice">$200 - $300</div>
+                        <p class="result-note">This is just an estimate. For an accurate quote, please call us at <a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a> or send a photo of your gutters.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <div class="floating-cta" id="floating-cta">
-        <span class="cta-label">Get a Quote</span>
-        <a href="tel:9374780689" aria-label="Call CleanFlow of Ohio">
-            <i class="fas fa-phone-alt"></i>
-        </a>
+    <section id="signs" class="signs-section">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Signs You Need Gutter Cleaning</h2>
+                <p>Click on each sign to learn more</p>
+            </div>
+
+            <div class="signs-grid" data-aos="fade-up">
+                <div class="sign-card" onclick="toggleSign(this)">
+                    <i class="fas fa-tint"></i>
+                    <h3>Overflowing Gutters</h3>
+                    <div class="sign-content">
+                        <p>If you notice water spilling over the sides of your gutters during rainfall, they're likely clogged with debris and need cleaning to prevent water damage.</p>
+                    </div>
+                </div>
+
+                <div class="sign-card" onclick="toggleSign(this)">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Plants Growing</h3>
+                    <div class="sign-content">
+                        <p>Seeds carried by wind or birds can settle in debris-filled gutters and start growing. If you see greenery sprouting from your gutters, it's time for a cleaning.</p>
+                    </div>
+                </div>
+
+                <div class="sign-card" onclick="toggleSign(this)">
+                    <i class="fas fa-water"></i>
+                    <h3>Water Stains</h3>
+                    <div class="sign-content">
+                        <p>Water stains on siding or foundation walls can be a sign that water isn't being properly moved away from your home.</p>
+                    </div>
+                </div>
+
+                <div class="sign-card" onclick="toggleSign(this)">
+                    <i class="fas fa-weight-hanging"></i>
+                    <h3>Sagging Gutters</h3>
+                    <div class="sign-content">
+                        <p>Sagging gutters often mean the system is weighed down with debris and water. That extra weight can eventually cause sections to pull loose.</p>
+                    </div>
+                </div>
+
+                <div class="sign-card" onclick="toggleSign(this)">
+                    <i class="fas fa-bug"></i>
+                    <h3>Pest Infestations</h3>
+                    <div class="sign-content">
+                        <p>Standing water and decomposing debris in gutters can attract mosquitoes, carpenter ants, rodents, and other pests.</p>
+                    </div>
+                </div>
+
+                <div class="sign-card" onclick="toggleSign(this)">
+                    <i class="fas fa-icicles"></i>
+                    <h3>Ice Dams</h3>
+                    <div class="sign-content">
+                        <p>In winter, clogged gutters can contribute to ice dams and water backing up under shingles, which can lead to interior water damage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calendar" class="calendar-section">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Seasonal Gutter Maintenance Guide</h2>
+                <p>Keep your gutters functioning properly year-round</p>
+            </div>
+
+            <div class="season-tabs" data-aos="fade-up">
+                <div class="season-tab active" data-season="spring">Spring</div>
+                <div class="season-tab" data-season="summer">Summer</div>
+                <div class="season-tab" data-season="fall">Fall</div>
+                <div class="season-tab" data-season="winter">Winter</div>
+            </div>
+
+            <div class="season-content active" id="spring-content" data-aos="fade-up">
+                <div class="season-card">
+                    <div class="season-header">
+                        <i class="fas fa-seedling season-icon"></i>
+                        <h3 class="season-title">Spring Gutter Maintenance</h3>
+                    </div>
+                    <p>Spring is a critical time for gutter cleaning as trees shed flowers, seeds, and pollen that can quickly clog your gutter system.</p>
+                    <ul class="checkmark-list mt-3">
+                        <li>Remove winter debris and accumulated leaves</li>
+                        <li>Check for and repair any winter damage</li>
+                        <li>Ensure downspouts are clear and directing water away from foundation</li>
+                        <li>Inspect gutters for proper pitch and alignment</li>
+                        <li>Consider gutter guard installation before heavy spring rains</li>
+                    </ul>
+                    <div class="mt-3">
+                        <a href="tel:9374780689" class="btn btn-accent">Schedule Spring Cleaning</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="season-content" id="summer-content">
+                <div class="season-card">
+                    <div class="season-header">
+                        <i class="fas fa-sun season-icon"></i>
+                        <h3 class="season-title">Summer Gutter Maintenance</h3>
+                    </div>
+                    <p>Summer is the perfect time to inspect your gutters, clean out storm debris, and evaluate drainage concerns while weather conditions are favorable.</p>
+                    <ul class="checkmark-list mt-3">
+                        <li>Check for nests from birds, wasps, or other pests</li>
+                        <li>Inspect for sagging sections that need reinforcement</li>
+                        <li>Clear debris from summer storms</li>
+                        <li>Look for signs of rust or corrosion on metal gutters</li>
+                        <li>Watch for pooling water around downspouts and foundation areas</li>
+                    </ul>
+                    <div class="mt-3">
+                        <a href="tel:9374780689" class="btn btn-accent">Schedule Summer Maintenance</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="season-content" id="fall-content">
+                <div class="season-card">
+                    <div class="season-header">
+                        <i class="fas fa-leaf season-icon"></i>
+                        <h3 class="season-title">Fall Gutter Maintenance</h3>
+                    </div>
+                    <p>Fall is the most important season for gutter maintenance as falling leaves and debris can quickly overwhelm your gutter system.</p>
+                    <ul class="checkmark-list mt-3">
+                        <li>Clean gutters after the majority of leaves have fallen</li>
+                        <li>Consider a second cleaning if you have many trees</li>
+                        <li>Check downspouts for clogs and proper drainage</li>
+                        <li>Inspect for loose gutter sections before winter</li>
+                        <li>Consider installing gutter guards for long-term protection</li>
+                    </ul>
+                    <div class="mt-3">
+                        <a href="tel:9374780689" class="btn btn-accent">Schedule Fall Cleaning</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="season-content" id="winter-content">
+                <div class="season-card">
+                    <div class="season-header">
+                        <i class="fas fa-snowflake season-icon"></i>
+                        <h3 class="season-title">Winter Gutter Maintenance</h3>
+                    </div>
+                    <p>Winter presents unique challenges for gutter systems, including ice dams and potential damage from snow and ice weight.</p>
+                    <ul class="checkmark-list mt-3">
+                        <li>Monitor for ice dam formation during freeze and thaw cycles</li>
+                        <li>Check gutters after heavy snow or ice storms</li>
+                        <li>Look for signs of gutters pulling away due to ice weight</li>
+                        <li>Ensure downspouts are clear for melting snow drainage</li>
+                        <li>Plan for a comprehensive spring cleaning</li>
+                    </ul>
+                    <div class="mt-3">
+                        <a href="tel:9374780689" class="btn btn-accent">Schedule Winter Inspection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits-section">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">Benefits of Professional Gutter Cleaning</h2>
+                <p>Why proper gutter maintenance is essential for your home</p>
+            </div>
+
+            <div class="benefits-grid" data-aos="fade-up">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="benefit-title">Protect Your Foundation</h3>
+                    <p>Properly functioning gutters direct water away from your home's foundation, helping prevent cracks, leaks, and structural damage.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="benefit-title">Preserve Exterior</h3>
+                    <p>Clean gutters prevent overflow that can damage siding, fascia boards, soffits, and painted surfaces.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="benefit-title">Protect Landscaping</h3>
+                    <p>Properly diverted rainwater protects garden beds, plants, mulch, and soil around your property.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bug-slash"></i>
+                    </div>
+                    <h3 class="benefit-title">Prevent Pests</h3>
+                    <p>Clean gutters help eliminate standing water and debris that attract mosquitoes, termites, rodents, and other pests.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="what-you-get" class="section-pad">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 style="margin-left:auto;margin-right:auto;">What You Get With Every Service</h2>
+                <p>I provide comprehensive gutter services with attention to detail and customer satisfaction.</p>
+            </div>
+
+            <div class="grid grid-2 mt-4" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <ul class="checkmark-list">
+                        <li>Hand removal of debris from gutters and roof valleys</li>
+                        <li>Complete downspout flush and flow testing</li>
+                        <li>Minor repairs such as resealing joints and realigning sections</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="checkmark-list">
+                        <li>Before and after photos of your gutters</li>
+                        <li>Honest assessment and recommendations</li>
+                        <li>Optional gutter guards with lifetime warranty</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="special-offer">
+        <div class="container">
+            <div class="special-offer" data-aos="fade-up">
+                <div class="offer-title"><i class="fas fa-fire-extinguisher"></i> SUMMER SPECIAL: Dryer Vent Cleaning</div>
+                <div class="offer-text">Professional dryer vent cleaning to reduce fire risk and improve dryer efficiency.</div>
+                <div style="font-size: 2rem; font-weight: 700; margin: 15px 0;">$150 Summer Special</div>
+                <div style="font-size: 0.95rem; margin-bottom: 20px; opacity: 0.9;">Regularly $200 • Save $50 when you mention this special • Valid through September 1, 2026</div>
+                <div style="font-size: 0.9rem; margin-bottom: 20px; opacity: 0.9; max-width: 760px; margin-left: auto; margin-right: auto;">
+                    Promotional price applies to standard one-story, ground-level dryer vent access. Roof access, difficult ladder placement, elevated exterior vents, unusually long vent runs, or heavily restricted systems may require a custom quote.
+                </div>
+                <a href="services/dryer-vent-cleaning.html" class="btn btn-primary btn-lg" style="margin-right: 10px;">
+                    <i class="fas fa-info-circle"></i> Learn More
+                </a>
+                <a href="tel:9374780689" class="btn btn-primary btn-lg">
+                    <i class="fas fa-phone-alt"></i> Call Now: 937-478-0689
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bottom-cta" id="contact">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2>Ready for Better Water Flow?</h2>
+                <p>Call now for a free estimate and to schedule your professional gutter, dryer vent, or drainage-related service.</p>
+                <a href="tel:9374780689" class="btn btn-accent btn-lg btn-pulse">
+                    <i class="fas fa-phone-alt"></i> 937-478-0689
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-about">
+                <a href="index.html" class="footer-logo">
+                    CleanFlow<span>of Ohio</span>
+                </a>
+                <p>Professional gutter cleaning, gutter protection, dryer vent cleaning, seamless gutter installation, and drainage-related exterior services in Dayton and the greater Miami Valley.</p>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p><a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a></p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p><a href="mailto:cleanflowofohio@gmail.com">cleanflowofohio@gmail.com</a></p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-globe"></i>
+                        <p><a href="https://www.cleanflowohio.com" target="_blank">www.cleanflowohio.com</a></p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Open 24 Hours<br>7 Days a Week</p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Serving Dayton and surrounding areas<br>Montgomery & Greene Counties</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#calculator">Cost Calculator</a></li>
+                    <li><a href="index.html#drainage-overview">Drainage Solutions</a></li>
+                    <li><a href="index.html#calendar">Maintenance Guide</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="services/gutter-installation.html">Gutter Installation</a></li>
+                    <li><a href="services.html#gutter-cleaning-service">Gutter Cleaning</a></li>
+                    <li><a href="services.html#gutter-repairs-service">Gutter Repairs</a></li>
+                    <li><a href="services.html#gutter-protection-service">Gutter Guards</a></li>
+                    <li><a href="services/dryer-vent-cleaning.html">Dryer Vent Cleaning</a></li>
+                    <li><a href="services.html#underground-drainage-service">Drainage Solutions</a></li>
+                    <li><a href="tel:9374780689">Get a Quote</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2003-2026 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving Montgomery & Greene Counties</p>
+        </div>
     </div>
+</footer>
 
-    <div class="back-to-top" id="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+<div class="floating-cta" id="floating-cta">
+    <span class="cta-label">Get a Quote</span>
+    <a href="tel:9374780689" aria-label="Call CleanFlow of Ohio">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
-    <script src="script.js" defer></script>
+<div class="back-to-top" id="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>
-
 ===== FILE: robots.txt =====
 User-agent: *
 Allow: /
 
 Sitemap: https://www.cleanflowohio.com/sitemap.xml
-
 ===== FILE: script.js =====
 (function () {
   "use strict";
@@ -1281,42 +1364,40 @@ Sitemap: https://www.cleanflowohio.com/sitemap.xml
 
   function getServiceWheelMarkup() {
     return `
-      <div class="radial-menu-center">
-        <div class="radial-close" aria-label="Close service menu">
-          <i class="fas fa-times"></i>
-        </div>
+    <div class="radial-menu-center">
+      <div class="radial-close"><i class="fas fa-times"></i></div>
 
-        <a href="/services.html#gutter-cleaning-service" class="radial-item item-1">
-          <i class="fas fa-broom"></i>
-          <span>Gutter Cleaning</span>
-        </a>
+      <a href="/services.html#gutter-cleaning-service" class="radial-item item-1">
+        <i class="fas fa-broom"></i>
+        <span>Gutter Cleaning</span>
+      </a>
 
-        <a href="/services.html#gutter-repairs-service" class="radial-item item-2">
-          <i class="fas fa-wrench"></i>
-          <span>Gutter Repairs</span>
-        </a>
+      <a href="/services.html#gutter-repairs-service" class="radial-item item-2">
+        <i class="fas fa-wrench"></i>
+        <span>Gutter Repairs</span>
+      </a>
 
-        <a href="/services.html#gutter-protection-service" class="radial-item item-3">
-          <i class="fas fa-shield-alt"></i>
-          <span>Gutter Guards</span>
-        </a>
+      <a href="/services.html#gutter-protection-service" class="radial-item item-3">
+        <i class="fas fa-shield-alt"></i>
+        <span>Gutter Guards</span>
+      </a>
 
-        <a href="/services/gutter-installation.html" class="radial-item item-4">
-          <i class="fas fa-tools"></i>
-          <span>New Gutter Installation</span>
-        </a>
+      <a href="/services/gutter-installation.html" class="radial-item item-4">
+        <i class="fas fa-tools"></i>
+        <span>New Gutter Installation</span>
+      </a>
 
-        <a href="/services/dryer-vent-cleaning.html" class="radial-item item-5">
-          <i class="fas fa-fire-extinguisher"></i>
-          <span>Dryer Vent Cleaning</span>
-        </a>
+      <a href="/services/dryer-vent-cleaning.html" class="radial-item item-5">
+        <i class="fas fa-fire-extinguisher"></i>
+        <span>Dryer Vent Cleaning</span>
+      </a>
 
-        <a href="/services.html#underground-drainage-service" class="radial-item item-6">
-          <i class="fas fa-water"></i>
-          <span>Drainage Solutions</span>
-        </a>
-      </div>
-    `;
+      <a href="/services.html#underground-drainage-service" class="radial-item item-6">
+        <i class="fas fa-water"></i>
+        <span>Drainage Solutions</span>
+      </a>
+    </div>
+  `;
   }
 
   function ensureSitewideServiceWheel() {
@@ -1656,6 +1737,209 @@ Sitemap: https://www.cleanflowohio.com/sitemap.xml
     });
   }
 
+  /*
+     BATCH 1 ADDITION — Review Carousel
+     Self-contained. Exits immediately on pages without the
+     carousel. Touches no other feature.
+  */
+
+  function initReviewCarousel() {
+    const carousel = document.getElementById("review-carousel");
+
+    if (!carousel) return;
+
+    const track = carousel.querySelector(".rc-track");
+    const cards = carousel.querySelectorAll(".review-card");
+    const prevBtn = carousel.querySelector(".rc-prev");
+    const nextBtn = carousel.querySelector(".rc-next");
+    const pauseBtn = carousel.querySelector(".rc-pause");
+    const dotsWrap = carousel.querySelector(".rc-dots");
+
+    if (!track || !cards.length) return;
+
+    const AUTO_DELAY = 12000;
+    const RESUME_DELAY = 15000;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let currentIndex = 0;
+    let autoTimer = null;
+    let resumeTimer = null;
+    let userPaused = false;
+    let hovered = false;
+
+    const dots = [];
+
+    if (dotsWrap) {
+      cards.forEach(function (card, i) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "rc-dot" + (i === 0 ? " active" : "");
+        dot.setAttribute("aria-label", "Go to review " + (i + 1));
+        dot.addEventListener("click", function () {
+          goTo(i);
+          interactionPause();
+        });
+        dotsWrap.appendChild(dot);
+        dots.push(dot);
+      });
+    }
+
+    function goTo(index) {
+      const clamped = (index + cards.length) % cards.length;
+      const card = cards[clamped];
+      const offset = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+
+      track.scrollTo({
+        left: offset,
+        behavior: reducedMotion ? "auto" : "smooth"
+      });
+
+      currentIndex = clamped;
+      updateDots();
+    }
+
+    function updateDots() {
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle("active", i === currentIndex);
+      });
+    }
+
+    function nearestIndex() {
+      const center = track.scrollLeft + track.clientWidth / 2;
+      let best = 0;
+      let bestDist = Infinity;
+
+      cards.forEach(function (card, i) {
+        const cardCenter = card.offsetLeft + card.clientWidth / 2;
+        const dist = Math.abs(cardCenter - center);
+
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      });
+
+      return best;
+    }
+
+    function startAuto() {
+      if (reducedMotion || userPaused || hovered) return;
+
+      stopAuto();
+
+      autoTimer = window.setInterval(function () {
+        goTo(currentIndex + 1);
+      }, AUTO_DELAY);
+    }
+
+    function stopAuto() {
+      if (autoTimer) {
+        window.clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    function interactionPause() {
+      stopAuto();
+
+      if (resumeTimer) {
+        window.clearTimeout(resumeTimer);
+      }
+
+      resumeTimer = window.setTimeout(function () {
+        startAuto();
+      }, RESUME_DELAY);
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        goTo(currentIndex - 1);
+        interactionPause();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        goTo(currentIndex + 1);
+        interactionPause();
+      });
+    }
+
+    if (pauseBtn) {
+      const icon = pauseBtn.querySelector("i");
+
+      pauseBtn.addEventListener("click", function () {
+        userPaused = !userPaused;
+        pauseBtn.setAttribute("aria-pressed", String(userPaused));
+        pauseBtn.setAttribute("aria-label", userPaused ? "Resume automatic rotation" : "Pause automatic rotation");
+
+        if (icon) {
+          icon.className = userPaused ? "fas fa-play" : "fas fa-pause";
+        }
+
+        if (userPaused) {
+          stopAuto();
+
+          if (resumeTimer) {
+            window.clearTimeout(resumeTimer);
+            resumeTimer = null;
+          }
+        } else {
+          startAuto();
+        }
+      });
+    }
+
+    carousel.addEventListener("pointerenter", function () {
+      hovered = true;
+      stopAuto();
+    });
+
+    carousel.addEventListener("pointerleave", function () {
+      hovered = false;
+      startAuto();
+    });
+
+    carousel.addEventListener("focusin", function () {
+      stopAuto();
+    });
+
+    carousel.addEventListener("focusout", function () {
+      startAuto();
+    });
+
+    track.addEventListener("touchstart", function () {
+      interactionPause();
+    }, { passive: true });
+
+    track.addEventListener("pointerdown", function () {
+      interactionPause();
+    });
+
+    let scrollRaf = null;
+
+    track.addEventListener("scroll", function () {
+      if (scrollRaf) return;
+
+      scrollRaf = window.requestAnimationFrame(function () {
+        currentIndex = nearestIndex();
+        updateDots();
+        scrollRaf = null;
+      });
+    }, { passive: true });
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        stopAuto();
+      } else {
+        startAuto();
+      }
+    });
+
+    startAuto();
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     ensureSitewideServiceWheel();
     initAOS();
@@ -1667,9 +1951,9 @@ Sitemap: https://www.cleanflowohio.com/sitemap.xml
     initScrollEffects();
     initQuoteFormStatus();
     initActiveNavLinks();
+    initReviewCarousel();
   });
 })();
-
 ===== FILE: services.html =====
 <!DOCTYPE html>
 <html lang="en">
@@ -2432,7 +2716,6 @@ Sitemap: https://www.cleanflowohio.com/sitemap.xml
     <script src="script.js" defer></script>
 </body>
 </html>
-
 ===== FILE: sitemap.xml =====
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -2467,2770 +2750,1208 @@ Sitemap: https://www.cleanflowohio.com/sitemap.xml
     <priority>0.95</priority>
   </url>
 </urlset>
-
 ===== FILE: style.css =====
-:root {
-    --primary-dark: #1e3c72;
-    --primary: #2c5aa0;
-    --primary-light: #3a6fc7;
-    --accent: #f39c12;
-    --accent-dark: #e67e22;
-    --light: #f8f9fa;
-    --dark: #212529;
-    --gray: #6c757d;
-    --warning: #fff3cd;
-    --warning-border: #ffc107;
-    --danger: #e74c3c;
-}
+:root { --primary-dark: #1e3c72; --primary: #2c5aa0; --primary-light: #3a6fc7; --accent: #f39c12; --accent-dark: #e67e22; --light: #f8f9fa; --dark: #212529; --gray: #6c757d; --warning: #fff3cd; --warning-border: #ffc107; --danger: #e74c3c; }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--dark);
-    overflow-x: hidden;
-    background-color: var(--light);
-}
+body { font-family: 'Poppins', sans-serif; color: var(--dark); overflow-x: hidden; background-color: var(--light); }
 
-body.menu-open,
-body.radial-menu-open {
-    overflow: hidden;
-}
+body.menu-open, body.radial-menu-open { overflow: hidden; }
 
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-section {
-    padding: 80px 0;
-}
+section { padding: 80px 0; }
 
-.section-pad {
-    padding: 80px 0;
-}
+.section-pad { padding: 80px 0; }
 
-.alt-bg {
-    background: var(--light);
-}
+.alt-bg { background: var(--light); }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--primary-dark);
-}
+h1, h2, h3, h4, h5, h6 { font-weight: 700; margin-bottom: 1rem; color: var(--primary-dark); }
+
+h1 { font-size: 2.8rem; }
+
+h2 { font-size: 2.2rem; position: relative; padding-bottom: 15px; margin-bottom: 30px; }
+
+h2:after { content: ''; position: absolute; bottom: 0; left: 0; width: 80px; height: 4px; background: var(--accent); }
+
+h3 { font-size: 1.8rem; }
+
+p { line-height: 1.7; margin-bottom: 1rem; font-size: 1.05rem; }
+
+a { text-decoration: none; color: var(--primary); transition: all 0.3s ease; }
+
+a:hover { color: var(--accent); }
+
+.btn { display: inline-block; padding: 12px 28px; border-radius: 50px; text-transform: uppercase; font-weight: 600; font-size: 14px; transition: all 0.3s ease; cursor: pointer; letter-spacing: 0.5px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); position: relative; overflow: hidden; z-index: 1; border: none; text-align: center; }
+
+.btn:before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); transition: all 0.5s ease; z-index: -1; }
+
+.btn:hover:before { left: 100%; }
+
+.btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; }
+
+.btn-primary:hover { background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%); color: white; transform: translateY(-3px); }
+
+.btn-accent { background: var(--accent); color: white; }
+
+.btn-accent:hover { background: var(--accent-dark); color: white; transform: translateY(-3px); }
+
+.btn-lg { padding: 15px 35px; font-size: 16px; }
+
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(243, 156, 18, 0); } 100% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0); } }
+
+.btn-pulse { animation: pulse 2s infinite; }
+
+.text-center { text-align: center; }
+
+.text-right { text-align: right; }
+
+.flex { display: flex; }
+
+.flex-wrap { flex-wrap: wrap; }
+
+.flex-center { justify-content: center; align-items: center; }
+
+.flex-between { justify-content: space-between; }
+
+.flex-column { flex-direction: column; }
+
+.gap-1 { gap: 1rem; }
+
+.gap-2 { gap: 2rem; }
+
+.mt-1 { margin-top: 1rem; }
+
+.mt-2 { margin-top: 2rem; }
+
+.mt-3 { margin-top: 3rem; }
+
+.mt-4 { margin-top: 4rem; }
+
+.mb-1 { margin-bottom: 1rem; }
+
+.mb-2 { margin-bottom: 2rem; }
+
+.mb-3 { margin-bottom: 3rem; }
+
+.mb-4 { margin-bottom: 4rem; }
+
+.grid { display: grid; gap: 30px; }
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.topbar { background-color: var(--primary-dark); color: white; padding: 8px 0; font-size: 0.9rem; }
+
+.topbar-container { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px; }
+
+.topbar a { color: var(--accent); font-weight: 500; }
+
+.topbar a:hover { color: white; }
+
+.topbar-item { display: flex; align-items: center; gap: 8px; }
+
+header { background-color: rgba(255, 255, 255, 0.95); position: fixed; width: 100%; z-index: 1000; top: 0; margin-top: 40px; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+
+header.sticky, header.scrolled { padding: 10px 0; margin-top: 0; }
+
+.header-container { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; transition: all 0.3s ease; }
+
+header.sticky .header-container, header.scrolled .header-container { padding: 10px 0; }
+
+.logo { font-size: 24px; font-weight: 700; color: var(--primary-dark); display: flex; align-items: center; cursor: pointer; }
+
+.logo span { color: var(--accent); margin-left: 5px; }
+
+nav ul { display: flex; gap: 30px; list-style: none; }
+
+nav ul li { position: relative; }
+
+nav ul li a { color: var(--dark); font-weight: 500; font-size: 16px; transition: all 0.3s ease; }
+
+nav ul li a:hover { color: var(--accent); }
+
+nav ul li a.active { color: var(--primary); font-weight: 600; }
+
+nav ul li a::after { content: ''; position: absolute; width: 0; height: 2px; background: var(--accent); bottom: -5px; left: 0; transition: all 0.3s ease; }
+
+nav ul li a:hover::after, nav ul li a.active::after { width: 100%; }
+
+.menu-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--dark); }
+
+.close-menu { display: none; }
+
+.phone-btn { display: flex; align-items: center; gap: 10px; background-color: var(--primary); color: var(--accent); padding: 8px 20px; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+
+.phone-btn:hover { background-color: var(--primary-dark); color: var(--accent); transform: translateY(-3px); }
+
+.phone-btn i { font-size: 18px; color: var(--accent); }
+
+.floating-service-trigger { position: fixed; left: 20px; bottom: 20px; z-index: 998; display: inline-flex; align-items: center; gap: 10px; border: 2px solid rgba(243, 156, 18, 0.85); border-radius: 999px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 15px 22px; font-family: inherit; font-size: 14px; font-weight: 900; letter-spacing: 0.7px; text-transform: uppercase; cursor: pointer; box-shadow: 0 16px 36px rgba(30, 60, 114, 0.35), 0 0 0 0 rgba(243, 156, 18, 0.75); transition: transform 0.3s ease, background 0.3s ease; animation: floatingServiceHugePulse 1.75s infinite; will-change: transform, box-shadow; }
+
+.floating-service-trigger i { color: var(--accent); font-size: 19px; }
+
+.floating-service-trigger:hover { transform: translateY(-5px) scale(1.06); background: linear-gradient(135deg, var(--primary-light), var(--primary)); }
+
+@keyframes floatingServiceHugePulse { 0% { box-shadow: 0 16px 36px rgba(30, 60, 114, 0.35), 0 0 0 0 rgba(243, 156, 18, 0.78); transform: translateY(0) scale(1); } 55% { box-shadow: 0 18px 42px rgba(30, 60, 114, 0.38), 0 0 0 24px rgba(243, 156, 18, 0); transform: translateY(-2px) scale(1.045); } 100% { box-shadow: 0 16px 36px rgba(30, 60, 114, 0.35), 0 0 0 0 rgba(243, 156, 18, 0); transform: translateY(0) scale(1); } }
+
+.floating-cta { position: fixed; bottom: 90px; right: 20px; z-index: 998; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+
+.floating-cta.active { opacity: 1; visibility: visible; }
+
+.floating-cta a { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; background: var(--accent); color: white; font-size: 24px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); transition: all 0.3s ease; animation: pulse 2s infinite; }
+
+.floating-cta a:hover { background: var(--accent-dark); transform: scale(1.1); color: white; }
+
+.floating-cta .cta-label { position: absolute; right: 70px; background: var(--dark); color: white; padding: 8px 15px; border-radius: 5px; font-size: 14px; font-weight: 600; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+
+.floating-cta:hover .cta-label { opacity: 1; visibility: visible; }
+
+.floating-cta .cta-label:after { content: ''; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); border-width: 8px 0 8px 8px; border-style: solid; border-color: transparent transparent transparent var(--dark); }
+
+#hero { height: 100vh; background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(30, 60, 114, 0.8)), url('https://nedstevens.com/wp-content/uploads/2020/12/gutter-cleaning-hero-new.jpg') no-repeat center center/cover; display: flex; align-items: center; text-align: center; color: white; position: relative; padding: 0; margin-top: 40px; }
+
+.hero-content { max-width: 800px; margin: 0 auto; }
+
+.hero-content h1 { color: white; font-size: 3.5rem; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); margin-bottom: 20px; }
+
+.hero-content p { font-size: 1.2rem; margin-bottom: 30px; }
+
+.hero-btns { display: flex; justify-content: center; gap: 20px; }
+
+.scroll-down { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; color: white; font-size: 30px; cursor: pointer; }
+
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-20px); } 60% { transform: translateY(-10px); } }
+
+.lead-form-section { padding: 50px 0; }
+
+.lead-form { background: #fff; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08); padding: 30px; border-radius: 10px; margin-top: -100px; position: relative; z-index: 2; }
+
+.lead-form h3 { color: var(--primary); margin-bottom: 20px; text-align: center; }
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary-dark); }
+
+.form-group input, .form-group select { width: 100%; padding: 12px 15px; border-radius: 5px; border: 1px solid #ddd; font-size: 16px; transition: all 0.3s ease; }
+
+.form-group input:focus, .form-group select:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(44, 90, 160, 0.2); outline: none; }
+
+.form-submit { text-align: center; }
+
+.form-message { margin-top: 15px; padding: 10px; border-radius: 5px; display: none; text-align: center; }
+
+.form-message.success { background-color: #d4edda; color: #155724; }
+
+.form-message.error { background-color: #f8d7da; color: #721c24; }
+
+.about-content { display: flex; align-items: center; gap: 50px; }
+
+.about-text { flex: 1; }
+
+.about-image { flex: 1; position: relative; }
+
+.about-image img { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+
+.about-image::before { content: ''; position: absolute; width: 100%; height: 100%; border: 5px solid var(--accent); border-radius: 10px; top: 20px; left: 20px; z-index: -1; }
+
+.experience-badge { position: absolute; bottom: -20px; right: -20px; background-color: var(--primary); color: white; padding: 15px; border-radius: 50%; width: 120px; height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+
+.experience-badge span:first-child { font-size: 2rem; font-weight: 700; line-height: 1; }
+
+.experience-badge span:last-child { font-size: 1rem; text-transform: uppercase; line-height: 1; }
+
+.process { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+
+.step { background: #fff; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; }
+
+.step:hover { transform: translateY(-10px); }
+
+.step i { font-size: 40px; color: var(--accent); margin-bottom: 20px; }
+
+.service-card { background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; }
+
+.service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
+
+.service-image { height: 200px; overflow: hidden; }
+
+.service-image img { width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease; }
+
+.service-card:hover .service-image img { transform: scale(1.1); }
+
+.service-content { padding: 30px; }
+
+.service-content h3 { font-size: 1.4rem; color: var(--primary-dark); margin-bottom: 15px; }
+
+.service-content p { color: var(--gray); margin-bottom: 20px; }
+
+.service-btn { display: inline-flex; align-items: center; gap: 10px; color: var(--primary); font-weight: 600; transition: all 0.3s ease; }
+
+.service-btn:hover { color: var(--accent); gap: 15px; }
+
+.warning-box { background: var(--warning); border: 2px solid var(--warning-border); border-radius: 10px; padding: 30px; position: relative; margin: 40px 0; }
+
+.warning-box::before { content: '\f071'; font-family: 'Font Awesome 5 Free'; font-weight: 900; font-size: 24px; position: absolute; top: 20px; left: 20px; color: var(--warning-border); }
+
+.warning-content { margin-left: 40px; font-size: 1.1rem; color: var(--dark); }
+
+.price-highlight { font-weight: bold; color: var(--accent-dark); font-size: 1.2rem; margin-top: 15px; display: block; }
+
+.special-offer { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 40px; border-radius: 10px; text-align: center; margin: 40px 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+
+.offer-title { font-size: 1.8rem; font-weight: bold; margin-bottom: 15px; color: white; }
+
+.offer-text { font-size: 1.2rem; margin-bottom: 25px; }
+
+.calculator-card { background-color: white; border-radius: 10px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); margin-bottom: 40px; }
+
+.calculator-form { margin-top: 20px; }
+
+.calculator-form .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+
+.result-box { background-color: var(--light); border-radius: 10px; padding: 20px; margin-top: 20px; text-align: center; border: 1px solid #ddd; display: none; }
+
+.result-box.active { display: block; animation: fadeIn 0.5s ease; }
+
+.result-title { font-size: 18px; font-weight: 600; color: var(--primary-dark); margin-bottom: 10px; }
+
+.result-price { font-size: 28px; font-weight: 700; color: var(--accent); margin: 10px 0; }
+
+.result-note { font-size: 14px; color: var(--gray); }
+
+.signs-section { background-color: var(--light); padding: 60px 0; }
+
+.signs-container { margin-top: 40px; }
+
+.signs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+
+.sign-card { background: white; border-radius: 10px; padding: 25px; box-shadow: 0 8px 25px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; }
+
+.sign-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
+
+.sign-card i { font-size: 40px; color: var(--accent); margin-bottom: 20px; }
+
+.sign-card h3 { font-size: 18px; margin-bottom: 15px; color: var(--primary-dark); }
+
+.sign-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+
+.sign-card:hover .sign-content, .sign-card.active .sign-content { max-height: 200px; }
+
+.calendar-section { padding: 60px 0; }
+
+.season-tabs { display: flex; justify-content: center; margin-bottom: 30px; flex-wrap: wrap; }
+
+.season-tab { padding: 12px 25px; background-color: white; cursor: pointer; font-weight: 600; transition: all 0.3s ease; border-radius: 50px; margin: 5px 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); }
+
+.season-tab:hover { background-color: var(--light); }
+
+.season-tab.active { background-color: var(--primary); color: white; }
+
+.season-content { display: none; animation: fadeIn 0.5s ease; }
+
+.season-content.active { display: block; }
+
+.season-card { background-color: white; border-radius: 10px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); }
+
+.season-header { display: flex; align-items: center; margin-bottom: 20px; gap: 15px; }
+
+.season-icon { font-size: 40px; color: var(--accent); }
+
+.season-title { font-size: 24px; font-weight: 700; margin: 0; }
+
+.benefits-section { background-color: var(--light); padding: 60px 0; }
+
+.benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-top: 40px; }
+
+.benefit-card { background-color: white; border-radius: 10px; padding: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; height: 100%; }
+
+.benefit-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
+
+.benefit-icon { width: 80px; height: 80px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 30px; transition: all 0.3s ease; }
+
+.benefit-card:hover .benefit-icon { background: var(--accent); transform: rotateY(180deg); }
+
+.benefit-title { font-size: 1.3rem; margin-bottom: 15px; color: var(--primary-dark); }
+
+.bottom-cta, .cta-section { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; text-align: center; padding: 60px 0; }
+
+.bottom-cta h2, .cta-content h2 { color: white; margin-bottom: 20px; }
+
+.bottom-cta h2:after, .cta-content h2:after { content: none; }
+
+.bottom-cta p, .cta-content p { max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem; }
+
+.cta-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+
+.phone-number { font-size: 2.5rem; font-weight: bold; margin: 20px 0; display: inline-block; transition: all 0.3s ease; color: var(--accent); }
+
+.phone-number:hover { transform: scale(1.05); color: var(--accent); }
+
+.phone-number i { color: var(--accent); }
+
+.text-option { font-size: 1.1rem; margin-top: 15px; font-style: italic; }
+
+.badge-section { margin-top: 40px; }
+
+.badges { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+
+.badge-item { background-color: white; border-radius: 10px; padding: 15px; width: 130px; height: 130px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; }
+
+.badge-item:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); }
+
+.badge-icon { font-size: 36px; color: var(--primary); margin-bottom: 10px; }
+
+.badge-title { font-size: 14px; font-weight: 600; color: var(--primary-dark); text-align: center; line-height: 1.3; }
+
+.serving-since { background-color: var(--primary-dark); color: white; padding: 15px 0; text-align: center; font-weight: 600; letter-spacing: 1px; font-size: 16px; }
+
+.serving-since span { color: var(--accent); }
+
+footer { background: #f8f9fa; padding: 50px 0 20px; }
+
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; padding-bottom: 40px; border-bottom: 1px solid #eee; margin-bottom: 30px; }
+
+.footer-logo { font-size: 24px; font-weight: 700; color: var(--primary-dark); margin-bottom: 20px; display: inline-block; }
+
+.footer-logo span { color: var(--accent); }
+
+.footer-about p { color: var(--gray); margin-bottom: 20px; }
+
+.footer-contact { margin-top: 20px; }
+
+.footer-contact-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px; }
+
+.footer-contact-item i { color: var(--primary); font-size: 18px; margin-top: 5px; }
+
+.footer-contact-item a { color: var(--accent); }
+
+.footer-contact-item p { color: var(--gray); margin: 0; }
+
+.footer-links h4 { font-size: 18px; margin-bottom: 20px; color: var(--primary-dark); }
+
+.footer-links ul { list-style: none; }
+
+.footer-links ul li { margin-bottom: 12px; }
+
+.footer-links ul li a { color: var(--gray); transition: all 0.3s ease; position: relative; padding-left: 15px; }
+
+.footer-links ul li a:before { content: '\f105'; font-family: 'Font Awesome 5 Free'; font-weight: 900; position: absolute; left: 0; color: var(--accent); }
+
+.footer-links ul li a:hover { color: var(--primary); padding-left: 20px; }
+
+.footer-bottom { text-align: center; color: var(--gray); font-size: 14px; }
+
+.page-content { padding-top: 100px; }
+
+.services-hero-wow { position: relative; padding: 115px 0 85px; background: radial-gradient(circle at 20% 20%, rgba(243, 156, 18, 0.26), transparent 26%), radial-gradient(circle at 85% 12%, rgba(58, 111, 199, 0.32), transparent 28%), linear-gradient(135deg, rgba(30, 60, 114, 0.96), rgba(44, 90, 160, 0.94)), url('https://nedstevens.com/wp-content/uploads/2020/12/gutter-cleaning-hero-new.jpg') no-repeat center center/cover; color: white; overflow: hidden; }
+
+.services-hero-wow:before { content: ''; position: absolute; width: 480px; height: 480px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.18); top: -180px; right: -120px; }
+
+.services-hero-wow:after { content: ''; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: rgba(243, 156, 18, 0.15); bottom: -130px; left: -80px; }
+
+.services-hero-content { position: relative; z-index: 1; max-width: 950px; margin: 0 auto; }
+
+.services-hero-content h1 { color: white; font-size: clamp(2.4rem, 5vw, 4.6rem); line-height: 1.08; margin-bottom: 18px; text-shadow: 0 10px 35px rgba(0,0,0,0.28); }
+
+.services-hero-content h1:after, .services-hero-content h2:after { content: none; }
+
+.services-hero-content p { color: rgba(255,255,255,0.92); max-width: 820px; margin: 0 auto 24px; font-size: 1.12rem; }
+
+.hero-kicker { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); color: white; border-radius: 999px; padding: 8px 16px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; font-size: 0.82rem; margin-bottom: 18px; backdrop-filter: blur(10px); cursor: default; box-shadow: none; }
+
+.hero-kicker:before { content: '\f058'; font-family: 'Font Awesome 5 Free'; font-weight: 900; color: var(--accent); }
+
+.service-hero-badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 22px auto 30px; }
+
+.service-hero-badges span { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.09); color: rgba(255,255,255,0.92); border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; padding: 9px 14px; font-weight: 600; font-size: 0.92rem; backdrop-filter: blur(10px); cursor: default; box-shadow: none; opacity: 0.9; }
+
+.service-hero-badges i { color: var(--accent); }
+
+.services-hero-actions { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-top: 30px; }
+
+.hero-main-cta, .hero-call-cta { min-width: 275px; min-height: 66px; border-radius: 18px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; font-size: 15px; font-weight: 900; letter-spacing: 1.2px; text-transform: uppercase; border: 2px solid transparent; position: relative; }
+
+.hero-main-cta { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: white; box-shadow: 0 18px 38px rgba(243, 156, 18, 0.38), 0 0 0 0 rgba(243, 156, 18, 0.65); animation: heroOrangePulse 2.2s infinite; }
+
+.hero-main-cta:hover { color: white; transform: translateY(-5px) scale(1.03); box-shadow: 0 26px 58px rgba(243, 156, 18, 0.52), 0 0 0 10px rgba(243, 156, 18, 0.14); }
+
+.hero-call-cta { background: rgba(255, 255, 255, 0.08); color: white; border-color: rgba(243, 156, 18, 0.85); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), 0 16px 34px rgba(0,0,0,0.18), 0 0 0 0 rgba(243, 156, 18, 0.48); backdrop-filter: blur(10px); animation: heroOutlinePulse 2.6s infinite; }
+
+.hero-call-cta:hover { color: white; background: rgba(255, 255, 255, 0.15); border-color: var(--accent); transform: translateY(-5px) scale(1.02); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18), 0 24px 52px rgba(0,0,0,0.26), 0 0 0 10px rgba(243, 156, 18, 0.12); }
+
+.hero-main-cta i, .hero-call-cta i { color: white; font-size: 17px; }
+
+@keyframes heroOrangePulse { 0% { box-shadow: 0 18px 38px rgba(243, 156, 18, 0.38), 0 0 0 0 rgba(243, 156, 18, 0.65); } 70% { box-shadow: 0 18px 38px rgba(243, 156, 18, 0.38), 0 0 0 18px rgba(243, 156, 18, 0); } 100% { box-shadow: 0 18px 38px rgba(243, 156, 18, 0.38), 0 0 0 0 rgba(243, 156, 18, 0); } }
+
+@keyframes heroOutlinePulse { 0% { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), 0 16px 34px rgba(0,0,0,0.18), 0 0 0 0 rgba(243, 156, 18, 0.48); } 70% { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), 0 16px 34px rgba(0,0,0,0.18), 0 0 0 16px rgba(243, 156, 18, 0); } 100% { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), 0 16px 34px rgba(0,0,0,0.18), 0 0 0 0 rgba(243, 156, 18, 0); } }
+
+.service-card-showcase-section { position: relative; background: radial-gradient(circle at 0% 10%, rgba(44, 90, 160, 0.08), transparent 28%), radial-gradient(circle at 100% 90%, rgba(243, 156, 18, 0.12), transparent 30%), linear-gradient(180deg, #ffffff 0%, var(--light) 100%); padding: 75px 0 90px; overflow: hidden; }
+
+.service-card-showcase-section .section-header { max-width: 820px; margin: 0 auto; }
+
+.service-card-showcase-section .section-header p { color: var(--gray); max-width: 780px; margin-left: auto; margin-right: auto; }
+
+.premium-service-grid { display: grid; grid-template-columns: 1fr; gap: 28px; margin-top: 42px; }
+
+.premium-service-card { display: grid; grid-template-columns: 280px 1fr; background: #ffffff; border-radius: 28px; overflow: hidden; border: 1px solid rgba(30, 60, 114, 0.08); box-shadow: 0 18px 48px rgba(30, 60, 114, 0.09); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+
+.premium-service-card:hover { transform: translateY(-8px); box-shadow: 0 26px 70px rgba(30, 60, 114, 0.16); border-color: rgba(243, 156, 18, 0.38); }
+
+.premium-service-card.card-from-right { grid-template-columns: 1fr 280px; }
+
+.premium-service-card.card-from-right .premium-service-media { order: 2; }
+
+.premium-service-card.card-from-right .premium-service-body { order: 1; }
+
+.premium-service-media { min-height: 300px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; color: white; }
+
+.premium-service-media:before { content: ''; position: absolute; width: 230px; height: 230px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); top: -70px; right: -70px; }
+
+.premium-service-media:after { content: ''; position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(255,255,255,0.13); bottom: -60px; left: -50px; }
+
+.premium-service-media i { position: relative; z-index: 1; width: 112px; height: 112px; border-radius: 32px; background: rgba(255,255,255,0.17); border: 1px solid rgba(255,255,255,0.28); display: flex; align-items: center; justify-content: center; font-size: 52px; box-shadow: 0 18px 45px rgba(0,0,0,0.22); }
+
+.cleaning-card { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); }
+
+.repair-card { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+
+.guards-card { background: linear-gradient(135deg, #17345f, var(--primary-dark)); }
+
+.install-card { background: linear-gradient(135deg, var(--primary-dark), var(--accent)); }
+
+.dryer-card { background: linear-gradient(135deg, var(--accent-dark), var(--accent)); }
+
+.drainage-card { background: linear-gradient(135deg, var(--primary-dark), #0d8abc); }
+
+.premium-service-body { padding: 34px 38px; display: flex; flex-direction: column; justify-content: center; }
+
+.premium-service-label { display: inline-block; width: fit-content; background: rgba(243, 156, 18, 0.12); color: var(--accent-dark); border: 1px solid rgba(243, 156, 18, 0.24); border-radius: 999px; padding: 7px 13px; font-size: 0.76rem; text-transform: uppercase; font-weight: 800; letter-spacing: 0.7px; margin-bottom: 14px; }
+
+.premium-service-body h3 { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--primary-dark); margin-bottom: 12px; }
+
+.premium-service-body p { color: var(--gray); font-size: 1.04rem; margin-bottom: 16px; }
+
+.premium-service-body ul { list-style: none; padding: 0; margin: 0 0 24px; }
+
+.premium-service-body ul li { position: relative; padding-left: 28px; margin-bottom: 10px; color: var(--dark); line-height: 1.55; }
+
+.premium-service-body ul li:before { content: '\f00c'; font-family: 'Font Awesome 5 Free'; font-weight: 900; position: absolute; left: 0; top: 1px; color: var(--accent); }
+
+.premium-service-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.featured-service-card { border-color: rgba(44, 90, 160, 0.18); }
+
+.special-service-card { border-color: rgba(243, 156, 18, 0.34); }
+
+.service-detail-section { position: relative; }
+
+.service-detail { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 38px; align-items: center; margin-bottom: 60px; }
+
+.service-detail.reverse .service-detail-image { order: 2; }
+
+.service-detail-single { grid-template-columns: 1fr; max-width: 980px; margin-left: auto; margin-right: auto; }
+
+.service-detail-header { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+
+.service-detail-header h2 { margin-bottom: 0; padding-bottom: 0; }
+
+.service-detail-header h2:after { content: none; }
+
+.service-eyebrow { display: inline-block; color: var(--accent-dark); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 800; margin-bottom: 5px; }
+
+.service-icon { width: 64px; height: 64px; border-radius: 20px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); display: flex; align-items: center; justify-content: center; color: white; font-size: 26px; flex-shrink: 0; box-shadow: 0 14px 28px rgba(30, 60, 114, 0.2); }
+
+.service-icon-hot { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); }
+
+.service-detail-content { background: white; padding: 34px; border-radius: 22px; box-shadow: 0 18px 48px rgba(30, 60, 114, 0.08); border: 1px solid rgba(30, 60, 114, 0.08); }
+
+.service-detail-content h3 { font-size: 1.25rem; }
+
+.service-desc { color: var(--gray); font-size: 1.08rem; }
+
+.service-detail-image { border-radius: 22px; overflow: hidden; margin-bottom: 0; box-shadow: 0 18px 48px rgba(30, 60, 114, 0.12); min-height: 330px; }
+
+.service-detail-image img { width: 100%; height: 100%; min-height: 330px; display: block; object-fit: cover; transition: transform 0.5s ease; }
+
+.service-detail:hover .service-detail-image img { transform: scale(1.045); }
+
+.service-features { margin: 30px 0; }
+
+.service-feature { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px; }
+
+.service-feature i { color: var(--accent); font-size: 18px; margin-top: 5px; }
+
+.service-feature p { margin: 0; }
+
+.pricing-note { background: var(--light); border-left: 4px solid var(--accent); padding: 16px 18px; border-radius: 12px; margin: 22px 0 0; color: var(--primary-dark); font-weight: 600; }
+
+.pricing-note i { color: var(--accent); margin-right: 8px; }
+
+.dryer-special-note { background: #fff3cd; border-left: 4px solid var(--accent); }
+
+.dryer-special-note strong { color: var(--accent-dark); }
+
+.drainage-feature-panel { background: radial-gradient(circle at 100% 0%, rgba(58,111,199,0.11), transparent 32%), radial-gradient(circle at 0% 100%, rgba(243,156,18,0.12), transparent 28%), #fff; }
+
+.two-column-list { columns: 2; column-gap: 34px; }
+
+.two-column-list li { break-inside: avoid; }
+
+.section-highlight { animation: sectionGlow 1.2s ease; }
+
+@keyframes sectionGlow { 0% { box-shadow: inset 0 0 0 0 rgba(243, 156, 18, 0); } 40% { box-shadow: inset 0 0 0 8px rgba(243, 156, 18, 0.16); } 100% { box-shadow: inset 0 0 0 0 rgba(243, 156, 18, 0); } }
+
+.gallery { margin-top: 40px; }
+
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+.gallery-item { border-radius: 18px; overflow: hidden; box-shadow: 0 18px 45px rgba(30, 60, 114, 0.08); position: relative; cursor: pointer; }
+
+.gallery-item img { width: 100%; height: 230px; object-fit: cover; display: block; transition: all 0.5s ease; }
+
+.gallery-item:hover img { transform: scale(1.1); }
+
+.gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(30, 60, 114, 0.8)); display: flex; align-items: center; justify-content: center; color: white; opacity: 0; transition: all 0.3s ease; }
+
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+.gallery-overlay i { font-size: 30px; color: white; }
+
+.faq-section { background-color: #f8f9fa; padding: 80px 0; }
+
+.accordion { margin-top: 40px; }
+
+.accordion-item { margin-bottom: 15px; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 28px rgba(30, 60, 114, 0.07); border: 1px solid rgba(30, 60, 114, 0.07); }
+
+.accordion-header { background-color: white; padding: 20px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; font-weight: 700; color: var(--primary-dark); }
+
+.accordion-header h3 { font-size: 1.1rem; margin: 0; }
+
+.accordion-header i { color: var(--primary); transition: all 0.3s ease; }
+
+.accordion-header.active { background-color: var(--primary); color: white; }
+
+.accordion-header.active h3, .accordion-header.active span { color: white; }
+
+.accordion-header.active i { color: white; transform: rotate(180deg); }
+
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background-color: white; }
+
+.accordion-content.active { padding: 20px 30px; }
+
+.contact-info-card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); text-align: center; transition: all 0.3s ease; }
+
+.contact-info-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
+
+.contact-icon { width: 70px; height: 70px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 30px; margin: 0 auto 20px; }
+
+.contact-info-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--primary-dark); }
+
+.contact-info-card p, .contact-info-card a { color: var(--gray); margin-bottom: 0; }
+
+.contact-info-card a { color: var(--accent); }
+
+.contact-info-card a:hover { color: var(--primary); }
+
+.map-container { height: 400px; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); margin-bottom: 40px; }
+
+.back-to-top { position: fixed; right: 20px; bottom: 20px; width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+
+.back-to-top.active { opacity: 1; visibility: visible; }
+
+.back-to-top:hover { background: var(--primary-dark); transform: translateY(-5px); }
+
+.checkmark-list { list-style: none; margin: 0; padding: 0; }
+
+.checkmark-list li { position: relative; padding-left: 30px; margin-bottom: 15px; line-height: 1.7; }
+
+.checkmark-list li:before { content: '\f00c'; font-family: 'Font Awesome 5 Free'; font-weight: 900; position: absolute; left: 0; top: 0; color: var(--accent); }
+
+.fade-up { animation: fadeUp 1s ease forwards; opacity: 0; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; } }
+
+.fade-in { animation: fadeIn 1s ease forwards; opacity: 0; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.radial-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: radial-gradient(circle at 50% 50%, rgba(243,156,18,0.2), transparent 30%), rgba(30, 60, 114, 0.95); z-index: 2000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; backdrop-filter: blur(8px); }
+
+.radial-overlay.active { opacity: 1; visibility: visible; }
+
+.radial-menu-center { position: relative; width: 100px; height: 100px; }
+
+.radial-close { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 66px; height: 66px; background: var(--accent); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer; z-index: 10; box-shadow: 0 12px 30px rgba(0,0,0,0.32); transition: transform 0.3s ease, background 0.3s ease; }
+
+.radial-close:hover { transform: translate(-50%, -50%) scale(1.1); background: var(--accent-dark); }
+
+.radial-item { --tx: 0px; --ty: 0px; position: absolute; top: 50%; left: 50%; width: 138px; height: 138px; background: white; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; text-decoration: none; color: var(--primary-dark); font-weight: 800; font-size: 13px; line-height: 1.2; box-shadow: 0 18px 40px rgba(0,0,0,0.28); opacity: 0; transform: translate(-50%, -50%) scale(0); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 4px solid rgba(255,255,255,0.7); padding: 13px; }
+
+.radial-item i { font-size: 28px; color: var(--primary); margin-bottom: 8px; }
+
+.radial-item span { max-width: 110px; }
+
+.radial-item:hover { color: var(--accent); box-shadow: 0 24px 54px rgba(0,0,0,0.34); }
+
+.radial-item:hover i { color: var(--accent); }
+
+.radial-item.item-1 { --tx: 0px; --ty: -196px; }
+
+.radial-item.item-2 { --tx: 170px; --ty: -98px; }
+
+.radial-item.item-3 { --tx: 170px; --ty: 98px; }
+
+.radial-item.item-4 { --tx: 0px; --ty: 196px; }
+
+.radial-item.item-5 { --tx: -170px; --ty: 98px; }
+
+.radial-item.item-6 { --tx: -170px; --ty: -98px; }
+
+.radial-overlay.active .radial-item { opacity: 1; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1); }
+
+.radial-overlay.active .radial-item:hover { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.06); }
+
+.radial-overlay.active .item-1 { transition-delay: 0.05s; }
+
+.radial-overlay.active .item-2 { transition-delay: 0.10s; }
+
+.radial-overlay.active .item-3 { transition-delay: 0.15s; }
+
+.radial-overlay.active .item-4 { transition-delay: 0.20s; }
+
+.radial-overlay.active .item-5 { transition-delay: 0.25s; }
+
+.radial-overlay.active .item-6 { transition-delay: 0.30s; }
+
+@media screen and (max-width: 1199.98px) { .container { max-width: 960px; } }
+
+@media screen and (max-width: 991.98px) { .container { max-width: 720px; }
 
 h1 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
 }
 
 h2 {
-    font-size: 2.2rem;
-    position: relative;
-    padding-bottom: 15px;
-    margin-bottom: 30px;
-}
-
-h2:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 80px;
-    height: 4px;
-    background: var(--accent);
-}
-
-h3 {
-    font-size: 1.8rem;
-}
-
-p {
-    line-height: 1.7;
-    margin-bottom: 1rem;
-    font-size: 1.05rem;
-}
-
-a {
-    text-decoration: none;
-    color: var(--primary);
-    transition: all 0.3s ease;
-}
-
-a:hover {
-    color: var(--accent);
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    border-radius: 50px;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    border: none;
-    text-align: center;
-}
-
-.btn:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: all 0.5s ease;
-    z-index: -1;
-}
-
-.btn:hover:before {
-    left: 100%;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-    color: white;
-    transform: translateY(-3px);
-}
-
-.btn-accent {
-    background: var(--accent);
-    color: white;
-}
-
-.btn-accent:hover {
-    background: var(--accent-dark);
-    color: white;
-    transform: translateY(-3px);
-}
-
-.btn-lg {
-    padding: 15px 35px;
-    font-size: 16px;
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 15px rgba(243, 156, 18, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(243, 156, 18, 0);
-    }
-}
-
-.btn-pulse {
-    animation: pulse 2s infinite;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.flex {
-    display: flex;
-}
-
-.flex-wrap {
-    flex-wrap: wrap;
-}
-
-.flex-center {
-    justify-content: center;
-    align-items: center;
-}
-
-.flex-between {
-    justify-content: space-between;
-}
-
-.flex-column {
-    flex-direction: column;
-}
-
-.gap-1 {
-    gap: 1rem;
-}
-
-.gap-2 {
-    gap: 2rem;
-}
-
-.mt-1 {
-    margin-top: 1rem;
-}
-
-.mt-2 {
-    margin-top: 2rem;
-}
-
-.mt-3 {
-    margin-top: 3rem;
-}
-
-.mt-4 {
-    margin-top: 4rem;
-}
-
-.mb-1 {
-    margin-bottom: 1rem;
-}
-
-.mb-2 {
-    margin-bottom: 2rem;
-}
-
-.mb-3 {
-    margin-bottom: 3rem;
-}
-
-.mb-4 {
-    margin-bottom: 4rem;
-}
-
-.grid {
-    display: grid;
-    gap: 30px;
-}
-
-.grid-2 {
-    grid-template-columns: repeat(2, 1fr);
+    font-size: 2rem;
 }
 
 .grid-3 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .grid-4 {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.topbar {
-    background-color: var(--primary-dark);
-    color: white;
-    padding: 8px 0;
-    font-size: 0.9rem;
+.footer-top {
+    grid-template-columns: 1fr 1fr;
 }
 
-.topbar-container {
-    display: flex;
+.lead-form {
+    margin-top: -50px;
+}
+
+.premium-service-card,
+.premium-service-card.card-from-right {
+    grid-template-columns: 1fr;
+}
+
+.premium-service-card.card-from-right .premium-service-media,
+.premium-service-card.card-from-right .premium-service-body {
+    order: initial;
+}
+
+.premium-service-media {
+    min-height: 220px;
+}
+
+.premium-service-body {
+    padding: 30px 26px;
+}
+
+.service-detail,
+.service-detail.reverse {
+    grid-template-columns: 1fr;
+}
+
+.service-detail.reverse .service-detail-image {
+    order: 0;
+}
+}
+
+@media screen and (max-width: 767.98px) { .container { max-width: 540px; }
+
+nav ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    background: white;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    transition: all 0.5s ease;
+    z-index: 1001;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.topbar a {
-    color: var(--accent);
-    font-weight: 500;
+nav ul.active {
+    right: 0;
 }
 
-.topbar a:hover {
-    color: white;
+.menu-toggle {
+    display: block;
+    padding: 10px;
 }
 
-.topbar-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.close-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-header {
-    background-color: rgba(255, 255, 255, 0.95);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    top: 0;
-    margin-top: 40px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.phone-btn {
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    justify-content: center;
 }
 
-header.sticky,
-header.scrolled {
-    padding: 10px 0;
-    margin-top: 0;
+.phone-btn span {
+    display: none;
+}
+
+.phone-btn i {
+    font-size: 20px;
+    margin: 0;
+}
+
+.logo {
+    font-size: 20px;
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    transition: all 0.3s ease;
+    padding: 12px 0;
 }
 
 header.sticky .header-container,
 header.scrolled .header-container {
-    padding: 10px 0;
+    padding: 8px 0;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--primary-dark);
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+.grid-2 {
+    grid-template-columns: 1fr;
 }
 
-.logo span {
-    color: var(--accent);
-    margin-left: 5px;
+.grid-3 {
+    grid-template-columns: 1fr;
 }
 
-nav ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-}
-
-nav ul li {
-    position: relative;
-}
-
-nav ul li a {
-    color: var(--dark);
-    font-weight: 500;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: var(--accent);
-}
-
-nav ul li a.active {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: var(--accent);
-    bottom: -5px;
-    left: 0;
-    transition: all 0.3s ease;
-}
-
-nav ul li a:hover::after,
-nav ul li a.active::after {
-    width: 100%;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--dark);
-}
-
-.close-menu {
-    display: none;
-}
-
-.phone-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: var(--primary);
-    color: var(--accent);
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.phone-btn:hover {
-    background-color: var(--primary-dark);
-    color: var(--accent);
-    transform: translateY(-3px);
-}
-
-.phone-btn i {
-    font-size: 18px;
-    color: var(--accent);
-}
-
-.floating-service-trigger {
-    position: fixed;
-    left: 20px;
-    bottom: 20px;
-    z-index: 998;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    border: 2px solid rgba(243, 156, 18, 0.85);
-    border-radius: 999px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
-    padding: 15px 22px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow:
-        0 16px 36px rgba(30, 60, 114, 0.35),
-        0 0 0 0 rgba(243, 156, 18, 0.75);
-    transition: transform 0.3s ease, background 0.3s ease;
-    animation: floatingServiceHugePulse 1.75s infinite;
-    will-change: transform, box-shadow;
-}
-
-.floating-service-trigger i {
-    color: var(--accent);
-    font-size: 19px;
-}
-
-.floating-service-trigger:hover {
-    transform: translateY(-5px) scale(1.06);
-    background: linear-gradient(135deg, var(--primary-light), var(--primary));
-}
-
-@keyframes floatingServiceHugePulse {
-    0% {
-        box-shadow:
-            0 16px 36px rgba(30, 60, 114, 0.35),
-            0 0 0 0 rgba(243, 156, 18, 0.78);
-        transform: translateY(0) scale(1);
-    }
-    55% {
-        box-shadow:
-            0 18px 42px rgba(30, 60, 114, 0.38),
-            0 0 0 24px rgba(243, 156, 18, 0);
-        transform: translateY(-2px) scale(1.045);
-    }
-    100% {
-        box-shadow:
-            0 16px 36px rgba(30, 60, 114, 0.35),
-            0 0 0 0 rgba(243, 156, 18, 0);
-        transform: translateY(0) scale(1);
-    }
-}
-
-.floating-cta {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    z-index: 998;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.floating-cta.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.floating-cta a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: white;
-    font-size: 24px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    animation: pulse 2s infinite;
-}
-
-.floating-cta a:hover {
-    background: var(--accent-dark);
-    transform: scale(1.1);
-    color: white;
-}
-
-.floating-cta .cta-label {
-    position: absolute;
-    right: 70px;
-    background: var(--dark);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 600;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.floating-cta:hover .cta-label {
-    opacity: 1;
-    visibility: visible;
-}
-
-.floating-cta .cta-label:after {
-    content: '';
-    position: absolute;
-    right: -8px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-width: 8px 0 8px 8px;
-    border-style: solid;
-    border-color: transparent transparent transparent var(--dark);
-}
-
-#hero {
-    height: 100vh;
-    background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(30, 60, 114, 0.8)), url('https://nedstevens.com/wp-content/uploads/2020/12/gutter-cleaning-hero-new.jpg') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: white;
-    position: relative;
-    padding: 0;
-    margin-top: 40px;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero-content h1 {
-    color: white;
-    font-size: 3.5rem;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-.hero-btns {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.scroll-down {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: bounce 2s infinite;
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-20px);
-    }
-    60% {
-        transform: translateY(-10px);
-    }
-}
-
-.lead-form-section {
-    padding: 50px 0;
-}
-
-.lead-form {
-    background: #fff;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-    padding: 30px;
-    border-radius: 10px;
-    margin-top: -100px;
-    position: relative;
-    z-index: 2;
-}
-
-.lead-form h3 {
-    color: var(--primary);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: var(--primary-dark);
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(44, 90, 160, 0.2);
-    outline: none;
-}
-
-.form-submit {
-    text-align: center;
-}
-
-.form-message {
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    display: none;
-    text-align: center;
-}
-
-.form-message.success {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.form-message.error {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-}
-
-.about-text {
-    flex: 1;
-}
-
-.about-image {
-    flex: 1;
-    position: relative;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.about-image::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 5px solid var(--accent);
-    border-radius: 10px;
-    top: 20px;
-    left: 20px;
-    z-index: -1;
-}
-
-.experience-badge {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    background-color: var(--primary);
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.experience-badge span:first-child {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.experience-badge span:last-child {
-    font-size: 1rem;
-    text-transform: uppercase;
-    line-height: 1;
-}
-
-.process {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.step {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-}
-
-.step:hover {
-    transform: translateY(-10px);
-}
-
-.step i {
-    font-size: 40px;
-    color: var(--accent);
-    margin-bottom: 20px;
-}
-
-.service-card {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
-
-.service-image {
-    height: 200px;
-    overflow: hidden;
-}
-
-.service-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.5s ease;
-}
-
-.service-card:hover .service-image img {
-    transform: scale(1.1);
-}
-
-.service-content {
-    padding: 30px;
-}
-
-.service-content h3 {
-    font-size: 1.4rem;
-    color: var(--primary-dark);
-    margin-bottom: 15px;
-}
-
-.service-content p {
-    color: var(--gray);
-    margin-bottom: 20px;
-}
-
-.service-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--primary);
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.service-btn:hover {
-    color: var(--accent);
-    gap: 15px;
-}
-
-.warning-box {
-    background: var(--warning);
-    border: 2px solid var(--warning-border);
-    border-radius: 10px;
-    padding: 30px;
-    position: relative;
-    margin: 40px 0;
-}
-
-.warning-box::before {
-    content: '\f071';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    font-size: 24px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: var(--warning-border);
-}
-
-.warning-content {
-    margin-left: 40px;
-    font-size: 1.1rem;
-    color: var(--dark);
-}
-
-.price-highlight {
-    font-weight: bold;
-    color: var(--accent-dark);
-    font-size: 1.2rem;
-    margin-top: 15px;
-    display: block;
-}
-
-.special-offer {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-    color: white;
-    padding: 40px;
-    border-radius: 10px;
-    text-align: center;
-    margin: 40px 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.offer-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: white;
-}
-
-.offer-text {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-}
-
-.calculator-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    margin-bottom: 40px;
-}
-
-.calculator-form {
-    margin-top: 20px;
-}
-
-.calculator-form .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.result-box {
-    background-color: var(--light);
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-    text-align: center;
-    border: 1px solid #ddd;
-    display: none;
-}
-
-.result-box.active {
-    display: block;
-    animation: fadeIn 0.5s ease;
-}
-
-.result-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--primary-dark);
-    margin-bottom: 10px;
-}
-
-.result-price {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--accent);
-    margin: 10px 0;
-}
-
-.result-note {
-    font-size: 14px;
-    color: var(--gray);
-}
-
-.signs-section {
-    background-color: var(--light);
-    padding: 60px 0;
-}
-
-.signs-container {
-    margin-top: 40px;
-}
-
-.signs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.sign-card {
-    background: white;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.sign-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
-
-.sign-card i {
-    font-size: 40px;
-    color: var(--accent);
-    margin-bottom: 20px;
-}
-
-.sign-card h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: var(--primary-dark);
-}
-
-.sign-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-}
-
-.sign-card:hover .sign-content,
-.sign-card.active .sign-content {
-    max-height: 200px;
-}
-
-.calendar-section {
-    padding: 60px 0;
-}
-
-.season-tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-}
-
-.season-tab {
-    padding: 12px 25px;
-    background-color: white;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border-radius: 50px;
-    margin: 5px 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.season-tab:hover {
-    background-color: var(--light);
-}
-
-.season-tab.active {
-    background-color: var(--primary);
-    color: white;
-}
-
-.season-content {
-    display: none;
-    animation: fadeIn 0.5s ease;
-}
-
-.season-content.active {
-    display: block;
-}
-
-.season-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-.season-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    gap: 15px;
-}
-
-.season-icon {
-    font-size: 40px;
-    color: var(--accent);
-}
-
-.season-title {
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0;
-}
-
-.benefits-section {
-    background-color: var(--light);
-    padding: 60px 0;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.benefit-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    height: 100%;
-}
-
-.benefit-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
-
-.benefit-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    color: white;
-    font-size: 30px;
-    transition: all 0.3s ease;
-}
-
-.benefit-card:hover .benefit-icon {
-    background: var(--accent);
-    transform: rotateY(180deg);
-}
-
-.benefit-title {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    color: var(--primary-dark);
-}
-
-.bottom-cta,
-.cta-section {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-    text-align: center;
-    padding: 60px 0;
-}
-
-.bottom-cta h2,
-.cta-content h2 {
-    color: white;
-    margin-bottom: 20px;
-}
-
-.bottom-cta h2:after,
-.cta-content h2:after {
-    content: none;
-}
-
-.bottom-cta p,
-.cta-content p {
-    max-width: 700px;
-    margin: 0 auto 30px;
-    font-size: 1.1rem;
-}
-
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.phone-number {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 20px 0;
-    display: inline-block;
-    transition: all 0.3s ease;
-    color: var(--accent);
-}
-
-.phone-number:hover {
-    transform: scale(1.05);
-    color: var(--accent);
-}
-
-.phone-number i {
-    color: var(--accent);
-}
-
-.text-option {
-    font-size: 1.1rem;
-    margin-top: 15px;
-    font-style: italic;
-}
-
-.badge-section {
-    margin-top: 40px;
-}
-
-.badges {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.badge-item {
-    background-color: white;
-    border-radius: 10px;
-    padding: 15px;
-    width: 130px;
-    height: 130px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-}
-
-.badge-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.badge-icon {
-    font-size: 36px;
-    color: var(--primary);
-    margin-bottom: 10px;
-}
-
-.badge-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--primary-dark);
-    text-align: center;
-    line-height: 1.3;
-}
-
-.serving-since {
-    background-color: var(--primary-dark);
-    color: white;
-    padding: 15px 0;
-    text-align: center;
-    font-weight: 600;
-    letter-spacing: 1px;
-    font-size: 16px;
-}
-
-.serving-since span {
-    color: var(--accent);
-}
-
-footer {
-    background: #f8f9fa;
-    padding: 50px 0 20px;
+.grid-4 {
+    grid-template-columns: 1fr;
 }
 
 .footer-top {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 30px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 30px;
+    grid-template-columns: 1fr;
 }
 
-.footer-logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--primary-dark);
-    margin-bottom: 20px;
-    display: inline-block;
+.about-content {
+    flex-direction: column;
 }
 
-.footer-logo span {
-    color: var(--accent);
+.about-image {
+    order: -1;
 }
 
-.footer-about p {
-    color: var(--gray);
-    margin-bottom: 20px;
+.about-image::before {
+    display: none;
 }
 
-.footer-contact {
-    margin-top: 20px;
+.experience-badge {
+    right: 20px;
+    top: 20px;
+    width: 80px;
+    height: 80px;
 }
 
-.footer-contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 15px;
+.experience-badge span:first-child {
+    font-size: 1.5rem;
 }
 
-.footer-contact-item i {
-    color: var(--primary);
-    font-size: 18px;
-    margin-top: 5px;
+.experience-badge span:last-child {
+    font-size: 0.8rem;
 }
 
-.footer-contact-item a {
-    color: var(--accent);
+.phone-number {
+    font-size: 2rem;
 }
 
-.footer-contact-item p {
-    color: var(--gray);
-    margin: 0;
+.hero-btns {
+    flex-direction: column;
+    align-items: center;
 }
 
-.footer-links h4 {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: var(--primary-dark);
+.lead-form {
+    margin-top: -30px;
 }
 
-.footer-links ul {
-    list-style: none;
+.topbar {
+    padding: 10px 0;
 }
 
-.footer-links ul li {
-    margin-bottom: 12px;
+.topbar-container {
+    flex-direction: column;
+    gap: 8px;
 }
 
-.footer-links ul li a {
-    color: var(--gray);
-    transition: all 0.3s ease;
-    position: relative;
-    padding-left: 15px;
+.topbar-item {
+    font-size: 0.85rem;
 }
 
-.footer-links ul li a:before {
-    content: '\f105';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    position: absolute;
-    left: 0;
-    color: var(--accent);
+.floating-service-trigger {
+    left: 15px;
+    bottom: 18px;
+    padding: 14px 17px;
+    font-size: 12px;
 }
 
-.footer-links ul li a:hover {
-    color: var(--primary);
-    padding-left: 20px;
+.floating-service-trigger i {
+    font-size: 17px;
 }
 
-.footer-bottom {
-    text-align: center;
-    color: var(--gray);
-    font-size: 14px;
+.floating-cta {
+    bottom: 80px;
+    right: 15px;
 }
 
-.page-content {
-    padding-top: 100px;
+.floating-cta a {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+}
+
+.floating-cta .cta-label {
+    display: none;
 }
 
 .services-hero-wow {
-    position: relative;
-    padding: 115px 0 85px;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(243, 156, 18, 0.26), transparent 26%),
-        radial-gradient(circle at 85% 12%, rgba(58, 111, 199, 0.32), transparent 28%),
-        linear-gradient(135deg, rgba(30, 60, 114, 0.96), rgba(44, 90, 160, 0.94)),
-        url('https://nedstevens.com/wp-content/uploads/2020/12/gutter-cleaning-hero-new.jpg') no-repeat center center/cover;
-    color: white;
-    overflow: hidden;
-}
-
-.services-hero-wow:before {
-    content: '';
-    position: absolute;
-    width: 480px;
-    height: 480px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.18);
-    top: -180px;
-    right: -120px;
-}
-
-.services-hero-wow:after {
-    content: '';
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    background: rgba(243, 156, 18, 0.15);
-    bottom: -130px;
-    left: -80px;
-}
-
-.services-hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 950px;
-    margin: 0 auto;
-}
-
-.services-hero-content h1 {
-    color: white;
-    font-size: clamp(2.4rem, 5vw, 4.6rem);
-    line-height: 1.08;
-    margin-bottom: 18px;
-    text-shadow: 0 10px 35px rgba(0,0,0,0.28);
-}
-
-.services-hero-content h1:after,
-.services-hero-content h2:after {
-    content: none;
-}
-
-.services-hero-content p {
-    color: rgba(255,255,255,0.92);
-    max-width: 820px;
-    margin: 0 auto 24px;
-    font-size: 1.12rem;
-}
-
-.hero-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.18);
-    color: white;
-    border-radius: 999px;
-    padding: 8px 16px;
-    font-weight: 700;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    font-size: 0.82rem;
-    margin-bottom: 18px;
-    backdrop-filter: blur(10px);
-    cursor: default;
-    box-shadow: none;
-}
-
-.hero-kicker:before {
-    content: '\f058';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    color: var(--accent);
-}
-
-.service-hero-badges {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin: 22px auto 30px;
-}
-
-.service-hero-badges span {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.09);
-    color: rgba(255,255,255,0.92);
-    border: 1px solid rgba(255,255,255,0.16);
-    border-radius: 999px;
-    padding: 9px 14px;
-    font-weight: 600;
-    font-size: 0.92rem;
-    backdrop-filter: blur(10px);
-    cursor: default;
-    box-shadow: none;
-    opacity: 0.9;
-}
-
-.service-hero-badges i {
-    color: var(--accent);
+    padding: 95px 0 70px;
 }
 
 .services-hero-actions {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    flex-wrap: wrap;
-    margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-main-cta,
 .hero-call-cta {
-    min-width: 275px;
-    min-height: 66px;
-    border-radius: 18px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    font-size: 15px;
-    font-weight: 900;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    border: 2px solid transparent;
-    position: relative;
-}
-
-.hero-main-cta {
-    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: white;
-    box-shadow:
-        0 18px 38px rgba(243, 156, 18, 0.38),
-        0 0 0 0 rgba(243, 156, 18, 0.65);
-    animation: heroOrangePulse 2.2s infinite;
-}
-
-.hero-main-cta:hover {
-    color: white;
-    transform: translateY(-5px) scale(1.03);
-    box-shadow:
-        0 26px 58px rgba(243, 156, 18, 0.52),
-        0 0 0 10px rgba(243, 156, 18, 0.14);
-}
-
-.hero-call-cta {
-    background: rgba(255, 255, 255, 0.08);
-    color: white;
-    border-color: rgba(243, 156, 18, 0.85);
-    box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,0.12),
-        0 16px 34px rgba(0,0,0,0.18),
-        0 0 0 0 rgba(243, 156, 18, 0.48);
-    backdrop-filter: blur(10px);
-    animation: heroOutlinePulse 2.6s infinite;
-}
-
-.hero-call-cta:hover {
-    color: white;
-    background: rgba(255, 255, 255, 0.15);
-    border-color: var(--accent);
-    transform: translateY(-5px) scale(1.02);
-    box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,0.18),
-        0 24px 52px rgba(0,0,0,0.26),
-        0 0 0 10px rgba(243, 156, 18, 0.12);
-}
-
-.hero-main-cta i,
-.hero-call-cta i {
-    color: white;
-    font-size: 17px;
-}
-
-@keyframes heroOrangePulse {
-    0% {
-        box-shadow:
-            0 18px 38px rgba(243, 156, 18, 0.38),
-            0 0 0 0 rgba(243, 156, 18, 0.65);
-    }
-    70% {
-        box-shadow:
-            0 18px 38px rgba(243, 156, 18, 0.38),
-            0 0 0 18px rgba(243, 156, 18, 0);
-    }
-    100% {
-        box-shadow:
-            0 18px 38px rgba(243, 156, 18, 0.38),
-            0 0 0 0 rgba(243, 156, 18, 0);
-    }
-}
-
-@keyframes heroOutlinePulse {
-    0% {
-        box-shadow:
-            inset 0 0 0 1px rgba(255,255,255,0.12),
-            0 16px 34px rgba(0,0,0,0.18),
-            0 0 0 0 rgba(243, 156, 18, 0.48);
-    }
-    70% {
-        box-shadow:
-            inset 0 0 0 1px rgba(255,255,255,0.12),
-            0 16px 34px rgba(0,0,0,0.18),
-            0 0 0 16px rgba(243, 156, 18, 0);
-    }
-    100% {
-        box-shadow:
-            inset 0 0 0 1px rgba(255,255,255,0.12),
-            0 16px 34px rgba(0,0,0,0.18),
-            0 0 0 0 rgba(243, 156, 18, 0);
-    }
-}
-
-.service-card-showcase-section {
-    position: relative;
-    background:
-        radial-gradient(circle at 0% 10%, rgba(44, 90, 160, 0.08), transparent 28%),
-        radial-gradient(circle at 100% 90%, rgba(243, 156, 18, 0.12), transparent 30%),
-        linear-gradient(180deg, #ffffff 0%, var(--light) 100%);
-    padding: 75px 0 90px;
-    overflow: hidden;
-}
-
-.service-card-showcase-section .section-header {
-    max-width: 820px;
-    margin: 0 auto;
-}
-
-.service-card-showcase-section .section-header p {
-    color: var(--gray);
-    max-width: 780px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.premium-service-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 28px;
-    margin-top: 42px;
-}
-
-.premium-service-card {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    background: #ffffff;
-    border-radius: 28px;
-    overflow: hidden;
-    border: 1px solid rgba(30, 60, 114, 0.08);
-    box-shadow: 0 18px 48px rgba(30, 60, 114, 0.09);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.premium-service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 26px 70px rgba(30, 60, 114, 0.16);
-    border-color: rgba(243, 156, 18, 0.38);
-}
-
-.premium-service-card.card-from-right {
-    grid-template-columns: 1fr 280px;
-}
-
-.premium-service-card.card-from-right .premium-service-media {
-    order: 2;
-}
-
-.premium-service-card.card-from-right .premium-service-body {
-    order: 1;
-}
-
-.premium-service-media {
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    color: white;
-}
-
-.premium-service-media:before {
-    content: '';
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.25);
-    top: -70px;
-    right: -70px;
-}
-
-.premium-service-media:after {
-    content: '';
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.13);
-    bottom: -60px;
-    left: -50px;
-}
-
-.premium-service-media i {
-    position: relative;
-    z-index: 1;
-    width: 112px;
-    height: 112px;
-    border-radius: 32px;
-    background: rgba(255,255,255,0.17);
-    border: 1px solid rgba(255,255,255,0.28);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 52px;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.22);
-}
-
-.cleaning-card {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-}
-
-.repair-card {
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
-}
-
-.guards-card {
-    background: linear-gradient(135deg, #17345f, var(--primary-dark));
-}
-
-.install-card {
-    background: linear-gradient(135deg, var(--primary-dark), var(--accent));
-}
-
-.dryer-card {
-    background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-}
-
-.drainage-card {
-    background: linear-gradient(135deg, var(--primary-dark), #0d8abc);
-}
-
-.premium-service-body {
-    padding: 34px 38px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.premium-service-label {
-    display: inline-block;
-    width: fit-content;
-    background: rgba(243, 156, 18, 0.12);
-    color: var(--accent-dark);
-    border: 1px solid rgba(243, 156, 18, 0.24);
-    border-radius: 999px;
-    padding: 7px 13px;
-    font-size: 0.76rem;
-    text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: 0.7px;
-    margin-bottom: 14px;
-}
-
-.premium-service-body h3 {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    color: var(--primary-dark);
-    margin-bottom: 12px;
-}
-
-.premium-service-body p {
-    color: var(--gray);
-    font-size: 1.04rem;
-    margin-bottom: 16px;
-}
-
-.premium-service-body ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 24px;
-}
-
-.premium-service-body ul li {
-    position: relative;
-    padding-left: 28px;
-    margin-bottom: 10px;
-    color: var(--dark);
-    line-height: 1.55;
-}
-
-.premium-service-body ul li:before {
-    content: '\f00c';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    position: absolute;
-    left: 0;
-    top: 1px;
-    color: var(--accent);
-}
-
-.premium-service-actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.featured-service-card {
-    border-color: rgba(44, 90, 160, 0.18);
-}
-
-.special-service-card {
-    border-color: rgba(243, 156, 18, 0.34);
-}
-
-.service-detail-section {
-    position: relative;
-}
-
-.service-detail {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    gap: 38px;
-    align-items: center;
-    margin-bottom: 60px;
-}
-
-.service-detail.reverse .service-detail-image {
-    order: 2;
-}
-
-.service-detail-single {
-    grid-template-columns: 1fr;
-    max-width: 980px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.service-detail-header {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 18px;
-}
-
-.service-detail-header h2 {
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.service-detail-header h2:after {
-    content: none;
-}
-
-.service-eyebrow {
-    display: inline-block;
-    color: var(--accent-dark);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    font-weight: 800;
-    margin-bottom: 5px;
-}
-
-.service-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 26px;
-    flex-shrink: 0;
-    box-shadow: 0 14px 28px rgba(30, 60, 114, 0.2);
-}
-
-.service-icon-hot {
-    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-}
-
-.service-detail-content {
-    background: white;
-    padding: 34px;
-    border-radius: 22px;
-    box-shadow: 0 18px 48px rgba(30, 60, 114, 0.08);
-    border: 1px solid rgba(30, 60, 114, 0.08);
-}
-
-.service-detail-content h3 {
-    font-size: 1.25rem;
-}
-
-.service-desc {
-    color: var(--gray);
-    font-size: 1.08rem;
-}
-
-.service-detail-image {
-    border-radius: 22px;
-    overflow: hidden;
-    margin-bottom: 0;
-    box-shadow: 0 18px 48px rgba(30, 60, 114, 0.12);
-    min-height: 330px;
-}
-
-.service-detail-image img {
     width: 100%;
-    height: 100%;
-    min-height: 330px;
-    display: block;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.service-detail:hover .service-detail-image img {
-    transform: scale(1.045);
-}
-
-.service-features {
-    margin: 30px 0;
-}
-
-.service-feature {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.service-feature i {
-    color: var(--accent);
-    font-size: 18px;
-    margin-top: 5px;
-}
-
-.service-feature p {
-    margin: 0;
-}
-
-.pricing-note {
-    background: var(--light);
-    border-left: 4px solid var(--accent);
-    padding: 16px 18px;
-    border-radius: 12px;
-    margin: 22px 0 0;
-    color: var(--primary-dark);
-    font-weight: 600;
-}
-
-.pricing-note i {
-    color: var(--accent);
-    margin-right: 8px;
-}
-
-.dryer-special-note {
-    background: #fff3cd;
-    border-left: 4px solid var(--accent);
-}
-
-.dryer-special-note strong {
-    color: var(--accent-dark);
-}
-
-.drainage-feature-panel {
-    background:
-        radial-gradient(circle at 100% 0%, rgba(58,111,199,0.11), transparent 32%),
-        radial-gradient(circle at 0% 100%, rgba(243,156,18,0.12), transparent 28%),
-        #fff;
+    max-width: 360px;
+    min-width: 0;
+    min-height: 62px;
+    border-radius: 16px;
 }
 
 .two-column-list {
-    columns: 2;
-    column-gap: 34px;
-}
-
-.two-column-list li {
-    break-inside: avoid;
-}
-
-.section-highlight {
-    animation: sectionGlow 1.2s ease;
-}
-
-@keyframes sectionGlow {
-    0% {
-        box-shadow: inset 0 0 0 0 rgba(243, 156, 18, 0);
-    }
-    40% {
-        box-shadow: inset 0 0 0 8px rgba(243, 156, 18, 0.16);
-    }
-    100% {
-        box-shadow: inset 0 0 0 0 rgba(243, 156, 18, 0);
-    }
-}
-
-.gallery {
-    margin-top: 40px;
+    columns: 1;
 }
 
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+}
+}
+
+@media screen and (max-width: 575.98px) { h1 { font-size: 2.2rem; }
+
+h2 {
+    font-size: 1.8rem;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+}
+
+.hero-content p {
+    font-size: 1rem;
+}
+
+.hero-btns {
+    flex-direction: column;
+}
+
+.phone-number {
+    font-size: 1.8rem;
+}
+
+.gallery-grid {
+    grid-template-columns: 1fr;
+}
+
+.lead-form {
+    padding: 20px 15px;
+    margin-top: 0;
+}
+
+.logo {
+    font-size: 18px;
+}
+
+.phone-btn {
+    width: 42px;
+    height: 42px;
+}
+
+.phone-btn i {
+    font-size: 18px;
+}
+
+.menu-toggle {
+    font-size: 22px;
+}
+
+.service-hero-badges {
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-card-showcase-section {
+    padding: 62px 0 72px;
+}
+
+.premium-service-grid {
     gap: 22px;
+    margin-top: 34px;
 }
 
-.gallery-item {
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 18px 45px rgba(30, 60, 114, 0.08);
-    position: relative;
-    cursor: pointer;
+.premium-service-card {
+    border-radius: 22px;
 }
 
-.gallery-item img {
+.premium-service-media {
+    min-height: 180px;
+}
+
+.premium-service-media i {
+    width: 86px;
+    height: 86px;
+    border-radius: 26px;
+    font-size: 40px;
+}
+
+.premium-service-body {
+    padding: 26px 20px;
+}
+
+.premium-service-body h3 {
+    font-size: 1.75rem;
+}
+
+.premium-service-actions {
+    flex-direction: column;
+}
+
+.premium-service-actions .btn {
     width: 100%;
-    height: 230px;
-    object-fit: cover;
-    display: block;
-    transition: all 0.5s ease;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.1);
+.service-detail-content {
+    padding: 24px;
 }
 
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(30, 60, 114, 0.8));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    opacity: 0;
-    transition: all 0.3s ease;
+.service-detail-header {
+    align-items: flex-start;
 }
 
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
+.service-detail-header h2 {
+    font-size: 1.65rem;
 }
 
-.gallery-overlay i {
-    font-size: 30px;
-    color: white;
-}
-
-.faq-section {
-    background-color: #f8f9fa;
-    padding: 80px 0;
-}
-
-.accordion {
-    margin-top: 40px;
-}
-
-.accordion-item {
-    margin-bottom: 15px;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 10px 28px rgba(30, 60, 114, 0.07);
-    border: 1px solid rgba(30, 60, 114, 0.07);
-}
-
-.accordion-header {
-    background-color: white;
-    padding: 20px 30px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
-    font-weight: 700;
-    color: var(--primary-dark);
-}
-
-.accordion-header h3 {
-    font-size: 1.1rem;
-    margin: 0;
-}
-
-.accordion-header i {
-    color: var(--primary);
-    transition: all 0.3s ease;
-}
-
-.accordion-header.active {
-    background-color: var(--primary);
-    color: white;
-}
-
-.accordion-header.active h3,
-.accordion-header.active span {
-    color: white;
-}
-
-.accordion-header.active i {
-    color: white;
-    transform: rotate(180deg);
-}
-
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    background-color: white;
-}
-
-.accordion-content.active {
-    padding: 20px 30px;
-}
-
-.contact-info-card {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.contact-info-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
-
-.contact-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 30px;
-    margin: 0 auto 20px;
-}
-
-.contact-info-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    color: var(--primary-dark);
-}
-
-.contact-info-card p,
-.contact-info-card a {
-    color: var(--gray);
-    margin-bottom: 0;
-}
-
-.contact-info-card a {
-    color: var(--accent);
-}
-
-.contact-info-card a:hover {
-    color: var(--primary);
-}
-
-.map-container {
-    height: 400px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    margin-bottom: 40px;
-}
-
-.back-to-top {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--primary);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.back-to-top.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top:hover {
-    background: var(--primary-dark);
-    transform: translateY(-5px);
-}
-
-.checkmark-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.checkmark-list li {
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 15px;
-    line-height: 1.7;
-}
-
-.checkmark-list li:before {
-    content: '\f00c';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--accent);
-}
-
-.fade-up {
-    animation: fadeUp 1s ease forwards;
-    opacity: 0;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.fade-in {
-    animation: fadeIn 1s ease forwards;
-    opacity: 0;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.radial-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(243,156,18,0.2), transparent 30%),
-    rgba(30, 60, 114, 0.95);
-  z-index: 2000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(8px);
-}
-
-.radial-overlay.active {
-  opacity: 1;
-  visibility: visible;
+.service-detail-image,
+.service-detail-image img {
+    min-height: 240px;
 }
 
 .radial-menu-center {
-  position: relative;
-  width: 100px;
-  height: 100px;
+    width: 70px;
+    height: 70px;
 }
 
 .radial-close {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 66px;
-  height: 66px;
-  background: var(--accent);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 10;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.32);
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.radial-close:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-  background: var(--accent-dark);
+    width: 54px;
+    height: 54px;
+    font-size: 20px;
 }
 
 .radial-item {
-  --tx: 0px;
-  --ty: 0px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 138px;
-  height: 138px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  text-decoration: none;
-  color: var(--primary-dark);
-  font-weight: 800;
-  font-size: 13px;
-  line-height: 1.2;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 4px solid rgba(255,255,255,0.7);
-  padding: 13px;
+    width: 102px;
+    height: 102px;
+    font-size: 10.5px;
+    padding: 8px;
+    border-width: 3px;
 }
 
 .radial-item i {
-  font-size: 28px;
-  color: var(--primary);
-  margin-bottom: 8px;
-}
-
-.radial-item span {
-  max-width: 110px;
-}
-
-.radial-item:hover {
-  color: var(--accent);
-  box-shadow: 0 24px 54px rgba(0,0,0,0.34);
-}
-
-.radial-item:hover i {
-  color: var(--accent);
+    font-size: 21px;
+    margin-bottom: 5px;
 }
 
 .radial-item.item-1 {
-  --tx: 0px;
-  --ty: -196px;
+    --tx: 0px;
+    --ty: -138px;
 }
 
 .radial-item.item-2 {
-  --tx: 170px;
-  --ty: -98px;
+    --tx: 118px;
+    --ty: -68px;
 }
 
 .radial-item.item-3 {
-  --tx: 170px;
-  --ty: 98px;
+    --tx: 118px;
+    --ty: 68px;
 }
 
 .radial-item.item-4 {
-  --tx: 0px;
-  --ty: 196px;
+    --tx: 0px;
+    --ty: 138px;
 }
 
 .radial-item.item-5 {
-  --tx: -170px;
-  --ty: 98px;
+    --tx: -118px;
+    --ty: 68px;
 }
 
 .radial-item.item-6 {
-  --tx: -170px;
-  --ty: -98px;
+    --tx: -118px;
+    --ty: -68px;
+}
 }
 
-.radial-overlay.active .radial-item {
-  opacity: 1;
-  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1);
-}
+/* ============================================================
+   BATCH 1 ADDITIONS — Trust Bar + Review Carousel
+   Added July 2026. Everything above this line is unchanged.
+   ============================================================ */
 
-.radial-overlay.active .radial-item:hover {
-  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.06);
-}
+/* ---------- Trust Bar ---------- */
 
-.radial-overlay.active .item-1 {
-  transition-delay: 0.05s;
-}
+.trust-bar { display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 999px; padding: 10px 22px; margin-top: 24px; font-weight: 600; font-size: 0.95rem; backdrop-filter: blur(8px); }
 
-.radial-overlay.active .item-2 {
-  transition-delay: 0.10s;
-}
+.trust-stars { color: var(--accent); letter-spacing: 2px; font-size: 1rem; }
 
-.radial-overlay.active .item-3 {
-  transition-delay: 0.15s;
-}
+.trust-bar .trust-link { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 
-.radial-overlay.active .item-4 {
-  transition-delay: 0.20s;
-}
+.trust-bar .trust-link:hover { color: var(--accent); }
 
-.radial-overlay.active .item-5 {
-  transition-delay: 0.25s;
-}
+.trust-sep { width: 1px; height: 18px; background: rgba(255, 255, 255, 0.35); }
 
-.radial-overlay.active .item-6 {
-  transition-delay: 0.30s;
-}
+.trust-item { color: rgba(255, 255, 255, 0.92); }
 
-@media screen and (max-width: 1199.98px) {
-    .container {
-        max-width: 960px;
-    }
-}
+.trust-bar--light { background: #fff; border-color: rgba(30, 60, 114, 0.12); box-shadow: 0 8px 24px rgba(30, 60, 114, 0.08); margin-top: 0; }
 
-@media screen and (max-width: 991.98px) {
-    .container {
-        max-width: 720px;
-    }
+.trust-bar--light .trust-link { color: var(--primary-dark); }
 
-    h1 {
-        font-size: 2.5rem;
-    }
+.trust-bar--light .trust-link:hover { color: var(--accent-dark); }
 
-    h2 {
-        font-size: 2rem;
-    }
+.trust-bar--light .trust-sep { background: rgba(30, 60, 114, 0.18); }
 
-    .grid-3 {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.trust-bar--light .trust-item { color: var(--primary-dark); }
 
-    .grid-4 {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* ---------- Review Carousel ---------- */
 
-    .footer-top {
-        grid-template-columns: 1fr 1fr;
-    }
+.reviews-section { background: #fff; padding: 70px 0; }
 
-    .lead-form {
-        margin-top: -50px;
-    }
+.review-carousel { max-width: 860px; margin: 0 auto; position: relative; }
 
-    .premium-service-card,
-    .premium-service-card.card-from-right {
-        grid-template-columns: 1fr;
-    }
+.rc-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 10px 7% 8px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 
-    .premium-service-card.card-from-right .premium-service-media,
-    .premium-service-card.card-from-right .premium-service-body {
-        order: initial;
-    }
+.rc-track::-webkit-scrollbar { display: none; }
 
-    .premium-service-media {
-        min-height: 220px;
-    }
+.rc-track:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; border-radius: 12px; }
 
-    .premium-service-body {
-        padding: 30px 26px;
-    }
+.review-card { flex: 0 0 86%; max-width: 640px; scroll-snap-align: center; background: #fff; border: 1px solid rgba(30, 60, 114, 0.09); border-radius: 20px; padding: 30px 28px; margin: 0; box-shadow: 0 14px 36px rgba(30, 60, 114, 0.08); display: flex; flex-direction: column; }
 
-    .service-detail,
-    .service-detail.reverse {
-        grid-template-columns: 1fr;
-    }
+.review-stars { color: var(--accent); letter-spacing: 3px; font-size: 1.05rem; margin-bottom: 12px; }
 
-    .service-detail.reverse .service-detail-image {
-        order: 0;
-    }
-}
+.review-card blockquote { margin: 0 0 16px; font-size: 1.02rem; line-height: 1.65; color: var(--dark); }
+
+.review-card figcaption { margin-top: auto; font-size: 0.95rem; color: var(--primary-dark); }
+
+.review-card figcaption strong { font-weight: 700; }
+
+.review-meta { display: block; font-size: 0.8rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+.rc-controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 18px; }
+
+.rc-btn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(30, 60, 114, 0.16); background: #fff; color: var(--primary); font-size: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; box-shadow: 0 6px 16px rgba(30, 60, 114, 0.08); }
+
+.rc-btn:hover, .rc-btn:focus-visible { background: var(--primary); color: #fff; border-color: var(--primary); outline: none; }
+
+.rc-pause { width: 34px; height: 34px; font-size: 11px; opacity: 0.75; }
+
+.rc-dots { display: flex; align-items: center; gap: 8px; }
+
+.rc-dot { width: 8px; height: 8px; border-radius: 50%; border: none; padding: 0; background: rgba(30, 60, 114, 0.18); cursor: pointer; transition: background 0.25s ease, transform 0.25s ease; }
+
+.rc-dot.active { background: var(--accent); transform: scale(1.25); }
+
+.rc-google-link { text-align: center; margin: 18px 0 0; font-size: 0.95rem; }
+
+.rc-google-link a { color: var(--primary); font-weight: 600; }
+
+.rc-google-link a:hover { color: var(--accent); }
+
+.rc-google-link i { font-size: 0.8rem; margin-left: 4px; }
+
+/* ---------- Trust/Carousel: mobile ---------- */
 
 @media screen and (max-width: 767.98px) {
-    .container {
-        max-width: 540px;
-    }
 
-    nav ul {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 70%;
-        background: white;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.5s ease;
-        z-index: 1001;
-        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
-    }
-
-    nav ul.active {
-        right: 0;
-    }
-
-    .menu-toggle {
-        display: block;
-        padding: 10px;
-    }
-
-    .close-menu {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 24px;
-        cursor: pointer;
-    }
-
-    .phone-btn {
-        padding: 0;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        justify-content: center;
-    }
-
-    .phone-btn span {
-        display: none;
-    }
-
-    .phone-btn i {
-        font-size: 20px;
-        margin: 0;
-    }
-
-    .logo {
-        font-size: 20px;
-    }
-
-    .header-container {
-        padding: 12px 0;
-    }
-
-    header.sticky .header-container,
-    header.scrolled .header-container {
-        padding: 8px 0;
-    }
-
-    .grid-2 {
-        grid-template-columns: 1fr;
-    }
-
-    .grid-3 {
-        grid-template-columns: 1fr;
-    }
-
-    .grid-4 {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-top {
-        grid-template-columns: 1fr;
-    }
-
-    .about-content {
-        flex-direction: column;
-    }
-
-    .about-image {
-        order: -1;
-    }
-
-    .about-image::before {
-        display: none;
-    }
-
-    .experience-badge {
-        right: 20px;
-        top: 20px;
-        width: 80px;
-        height: 80px;
-    }
-
-    .experience-badge span:first-child {
-        font-size: 1.5rem;
-    }
-
-    .experience-badge span:last-child {
-        font-size: 0.8rem;
-    }
-
-    .phone-number {
-        font-size: 2rem;
-    }
-
-    .hero-btns {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .lead-form {
-        margin-top: -30px;
-    }
-
-    .topbar {
-        padding: 10px 0;
-    }
-
-    .topbar-container {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .topbar-item {
-        font-size: 0.85rem;
-    }
-
-    .floating-service-trigger {
-        left: 15px;
-        bottom: 18px;
-        padding: 14px 17px;
-        font-size: 12px;
-    }
-
-    .floating-service-trigger i {
-        font-size: 17px;
-    }
-
-    .floating-cta {
-        bottom: 80px;
-        right: 15px;
-    }
-
-    .floating-cta a {
-        width: 55px;
-        height: 55px;
-        font-size: 22px;
-    }
-
-    .floating-cta .cta-label {
-        display: none;
-    }
-
-    .services-hero-wow {
-        padding: 95px 0 70px;
-    }
-
-    .services-hero-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero-main-cta,
-    .hero-call-cta {
-        width: 100%;
-        max-width: 360px;
-        min-width: 0;
-        min-height: 62px;
-        border-radius: 16px;
-    }
-
-    .two-column-list {
-        columns: 1;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
+.trust-bar {
+    gap: 8px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    border-radius: 20px;
 }
 
-@media screen and (max-width: 575.98px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    .hero-btns {
-        flex-direction: column;
-    }
-
-    .phone-number {
-        font-size: 1.8rem;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .lead-form {
-        padding: 20px 15px;
-        margin-top: 0;
-    }
-
-    .logo {
-        font-size: 18px;
-    }
-
-    .phone-btn {
-        width: 42px;
-        height: 42px;
-    }
-
-    .phone-btn i {
-        font-size: 18px;
-    }
-
-    .menu-toggle {
-        font-size: 22px;
-    }
-
-    .service-hero-badges {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .service-card-showcase-section {
-        padding: 62px 0 72px;
-    }
-
-    .premium-service-grid {
-        gap: 22px;
-        margin-top: 34px;
-    }
-
-    .premium-service-card {
-        border-radius: 22px;
-    }
-
-    .premium-service-media {
-        min-height: 180px;
-    }
-
-    .premium-service-media i {
-        width: 86px;
-        height: 86px;
-        border-radius: 26px;
-        font-size: 40px;
-    }
-
-    .premium-service-body {
-        padding: 26px 20px;
-    }
-
-    .premium-service-body h3 {
-        font-size: 1.75rem;
-    }
-
-    .premium-service-actions {
-        flex-direction: column;
-    }
-
-    .premium-service-actions .btn {
-        width: 100%;
-    }
-
-    .service-detail-content {
-        padding: 24px;
-    }
-
-    .service-detail-header {
-        align-items: flex-start;
-    }
-
-    .service-detail-header h2 {
-        font-size: 1.65rem;
-    }
-
-    .service-detail-image,
-    .service-detail-image img {
-        min-height: 240px;
-    }
-
-    .radial-menu-center {
-        width: 70px;
-        height: 70px;
-    }
-
-    .radial-close {
-        width: 54px;
-        height: 54px;
-        font-size: 20px;
-    }
-
-    .radial-item {
-        width: 102px;
-        height: 102px;
-        font-size: 10.5px;
-        padding: 8px;
-        border-width: 3px;
-    }
-
-    .radial-item i {
-        font-size: 21px;
-        margin-bottom: 5px;
-    }
-
-    .radial-item.item-1 {
-        --tx: 0px;
-        --ty: -138px;
-    }
-
-    .radial-item.item-2 {
-        --tx: 118px;
-        --ty: -68px;
-    }
-
-    .radial-item.item-3 {
-        --tx: 118px;
-        --ty: 68px;
-    }
-
-    .radial-item.item-4 {
-        --tx: 0px;
-        --ty: 138px;
-    }
-
-    .radial-item.item-5 {
-        --tx: -118px;
-        --ty: 68px;
-    }
-
-    .radial-item.item-6 {
-        --tx: -118px;
-        --ty: -68px;
-    }
+.trust-sep {
+    display: none;
 }
 
+.reviews-section {
+    padding: 55px 0;
+}
+
+.rc-track {
+    padding: 6px 8% 6px;
+    gap: 14px;
+}
+
+.review-card {
+    flex: 0 0 88%;
+    padding: 24px 20px;
+}
+
+.review-card blockquote {
+    font-size: 0.98rem;
+}
+}
+
+/* ---------- Trust/Carousel: reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+.rc-track {
+    scroll-behavior: auto;
+}
+}
 ===== FILE: vercel.json =====
 {
   "rewrites": [
@@ -5258,7 +3979,6 @@ footer {
     }
   ]
 }
-
 ===== FILE: services/dryer-vent-cleaning.html =====
 <!DOCTYPE html>
 <html lang="en">
@@ -5734,7 +4454,6 @@ footer {
     <script src="../script.js" defer></script>
 </body>
 </html>
-
 ===== FILE: services/gutter-installation.html =====
 <!DOCTYPE html>
 <html lang="en">
