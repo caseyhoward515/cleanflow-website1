@@ -469,12 +469,6 @@
     });
   }
 
-  /*
-     BATCH 1 ADDITION — Review Carousel
-     Self-contained. Exits immediately on pages without the
-     carousel. Touches no other feature.
-  */
-
   function initReviewCarousel() {
     const carousel = document.getElementById("review-carousel");
 
@@ -672,18 +666,12 @@
     startAuto();
   }
 
-  /*
-     BATCH 2 ADDITION — 60-Second CleanFlow Checkup
-     Compact expandable intake/report version.
-     Self-contained. Exits immediately on pages without the
-     checkup section. Touches no calculator or carousel logic.
-  */
-
   function initCleanFlowCheckup() {
     const checkup = document.querySelector("[data-cleanflow-checkup]");
+    const invite = document.getElementById("gcInvite");
     const startBtn = document.getElementById("gcStartBtn");
 
-    if (!checkup || !startBtn) return;
+    if (!checkup || !invite || !startBtn) return;
 
     const questionPanel = document.getElementById("gcQuestionPanel");
     const stepLabel = document.getElementById("gcStepLabel");
@@ -696,22 +684,20 @@
     const backBtn = document.getElementById("gcBack");
     const resetBtn = document.getElementById("gcReset");
     const resultPanel = document.getElementById("gcResult");
-    const resultEmpty = document.getElementById("gcResultEmpty");
     const checkupForm = document.getElementById("checkupForm");
     const resultIcon = document.getElementById("gcResultIcon");
     const resultService = document.getElementById("gcResultService");
     const resultSummary = document.getElementById("gcResultSummary");
     const reviewList = document.getElementById("gcReviewList");
     const submitStatus = document.getElementById("gcSubmitStatus");
+    const hiddenMessage = document.getElementById("gcHiddenMessage");
+    const checkupName = document.getElementById("checkupName");
+    const checkupPhone = document.getElementById("checkupPhone");
+    const checkupAddress = document.getElementById("checkupAddress");
+    const checkupNotes = document.getElementById("checkupNotes");
+    const checkupPhotos = document.getElementById("checkupPhotos");
 
-    const hiddenResult = document.getElementById("gcHiddenResult");
-    const hiddenAlso = document.getElementById("gcHiddenAlso");
-    const hiddenTrack = document.getElementById("gcHiddenTrack");
-    const hiddenAnswers = document.getElementById("gcHiddenAnswers");
-    const hiddenReport = document.getElementById("gcHiddenReport");
-    const hiddenNextStep = document.getElementById("gcHiddenNextStep");
-
-    if (!questionPanel || !stepLabel || !trackLabel || !questionTitle || !questionHint || !optionsWrap || !progressFill || !dotsWrap || !backBtn || !resetBtn || !resultPanel || !resultEmpty || !checkupForm || !resultService || !resultSummary || !reviewList || !hiddenResult || !hiddenAlso || !hiddenTrack || !hiddenAnswers || !hiddenReport || !hiddenNextStep) {
+    if (!questionPanel || !stepLabel || !trackLabel || !questionTitle || !questionHint || !optionsWrap || !progressFill || !dotsWrap || !backBtn || !resetBtn || !resultPanel || !checkupForm || !resultService || !resultSummary || !reviewList || !hiddenMessage || !checkupName || !checkupPhone || !checkupAddress || !checkupNotes || !checkupPhotos) {
       return;
     }
 
@@ -721,115 +707,43 @@
       cleaning: {
         title: "Gutter Cleaning",
         icon: "fas fa-broom",
-        label: "Best starting point",
         serviceName: "Gutter Cleaning",
-        issue: "Your answers point to restricted water flow from debris, roof grit, leaves, or a possible downspout blockage.",
-        fit: "Cleaning is usually the best first step when gutters overflow, hold visible debris, grow plants, or have not been serviced recently. It also gives us a clean baseline before recommending repairs, guards, or drainage work.",
-        checks: [
-          "Hand-clean debris from accessible gutters",
-          "Flush downspouts and verify water flow",
-          "Check whether water exits properly at the bottom of the downspouts",
-          "Look for visible sagging, leaks, loose sections, or pitch concerns",
-          "Check visible underground drainage discharge when attached"
-        ],
-        nextStep: "Schedule a cleaning and flow check before moving into repairs, guards, or underground drainage work.",
-        link: "services.html#gutter-cleaning-service",
-        linkText: "View Gutter Cleaning",
+        nextStep: "Cleaning and downspout flow check",
         quoteValue: "Gutter Cleaning"
       },
       repairs: {
         title: "Gutter Repairs",
         icon: "fas fa-wrench",
-        label: "Repair-focused starting point",
         serviceName: "Gutter Repairs",
-        issue: "Your answers point to a gutter system that may be loose, leaking, sagging, separated, or not pitched correctly.",
-        fit: "Repairs may fit when the problem is tied to a specific section, corner, seam, hanger, or pitch issue instead of a full-system failure.",
-        checks: [
-          "Inspect leaking corners, seams, and end caps",
-          "Check loose hangers, brackets, and pulled sections",
-          "Look for sagging runs or pitch issues",
-          "Check fascia connection points where the gutter is pulling away",
-          "Confirm whether repair or replacement makes more sense"
-        ],
-        nextStep: "Have the problem areas looked over so we can tell whether a targeted repair is enough.",
-        link: "services.html#gutter-repairs-service",
-        linkText: "View Gutter Repairs",
+        nextStep: "Repair-focused inspection",
         quoteValue: "Gutter Repairs"
       },
       guards: {
         title: "Gutter Guard Installation",
         icon: "fas fa-shield-alt",
-        label: "Long-term clog reduction",
         serviceName: "Gutter Guards",
-        issue: "Your answers point to recurring debris, heavy tree coverage, or gutters that clog again after cleanings.",
-        fit: "Guards may reduce recurring clogs, but they should come after the gutters are cleaned, flowing, and checked for pitch and attachment. No guard removes every future maintenance need.",
-        checks: [
-          "Confirm the gutters are clean and flowing first",
-          "Check gutter condition and attachment",
-          "Look at roofline, tree coverage, pine needles, roof grit, and debris type",
-          "Watch for concentrated roof runoff that may overshoot guards",
-          "Recommend guards only if the system is a good candidate"
-        ],
-        nextStep: "Start with a clean and inspection, then consider guards if the gutter system is in good shape.",
-        link: "services.html#gutter-protection-service",
-        linkText: "View Gutter Guards",
+        nextStep: "Clean, inspection, and guard recommendation if the system is a good candidate",
         quoteValue: "Gutter Guards"
       },
       installation: {
         title: "Seamless Gutter Installation",
         icon: "fas fa-tools",
-        label: "Replacement may be worth checking",
         serviceName: "Gutter Installation",
-        issue: "Your answers point to an older, damaged, undersized, or unreliable gutter system.",
-        fit: "New gutters may be the better starting point when repeated repairs would only patch a system that is already failing, undersized, or poorly laid out.",
-        checks: [
-          "Measure existing gutter runs and downspout layout",
-          "Check fascia condition before installation",
-          "Review 5-inch and 6-inch gutter options",
-          "Look at roof valleys and areas where too much roof water hits one small gutter section",
-          "Plan downspout placement to improve roof runoff control"
-        ],
-        nextStep: "Schedule an installation estimate so we can confirm whether repair or replacement is the smarter move.",
-        link: "services/gutter-installation.html",
-        linkText: "View Installation",
+        nextStep: "Gutter installation estimate",
         quoteValue: "Gutter Installation"
       },
       drainage: {
         title: "Drainage & Downspout Solutions",
         icon: "fas fa-water",
-        label: "Water-management starting point",
         serviceName: "Underground Drainage / Downspout Extensions",
-        issue: "Your answers point to water dumping too close to the home, backing up near the downspout connection, or pooling where it needs to be moved farther away.",
-        fit: "Drainage may be the right focus when the gutter is collecting water, but the discharge after the downspout is causing problems on the ground.",
-        checks: [
-          "Check where each downspout currently discharges",
-          "Verify visible flow from the gutter and downspout system",
-          "Look for pooling near the foundation, walkways, patios, or landscaping",
-          "Check whether underground lines appear restricted or have an unknown outlet",
-          "Discuss practical downspout extension or drainage options"
-        ],
-        nextStep: "Request a drainage assessment so we can look at where the water is going after it leaves the gutter.",
-        link: "services.html#underground-drainage-service",
-        linkText: "View Drainage",
+        nextStep: "Drainage and downspout assessment",
         quoteValue: "Underground Drainage / Downspout Extensions"
       },
       dryer: {
         title: "Dryer Vent Cleaning",
         icon: "fas fa-fire-extinguisher",
-        label: "Dryer airflow and safety check",
         serviceName: "Dryer Vent Cleaning",
-        issue: "Your answers point to restricted dryer airflow, lint buildup, longer dry times, or a vent that may be overdue for service.",
-        fit: "Dryer vent cleaning may fit when drying performance drops, the laundry area feels hot, exterior airflow is weak, or lint buildup becomes noticeable.",
-        checks: [
-          "Clean the dryer vent run when accessible",
-          "Inspect the exterior vent hood",
-          "Check airflow before and after when accessible",
-          "Look for crushed transition hose, sharp bends, lint buildup, or difficult vent routing",
-          "Let you know if access or vent routing may require a custom quote"
-        ],
-        nextStep: "Schedule a dryer vent cleaning to improve airflow and reduce lint-related fire risk.",
-        link: "services/dryer-vent-cleaning.html",
-        linkText: "View Dryer Vent Cleaning",
+        nextStep: "Dryer vent cleaning and airflow check",
         quoteValue: "Dryer Vent Cleaning"
       }
     };
@@ -844,7 +758,7 @@
           title: "Gutters, downspouts, or drainage",
           detail: "Overflow, leaks, clogs, guards, new gutters, or water near the home.",
           track: "gutter",
-          echo: "You want help with gutters, downspouts, drainage, or exterior water flow.",
+          echo: "Main concern: Gutters, downspouts, or drainage",
           scores: {}
         },
         {
@@ -852,7 +766,7 @@
           title: "Dryer vent airflow or lint buildup",
           detail: "Long dry times, hot dryer, lint concern, or vent cleaning.",
           track: "dryer",
-          echo: "You want help with dryer vent airflow, lint buildup, or cleaning.",
+          echo: "Main concern: Dryer vent airflow or lint buildup",
           scores: { dryer: 5 }
         }
       ]
@@ -864,55 +778,13 @@
         theme: "Water Location",
         hint: "This helps locate where the water issue starts in the system.",
         options: [
-          {
-            icon: "fas fa-water",
-            title: "Over the front edge",
-            detail: "Water spills over the gutter during rain.",
-            echo: "Water is spilling over the front edge of the gutter.",
-            scores: { cleaning: 4, repairs: 1, installation: 1 }
-          },
-          {
-            icon: "fas fa-home",
-            title: "Behind the gutter",
-            detail: "Water seems to be getting behind the gutter or near the fascia.",
-            echo: "Water appears to be getting behind the gutter or near the fascia.",
-            scores: { repairs: 5, installation: 1, cleaning: 1 }
-          },
-          {
-            icon: "fas fa-tint",
-            title: "Corner or seam leak",
-            detail: "A specific joint, corner, or end cap leaks.",
-            echo: "Water is showing up at a corner, seam, or end cap.",
-            scores: { repairs: 5, cleaning: 1 }
-          },
-          {
-            icon: "fas fa-arrow-down",
-            title: "Top of a downspout",
-            detail: "Water backs up where the gutter meets the downspout.",
-            echo: "Water is backing up near the top of a downspout.",
-            scores: { cleaning: 5, repairs: 1, drainage: 1 }
-          },
-          {
-            icon: "fas fa-route",
-            title: "Downspout enters ground",
-            detail: "Water backs up or pools at the underground connection.",
-            echo: "Water is showing up where the downspout enters the ground.",
-            scores: { drainage: 5, cleaning: 2 }
-          },
-          {
-            icon: "fas fa-water",
-            title: "Pooling near the home",
-            detail: "Water collects near the foundation, walkway, patio, or landscaping.",
-            echo: "Water is pooling near the foundation, walkway, patio, or landscaping.",
-            scores: { drainage: 5, cleaning: 1 }
-          },
-          {
-            icon: "fas fa-question-circle",
-            title: "I am not sure",
-            detail: "You know something is off, but you are not sure where it starts.",
-            echo: "You are not sure exactly where the water problem starts.",
-            scores: { cleaning: 2, repairs: 1, drainage: 1 }
-          }
+          { icon: "fas fa-water", title: "Over the front edge", detail: "Water spills over the gutter during rain.", echo: "Water location: Over the front edge", scores: { cleaning: 4, repairs: 1, installation: 1 } },
+          { icon: "fas fa-home", title: "Behind the gutter", detail: "Water seems to be getting behind the gutter or near the fascia.", echo: "Water location: Behind the gutter or near fascia", scores: { repairs: 5, installation: 1, cleaning: 1 } },
+          { icon: "fas fa-tint", title: "Corner or seam leak", detail: "A specific joint, corner, or end cap leaks.", echo: "Water location: Corner or seam leak", scores: { repairs: 5, cleaning: 1 } },
+          { icon: "fas fa-arrow-down", title: "Top of a downspout", detail: "Water backs up where the gutter meets the downspout.", echo: "Water location: Top of a downspout", scores: { cleaning: 5, repairs: 1, drainage: 1 } },
+          { icon: "fas fa-route", title: "Downspout enters ground", detail: "Water backs up or pools at the underground connection.", echo: "Water location: Downspout enters ground", scores: { drainage: 5, cleaning: 2 } },
+          { icon: "fas fa-water", title: "Pooling near the home", detail: "Water collects near the foundation, walkway, patio, or landscaping.", echo: "Water location: Pooling near the home", scores: { drainage: 5, cleaning: 1 } },
+          { icon: "fas fa-question-circle", title: "I am not sure", detail: "You know something is off, but you are not sure where it starts.", echo: "Water location: Not sure", scores: { cleaning: 2, repairs: 1, drainage: 1 } }
         ]
       },
       {
@@ -920,41 +792,11 @@
         theme: "Downspout Flow",
         hint: "This separates a gutter issue from a downspout or underground drainage issue.",
         options: [
-          {
-            icon: "fas fa-check-circle",
-            title: "Strong flow",
-            detail: "You can see water exiting with good flow.",
-            echo: "Water appears to flow strongly from the downspout.",
-            scores: { drainage: 2, repairs: 1, guards: 1 }
-          },
-          {
-            icon: "fas fa-stream",
-            title: "Weak flow",
-            detail: "Water comes out, but the flow does not look strong.",
-            echo: "Downspout flow appears weak or restricted.",
-            scores: { cleaning: 4, drainage: 2 }
-          },
-          {
-            icon: "fas fa-ban",
-            title: "No visible water",
-            detail: "Rain goes in, but you do not see water exiting.",
-            echo: "There is little or no visible water coming out of the downspout.",
-            scores: { cleaning: 5, drainage: 3 }
-          },
-          {
-            icon: "fas fa-level-up-alt",
-            title: "Backs up underground",
-            detail: "The underground line may be restricted or overwhelmed.",
-            echo: "Water appears to back up where the downspout enters the ground.",
-            scores: { drainage: 6, cleaning: 2 }
-          },
-          {
-            icon: "fas fa-question-circle",
-            title: "Unknown outlet",
-            detail: "The downspout disappears underground or the outlet is unknown.",
-            echo: "The discharge point is unknown or hard to verify.",
-            scores: { drainage: 5, cleaning: 1 }
-          }
+          { icon: "fas fa-check-circle", title: "Strong flow", detail: "You can see water exiting with good flow.", echo: "Downspout flow: Strong flow", scores: { drainage: 2, repairs: 1, guards: 1 } },
+          { icon: "fas fa-stream", title: "Weak flow", detail: "Water comes out, but the flow does not look strong.", echo: "Downspout flow: Weak flow", scores: { cleaning: 4, drainage: 2 } },
+          { icon: "fas fa-ban", title: "No visible water", detail: "Rain goes in, but you do not see water exiting.", echo: "Downspout flow: No visible water", scores: { cleaning: 5, drainage: 3 } },
+          { icon: "fas fa-level-up-alt", title: "Backs up underground", detail: "The underground line may be restricted or overwhelmed.", echo: "Downspout flow: Backs up underground", scores: { drainage: 6, cleaning: 2 } },
+          { icon: "fas fa-question-circle", title: "Unknown outlet", detail: "The downspout disappears underground or the outlet is unknown.", echo: "Downspout flow: Unknown outlet", scores: { drainage: 5, cleaning: 1 } }
         ]
       },
       {
@@ -962,41 +804,11 @@
         theme: "Cleaning History",
         hint: "This helps decide whether cleaning is the baseline or whether another issue may be involved.",
         options: [
-          {
-            icon: "fas fa-check",
-            title: "Yes, cleaning fixes it",
-            detail: "The system works better after a normal cleaning.",
-            echo: "Cleaning has usually fixed the problem in the past.",
-            scores: { cleaning: 4, guards: 2 }
-          },
-          {
-            icon: "fas fa-redo-alt",
-            title: "It comes back",
-            detail: "Cleaning helps for a while, but the problem returns.",
-            echo: "Cleaning helps temporarily, but the issue comes back.",
-            scores: { guards: 4, cleaning: 2, repairs: 1 }
-          },
-          {
-            icon: "fas fa-exclamation-circle",
-            title: "Still happens after cleaning",
-            detail: "The issue continues even when debris is not obvious.",
-            echo: "The issue seems to continue even after cleaning.",
-            scores: { repairs: 3, drainage: 3, installation: 2 }
-          },
-          {
-            icon: "fas fa-question-circle",
-            title: "Not sure downspouts were flushed",
-            detail: "The gutters may have been cleaned, but flow was not verified.",
-            echo: "You are not sure whether the downspouts were flushed and verified.",
-            scores: { cleaning: 4, drainage: 2 }
-          },
-          {
-            icon: "fas fa-history",
-            title: "Over a year or unknown",
-            detail: "The system may be overdue for a full clean and flow check.",
-            echo: "It has been over a year, or you are not sure when the gutters were last cleaned.",
-            scores: { cleaning: 5, guards: 1 }
-          }
+          { icon: "fas fa-check", title: "Yes, cleaning fixes it", detail: "The system works better after a normal cleaning.", echo: "Cleaning history: Cleaning usually fixes it", scores: { cleaning: 4, guards: 2 } },
+          { icon: "fas fa-redo-alt", title: "It comes back", detail: "Cleaning helps for a while, but the problem returns.", echo: "Cleaning history: It improves, then comes back", scores: { guards: 4, cleaning: 2, repairs: 1 } },
+          { icon: "fas fa-exclamation-circle", title: "Still happens after cleaning", detail: "The issue continues even when debris is not obvious.", echo: "Cleaning history: Still happens after cleaning", scores: { repairs: 3, drainage: 3, installation: 2 } },
+          { icon: "fas fa-question-circle", title: "Not sure downspouts were flushed", detail: "The gutters may have been cleaned, but flow was not verified.", echo: "Cleaning history: Not sure downspouts were flushed", scores: { cleaning: 4, drainage: 2 } },
+          { icon: "fas fa-history", title: "Over a year or unknown", detail: "The system may be overdue for a full clean and flow check.", echo: "Cleaning history: Over a year or unknown", scores: { cleaning: 5, guards: 1 } }
         ]
       },
       {
@@ -1004,48 +816,12 @@
         theme: "Gutter Condition",
         hint: "This makes the difference between cleaning, repair, and replacement clearer.",
         options: [
-          {
-            icon: "fas fa-check-circle",
-            title: "Straight and secure",
-            detail: "The gutters appear attached and mostly in good shape.",
-            echo: "The gutters appear mostly straight and secure.",
-            scores: { cleaning: 2, guards: 2, drainage: 1 }
-          },
-          {
-            icon: "fas fa-weight-hanging",
-            title: "Sagging sections",
-            detail: "Sections dip, hold water, or look uneven.",
-            echo: "Some gutter sections appear to sag or hold water.",
-            scores: { repairs: 5, installation: 2 }
-          },
-          {
-            icon: "fas fa-unlink",
-            title: "Pulling away",
-            detail: "The gutter is separating from the board behind it.",
-            echo: "The gutters appear to be pulling away from the fascia.",
-            scores: { repairs: 5, installation: 2 }
-          },
-          {
-            icon: "fas fa-tint",
-            title: "Leaking corners",
-            detail: "The problem is mostly at joints or corners.",
-            echo: "Corners or seams appear to be leaking.",
-            scores: { repairs: 5, cleaning: 1 }
-          },
-          {
-            icon: "fas fa-tools",
-            title: "Old or worn out",
-            detail: "The system may be near replacement territory.",
-            echo: "The gutters look older, damaged, undersized, or worn out.",
-            scores: { installation: 5, repairs: 2 }
-          },
-          {
-            icon: "fas fa-shield-alt",
-            title: "Guards, but water skips",
-            detail: "Water still runs over or past the guarded gutter.",
-            echo: "The gutters already have guards, but water still skips or overflows.",
-            scores: { repairs: 2, cleaning: 2, installation: 2, guards: 1 }
-          }
+          { icon: "fas fa-check-circle", title: "Straight and secure", detail: "The gutters appear attached and mostly in good shape.", echo: "Gutter condition: Straight and secure", scores: { cleaning: 2, guards: 2, drainage: 1 } },
+          { icon: "fas fa-weight-hanging", title: "Sagging sections", detail: "Sections dip, hold water, or look uneven.", echo: "Gutter condition: Sagging sections", scores: { repairs: 5, installation: 2 } },
+          { icon: "fas fa-unlink", title: "Pulling away", detail: "The gutter is separating from the board behind it.", echo: "Gutter condition: Pulling away", scores: { repairs: 5, installation: 2 } },
+          { icon: "fas fa-tint", title: "Leaking corners", detail: "The problem is mostly at joints or corners.", echo: "Gutter condition: Leaking corners", scores: { repairs: 5, cleaning: 1 } },
+          { icon: "fas fa-tools", title: "Old or worn out", detail: "The system may be near replacement territory.", echo: "Gutter condition: Old, worn out, or undersized", scores: { installation: 5, repairs: 2 } },
+          { icon: "fas fa-shield-alt", title: "Guards, but water skips", detail: "Water still runs over or past the guarded gutter.", echo: "Gutter condition: Existing guards, but water skips or overflows", scores: { repairs: 2, cleaning: 2, installation: 2, guards: 1 } }
         ]
       },
       {
@@ -1053,48 +829,12 @@
         theme: "Roof & Debris",
         hint: "Tree coverage, roof shape, and debris type affect what solution makes sense.",
         options: [
-          {
-            icon: "fas fa-tree",
-            title: "Heavy trees or leaves",
-            detail: "Leaves are a recurring issue around the roofline.",
-            echo: "Heavy tree coverage or leaves are part of the situation.",
-            scores: { guards: 4, cleaning: 3 }
-          },
-          {
-            icon: "fas fa-leaf",
-            title: "Pine needles or small debris",
-            detail: "Fine debris gets into the gutter system.",
-            echo: "Pine needles or small debris may be part of the clogging issue.",
-            scores: { guards: 3, cleaning: 3 }
-          },
-          {
-            icon: "fas fa-mountain",
-            title: "Roof grit or granules",
-            detail: "Fine roof material collects in the gutters.",
-            echo: "Roof grit or shingle granules may be collecting in the gutter system.",
-            scores: { cleaning: 4, guards: 1 }
-          },
-          {
-            icon: "fas fa-sun",
-            title: "Not many trees",
-            detail: "The issue may be about flow, pitch, or discharge.",
-            echo: "There are not many trees around the problem area.",
-            scores: { repairs: 2, drainage: 2, installation: 1 }
-          },
-          {
-            icon: "fas fa-home",
-            title: "Large roof area hits one spot",
-            detail: "A roof valley or large roof face sends heavy water to one section.",
-            echo: "A lot of roof water may be dumping into one small gutter section.",
-            scores: { installation: 4, repairs: 2, drainage: 1 }
-          },
-          {
-            icon: "fas fa-question-circle",
-            title: "I am not sure",
-            detail: "You are not sure what roof or debris conditions matter.",
-            echo: "You are not sure which roof or debris conditions matter most.",
-            scores: { cleaning: 1, repairs: 1, drainage: 1 }
-          }
+          { icon: "fas fa-tree", title: "Heavy trees or leaves", detail: "Leaves are a recurring issue around the roofline.", echo: "Roof and debris: Heavy trees or leaves", scores: { guards: 4, cleaning: 3 } },
+          { icon: "fas fa-leaf", title: "Pine needles or small debris", detail: "Fine debris gets into the gutter system.", echo: "Roof and debris: Pine needles or small debris", scores: { guards: 3, cleaning: 3 } },
+          { icon: "fas fa-mountain", title: "Roof grit or granules", detail: "Fine roof material collects in the gutters.", echo: "Roof and debris: Roof grit or granules", scores: { cleaning: 4, guards: 1 } },
+          { icon: "fas fa-sun", title: "Not many trees", detail: "The issue may be about flow, pitch, or discharge.", echo: "Roof and debris: Not many trees", scores: { repairs: 2, drainage: 2, installation: 1 } },
+          { icon: "fas fa-home", title: "Large roof area hits one spot", detail: "A roof valley or large roof face sends heavy water to one section.", echo: "Roof and debris: Large roof area hits one spot", scores: { installation: 4, repairs: 2, drainage: 1 } },
+          { icon: "fas fa-question-circle", title: "I am not sure", detail: "You are not sure what roof or debris conditions matter.", echo: "Roof and debris: Not sure", scores: { cleaning: 1, repairs: 1, drainage: 1 } }
         ]
       },
       {
@@ -1102,48 +842,12 @@
         theme: "Best Outcome",
         hint: "This helps shape the recommendation into a practical next step.",
         options: [
-          {
-            icon: "fas fa-broom",
-            title: "Clean it and verify flow",
-            detail: "I want the gutters cleared and the downspouts checked.",
-            echo: "You want the gutters cleaned and the downspout flow verified.",
-            scores: { cleaning: 5 }
-          },
-          {
-            icon: "fas fa-wrench",
-            title: "Fix problem sections",
-            detail: "I want leaking, sagging, or loose areas corrected.",
-            echo: "You want leaking, sagging, or loose sections corrected.",
-            scores: { repairs: 5 }
-          },
-          {
-            icon: "fas fa-shield-alt",
-            title: "Reduce future clogs",
-            detail: "I want a longer-term solution for recurring debris.",
-            echo: "You want to reduce future clogging.",
-            scores: { guards: 5 }
-          },
-          {
-            icon: "fas fa-tools",
-            title: "Replace the old system",
-            detail: "I want new gutters with better sizing and downspout planning.",
-            echo: "You are open to replacing the old gutter system.",
-            scores: { installation: 5 }
-          },
-          {
-            icon: "fas fa-water",
-            title: "Move water farther away",
-            detail: "I want better control after water leaves the downspouts.",
-            echo: "You want water moved farther away after it leaves the downspouts.",
-            scores: { drainage: 5 }
-          },
-          {
-            icon: "fas fa-user-check",
-            title: "I need someone to look",
-            detail: "I am not sure which service is the right starting point.",
-            echo: "You want someone to inspect the situation and explain the best starting point.",
-            scores: { cleaning: 2, repairs: 2, drainage: 2 }
-          }
+          { icon: "fas fa-broom", title: "Clean it and verify flow", detail: "I want the gutters cleared and the downspouts checked.", echo: "Best outcome: Clean it and verify flow", scores: { cleaning: 5 } },
+          { icon: "fas fa-wrench", title: "Fix problem sections", detail: "I want leaking, sagging, or loose areas corrected.", echo: "Best outcome: Fix problem sections", scores: { repairs: 5 } },
+          { icon: "fas fa-shield-alt", title: "Reduce future clogs", detail: "I want a longer-term solution for recurring debris.", echo: "Best outcome: Reduce future clogs", scores: { guards: 5 } },
+          { icon: "fas fa-tools", title: "Replace the old system", detail: "I want new gutters with better sizing and downspout planning.", echo: "Best outcome: Replace the old system", scores: { installation: 5 } },
+          { icon: "fas fa-water", title: "Move water farther away", detail: "I want better control after water leaves the downspouts.", echo: "Best outcome: Move water farther away", scores: { drainage: 5 } },
+          { icon: "fas fa-user-check", title: "I need someone to look", detail: "I am not sure which service is the right starting point.", echo: "Best outcome: I need someone to look", scores: { cleaning: 2, repairs: 2, drainage: 2 } }
         ]
       }
     ];
@@ -1154,41 +858,11 @@
         theme: "Dryer Symptoms",
         hint: "These questions focus on airflow, lint buildup, and possible vent restriction.",
         options: [
-          {
-            icon: "fas fa-clock",
-            title: "Long dry times",
-            detail: "Loads need extra cycles or take longer than they used to.",
-            echo: "Your dryer is taking longer than normal to dry clothes.",
-            scores: { dryer: 6 }
-          },
-          {
-            icon: "fas fa-temperature-high",
-            title: "Hot laundry area",
-            detail: "The dryer, laundry room, or clothes feel hotter than expected.",
-            echo: "The dryer or laundry area feels hotter than expected.",
-            scores: { dryer: 6 }
-          },
-          {
-            icon: "fas fa-wind",
-            title: "Exterior flap barely opens",
-            detail: "The outside vent does not seem to push air strongly.",
-            echo: "The exterior vent flap may not be opening or moving much air.",
-            scores: { dryer: 6 }
-          },
-          {
-            icon: "fas fa-fire-extinguisher",
-            title: "Lint or safety concern",
-            detail: "You are concerned about lint buildup or fire risk.",
-            echo: "You are concerned about lint buildup or dryer vent safety.",
-            scores: { dryer: 6 }
-          },
-          {
-            icon: "fas fa-compress-arrows-alt",
-            title: "Crushed hose",
-            detail: "The transition hose may be bent, kinked, or restricted.",
-            echo: "The transition hose behind the dryer may be crushed, bent, or restricted.",
-            scores: { dryer: 6 }
-          }
+          { icon: "fas fa-clock", title: "Long dry times", detail: "Loads need extra cycles or take longer than they used to.", echo: "Dryer symptoms: Long dry times", scores: { dryer: 6 } },
+          { icon: "fas fa-temperature-high", title: "Hot laundry area", detail: "The dryer, laundry room, or clothes feel hotter than expected.", echo: "Dryer symptoms: Hot laundry area", scores: { dryer: 6 } },
+          { icon: "fas fa-wind", title: "Exterior flap barely opens", detail: "The outside vent does not seem to push air strongly.", echo: "Dryer symptoms: Exterior flap barely opens", scores: { dryer: 6 } },
+          { icon: "fas fa-fire-extinguisher", title: "Lint or safety concern", detail: "You are concerned about lint buildup or fire risk.", echo: "Dryer symptoms: Lint or safety concern", scores: { dryer: 6 } },
+          { icon: "fas fa-compress-arrows-alt", title: "Crushed hose", detail: "The transition hose may be bent, kinked, or restricted.", echo: "Dryer symptoms: Crushed or restricted hose", scores: { dryer: 6 } }
         ]
       },
       {
@@ -1196,34 +870,10 @@
         theme: "Exterior Airflow",
         hint: "Exterior airflow is one of the clearest clues that the vent may be restricted.",
         options: [
-          {
-            icon: "fas fa-check-circle",
-            title: "Strong airflow",
-            detail: "Air seems to move strongly from the exterior vent.",
-            echo: "Exterior airflow seems strong.",
-            scores: { dryer: 3 }
-          },
-          {
-            icon: "fas fa-stream",
-            title: "Weak airflow",
-            detail: "You can feel air, but it seems weak.",
-            echo: "Exterior airflow seems weak.",
-            scores: { dryer: 6 }
-          },
-          {
-            icon: "fas fa-ban",
-            title: "Little or no airflow",
-            detail: "The exterior vent barely moves air or does not open.",
-            echo: "There appears to be little or no exterior airflow.",
-            scores: { dryer: 7 }
-          },
-          {
-            icon: "fas fa-question-circle",
-            title: "I have not checked",
-            detail: "You are not sure what the vent does outside.",
-            echo: "You have not checked exterior airflow yet.",
-            scores: { dryer: 5 }
-          }
+          { icon: "fas fa-check-circle", title: "Strong airflow", detail: "Air seems to move strongly from the exterior vent.", echo: "Exterior airflow: Strong airflow", scores: { dryer: 3 } },
+          { icon: "fas fa-stream", title: "Weak airflow", detail: "You can feel air, but it seems weak.", echo: "Exterior airflow: Weak airflow", scores: { dryer: 6 } },
+          { icon: "fas fa-ban", title: "Little or no airflow", detail: "The exterior vent barely moves air or does not open.", echo: "Exterior airflow: Little or no airflow", scores: { dryer: 7 } },
+          { icon: "fas fa-question-circle", title: "I have not checked", detail: "You are not sure what the vent does outside.", echo: "Exterior airflow: Not checked", scores: { dryer: 5 } }
         ]
       },
       {
@@ -1231,27 +881,9 @@
         theme: "Cleaning History",
         hint: "Cleaning the lint screen is not the same as cleaning the full exhaust route.",
         options: [
-          {
-            icon: "fas fa-calendar-check",
-            title: "Within the last year",
-            detail: "It was cleaned recently, but something still feels off.",
-            echo: "The dryer vent was cleaned within the last year.",
-            scores: { dryer: 4 }
-          },
-          {
-            icon: "fas fa-calendar-alt",
-            title: "Over a year ago",
-            detail: "It has been more than a year since service.",
-            echo: "It has been over a year since the dryer vent was cleaned.",
-            scores: { dryer: 7 }
-          },
-          {
-            icon: "fas fa-question-circle",
-            title: "I am not sure",
-            detail: "You do not know when the full vent run was cleaned.",
-            echo: "You are not sure when the full dryer vent run was last cleaned.",
-            scores: { dryer: 7 }
-          }
+          { icon: "fas fa-calendar-check", title: "Within the last year", detail: "It was cleaned recently, but something still feels off.", echo: "Dryer vent cleaning history: Within the last year", scores: { dryer: 4 } },
+          { icon: "fas fa-calendar-alt", title: "Over a year ago", detail: "It has been more than a year since service.", echo: "Dryer vent cleaning history: Over a year ago", scores: { dryer: 7 } },
+          { icon: "fas fa-question-circle", title: "I am not sure", detail: "You do not know when the full vent run was cleaned.", echo: "Dryer vent cleaning history: Not sure", scores: { dryer: 7 } }
         ]
       },
       {
@@ -1259,34 +891,10 @@
         theme: "Vent Exit",
         hint: "Access and routing can affect what we check and how the service is quoted.",
         options: [
-          {
-            icon: "fas fa-home",
-            title: "Ground-level wall",
-            detail: "The vent exits low on an outside wall.",
-            echo: "The dryer vent appears to exit at ground-level on an exterior wall.",
-            scores: { dryer: 4 }
-          },
-          {
-            icon: "fas fa-arrow-up",
-            title: "Elevated or roof-area exit",
-            detail: "The vent exits high, through a second story, or near the roof.",
-            echo: "The dryer vent may have an elevated or roof-area exit.",
-            scores: { dryer: 5 }
-          },
-          {
-            icon: "fas fa-route",
-            title: "Long vent route",
-            detail: "The vent may travel a long distance before exiting.",
-            echo: "The dryer vent may have a long or complicated route.",
-            scores: { dryer: 5 }
-          },
-          {
-            icon: "fas fa-question-circle",
-            title: "I am not sure",
-            detail: "You are not sure where the dryer vent exits.",
-            echo: "You are not sure where the dryer vent exits.",
-            scores: { dryer: 4 }
-          }
+          { icon: "fas fa-home", title: "Ground-level wall", detail: "The vent exits low on an outside wall.", echo: "Vent exit: Ground-level wall", scores: { dryer: 4 } },
+          { icon: "fas fa-arrow-up", title: "Elevated or roof-area exit", detail: "The vent exits high, through a second story, or near the roof.", echo: "Vent exit: Elevated or roof-area exit", scores: { dryer: 5 } },
+          { icon: "fas fa-route", title: "Long vent route", detail: "The vent may travel a long distance before exiting.", echo: "Vent exit: Long vent route", scores: { dryer: 5 } },
+          { icon: "fas fa-question-circle", title: "I am not sure", detail: "You are not sure where the dryer vent exits.", echo: "Vent exit: Not sure", scores: { dryer: 4 } }
         ]
       }
     ];
@@ -1294,6 +902,8 @@
     let currentStep = 0;
     let activeTrack = null;
     let activeQuestions = [startQuestion];
+    let currentBestService = null;
+    let currentSecondService = null;
     const answers = [];
 
     function escapeAttribute(value) {
@@ -1301,7 +911,13 @@
     }
 
     function openCheckup() {
+      invite.classList.add("is-hidden");
       checkup.hidden = false;
+      checkup.classList.remove("gc-tool--report");
+      checkup.classList.add("gc-tool--questions");
+      questionPanel.hidden = false;
+      resultPanel.hidden = true;
+      checkupForm.hidden = true;
       startBtn.setAttribute("aria-expanded", "true");
 
       window.setTimeout(function () {
@@ -1440,24 +1056,13 @@
         });
     }
 
-    function getAnswerEcho() {
-      return answers
-        .filter(Boolean)
-        .map(function (answer) {
-          return answer.echo;
-        })
-        .filter(Boolean)
-        .slice(0, 4)
-        .join(" ");
-    }
-
     function getAnswerSummary() {
       return activeQuestions
         .map(function (question, index) {
           const answer = answers[index];
-          return (index + 1) + ". " + question.title + "\nAnswer: " + (answer ? answer.title : "Not answered");
+          return (index + 1) + ". " + (question.theme || question.title) + ": " + (answer ? answer.title : "Not answered");
         })
-        .join("\n\n");
+        .join("\n");
     }
 
     function preselectQuoteService(service) {
@@ -1475,32 +1080,35 @@
       return true;
     }
 
-    function buildReport(bestService, secondService) {
-      const answerEcho = getAnswerEcho();
-      const alsoWorth = secondService ? secondService.title : "None";
+    function buildMessage() {
+      const name = checkupName.value.trim() || "Not provided";
+      const phone = checkupPhone.value.trim() || "Not provided";
+      const address = checkupAddress.value.trim() || "Not provided";
+      const notes = checkupNotes.value.trim() || "None provided";
+      const photoCount = checkupPhotos.files ? checkupPhotos.files.length : 0;
 
       return [
-        "CleanFlow Checkup Report",
+        "New CleanFlow Checkup",
         "",
-        "Best Starting Point: " + bestService.title,
-        "Also Worth Checking: " + alsoWorth,
+        "Customer:",
+        "Name: " + name,
+        "Phone: " + phone,
+        "Address or Area: " + address,
         "",
-        "Likely Issue:",
-        answerEcho + " " + bestService.issue,
+        "Best Starting Point:",
+        currentBestService ? currentBestService.title : "Not calculated",
         "",
-        "Why This May Fit:",
-        bestService.fit,
+        "Also Worth Checking:",
+        currentSecondService ? currentSecondService.title : "None",
         "",
-        "What CleanFlow Would Check:",
-        bestService.checks.map(function (check) {
-          return "- " + check;
-        }).join("\n"),
+        "Answers:",
+        getAnswerSummary(),
         "",
-        "Best Next Step:",
-        bestService.nextStep,
+        "Notes:",
+        notes,
         "",
-        "Customer Answers:",
-        getAnswerSummary()
+        "Photos:",
+        photoCount > 0 ? photoCount + " photo(s) attached" : "No photos uploaded"
       ].join("\n");
     }
 
@@ -1508,9 +1116,11 @@
       const rankedKeys = getRankedServiceKeys();
       const bestService = services[rankedKeys[0]];
       const secondService = services[rankedKeys[1]];
-      const reportText = bestService ? buildReport(bestService, secondService) : "";
 
       if (!bestService) return;
+
+      currentBestService = bestService;
+      currentSecondService = secondService || null;
 
       preselectQuoteService(bestService);
 
@@ -1523,57 +1133,75 @@
 
       reviewList.innerHTML = "";
 
-      bestService.checks.slice(0, 4).forEach(function (check) {
-        const item = document.createElement("li");
-        item.textContent = check;
-        reviewList.appendChild(item);
-      });
+      const mainItem = document.createElement("li");
+      mainItem.textContent = "Best starting point: " + bestService.title;
+      reviewList.appendChild(mainItem);
 
       if (secondService && secondService.title !== bestService.title) {
-        const item = document.createElement("li");
-        item.textContent = secondService.title + " may also be worth checking while we are there.";
-        reviewList.appendChild(item);
+        const secondItem = document.createElement("li");
+        secondItem.textContent = "Also worth checking: " + secondService.title;
+        reviewList.appendChild(secondItem);
       }
 
-      hiddenResult.value = bestService.title;
-      hiddenAlso.value = secondService ? secondService.title : "";
-      hiddenTrack.value = activeTrack === "dryer" ? "Dryer vent checkup" : "Home exterior checkup";
-      hiddenAnswers.value = getAnswerSummary();
-      hiddenReport.value = reportText;
-      hiddenNextStep.value = bestService.nextStep;
+      const nextItem = document.createElement("li");
+      nextItem.textContent = "Suggested next step: " + bestService.nextStep;
+      reviewList.appendChild(nextItem);
 
-      resultEmpty.hidden = true;
+      const photoItem = document.createElement("li");
+      photoItem.textContent = "Your answers, notes, and photos will help us understand what you’re seeing.";
+      reviewList.appendChild(photoItem);
+
+      hiddenMessage.value = buildMessage();
+
+      questionPanel.hidden = true;
+      resultPanel.hidden = false;
       checkupForm.hidden = false;
+
+      checkup.classList.remove("gc-tool--questions");
+      checkup.classList.add("gc-tool--report");
 
       resultPanel.scrollIntoView({
         behavior: "smooth",
-        block: "nearest"
+        block: "start"
       });
     }
 
-    function resetResultPanel() {
-      resultEmpty.hidden = false;
-      checkupForm.hidden = true;
+    function resetCheckup() {
+      currentStep = 0;
+      activeTrack = null;
+      activeQuestions = [startQuestion];
+      answers.length = 0;
+      currentBestService = null;
+      currentSecondService = null;
 
-      hiddenResult.value = "";
-      hiddenAlso.value = "";
-      hiddenTrack.value = "";
-      hiddenAnswers.value = "";
-      hiddenReport.value = "";
-      hiddenNextStep.value = "";
+      resultPanel.hidden = true;
+      checkupForm.hidden = true;
+      questionPanel.hidden = false;
+
+      checkup.classList.remove("gc-tool--report");
+      checkup.classList.add("gc-tool--questions");
+
+      hiddenMessage.value = "";
 
       if (submitStatus) {
         submitStatus.textContent = "";
         submitStatus.className = "gc-submit-status";
       }
+
+      renderQuestion();
+      updateProgress();
     }
 
     function showSubmissionSuccess() {
-      openCheckup();
+      invite.classList.add("is-hidden");
+      checkup.hidden = false;
+      checkup.classList.remove("gc-tool--questions");
+      checkup.classList.add("gc-tool--report");
       questionPanel.hidden = true;
+      resultPanel.hidden = false;
 
       resultPanel.innerHTML = `
-        <div class="gc-result-empty">
+        <div class="gc-result-ready">
           <div class="gc-result-icon">
             <i class="fas fa-check-circle"></i>
           </div>
@@ -1603,30 +1231,20 @@
       }
 
       currentStep -= 1;
-      resetResultPanel();
       renderQuestion();
       updateProgress();
     });
 
-    resetBtn.addEventListener("click", function () {
-      currentStep = 0;
-      activeTrack = null;
-      activeQuestions = [startQuestion];
-      answers.length = 0;
+    resetBtn.addEventListener("click", resetCheckup);
 
-      resetResultPanel();
-      renderQuestion();
-      updateProgress();
+    checkupForm.addEventListener("submit", function () {
+      hiddenMessage.value = buildMessage();
+
+      if (submitStatus) {
+        submitStatus.textContent = "Sending your checkup...";
+        submitStatus.className = "gc-submit-status active success";
+      }
     });
-
-    if (checkupForm) {
-      checkupForm.addEventListener("submit", function () {
-        if (submitStatus) {
-          submitStatus.textContent = "Sending your checkup...";
-          submitStatus.className = "gc-submit-status active success";
-        }
-      });
-    }
 
     const params = new URLSearchParams(window.location.search);
 
