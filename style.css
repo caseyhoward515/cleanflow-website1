@@ -1202,6 +1202,7 @@ h2 {
 
 /* ============================================================
    BATCH 2 ADDITIONS — 60-Second CleanFlow Checkup
+   Compact expandable intake/report version
    ============================================================ */
 
 .gc-section { position: relative; background: radial-gradient(circle at 8% 10%, rgba(243, 156, 18, 0.16), transparent 28%), radial-gradient(circle at 92% 12%, rgba(58, 111, 199, 0.16), transparent 30%), linear-gradient(180deg, #ffffff 0%, var(--light) 100%); overflow: hidden; }
@@ -1212,19 +1213,39 @@ h2 {
 
 .gc-shell { position: relative; z-index: 1; }
 
-.gc-intro { max-width: 860px; margin: 0 auto 38px; }
+.gc-invite { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.92fr); gap: 28px; align-items: stretch; background: #ffffff; border: 1px solid rgba(30, 60, 114, 0.08); border-radius: 30px; padding: 34px; box-shadow: 0 22px 60px rgba(30, 60, 114, 0.12); }
 
-.gc-intro h2 { margin-left: auto; margin-right: auto; }
+.gc-invite-copy { display: flex; flex-direction: column; justify-content: center; }
 
-.gc-intro h2:after { left: 50%; transform: translateX(-50%); }
+.gc-invite-copy h2 { margin-bottom: 18px; }
 
-.gc-intro p { color: var(--gray); max-width: 760px; margin-left: auto; margin-right: auto; }
+.gc-invite-copy h2:after { left: 0; transform: none; }
 
-.gc-kicker { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(44, 90, 160, 0.08); border: 1px solid rgba(44, 90, 160, 0.12); color: var(--primary-dark); border-radius: 999px; padding: 8px 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.7px; font-size: 0.78rem; margin-bottom: 14px; }
+.gc-invite-copy p { color: var(--gray); max-width: 720px; }
+
+.gc-value-line { color: var(--primary-dark) !important; font-weight: 800; margin-bottom: 22px; }
+
+.gc-start-btn { width: fit-content; display: inline-flex; align-items: center; justify-content: center; gap: 9px; }
+
+.gc-invite-card { display: grid; gap: 14px; background: radial-gradient(circle at 100% 0%, rgba(243, 156, 18, 0.16), transparent 36%), linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 24px; padding: 22px; color: white; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12); }
+
+.gc-mini-step { display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: flex-start; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 15px; }
+
+.gc-mini-step span { width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.14); color: var(--accent); font-size: 20px; }
+
+.gc-mini-step strong { display: block; color: white; font-size: 1rem; margin-bottom: 4px; }
+
+.gc-mini-step p { color: rgba(255,255,255,0.88); font-size: 0.9rem; line-height: 1.5; margin-bottom: 0; }
+
+.gc-kicker { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: fit-content; background: rgba(44, 90, 160, 0.08); border: 1px solid rgba(44, 90, 160, 0.12); color: var(--primary-dark); border-radius: 999px; padding: 8px 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.7px; font-size: 0.78rem; margin-bottom: 14px; }
 
 .gc-kicker i { color: var(--accent); }
 
-.gc-tool { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr); gap: 0; background: #ffffff; border: 1px solid rgba(30, 60, 114, 0.08); border-radius: 30px; overflow: hidden; box-shadow: 0 24px 70px rgba(30, 60, 114, 0.13); }
+.gc-tool { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr); gap: 0; background: #ffffff; border: 1px solid rgba(30, 60, 114, 0.08); border-radius: 30px; overflow: hidden; box-shadow: 0 24px 70px rgba(30, 60, 114, 0.13); margin-top: 28px; animation: gcExpandIn 0.35s ease; }
+
+.gc-tool[hidden] { display: none; }
+
+@keyframes gcExpandIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
 .gc-question-panel { padding: 38px; background: #ffffff; }
 
@@ -1251,6 +1272,8 @@ h2 {
 .gc-question-copy p { color: var(--gray); margin-bottom: 22px; }
 
 .gc-options { display: grid; grid-template-columns: 1fr; gap: 12px; }
+
+.gc-options.gc-options--compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 .gc-option { display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: center; width: 100%; border: 1px solid rgba(30, 60, 114, 0.1); background: #fff; border-radius: 18px; padding: 16px; cursor: pointer; text-align: left; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease; font-family: inherit; }
 
@@ -1282,7 +1305,11 @@ h2 {
 
 .gc-result-panel:after { content: ''; position: absolute; width: 180px; height: 180px; border-radius: 50%; background: rgba(255,255,255,0.08); left: -70px; bottom: -70px; }
 
-.gc-result-empty, .gc-result-ready { position: relative; z-index: 1; width: 100%; display: flex; flex-direction: column; justify-content: center; }
+.gc-result-empty, .gc-result-ready, .gc-report-form { position: relative; z-index: 1; width: 100%; }
+
+.gc-result-empty { display: flex; flex-direction: column; justify-content: center; }
+
+.gc-report-form[hidden] { display: none; }
 
 .gc-result-icon { width: 76px; height: 76px; border-radius: 24px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 18px 36px rgba(0,0,0,0.18); margin-bottom: 22px; }
 
@@ -1298,11 +1325,33 @@ h2 {
 
 .gc-result-label { display: inline-flex; align-items: center; gap: 8px; width: fit-content; border-radius: 999px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); color: white; padding: 8px 13px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.7px; font-weight: 800; margin-bottom: 16px; }
 
-.gc-result-service { color: var(--accent); }
+.gc-result-service { color: var(--accent); font-weight: 900; }
 
 .gc-result-block { background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.14); border-radius: 18px; padding: 16px; margin-top: 14px; backdrop-filter: blur(8px); }
 
 .gc-result-block strong { display: block; color: white; margin-bottom: 6px; }
+
+.gc-result-block-soft { background: rgba(255,255,255,0.07); }
+
+.gc-field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+
+.gc-form-group { margin-top: 14px; }
+
+.gc-form-group label { display: block; color: white; font-weight: 800; margin-bottom: 7px; font-size: 0.92rem; }
+
+.gc-form-group input, .gc-form-group textarea { width: 100%; border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 12px 14px; background: rgba(255,255,255,0.95); color: var(--dark); font-family: inherit; font-size: 0.98rem; outline: none; transition: border-color 0.22s ease, box-shadow 0.22s ease; }
+
+.gc-form-group input:focus, .gc-form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.22); }
+
+.gc-form-group textarea { resize: vertical; min-height: 104px; }
+
+.gc-upload-box { background: rgba(255,255,255,0.1); border: 1px dashed rgba(255,255,255,0.35); border-radius: 18px; padding: 15px; }
+
+.gc-upload-box input { background: rgba(255,255,255,0.95); cursor: pointer; }
+
+.gc-upload-box p { color: rgba(255,255,255,0.84); font-size: 0.88rem; line-height: 1.55; margin: 10px 0 0; }
+
+.gc-submit-note { color: rgba(255,255,255,0.86) !important; font-size: 0.9rem; margin-top: 16px; margin-bottom: 0 !important; }
 
 .gc-result-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
 
@@ -1314,11 +1363,23 @@ h2 {
 
 .gc-result-actions .btn-accent { color: white; }
 
+.gc-submit-status { display: none; margin-top: 14px; border-radius: 14px; padding: 12px 14px; font-weight: 700; }
+
+.gc-submit-status.active { display: block; }
+
+.gc-submit-status.success { background: rgba(212, 237, 218, 0.96); color: #155724; }
+
+.gc-submit-status.error { background: rgba(248, 215, 218, 0.96); color: #721c24; }
+
 .gc-prefill-note { display: none; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; color: rgba(255,255,255,0.92); font-size: 0.9rem; padding: 12px 14px; margin-top: 14px; }
 
 .gc-prefill-note.active { display: block; }
 
 @media screen and (max-width: 991.98px) {
+
+.gc-invite {
+    grid-template-columns: 1fr;
+}
 
 .gc-tool {
     grid-template-columns: 1fr;
@@ -1335,6 +1396,29 @@ h2 {
     padding: 60px 0;
 }
 
+.gc-invite {
+    border-radius: 22px;
+    padding: 24px 20px;
+}
+
+.gc-invite-copy h2 {
+    font-size: 1.75rem;
+}
+
+.gc-start-btn {
+    width: 100%;
+}
+
+.gc-mini-step {
+    grid-template-columns: 42px 1fr;
+}
+
+.gc-mini-step span {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+}
+
 .gc-tool {
     border-radius: 22px;
 }
@@ -1348,6 +1432,11 @@ h2 {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
+}
+
+.gc-options,
+.gc-options.gc-options--compact {
+    grid-template-columns: 1fr;
 }
 
 .gc-option {
@@ -1371,6 +1460,10 @@ h2 {
     width: 100%;
 }
 
+.gc-field-grid {
+    grid-template-columns: 1fr;
+}
+
 .gc-result-actions {
     flex-direction: column;
 }
@@ -1381,6 +1474,10 @@ h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
+.gc-tool {
+    animation: none;
+}
 
 .gc-progress-fill,
 .gc-option,
