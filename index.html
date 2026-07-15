@@ -161,6 +161,7 @@
                 <div class="form-group">
                     <select id="service" name="service">
                         <option value="Gutter Cleaning">Gutter Cleaning</option>
+                        <option value="Gutter Repairs">Gutter Repairs</option>
                         <option value="Gutter Guards">Gutter Guards</option>
                         <option value="Gutter Installation">Gutter Installation</option>
                         <option value="Dryer Vent Cleaning">Dryer Vent Cleaning</option>
@@ -210,6 +211,67 @@
                     <span class="trust-item">A+ BBB Rated</span>
                     <span class="trust-sep"></span>
                     <span class="trust-item">Owner-Operated</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gutter-checkup" class="gc-section section-pad">
+        <div class="container">
+            <div class="gc-shell" data-aos="fade-up">
+                <div class="gc-intro text-center">
+                    <span class="gc-kicker"><i class="fas fa-clipboard-check"></i> The 60-Second CleanFlow Checkup</span>
+                    <h2>Not Sure What You Need?</h2>
+                    <p>Answer a few quick questions and we’ll point you toward the best starting point for your gutters, downspouts, drainage, or dryer vent.</p>
+                </div>
+
+                <div class="gc-tool" id="cleanFlowCheckup" data-cleanflow-checkup>
+                    <div class="gc-question-panel">
+                        <div class="gc-progress-wrap">
+                            <div class="gc-progress-top">
+                                <span id="gcStepLabel">Question 1 of 5</span>
+                                <span id="gcTrackLabel">Home exterior checkup</span>
+                            </div>
+                            <div class="gc-progress">
+                                <div class="gc-progress-fill" id="gcProgressFill"></div>
+                            </div>
+                            <div class="gc-step-dots" id="gcStepDots" aria-hidden="true"></div>
+                        </div>
+
+                        <div class="gc-question-copy">
+                            <h3 id="gcQuestion">What is the main concern?</h3>
+                            <p id="gcHint">Choose the closest match. You can go back and adjust your answers.</p>
+                        </div>
+
+                        <div class="gc-options" id="gcOptions" role="group" aria-label="CleanFlow checkup answer choices"></div>
+
+                        <div class="gc-nav">
+                            <button type="button" class="gc-secondary-btn" id="gcBack" disabled>
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="button" class="gc-secondary-btn" id="gcReset">
+                                Start Over
+                            </button>
+                        </div>
+
+                        <p class="gc-disclaimer">This is a rule-based guide, not a final diagnosis. A real recommendation depends on what we see on site.</p>
+                    </div>
+
+                    <div class="gc-result-panel" id="gcResult" aria-live="polite">
+                        <div class="gc-result-empty">
+                            <div class="gc-result-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <span class="gc-result-label"><i class="fas fa-camera"></i> CleanFlow Field Report</span>
+                            <h3>Your checkup result will appear here</h3>
+                            <p>As you answer, we’ll compare your concerns against the most common gutter, repair, guard, installation, drainage, and dryer vent service needs.</p>
+                            <ul>
+                                <li>Best starting point</li>
+                                <li>What CleanFlow would check</li>
+                                <li>Best next step</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
