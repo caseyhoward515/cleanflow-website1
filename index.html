@@ -219,7 +219,7 @@
     <section id="gutter-checkup" class="gc-section section-pad">
         <div class="container">
             <div class="gc-shell" data-aos="fade-up">
-                <div class="gc-invite">
+                <div class="gc-invite" id="gcInvite">
                     <div class="gc-invite-copy">
                         <span class="gc-kicker"><i class="fas fa-clipboard-check"></i> The 60-Second CleanFlow Checkup</span>
                         <h2>Not Sure What Service You Need?</h2>
@@ -287,57 +287,38 @@
                         <p class="gc-disclaimer">Your answers help create a starting point. The final recommendation depends on what we see on site.</p>
                     </div>
 
-                    <div class="gc-result-panel" id="gcResult" aria-live="polite">
-                        <div class="gc-result-empty" id="gcResultEmpty">
-                            <div class="gc-result-icon">
-                                <i class="fas fa-clipboard-list"></i>
-                            </div>
-                            <span class="gc-result-label"><i class="fas fa-camera"></i> CleanFlow Checkup Report</span>
-                            <h3>Your checkup report will appear here</h3>
-                            <p>Answer the guided questions, then add your contact details and any photos you have. Your report will be sent to CleanFlow of Ohio so we can review it before following up.</p>
-                            <ul>
-                                <li>Best starting point</li>
-                                <li>Helpful photos and notes</li>
-                                <li>Better follow-up conversation</li>
-                            </ul>
-                        </div>
-
+                    <div class="gc-result-panel" id="gcResult" aria-live="polite" hidden>
                         <form id="checkupForm" class="gc-report-form" action="https://formspree.io/f/xpqqeklz" method="POST" enctype="multipart/form-data" hidden>
-                            <input type="hidden" name="_subject" value="New CleanFlow Checkup Report">
+                            <input type="hidden" name="_subject" value="New CleanFlow Checkup">
                             <input type="hidden" name="_next" value="https://www.cleanflowohio.com/?checkup=submitted#gutter-checkup">
-                            <input type="hidden" name="checkup_result" id="gcHiddenResult">
-                            <input type="hidden" name="checkup_also_worth_checking" id="gcHiddenAlso">
-                            <input type="hidden" name="checkup_track" id="gcHiddenTrack">
-                            <input type="hidden" name="checkup_answers" id="gcHiddenAnswers">
-                            <input type="hidden" name="checkup_field_report" id="gcHiddenReport">
-                            <input type="hidden" name="checkup_best_next_step" id="gcHiddenNextStep">
+                            <input type="hidden" name="message" id="gcHiddenMessage">
 
                             <div class="gc-result-ready">
                                 <div class="gc-result-icon" id="gcResultIcon">
                                     <i class="fas fa-clipboard-check"></i>
                                 </div>
-                                <span class="gc-result-label"><i class="fas fa-camera"></i> CleanFlow Checkup Report</span>
+                                <span class="gc-result-label"><i class="fas fa-camera"></i> CleanFlow Checkup</span>
                                 <h3>Your CleanFlow Checkup is Ready</h3>
                                 <p id="gcResultSummary">Based on your answers, the best starting point appears to be <span class="gc-result-service" id="gcResultService">Gutter Cleaning</span>.</p>
 
                                 <div class="gc-result-block">
-                                    <strong>What we’ll review</strong>
+                                    <strong>What your checkup shows</strong>
                                     <ul id="gcReviewList">
-                                        <li>Your answers</li>
-                                        <li>Your notes</li>
-                                        <li>Any photos you upload</li>
+                                        <li>Best starting point</li>
+                                        <li>Helpful photos and notes</li>
+                                        <li>Better follow-up conversation</li>
                                     </ul>
                                 </div>
 
                                 <div class="gc-result-block gc-result-block-soft">
                                     <strong>Add your details and photos</strong>
-                                    <p>We’ll review your checkup before following up, so we can better understand what you’re seeing.</p>
+                                    <p>Add your contact details below. Photos and address are optional, but they can help us better understand what you’re seeing before we follow up.</p>
                                 </div>
 
                                 <div class="gc-field-grid">
                                     <div class="gc-form-group">
                                         <label for="checkupName">Name</label>
-                                        <input type="text" id="checkupName" name="name" placeholder="Your name" required>
+                                        <input type="text" id="checkupName" name="name" placeholder="First name is fine" required>
                                     </div>
                                     <div class="gc-form-group">
                                         <label for="checkupPhone">Phone Number</label>
@@ -346,17 +327,17 @@
                                 </div>
 
                                 <div class="gc-form-group">
-                                    <label for="checkupAddress">Service Address</label>
-                                    <input type="text" id="checkupAddress" name="address" placeholder="Street address, city, and ZIP" required>
+                                    <label for="checkupAddress">Service Address <span>Optional</span></label>
+                                    <input type="text" id="checkupAddress" name="address_or_area" placeholder="Address or general area, if you’d like">
                                 </div>
 
                                 <div class="gc-form-group">
-                                    <label for="checkupNotes">Optional Notes</label>
+                                    <label for="checkupNotes">Notes <span>Optional</span></label>
                                     <textarea id="checkupNotes" name="notes" rows="4" placeholder="Anything else you want us to know?"></textarea>
                                 </div>
 
                                 <div class="gc-form-group">
-                                    <label for="checkupPhotos">Upload Photos</label>
+                                    <label for="checkupPhotos">Upload Photos <span>Optional</span></label>
                                     <div class="gc-upload-box">
                                         <input type="file" id="checkupPhotos" name="photos" accept="image/*" multiple>
                                         <p>Photos of overflow, downspouts, pooling water, gutter corners, guards, or dryer vents can help us understand what you’re seeing.</p>
