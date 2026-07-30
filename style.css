@@ -160,7 +160,7 @@ nav ul li a:hover::after, nav ul li a.active::after { width: 100%; }
 
 .floating-cta .cta-label:after { content: ''; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); border-width: 8px 0 8px 8px; border-style: solid; border-color: transparent transparent transparent var(--dark); }
 
-#hero { height: 100vh; background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(30, 60, 114, 0.8)), url('https://nedstevens.com/wp-content/uploads/2020/12/gutter-cleaning-hero-new.jpg') no-repeat center center/cover; display: flex; align-items: center; text-align: center; color: white; position: relative; padding: 0; margin-top: 40px; }
+#hero { height: 100vh; background: url('/assets/brand/hero-pattern.svg') no-repeat center center/cover, radial-gradient(circle at 18% 18%, rgba(243, 156, 18, 0.22), transparent 32%), radial-gradient(circle at 84% 12%, rgba(58, 111, 199, 0.38), transparent 34%), linear-gradient(135deg, #1e3c72 0%, #24487f 48%, #2c5aa0 100%); display: flex; align-items: center; text-align: center; color: white; position: relative; padding: 0; margin-top: 40px; }
 
 .hero-content { max-width: 800px; margin: 0 auto; }
 
@@ -402,7 +402,7 @@ footer { background: #f8f9fa; padding: 50px 0 20px; }
 
 .page-content { padding-top: 100px; }
 
-.services-hero-wow { position: relative; padding: 115px 0 85px; background: radial-gradient(circle at 20% 20%, rgba(243, 156, 18, 0.26), transparent 26%), radial-gradient(circle at 85% 12%, rgba(58, 111, 199, 0.32), transparent 28%), linear-gradient(135deg, rgba(30, 60, 114, 0.96), rgba(44, 90, 160, 0.94)), url('https://nedstevens.com/wp-content/uploads/2020/12/gutter-cleaning-hero-new.jpg') no-repeat center center/cover; color: white; overflow: hidden; }
+.services-hero-wow { position: relative; padding: 115px 0 85px; background: url('/assets/brand/hero-pattern.svg') no-repeat center center/cover, radial-gradient(circle at 20% 20%, rgba(243, 156, 18, 0.26), transparent 26%), radial-gradient(circle at 85% 12%, rgba(58, 111, 199, 0.32), transparent 28%), linear-gradient(135deg, #1e3c72, #2c5aa0); color: white; overflow: hidden; }
 
 .services-hero-wow:before { content: ''; position: absolute; width: 480px; height: 480px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.18); top: -180px; right: -120px; }
 
@@ -559,22 +559,6 @@ footer { background: #f8f9fa; padding: 50px 0 20px; }
 .section-highlight { animation: sectionGlow 1.2s ease; }
 
 @keyframes sectionGlow { 0% { box-shadow: inset 0 0 0 0 rgba(243, 156, 18, 0); } 40% { box-shadow: inset 0 0 0 8px rgba(243, 156, 18, 0.16); } 100% { box-shadow: inset 0 0 0 0 rgba(243, 156, 18, 0); } }
-
-.gallery { margin-top: 40px; }
-
-.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-
-.gallery-item { border-radius: 18px; overflow: hidden; box-shadow: 0 18px 45px rgba(30, 60, 114, 0.08); position: relative; cursor: pointer; }
-
-.gallery-item img { width: 100%; height: 230px; object-fit: cover; display: block; transition: all 0.5s ease; }
-
-.gallery-item:hover img { transform: scale(1.1); }
-
-.gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(30, 60, 114, 0.8)); display: flex; align-items: center; justify-content: center; color: white; opacity: 0; transition: all 0.3s ease; }
-
-.gallery-item:hover .gallery-overlay { opacity: 1; }
-
-.gallery-overlay i { font-size: 30px; color: white; }
 
 .faq-section { background-color: #f8f9fa; padding: 80px 0; }
 
@@ -922,9 +906,6 @@ header.scrolled .header-container {
     columns: 1;
 }
 
-.gallery-grid {
-    grid-template-columns: 1fr;
-}
 }
 
 @media screen and (max-width: 575.98px) { h1 { font-size: 2.2rem; }
@@ -947,10 +928,6 @@ h2 {
 
 .phone-number {
     font-size: 1.8rem;
-}
-
-.gallery-grid {
-    grid-template-columns: 1fr;
 }
 
 .lead-form {
@@ -1773,4 +1750,68 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, summary:focus-v
         transform: none !important;
         transition: none !important;
     }
+}
+
+
+/* ============================================================
+   BRANDED SERVICE MEDIA
+   Used wherever an authentic CleanFlow photograph is not
+   available. Shares the visual language of .premium-service-media
+   so the site reads as one system, and depends on no external
+   host. Replace an individual panel with a real CleanFlow
+   photograph by swapping the element for an <img>.
+   ============================================================ */
+
+.brand-media { position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px; text-align: center; color: #ffffff; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); }
+
+.brand-media:before { content: ''; position: absolute; width: 230px; height: 230px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.22); top: -84px; right: -74px; }
+
+.brand-media:after { content: ''; position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(255, 255, 255, 0.10); bottom: -62px; left: -52px; }
+
+.brand-media i { position: relative; z-index: 1; width: 76px; height: 76px; border-radius: 24px; background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.28); display: flex; align-items: center; justify-content: center; font-size: 34px; box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22); }
+
+.brand-media span { position: relative; z-index: 1; font-size: 0.82rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255, 255, 255, 0.92); line-height: 1.35; }
+
+.brand-media--cleaning { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); }
+
+.brand-media--repair { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+
+.brand-media--guards { background: linear-gradient(135deg, #17345f, var(--primary-dark)); }
+
+.brand-media--install { background: linear-gradient(135deg, var(--primary-dark), var(--accent)); }
+
+.brand-media--dryer { background: linear-gradient(135deg, var(--accent-dark), var(--accent)); }
+
+.brand-media--drainage { background: linear-gradient(135deg, var(--primary-dark), #0d8abc); }
+
+.service-detail-image.brand-media { padding: 34px; gap: 18px; }
+
+.service-detail-image.brand-media i { width: 104px; height: 104px; border-radius: 30px; font-size: 46px; }
+
+.service-detail-image.brand-media span { font-size: 0.9rem; }
+
+/* ---------- Proof-of-work cards (replaces the former photo gallery) ---------- */
+
+.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+.proof-card { position: relative; overflow: hidden; border-radius: 18px; padding: 32px 26px; color: #ffffff; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); box-shadow: 0 18px 45px rgba(30, 60, 114, 0.14); display: flex; flex-direction: column; gap: 12px; }
+
+.proof-card:before { content: ''; position: absolute; width: 190px; height: 190px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.18); top: -74px; right: -64px; }
+
+.proof-card > * { position: relative; z-index: 1; }
+
+.proof-card i { width: 62px; height: 62px; border-radius: 20px; background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.26); display: flex; align-items: center; justify-content: center; font-size: 27px; color: var(--accent); }
+
+.proof-card h3 { color: #ffffff; font-size: 1.2rem; margin: 0; }
+
+.proof-card p { color: rgba(255, 255, 255, 0.9); margin: 0; font-size: 0.98rem; line-height: 1.6; }
+
+.proof-note { margin-top: 26px; border-radius: 16px; border: 1px solid rgba(30, 60, 114, 0.16); background: var(--light); padding: 20px 24px; color: var(--primary-dark); font-weight: 600; text-align: center; }
+
+@media screen and (max-width: 767.98px) {
+    .proof-grid { grid-template-columns: 1fr; }
+
+    .brand-media i { width: 66px; height: 66px; border-radius: 20px; font-size: 29px; }
+
+    .service-detail-image.brand-media i { width: 84px; height: 84px; border-radius: 26px; font-size: 38px; }
 }
