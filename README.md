@@ -47,7 +47,7 @@ solutions.
 cleanflow-website1/
 ├── assets/
 │   ├── brand/
-│   │   ├── cleanflow-emblem.svg
+│   │   ├── cleanflow-mascot.png
 │   │   ├── hero-pattern.svg
 │   │   └── og-image.source.html
 │   ├── og-image.png

@@ -20,10 +20,25 @@ name and icon, and never imply a job result.
 
 | Path | Type | Size | Ownership / licence | Used by |
 | --- | --- | --- | --- | --- |
-| `assets/og-image.png` | PNG, 1200x630 | ~358 KB | **Original work created for CleanFlow of Ohio.** Rendered from `assets/brand/og-image.source.html`. Typeface: Liberation Sans (SIL Open Font License 1.1). | `og:image` and `twitter:image` on all six public pages |
-| `assets/brand/cleanflow-emblem.svg` | SVG, 512x512 | ~1.7 KB | **Original work created for CleanFlow of Ohio.** Droplet-and-gutter-channel mark drawn in brand colours. | `/services/gutter-installation` hero |
-| `assets/brand/hero-pattern.svg` | SVG, 1200x600 | ~2.0 KB | **Original work created for CleanFlow of Ohio.** Abstract roofline, gutter run, and droplet motif. | `#hero` and `.services-hero-wow` backgrounds in `style.css`; `/services/dryer-vent-cleaning` hero |
+| `assets/brand/cleanflow-mascot.png` | PNG, 820x365, RGBA | ~275 KB | **Owner-approved CleanFlow of Ohio artwork**, supplied by the owner. This is the company's official mascot and logo lockup. Cropped to its content box and downscaled from the 1536x1024 original; artwork itself is unaltered. | `/services/gutter-installation` hero; the social preview |
+| `assets/og-image.png` | PNG, 1200x630 | ~454 KB | Layout and typography are original work for CleanFlow of Ohio; the brand mark within it is the owner's mascot lockup above. Rendered from `assets/brand/og-image.source.html`. Typeface: Liberation Sans (SIL Open Font License 1.1). | `og:image` and `twitter:image` on all six public pages |
+| `assets/brand/hero-pattern.svg` | SVG, 1200x600 | ~2.0 KB | Original **decorative background texture** created for this site — abstract roofline, gutter run, and droplet motif. It is a pattern, not a brand mark, and is not used as a logo anywhere. | `#hero` and `.services-hero-wow` backgrounds in `style.css`; `/services/dryer-vent-cleaning` hero |
 | `assets/brand/og-image.source.html` | HTML | ~4.5 KB | Build source for the social preview. Marked `noindex, nofollow`; not linked from the site. | Regenerating `og-image.png` |
+
+## Brand mark policy
+
+The only mark that represents CleanFlow of Ohio on this site is
+`assets/brand/cleanflow-mascot.png`, which is the owner's own artwork.
+
+No substitute, stand-in, or newly drawn logo may be introduced as the company's
+mark. An earlier revision of this site briefly shipped an invented
+droplet-and-channel emblem while the authentic file was unavailable; it has been
+removed. If the mascot file is ever missing, use a plain CleanFlow of Ohio
+text-and-pattern treatment and flag that the authentic artwork is needed —
+do not draw a replacement mark.
+
+`hero-pattern.svg` is a decorative background texture, not a mark, and is never
+used in a logo position.
 
 ## Regenerating the social preview
 
@@ -33,7 +48,16 @@ captured through the DevTools Protocol so the output is exactly 1200x630
 band at the bottom).
 
 Edit `assets/brand/og-image.source.html`, then re-render and confirm the header
-reports `1200x630`.
+reports `1200x630`. The source references `cleanflow-mascot.png` from the same
+directory, so the preview always carries the owner's real mark.
+
+## Contrast
+
+Branded media panels place their label and icon on a `rgba(13, 27, 54, 0.58)` /
+`0.42` scrim so contrast holds on every panel tint, including the orange dryer
+and installation gradients. Measured worst cases: **7.32:1** for label text
+(WCAG AA needs 4.5:1) and **5.07:1** for the icon glyph (WCAG 1.4.11 needs
+3:1). Without the scrim, white-on-orange measured 2.19:1 and failed.
 
 ## Fonts and icons
 
@@ -58,7 +82,7 @@ was CleanFlow's, and none of it is republished here.
 | `dlczb9lfz9r73.cloudfront.net` | Repairs and guards cards and details | Unidentified host; one filename indicates a **paid iStock licence held by someone else** | `.brand-media` panels |
 | `images.squarespace-cdn.com` | "Our Work" gallery | Unidentified contractor's before/after presented as CleanFlow's result | Proof-of-work cards |
 | `static.wixstatic.com` | "Our Work" gallery | Unidentified contractor's photograph | Proof-of-work cards |
-| `i.ibb.co` | Installation hero mascot, installation before/after, installation `og:image` | Free anonymous image host with no retention guarantee; the before/after was unverified | `cleanflow-emblem.svg`, proof-of-work cards, `og-image.png` |
+| `i.ibb.co` | Installation hero mascot, installation before/after, installation `og:image` | Free anonymous image host with no retention guarantee; the before/after was unverified | Mascot now tracked locally as `cleanflow-mascot.png` (owner-supplied); before/after replaced with process cards; `og-image.png` |
 | `images.pexels.com` | Installation card, dryer-vent detail, gutter-brightening detail | Licence was fine (Pexels licence), but each sat where it read as a CleanFlow result, and each was an external runtime dependency | `.brand-media` panels |
 | `images.unsplash.com` | Dryer-vent hero background | Licence was fine (Unsplash licence); removed only to eliminate the last external image dependency. It sat behind an 85% overlay and was barely visible. | `hero-pattern.svg` over a brand gradient |
 
