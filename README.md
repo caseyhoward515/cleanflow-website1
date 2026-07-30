@@ -45,6 +45,13 @@ solutions.
 
 ```text
 cleanflow-website1/
+├── assets/
+│   ├── brand/
+│   │   ├── cleanflow-emblem.svg
+│   │   ├── hero-pattern.svg
+│   │   └── og-image.source.html
+│   ├── og-image.png
+│   └── README.md
 ├── services/
 │   ├── gutter-cleaning.html
 │   ├── gutter-installation.html
@@ -61,9 +68,13 @@ cleanflow-website1/
 └── LICENSE
 ```
 
-There is **no tracked local image asset directory**. Every image currently used by
-the site is loaded from an external host, referenced inline in the HTML. Bringing
-images in-repo is planned but not yet done.
+All imagery is tracked locally under `assets/`. The site loads **no externally
+hosted images**. Where an authentic CleanFlow photograph is not available, the
+page uses a branded media panel (`.brand-media`) rather than a stand-in
+photograph, so nothing on the site implies a job result that did not happen.
+
+Every asset and its ownership or licensing basis is recorded in
+[`assets/README.md`](assets/README.md).
 
 ---
 
@@ -117,10 +128,11 @@ the corresponding part of the page degrades.
 | Font Awesome Free 6.4.0 | `cdn.jsdelivr.net` | All icons, including the CSS pseudo-element glyphs | Icons do not render |
 | AOS 2.3.4 | `cdn.jsdelivr.net` | Scroll-reveal animations | Handled: `initAOS` strips `data-aos` when reduced motion is requested, and the reduced-motion stylesheet keeps `[data-aos]` content visible |
 | Formspree | `formspree.io` | Quote form and CleanFlow Checkup submissions | Form submissions fail; the phone and text fallback is always shown |
-| Imagery | Several external hosts, referenced inline in the HTML | All site images | Images do not load; no local copies are tracked |
+| — | — | Imagery is **not** an external dependency. Every image is tracked in `assets/`, or drawn with CSS. See [`assets/README.md`](assets/README.md). | — |
 
-Both CDN dependencies are version-pinned. Bringing images and icons in-repo is
-planned but not yet done.
+Both CDN dependencies are version-pinned. Icons still come from the Font
+Awesome CDN; bringing them in-repo is not yet done. **Imagery is already
+local** — the site references no external image host.
 
 There is no analytics, tag manager, or tracking script on the site.
 
