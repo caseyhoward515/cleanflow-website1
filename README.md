@@ -13,6 +13,10 @@ The site is semantic HTML, one shared stylesheet, and one shared vanilla-JavaScr
 file. There is no framework, no build step, and no package manifest — the files in
 this repository are the files that ship.
 
+That means there are **no local package dependencies to install**, but the site is
+**not dependency-free at runtime**. It relies on several third-party services that
+must be reachable in the browser; see [Runtime dependencies](#runtime-dependencies).
+
 The site is designed to support local SEO and lead generation for high-value
 exterior services, including gutter cleaning, gutter guards, seamless gutter
 installation, dryer vent cleaning, underground downspout extensions, and drainage
@@ -22,7 +26,8 @@ solutions.
 
 ## Core Features
 
-- **Static, fast-loading website:** No frontend framework, no bundler, no dependencies.
+- **Static, fast-loading website:** No frontend framework, no bundler, and nothing
+  to install locally.
 - **Mobile-first design:** Responsive layout for phones, tablets, and desktops.
 - **Accessible interaction:** Semantic controls, keyboard-operable menu, service
   wheel, accordions and seasonal tabs, skip links, and `prefers-reduced-motion`
@@ -98,7 +103,26 @@ page only wires up the components it actually contains.
 | Seasonal tabs | Full `tablist` / `tab` / `tabpanel` pattern with arrow, Home, and End key navigation. |
 | Reduced motion | When `prefers-reduced-motion: reduce` is set, infinite pulses stop, transitions are neutralised, and AOS attributes are stripped so content stays visible without animating. |
 
-Forms post to Formspree. There is no analytics or tag manager on the site.
+---
+
+## Runtime dependencies
+
+No packages are installed to build or serve this site, but the following external
+services are loaded at runtime and are real dependencies. If one is unreachable,
+the corresponding part of the page degrades.
+
+| Dependency | Loaded from | Used for | If unavailable |
+| --- | --- | --- | --- |
+| Poppins | `fonts.googleapis.com` / `fonts.gstatic.com` | Site typeface | Falls back to the system sans-serif |
+| Font Awesome Free 6.4.0 | `cdn.jsdelivr.net` | All icons, including the CSS pseudo-element glyphs | Icons do not render |
+| AOS 2.3.4 | `cdn.jsdelivr.net` | Scroll-reveal animations | Handled: `initAOS` strips `data-aos` when reduced motion is requested, and the reduced-motion stylesheet keeps `[data-aos]` content visible |
+| Formspree | `formspree.io` | Quote form and CleanFlow Checkup submissions | Form submissions fail; the phone and text fallback is always shown |
+| Imagery | Several external hosts, referenced inline in the HTML | All site images | Images do not load; no local copies are tracked |
+
+Both CDN dependencies are version-pinned. Bringing images and icons in-repo is
+planned but not yet done.
+
+There is no analytics, tag manager, or tracking script on the site.
 
 ---
 

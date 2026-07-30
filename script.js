@@ -158,10 +158,19 @@
       return;
     }
 
-    const linearFeet = Math.min(
-      rawLinearFeet,
-      CALCULATOR_MAX_LINEAR_FEET
-    );
+    if (rawLinearFeet > CALCULATOR_MAX_LINEAR_FEET) {
+      showCalculatorMessage(
+        resultBox,
+        estimatedPrice,
+        "For more than " +
+          CALCULATOR_MAX_LINEAR_FEET +
+          " linear feet, call or text 937-478-0689 for a measured quote"
+      );
+
+      return;
+    }
+
+    const linearFeet = rawLinearFeet;
 
     const range = getEstimateRange({
       linearFeet: linearFeet,
@@ -192,13 +201,11 @@
     resultBox.classList.add("active");
 
     resultBox.scrollIntoView({
-      behavior: prefersReducedMotion() ? "auto" : "smooth",
+      behavior: scrollBehaviour(),
       block: "nearest"
     });
   }
 
-  window.cleanFlowGetEstimateRange = getEstimateRange;
-  window.cleanFlowCalculateEstimate = calculateGutterEstimate;
 
   function getServiceWheelMarkup() {
     return `
@@ -453,6 +460,10 @@
   window.toggleSign = toggleSign;
   window.toggleAccordion = toggleAccordion;
 
+  function scrollBehaviour() {
+    return prefersReducedMotion() ? "auto" : "smooth";
+  }
+
   function prefersReducedMotion() {
     return (
       typeof window.matchMedia === "function" &&
@@ -690,6 +701,45 @@
     }
 
     radialOverlay.setAttribute("aria-hidden", "true");
+
+    const FOCUSABLE_SELECTOR =
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    function focusableItems() {
+      return Array.prototype.slice.call(
+        radialOverlay.querySelectorAll(FOCUSABLE_SELECTOR)
+      );
+    }
+
+    // Keep Tab inside the dialog while it is open.
+    radialOverlay.addEventListener(
+      "keydown",
+      function (event) {
+        if (event.key !== "Tab" || !isRadialOpen()) {
+          return;
+        }
+
+        const items = focusableItems();
+
+        if (!items.length) {
+          return;
+        }
+
+        const first = items[0];
+        const last = items[items.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (
+          !event.shiftKey &&
+          document.activeElement === last
+        ) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    );
 
     triggers.forEach(function (trigger) {
       trigger.addEventListener(
@@ -947,7 +997,7 @@
             event.preventDefault();
 
             target.scrollIntoView({
-              behavior: "smooth",
+              behavior: scrollBehaviour(),
               block: "start"
             });
 
@@ -1031,7 +1081,7 @@
         function () {
           window.scrollTo({
             top: 0,
-            behavior: "smooth"
+            behavior: scrollBehaviour()
           });
         }
       );
@@ -1060,45 +1110,59 @@
     }
   }
 
+  /**
+   * Normalise a pathname so the clean routes, the .html forms that still
+   * resolve, and any trailing slash all compare equal.
+   *   /index.html -> /   ;   /services.html -> /services
+   *   /services/gutter-cleaning/ -> /services/gutter-cleaning
+   */
+  function normalisePath(path) {
+    let normalised = String(path || "/")
+      .split("#")[0]
+      .split("?")[0]
+      .replace(/\/index\.html$/, "/")
+      .replace(/\.html$/, "");
+
+    if (normalised.length > 1) {
+      normalised = normalised.replace(/\/+$/, "");
+    }
+
+    return normalised === "" ? "/" : normalised;
+  }
+
   function initActiveNavLinks() {
-    const currentPath =
-      window.location.pathname.replace(
-        /\/$/,
-        ""
-      );
+    const currentPath = normalisePath(
+      window.location.pathname
+    );
 
-    const links =
-      document.querySelectorAll("nav a");
+    document
+      .querySelectorAll("nav a")
+      .forEach(function (link) {
+        const href = link.getAttribute("href");
 
-    links.forEach(function (link) {
-      const href =
-        link.getAttribute("href");
+        link.classList.remove("active");
+        link.removeAttribute("aria-current");
 
-      if (!href) {
-        return;
-      }
+        if (!href || href.charAt(0) !== "/") {
+          return;
+        }
 
-      link.classList.remove("active");
+        const linkPath = normalisePath(href);
 
-      if (
-        (currentPath === "" && href === "index.html") ||
-        (currentPath === "/" && href === "index.html") ||
-        currentPath.endsWith(
-          href.replace(".html", "")
-        ) ||
-        currentPath.endsWith(href) ||
-        (
-          currentPath.includes("/services") &&
-          href === "services.html"
-        ) ||
-        (
-          currentPath.includes("/services") &&
-          href === "../services.html"
-        )
-      ) {
-        link.classList.add("active");
-      }
-    });
+        // The home link matches only the home page. Every other nav
+        // link also matches its descendants, so a dedicated service
+        // page keeps "Services" highlighted.
+        const isActive =
+          linkPath === "/"
+            ? currentPath === "/"
+            : currentPath === linkPath ||
+              currentPath.indexOf(linkPath + "/") === 0;
+
+        if (isActive) {
+          link.classList.add("active");
+          link.setAttribute("aria-current", "page");
+        }
+      });
   }
 
   function initReviewCarousel() {
@@ -2560,7 +2624,9 @@
       "image/webp",
       "image/gif",
       "image/heic",
-      "image/heif"
+      "image/heic-sequence",
+      "image/heif",
+      "image/heif-sequence"
     ];
 
     const CHECKUP_ALLOWED_EXTENSIONS = [
@@ -2585,6 +2651,18 @@
 
     function formatMegabytes(bytes) {
       return Math.round((bytes / (1024 * 1024)) * 10) / 10 + " MB";
+    }
+
+    function hasAllowedType(type) {
+      if (!type) {
+        return false;
+      }
+
+      return (
+        CHECKUP_ALLOWED_IMAGE_TYPES.indexOf(
+          type.toLowerCase()
+        ) !== -1
+      );
     }
 
     function hasAllowedExtension(name) {
@@ -2630,12 +2708,14 @@
       for (let index = 0; index < files.length; index += 1) {
         const file = files[index];
 
+        // Mobile browsers report HEIC inconsistently: sometimes
+        // image/heic, sometimes an empty string, sometimes a generic
+        // binary type. Accept when either the MIME type or the file
+        // extension is one we support, so a genuine photo is not
+        // rejected, while unsupported formats still fail both checks.
         const typeAllowed =
-          file.type
-            ? CHECKUP_ALLOWED_IMAGE_TYPES.indexOf(
-                file.type.toLowerCase()
-              ) !== -1
-            : hasAllowedExtension(file.name);
+          hasAllowedType(file.type) ||
+          hasAllowedExtension(file.name);
 
         if (!typeAllowed) {
           return (
@@ -2728,7 +2808,7 @@
       window.setTimeout(
         function () {
           checkup.scrollIntoView({
-            behavior: "smooth",
+            behavior: scrollBehaviour(),
             block: "start"
           });
         },
@@ -3214,7 +3294,7 @@
       );
 
       resultPanel.scrollIntoView({
-        behavior: "smooth",
+        behavior: scrollBehaviour(),
         block: "start"
       });
     }
