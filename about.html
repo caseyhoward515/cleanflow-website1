@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About CleanFlow of Ohio | Miami Valley's Trusted Gutter Cleaning Expert</title>
     <meta name="description" content="Learn about CleanFlow of Ohio, your trusted, owner-operated gutter cleaning specialist with over 20 years of experience serving the greater Miami Valley area.">
-    <meta name="keywords" content="about CleanFlow, Miami Valley gutter expert, owner operated gutter service, greater Miami Valley gutter cleaning">
     <link rel="canonical" href="https://www.cleanflowohio.com/about" />
 
     <meta property="og:type" content="website">
@@ -49,6 +48,8 @@
     </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <div class="topbar">
         <div class="container">
             <div class="topbar-container">
@@ -65,19 +66,30 @@
     <header id="header">
         <div class="container">
             <div class="header-container">
-                <div class="logo" onclick="location.href='index.html'">
+                <a class="logo" href="/">
                     CleanFlow<span>of Ohio</span>
-                </div>
+                </a>
                 <nav>
                     <ul id="nav-menu">
-                        <li><a href="index.html" id="home-link">Home</a></li>
-                        <li><a href="services.html" id="services-link">Services</a></li>
-                        <li><a href="about.html" id="about-link" class="active">About</a></li>
-                        <li><i class="fas fa-times close-menu" id="close-menu"></i></li>
+                        <li><a href="/" id="home-link">Home</a></li>
+                        <li><a href="/services" id="services-link">Services</a></li>
+                        <li><a href="/about" id="about-link" class="active">About</a></li>
+                        <li>
+                            <button type="button" class="close-menu" id="close-menu" aria-label="Close navigation menu">
+                                <i class="fas fa-times" aria-hidden="true"></i>
+                            </button>
+                        </li>
                     </ul>
-                    <div class="menu-toggle" id="menu-toggle">
-                        <i class="fas fa-bars"></i>
-                    </div>
+                    <button
+                        type="button"
+                        class="menu-toggle"
+                        id="menu-toggle"
+                        aria-label="Open navigation menu"
+                        aria-expanded="false"
+                        aria-controls="nav-menu"
+                    >
+                        <i class="fas fa-bars" aria-hidden="true"></i>
+                    </button>
                 </nav>
                 <a href="tel:9374780689" class="phone-btn">
                     <i class="fas fa-phone-alt"></i>
@@ -87,25 +99,51 @@
         </div>
     </header>
 
-    <div id="radial-menu-overlay" class="radial-overlay">
+    <div
+      id="radial-menu-overlay"
+      class="radial-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="CleanFlow service menu"
+    >
       <div class="radial-menu-center">
-        <div class="radial-close"><i class="fas fa-times"></i></div>
-        <a href="services/gutter-installation.html" class="radial-item item-1">
-          <i class="fas fa-tools"></i>
+        <button type="button" class="radial-close" aria-label="Close the service menu">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+
+        <a href="/services/gutter-cleaning" class="radial-item item-1">
+          <i class="fas fa-broom" aria-hidden="true"></i>
+          <span>Gutter Cleaning</span>
+        </a>
+
+        <a href="/services#gutter-repairs-service" class="radial-item item-2">
+          <i class="fas fa-wrench" aria-hidden="true"></i>
+          <span>Gutter Repairs</span>
+        </a>
+
+        <a href="/services#gutter-protection-service" class="radial-item item-3">
+          <i class="fas fa-shield-alt" aria-hidden="true"></i>
+          <span>Gutter Guards</span>
+        </a>
+
+        <a href="/services/gutter-installation" class="radial-item item-4">
+          <i class="fas fa-tools" aria-hidden="true"></i>
           <span>New Gutter Installation</span>
         </a>
-        <a href="services/dryer-vent-cleaning.html" class="radial-item item-2">
-          <i class="fas fa-fire-extinguisher"></i>
+
+        <a href="/services/dryer-vent-cleaning" class="radial-item item-5">
+          <i class="fas fa-fire-extinguisher" aria-hidden="true"></i>
           <span>Dryer Vent Cleaning</span>
         </a>
-        <a href="services.html" class="radial-item item-3">
-          <i class="fas fa-broom"></i>
-          <span>Gutter Cleaning & More</span>
+
+        <a href="/services#underground-drainage-service" class="radial-item item-6">
+          <i class="fas fa-water" aria-hidden="true"></i>
+          <span>Drainage Solutions</span>
         </a>
       </div>
     </div>
 
-    <div id="about-page" class="page page-content">
+    <main id="main-content" class="page page-content">
         <section id="about-hero">
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
@@ -121,7 +159,7 @@
                     <h2>Our Story</h2>
                     <p>My name is Casey, and at CleanFlow of Ohio, we provide premium gutter maintenance, cleaning, installation, and protection services throughout the greater Miami Valley area. From routine cleanouts and screen installation to alignment checks, sealing, and full system upkeep, we handle every job with precision and pride.</p>
 
-                    <p>I've been in this industry for over 20 years. CleanFlow is the result of experience, high standards, and a deep commitment to doing the job right. Our crew is made up of professionals—no temps, just skilled people I trust to show up early, work clean, and treat every home with respect.</p>
+                    <p>CleanFlow of Ohio was established in 2024 and is backed by more than 20 years of hands-on experience. CleanFlow is the result of that experience, high standards, and a deep commitment to doing the job right. Our crew is made up of professionals&mdash;no temps, just skilled people I trust to show up early, work clean, and treat every home with respect.</p>
 
                     <p>What sets us apart isn't just the work. It's how we show up. I genuinely enjoy helping people. There's something satisfying about solving a messy problem and hearing, "Wow, that was smooth." That kind of reaction is what keeps us going.</p>
 
@@ -183,8 +221,8 @@
                         <div class="benefit-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3 class="benefit-title">Fully Insured</h3>
-                        <p>Your home is protected. I carry full liability insurance for your peace of mind during every service visit.</p>
+                        <h3 class="benefit-title">Fully Insured and Bonded</h3>
+                        <p>Your home is protected. CleanFlow of Ohio is fully insured and bonded for your peace of mind during every service visit.</p>
                     </div>
 
                     <div class="benefit-card">
@@ -220,7 +258,7 @@
                     </div>
                     <div class="badge-item">
                         <i class="fas fa-user-check badge-icon"></i>
-                        <div class="badge-title">Fully Insured</div>
+                        <div class="badge-title">Fully insured and bonded</div>
                     </div>
                     <div class="badge-item">
                         <i class="fas fa-thumbs-up badge-icon"></i>
@@ -261,20 +299,20 @@
                         <a href="tel:9374780689" class="btn btn-accent btn-lg btn-pulse">
                             <i class="fas fa-phone-alt"></i> Call: 937-478-0689
                         </a>
-                        <a href="index.html#calculator" class="btn btn-primary btn-lg">
+                        <a href="/#calculator" class="btn btn-primary btn-lg">
                             <i class="fas fa-calculator"></i> Cost Calculator
                         </a>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 
     <footer>
         <div class="container">
             <div class="footer-top">
                 <div class="footer-about">
-                    <a href="index.html" class="footer-logo">
+                    <a href="/" class="footer-logo">
                         CleanFlow<span>of Ohio</span>
                     </a>
                     <p>Professional gutter cleaning and protection services in the greater Miami Valley area. With over 20 years of experience, I provide quality workmanship and exceptional customer service.</p>
@@ -289,11 +327,13 @@
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-globe"></i>
-                            <p><a href="https://www.cleanflowohio.com" target="_blank">www.cleanflowohio.com</a></p>
+                            <p><a href="https://www.cleanflowohio.com" target="_blank" rel="noopener">www.cleanflowohio.com</a></p>
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-clock"></i>
-                            <p>Open 24 Hours<br>7 Days a Week</p>
+                            <p>Call or text 24 hours a day, 7 days a week to request service or
+                               schedule an appointment.<br>Field service is completed during
+                               scheduled appointment times.</p>
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-map-marker-alt"></i>
@@ -303,36 +343,48 @@
                 </div>
 
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="index.html#calculator">Cost Calculator</a></li>
-                        <li><a href="index.html#signs">Signs You Need Service</a></li>
-                        <li><a href="index.html#calendar">Maintenance Guide</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/#calculator">Cost Calculator</a></li>
+                        <li><a href="/#signs">Signs You Need Service</a></li>
+                        <li><a href="/#calendar">Maintenance Guide</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
-                    <h4>Our Services</h4>
+                    <h3>Our Services</h3>
                     <ul>
-                        <li><a href="services/gutter-installation.html">Gutter Installation</a></li>
-                        <li><a href="services.html#gutter-cleaning-service">Gutter Cleaning</a></li>
-                        <li><a href="services.html#gutter-repairs-service">Gutter Repairs</a></li>
-                        <li><a href="services.html#gutter-protection-service">Gutter Guards</a></li>
-                        <li><a href="services/dryer-vent-cleaning.html">Dryer Vent Cleaning</a></li>
-                        <li><a href="about.html#service-area">Service Areas</a></li>
+                        <li><a href="/services/gutter-cleaning">Gutter Cleaning</a></li>
+                        <li><a href="/services#gutter-repairs-service">Gutter Repairs</a></li>
+                        <li><a href="/services#gutter-protection-service">Gutter Guards</a></li>
+                        <li><a href="/services/gutter-installation">Gutter Installation</a></li>
+                        <li><a href="/services/dryer-vent-cleaning">Dryer Vent Cleaning</a></li>
+                        <li><a href="/services#underground-drainage-service">Drainage Solutions</a></li>
+                        <li><a href="#service-area">Service Areas</a></li>
                         <li><a href="tel:9374780689">Get a Quote</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2003-2026 CleanFlow of Ohio. All Rights Reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving the greater Miami Valley area</p>
+                <p>&copy; 2026 CleanFlow of Ohio. All rights reserved. | Owner-Operated | 20+ Years Experience | Proudly Serving the greater Miami Valley area</p>
             </div>
         </div>
     </footer>
+
+    <a
+        class="floating-service-trigger"
+        href="/services"
+        data-service-menu-trigger="true"
+        aria-haspopup="dialog"
+        aria-label="Open the service menu"
+    >
+        <i class="fas fa-th-large" aria-hidden="true"></i>
+        <span>Services</span>
+    </a>
 
     <div class="floating-cta" id="floating-cta">
         <span class="cta-label">Get a Quote</span>
@@ -341,9 +393,9 @@
         </a>
     </div>
 
-    <div class="back-to-top" id="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top of page">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
     <script src="script.js" defer></script>
