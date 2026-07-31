@@ -1722,10 +1722,10 @@
        route is a pure function of the answers they have given.
        Nothing about the flow lives in click handlers.
 
-       `projectedNext` is used only to project how long the route
-       will be while later questions are still unanswered. A value
-       of null means "route ends here"; omitting it means "cannot
-       be known yet", which is how the opening triage is handled.
+       A route's length is measured from the graph itself, never
+       declared alongside the questions, so a question whose options
+       lead to routes of different lengths is reported as unknown
+       instead of guessed at.
        ============================================================ */
 
     const ENTRY_QUESTION_ID = "start";
@@ -1736,7 +1736,6 @@
         theme: "Main concern",
         title: "What is the main thing you want checked?",
         hint: "Start with the concern that brought you here today.",
-        projectedNext: "g_intent",
         options: [
           {
             id: "gutters",
@@ -1840,7 +1839,6 @@
         theme: "Cleaning history",
         title: "When were the gutters last cleaned?",
         hint: "This tells us how much is likely sitting in the system.",
-        projectedNext: "c_downspout",
         options: [
           { id: "recent_refill", icon: "fas fa-redo-alt", title: "Recently, but they fill again fast",
             detail: "Cleaned within the last year and already filling up.",
@@ -1870,7 +1868,6 @@
         theme: "Downspout flow",
         title: "During heavy rain, what do the downspouts do?",
         hint: "Water movement tells us whether the problem stops at the gutter.",
-        projectedNext: null,
         options: [
           { id: "flows_fine", icon: "fas fa-check", title: "Water runs out normally",
             detail: "The downspouts appear to drain the way they should.",
@@ -1884,10 +1881,15 @@
             detail: "The downspout enters a buried pipe and you cannot see the outlet.",
             echo: "Downspout flow: Enters an underground line",
             next: null, scores: { cleaning: 1, drainage: 5 } },
+          // Gating: the customer has watched water leave the downspout
+          // and collect against the house. The gutter and downspout are
+          // demonstrably moving water, so this is a direct observation
+          // of a drainage failure rather than a clue about a clog, and
+          // it outweighs the cleaning enquiry they arrived with.
           { id: "pools_base", icon: "fas fa-water", title: "Water pools at the bottom",
             detail: "It drains out but collects right beside the house.",
             echo: "Downspout flow: Pools at the base of the downspout",
-            next: null, scores: { drainage: 6 } },
+            next: null, scores: { drainage: 12 } },
           { id: "not_watched", icon: "fas fa-question-circle", title: "I have not watched",
             detail: "You have not seen them during a real downpour.",
             echo: "Downspout flow: Not observed",
@@ -1901,7 +1903,6 @@
         theme: "Where it backs up",
         title: "Where does the water back up or spill?",
         hint: "This locates where the system stops moving water.",
-        projectedNext: "o_discharge",
         options: [
           { id: "front_edge", icon: "fas fa-water", title: "Over the front edge",
             detail: "Water sheets over the outside of the gutter.",
@@ -1927,7 +1928,6 @@
         theme: "Downspout discharge",
         title: "What does the downspout do at the bottom?",
         hint: "Where the water goes next matters as much as the gutter itself.",
-        projectedNext: "o_cleaned",
         options: [
           { id: "onto_ground", icon: "fas fa-check", title: "Runs out onto the ground",
             detail: "It discharges above ground and flows away.",
@@ -1953,7 +1953,6 @@
         theme: "Has cleaning helped",
         title: "Has a cleaning fixed this before?",
         hint: "If cleaning has already been tried, the cause is usually elsewhere.",
-        projectedNext: null,
         options: [
           { id: "yes_returns", icon: "fas fa-redo-alt", title: "Yes, but it comes back",
             detail: "Cleaning helps for a while, then the problem returns.",
@@ -1980,7 +1979,6 @@
         theme: "Visible condition",
         title: "What can you see?",
         hint: "Describe the part that looks wrong.",
-        projectedNext: "r_extent",
         options: [
           { id: "leak_seam", icon: "fas fa-tint", title: "A leak at a seam, corner, or end cap",
             detail: "Water drips from a joint rather than over the edge.",
@@ -2010,7 +2008,6 @@
         theme: "How widespread",
         title: "Is it one area or much of the home?",
         hint: "Scope is what separates a repair from a replacement.",
-        projectedNext: null,
         options: [
           { id: "one_spot", icon: "fas fa-map-marker-alt", title: "One spot",
             detail: "A single section or corner.",
@@ -2037,7 +2034,6 @@
         theme: "Where water collects",
         title: "Where does the water show up?",
         hint: "This tells us where the water is stopping.",
-        projectedNext: "d_outlet",
         options: [
           { id: "foundation", icon: "fas fa-home", title: "Against the foundation",
             detail: "Water pools right beside the house.",
@@ -2067,7 +2063,6 @@
         theme: "Underground line",
         title: "Does the downspout go into the ground?",
         hint: "Buried lines behave very differently from open discharge.",
-        projectedNext: "d_rain",
         options: [
           { id: "buried_unknown", icon: "fas fa-arrow-down", title: "Yes, and I do not know where it goes",
             detail: "It enters a buried pipe with no visible outlet.",
@@ -2093,7 +2088,6 @@
         theme: "During heavy rain",
         title: "What happens during heavy rain?",
         hint: "How the system behaves under load points to the cause.",
-        projectedNext: null,
         options: [
           { id: "backs_out", icon: "fas fa-arrow-up", title: "Water backs up out of the ground",
             detail: "It surfaces at the connection instead of draining.",
@@ -2124,7 +2118,6 @@
         theme: "Debris type",
         title: "What keeps filling the gutters?",
         hint: "Debris type decides whether guards will actually help.",
-        projectedNext: "gu_existing",
         options: [
           { id: "leaves", icon: "fas fa-leaf", title: "Leaves",
             detail: "Mostly broad leaves in autumn.",
@@ -2150,7 +2143,6 @@
         theme: "Existing guards",
         title: "Do you already have gutter guards?",
         hint: "Existing guards change what we would recommend.",
-        projectedNext: "gu_condition",
         options: [
           { id: "none", icon: "fas fa-ban", title: "No guards",
             detail: "The gutters are open.",
@@ -2176,7 +2168,6 @@
         theme: "Gutter condition",
         title: "How do the gutters themselves look?",
         hint: "Guards only work on a system that is sound and draining.",
-        projectedNext: null,
         options: [
           { id: "solid", icon: "fas fa-check", title: "Solid and straight",
             detail: "No obvious sagging or leaks.",
@@ -2203,7 +2194,6 @@
         theme: "Reason for replacing",
         title: "What is driving the replacement?",
         hint: "This tells us whether replacement is really the right step.",
-        projectedNext: "rp_extent",
         options: [
           { id: "old", icon: "fas fa-history", title: "They are simply old",
             detail: "Original gutters that have done their time.",
@@ -2233,7 +2223,6 @@
         theme: "Current condition",
         title: "What is actually wrong with them today?",
         hint: "Asked only because replacement may not be the right first step.",
-        projectedNext: "rp_extent",
         options: [
           { id: "leaks", icon: "fas fa-tint", title: "They leak in places",
             detail: "Drips at joints or corners.",
@@ -2259,7 +2248,6 @@
         theme: "How much of the home",
         title: "How much of the home is affected?",
         hint: "Scope decides whether this is a section or a full system.",
-        projectedNext: null,
         options: [
           { id: "one", icon: "fas fa-map-marker-alt", title: "One section",
             detail: "A single run or elevation.",
@@ -2286,7 +2274,6 @@
         theme: "What you noticed",
         title: "What have you noticed?",
         hint: "Anything you have seen is enough to start from.",
-        projectedNext: "u_when",
         options: [
           { id: "overflow", icon: "fas fa-water", title: "Water spilling over in rain",
             detail: "It comes over the edge during a downpour.",
@@ -2320,7 +2307,6 @@
         theme: "When it happens",
         title: "When do you notice it?",
         hint: "Timing separates a blockage from a capacity or drainage issue.",
-        projectedNext: "u_history",
         options: [
           { id: "heavy_rain", icon: "fas fa-water", title: "Only in heavy rain",
             detail: "Light rain seems fine.",
@@ -2346,7 +2332,6 @@
         theme: "Service history",
         title: "When were the gutters last serviced?",
         hint: "Last, so we know where to start.",
-        projectedNext: null,
         options: [
           { id: "within_year", icon: "fas fa-calendar-alt", title: "Within the last year",
             detail: "Cleaned or serviced fairly recently.",
@@ -2373,7 +2358,6 @@
         theme: "Dryer symptoms",
         title: "What is happening with the dryer?",
         hint: "Pick the closest match to what you are seeing.",
-        projectedNext: "dr_airflow",
         options: [
           { id: "slow", icon: "fas fa-clock", title: "Clothes take too long",
             detail: "Loads need more than one cycle.",
@@ -2403,7 +2387,6 @@
         theme: "Exterior airflow",
         title: "What is the airflow like outside?",
         hint: "Check the exterior vent hood while the dryer runs.",
-        projectedNext: "dr_history",
         options: [
           { id: "strong", icon: "fas fa-check", title: "Strong airflow",
             detail: "The vent pushes air well.",
@@ -2429,7 +2412,6 @@
         theme: "Cleaning history",
         title: "When was the full vent run last cleaned?",
         hint: "The full run, not just the lint trap.",
-        projectedNext: "dr_exit",
         options: [
           { id: "within_year", icon: "fas fa-calendar-alt", title: "Within the last year",
             detail: "Cleaned recently, but something still feels off.",
@@ -2455,7 +2437,6 @@
         theme: "Vent exit",
         title: "Where does the vent exit?",
         hint: "Access affects how we quote and schedule the work.",
-        projectedNext: null,
         options: [
           { id: "wall_low", icon: "fas fa-home", title: "Side wall, ground level",
             detail: "Reachable from the ground.",
@@ -2493,50 +2474,154 @@
       return null;
     }
 
+    /* ---------- route length, measured from the graph ----------
+
+       Both figures below are derived from the graph itself rather than
+       from hand-written projection hints, so adding a branch can never
+       leave the displayed total out of step with the real flow.
+
+       exactRemaining  the number of questions still to come, counting
+                       the unanswered one, but ONLY when every option
+                       from here leads to a route of the same length.
+                       null means the length genuinely depends on an
+                       answer the customer has not given yet.
+
+       maxRemaining    the longest that tail can possibly be. Used for
+                       the bar, never for the label: answering a
+                       question can only shorten the longest remaining
+                       tail, so a denominator built from it can never
+                       force the bar backward.
+       -------------------------------------------------------------- */
+
+    const exactRemainingCache = {};
+    const maxRemainingCache = {};
+
+    function exactRemaining(questionId) {
+      if (!questionId || !QUESTIONS[questionId]) {
+        return 0;
+      }
+
+      if (questionId in exactRemainingCache) {
+        return exactRemainingCache[questionId];
+      }
+
+      // Seeded as unknown so a malformed cycle degrades to "unknown"
+      // rather than recursing forever.
+      exactRemainingCache[questionId] = null;
+
+      const options = QUESTIONS[questionId].options;
+      let agreed = null;
+
+      for (let i = 0; i < options.length; i += 1) {
+        const tail = exactRemaining(options[i].next);
+
+        if (tail === null) {
+          return null;
+        }
+
+        if (i === 0) {
+          agreed = tail;
+        } else if (tail !== agreed) {
+          // Two options lead to routes of different lengths, so the
+          // total cannot honestly be stated until one is chosen.
+          return null;
+        }
+      }
+
+      exactRemainingCache[questionId] = agreed + 1;
+
+      return exactRemainingCache[questionId];
+    }
+
+    function maxRemaining(questionId) {
+      if (!questionId || !QUESTIONS[questionId]) {
+        return 0;
+      }
+
+      if (questionId in maxRemainingCache) {
+        return maxRemainingCache[questionId];
+      }
+
+      maxRemainingCache[questionId] = 0;
+
+      const options = QUESTIONS[questionId].options;
+      let longest = 0;
+
+      options.forEach(function (option) {
+        const tail = maxRemaining(option.next);
+
+        if (tail > longest) {
+          longest = tail;
+        }
+      });
+
+      maxRemainingCache[questionId] = longest + 1;
+
+      return maxRemainingCache[questionId];
+    }
+
     /**
      * Walk the graph using the answers given so far.
-     * `project` continues past unanswered questions using each
-     * question's projectedNext, so the route length can be shown
-     * before the customer has finished. `complete` is false when the
-     * remaining length genuinely cannot be known yet.
+     *
+     * route     every answered question, plus the one now being asked
+     * answered  how many of those carry an answer
+     * exact     the true total, or null while it is not yet knowable
+     * upper     the largest the total could still turn out to be
      */
-    function buildRoute(current, project) {
+    function routeState(current) {
       const route = [];
       const seen = {};
-      let complete = true;
+      let answered = 0;
       let id = ENTRY_QUESTION_ID;
 
       while (id && QUESTIONS[id] && !seen[id]) {
         seen[id] = true;
         route.push(id);
 
-        const question = QUESTIONS[id];
-        const option = findOption(question, current[id]);
+        const option = findOption(QUESTIONS[id], current[id]);
 
-        if (option) {
-          id = option.next || null;
-        } else if (project && "projectedNext" in question) {
-          id = question.projectedNext;
-        } else {
-          complete = false;
-          id = null;
+        if (!option) {
+          break;
         }
+
+        answered += 1;
+        id = option.next || null;
       }
 
-      return { route: route, complete: complete };
+      const pending =
+        route.length > answered
+          ? route[route.length - 1]
+          : null;
+
+      if (pending === null) {
+        return {
+          route: route,
+          answered: answered,
+          exact: answered,
+          upper: answered
+        };
+      }
+
+      const tail = exactRemaining(pending);
+
+      return {
+        route: route,
+        answered: answered,
+        exact: tail === null ? null : answered + tail,
+        upper: answered + maxRemaining(pending)
+      };
     }
 
+    /** Only the questions the customer has actually answered. */
     function computeRoute(current) {
-      return buildRoute(current, false).route;
-    }
+      const state = routeState(current);
 
-    function projectRoute(current) {
-      return buildRoute(current, true);
+      return state.route.slice(0, state.answered);
     }
 
     /** Drop answers whose questions are no longer on the route. */
     function pruneAnswers(current) {
-      const route = projectRoute(current).route;
+      const route = routeState(current).route;
       const allowed = {};
 
       route.forEach(function (questionId) {
@@ -2550,22 +2635,34 @@
       });
     }
 
-    /* ---------- scoring policy (route-length neutral) ----------
+    /* ---------- scoring policy ----------
 
        Each answer awards points on a 0-12 scale:
 
          1-3   context: consistent with a service but not evidence for it
          4-8   diagnostic: this answer genuinely points at that service
          9-12  gating: this answer alone should decide the starting point,
-               e.g. guards cannot go on a gutter run that is sagging
+               e.g. guards cannot go on a gutter run that is sagging, and
+               water pooling at the foot of a working downspout is a
+               drainage problem whatever the customer came in asking for
 
-       Totals are divided by the number of *scored* answers before any
-       threshold is applied. Ranking inside one customer's route is
-       unaffected by that division, but it means the ambiguity margin and
-       the secondary-service threshold below mean the same thing on a
-       three-question route as on a four-question route, so no service can
-       gain an advantage purely because its route asks more questions.
-       ---------------------------------------------------------- */
+       Totals are divided by the number of *scored* answers before the
+       thresholds below are applied. Precisely what that division does,
+       and does not, do:
+
+         - It makes AMBIGUITY_MARGIN comparable across routes. The margin
+           is an absolute number of points, so without normalising, a
+           four-question route would clear a fixed gap more easily than a
+           three-question one purely by having more answers to add up.
+
+         - It does NOT change the ranking within a route. Every service
+           is divided by the same count, so the order is untouched.
+
+         - It does NOT affect SECONDARY_MIN_SHARE either, because that
+           test is a ratio of two normalised scores and the common
+           divisor cancels. The threshold is stated on the normalised
+           figures only for consistency with the margin above.
+       ------------------------------------------------------ */
 
     // Gap, in points per scored answer, within which two services are
     // treated as tied rather than ranked.
@@ -2830,8 +2927,10 @@
         : null;
     }
 
+    // The longest the route could still turn out to be. Once every
+    // question is answered this is simply the route length.
     function getTotalSteps() {
-      return projectRoute(answers).route.length;
+      return routeState(answers).upper;
     }
 
     /**
@@ -2861,36 +2960,29 @@
     }
 
     function updateProgress() {
-      const projected = projectRoute(answers);
-      const total = projected.route.length;
-
-      let answeredCount = 0;
-
-      projected.route.forEach(
-        function (questionId) {
-          if (answers[questionId]) {
-            answeredCount += 1;
-          }
-        }
-      );
+      const state = routeState(answers);
 
       const position = Math.min(
         currentStep + 1,
-        total
+        Math.max(1, state.route.length)
       );
 
-      // While the opening triage is unanswered the remaining route length
-      // genuinely is not known, so the denominator is omitted rather than
-      // guessed. Once the route is known it describes that route exactly.
-      const label = projected.complete
-        ? "Question " +
-          position +
-          " of " +
-          total
-        : "Question " + position;
+      // The denominator is stated only when the total is genuinely
+      // settled. While the question on screen can still lead to routes
+      // of different lengths -- the opening triage, the replacement
+      // reason, the dryer symptom -- no total is claimed at all.
+      const label =
+        state.exact === null
+          ? "Question " + position
+          : "Question " +
+            position +
+            " of " +
+            state.exact;
 
+      // The bar uses the longest the route could still be, which only
+      // ever shrinks as questions are answered, so it cannot slip back.
       setProgress(
-        (answeredCount / (total + 1)) * 100,
+        (state.answered / (state.upper + 1)) * 100,
         label
       );
     }
@@ -2909,18 +3001,17 @@
     }
 
     function renderQuestion() {
-      const projected = projectRoute(answers);
+      const route = routeState(answers).route;
 
-      if (currentStep > projected.route.length - 1) {
-        currentStep = projected.route.length - 1;
+      if (currentStep > route.length - 1) {
+        currentStep = route.length - 1;
       }
 
       if (currentStep < 0) {
         currentStep = 0;
       }
 
-      const questionId =
-        projected.route[currentStep];
+      const questionId = route[currentStep];
 
       const question = QUESTIONS[questionId];
 
@@ -2999,7 +3090,7 @@
               pruneAnswers(answers);
 
               const nextRoute =
-                projectRoute(answers).route;
+                routeState(answers).route;
 
               if (
                 currentStep <
