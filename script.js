@@ -1,16 +1,32 @@
 (function () {
   "use strict";
 
-  const CALCULATOR_DISCOUNT_RATE = 0.20;
+  /**
+   * Gutter-cleaning estimate model.
+   *
+   * Anchors supplied by the business owner:
+   *   - a genuinely small, simple, easy-access one-story home can
+   *     reach a $150 low end
+   *   - a typical smaller one-story home centres near $185
+   *   - a typical two-story home centres near $235
+   *
+   * Size, debris, access difficulty and height all move the estimate
+   * up. The output is always a range and is never a binding quote.
+   */
+  const CALCULATOR_MIN_LINEAR_FEET = 50;
+  const CALCULATOR_MAX_LINEAR_FEET = 500;
+  const CALCULATOR_FLOOR_PRICE = 150;
+  const CALCULATOR_RANGE_HALF_WIDTH = 20;
+
+  const CALCULATOR_STORY_BASE = {
+    "1": 185,
+    "2": 235
+  };
+
+  const CALCULATOR_TYPICAL_LINEAR_FEET = 160;
 
   function roundToNearestFive(amount) {
     return Math.round(amount / 5) * 5;
-  }
-
-  function applyCalculatorDiscount(amount) {
-    return roundToNearestFive(
-      amount * (1 - CALCULATOR_DISCOUNT_RATE)
-    );
   }
 
   function formatMoney(amount) {
@@ -18,23 +34,31 @@
   }
 
   function getSizeAdjustment(linearFeet) {
-    if (linearFeet <= 160) {
+    if (linearFeet <= 120) {
+      return -25;
+    }
+
+    if (linearFeet <= CALCULATOR_TYPICAL_LINEAR_FEET) {
       return 0;
     }
 
-    if (linearFeet <= 220) {
+    if (linearFeet <= 200) {
       return 20;
     }
 
-    if (linearFeet <= 280) {
-      return 40;
+    if (linearFeet <= 250) {
+      return 45;
     }
 
-    if (linearFeet <= 350) {
-      return 70;
+    if (linearFeet <= 320) {
+      return 80;
     }
 
-    return 110;
+    if (linearFeet <= 400) {
+      return 120;
+    }
+
+    return 170;
   }
 
   function getDebrisAdjustment(debrisLevel) {
@@ -47,10 +71,62 @@
     return debrisAdjustments[debrisLevel] || 0;
   }
 
+  function getAccessAdjustment(accessLevel) {
+    const accessAdjustments = {
+      easy: -10,
+      typical: 0,
+      difficult: 45
+    };
+
+    return accessAdjustments[accessLevel] || 0;
+  }
+
+  function getEstimateRange(options) {
+    const base =
+      CALCULATOR_STORY_BASE[options.stories] ||
+      CALCULATOR_STORY_BASE["1"];
+
+    const centre =
+      base +
+      getSizeAdjustment(options.linearFeet) +
+      getDebrisAdjustment(options.debris) +
+      getAccessAdjustment(options.access);
+
+    let low = centre - CALCULATOR_RANGE_HALF_WIDTH;
+    let high = centre + CALCULATOR_RANGE_HALF_WIDTH;
+
+    if (low < CALCULATOR_FLOOR_PRICE) {
+      // Shift the whole range up to the published starting price
+      // instead of quietly reducing anyone else's estimate.
+      high += CALCULATOR_FLOOR_PRICE - low;
+      low = CALCULATOR_FLOOR_PRICE;
+    }
+
+    return {
+      low: roundToNearestFive(low),
+      high: roundToNearestFive(high)
+    };
+  }
+
+  function showCalculatorMessage(resultBox, estimatedPrice, message) {
+    estimatedPrice.textContent = message;
+
+    const resultTitle =
+      resultBox.querySelector(".result-title");
+
+    if (resultTitle) {
+      resultTitle.textContent = "Estimated Range";
+    }
+
+    resultBox.style.display = "block";
+    resultBox.classList.add("active");
+  }
+
   function calculateGutterEstimate() {
     const linearFeetInput = document.getElementById("linearFeet");
     const storiesInput = document.getElementById("stories");
     const debrisInput = document.getElementById("debris");
+    const accessInput = document.getElementById("access");
     const resultBox = document.getElementById("resultBox");
     const estimatedPrice = document.getElementById("estimatedPrice");
 
@@ -64,45 +140,47 @@
       return;
     }
 
-    const linearFeet = Number(linearFeetInput.value);
-    const stories = storiesInput.value;
-    const debrisLevel = debrisInput.value;
+    const rawLinearFeet = Number(linearFeetInput.value);
 
-    if (!linearFeet || linearFeet < 50) {
-      estimatedPrice.textContent =
-        "Enter at least 50 linear feet";
-
-      resultBox.style.display = "block";
-      resultBox.classList.add("active");
+    if (
+      !linearFeetInput.value.trim() ||
+      !isFinite(rawLinearFeet) ||
+      rawLinearFeet < CALCULATOR_MIN_LINEAR_FEET
+    ) {
+      showCalculatorMessage(
+        resultBox,
+        estimatedPrice,
+        "Enter at least " +
+          CALCULATOR_MIN_LINEAR_FEET +
+          " linear feet"
+      );
 
       return;
     }
 
-    const basePrice = stories === "2" ? 235 : 185;
-    const sizeAdjustment = getSizeAdjustment(linearFeet);
-    const debrisAdjustment = getDebrisAdjustment(debrisLevel);
+    if (rawLinearFeet > CALCULATOR_MAX_LINEAR_FEET) {
+      showCalculatorMessage(
+        resultBox,
+        estimatedPrice,
+        "For more than " +
+          CALCULATOR_MAX_LINEAR_FEET +
+          " linear feet, call or text 937-478-0689 for a measured quote"
+      );
 
-    let lowEstimate =
-      basePrice +
-      sizeAdjustment +
-      debrisAdjustment;
-
-    if (stories === "1") {
-      lowEstimate = Math.max(lowEstimate, 170);
-    } else {
-      lowEstimate = Math.max(lowEstimate, 220);
+      return;
     }
 
-    const highEstimate = lowEstimate + 50;
+    const linearFeet = rawLinearFeet;
 
-    const discountedLowEstimate =
-      applyCalculatorDiscount(lowEstimate);
-
-    const discountedHighEstimate =
-      applyCalculatorDiscount(highEstimate);
+    const range = getEstimateRange({
+      linearFeet: linearFeet,
+      stories: storiesInput.value,
+      debris: debrisInput.value,
+      access: accessInput ? accessInput.value : "typical"
+    });
 
     estimatedPrice.textContent =
-      `${formatMoney(discountedLowEstimate)} - ${formatMoney(discountedHighEstimate)}`;
+      formatMoney(range.low) + " - " + formatMoney(range.high);
 
     const resultTitle =
       resultBox.querySelector(".result-title");
@@ -111,82 +189,95 @@
       resultBox.querySelector(".result-note");
 
     if (resultTitle) {
-      resultTitle.textContent =
-        "Estimated Starting Range";
+      resultTitle.textContent = "Estimated Range";
     }
 
     if (resultNote) {
       resultNote.innerHTML =
-        'This is a starting estimate. Final pricing may vary depending on access, roof height, gutter guards, debris level, roof pitch, downspout clogs, and overall job difficulty. For an accurate quote, call or text <a href="tel:9374780689" style="color: var(--accent);">937-478-0689</a>.';
+        'This is an estimate, not a binding quote. Gutter cleaning starts at $150, and final pricing depends on onsite conditions including home size, height, gutter length, access, debris level, system condition, and safety. For an exact price, call or text <a href="tel:9374780689">937-478-0689</a>.';
     }
 
     resultBox.style.display = "block";
     resultBox.classList.add("active");
 
     resultBox.scrollIntoView({
-      behavior: "smooth",
+      behavior: scrollBehaviour(),
       block: "nearest"
     });
   }
 
+
   function getServiceWheelMarkup() {
     return `
       <div class="radial-menu-center">
-        <div class="radial-close">
-          <i class="fas fa-times"></i>
-        </div>
+        <button
+          type="button"
+          class="radial-close"
+          aria-label="Close the service menu"
+        >
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
 
         <a
-          href="/services/gutter-cleaning.html"
+          href="/services/gutter-cleaning"
           class="radial-item item-1"
         >
-          <i class="fas fa-broom"></i>
+          <i class="fas fa-broom" aria-hidden="true"></i>
           <span>Gutter Cleaning</span>
         </a>
 
         <a
-          href="/services.html#gutter-repairs-service"
+          href="/services#gutter-repairs-service"
           class="radial-item item-2"
         >
-          <i class="fas fa-wrench"></i>
+          <i class="fas fa-wrench" aria-hidden="true"></i>
           <span>Gutter Repairs</span>
         </a>
 
         <a
-          href="/services.html#gutter-protection-service"
+          href="/services#gutter-protection-service"
           class="radial-item item-3"
         >
-          <i class="fas fa-shield-alt"></i>
+          <i class="fas fa-shield-alt" aria-hidden="true"></i>
           <span>Gutter Guards</span>
         </a>
 
         <a
-          href="/services/gutter-installation.html"
+          href="/services/gutter-installation"
           class="radial-item item-4"
         >
-          <i class="fas fa-tools"></i>
+          <i class="fas fa-tools" aria-hidden="true"></i>
           <span>New Gutter Installation</span>
         </a>
 
         <a
-          href="/services/dryer-vent-cleaning.html"
+          href="/services/dryer-vent-cleaning"
           class="radial-item item-5"
         >
-          <i class="fas fa-fire-extinguisher"></i>
+          <i class="fas fa-fire-extinguisher" aria-hidden="true"></i>
           <span>Dryer Vent Cleaning</span>
         </a>
 
         <a
-          href="/services.html#underground-drainage-service"
+          href="/services#underground-drainage-service"
           class="radial-item item-6"
         >
-          <i class="fas fa-water"></i>
+          <i class="fas fa-water" aria-hidden="true"></i>
           <span>Drainage Solutions</span>
         </a>
       </div>
     `;
   }
 
+  /**
+   * Progressive enhancement for the site-wide service wheel.
+   *
+   * Every page ships a complete six-service static fallback, so this
+   * function never destroys markup that is already correct. It only
+   * fills an overlay that shipped empty (or is missing entirely),
+   * normalises the accessibility attributes, and guarantees exactly
+   * one floating trigger.
+   */
   function ensureSitewideServiceWheel() {
     let radialOverlay =
       document.getElementById("radial-menu-overlay");
@@ -194,22 +285,42 @@
     if (!radialOverlay) {
       radialOverlay = document.createElement("div");
       radialOverlay.id = "radial-menu-overlay";
-      radialOverlay.className = "radial-overlay";
 
       document.body.appendChild(radialOverlay);
     }
 
     radialOverlay.classList.add("radial-overlay");
-    radialOverlay.innerHTML = getServiceWheelMarkup();
 
-    const existingTriggers =
-      document.querySelectorAll(".floating-service-trigger");
+    if (!radialOverlay.getAttribute("role")) {
+      radialOverlay.setAttribute("role", "dialog");
+      radialOverlay.setAttribute("aria-modal", "true");
+
+      radialOverlay.setAttribute(
+        "aria-label",
+        "CleanFlow service menu"
+      );
+    }
+
+    const existingItems =
+      radialOverlay.querySelectorAll(".radial-item");
+
+    if (!existingItems.length) {
+      radialOverlay.innerHTML =
+        getServiceWheelMarkup();
+    }
+
+    const existingTriggers = Array.prototype.slice.call(
+      document.querySelectorAll(
+        "[data-service-menu-trigger], .floating-service-trigger"
+      )
+    );
 
     if (!existingTriggers.length) {
       const floatingServiceTrigger =
         document.createElement("button");
 
       floatingServiceTrigger.type = "button";
+
       floatingServiceTrigger.className =
         "floating-service-trigger";
 
@@ -220,43 +331,81 @@
 
       floatingServiceTrigger.setAttribute(
         "aria-label",
-        "Open service wheel"
+        "Open the service menu"
+      );
+
+      floatingServiceTrigger.setAttribute(
+        "aria-haspopup",
+        "dialog"
       );
 
       floatingServiceTrigger.innerHTML =
-        '<i class="fas fa-th-large"></i><span>Services</span>';
+        '<i class="fas fa-th-large" aria-hidden="true"></i>' +
+        "<span>Services</span>";
 
-      document.body.appendChild(floatingServiceTrigger);
+      document.body.appendChild(
+        floatingServiceTrigger
+      );
 
       return;
     }
 
-    existingTriggers.forEach(function (trigger) {
+    existingTriggers.forEach(function (trigger, index) {
+      if (index > 0) {
+        // Guard against duplicate triggers stacking up.
+        trigger.parentNode.removeChild(trigger);
+
+        return;
+      }
+
       trigger.setAttribute(
         "data-service-menu-trigger",
         "true"
       );
 
-      trigger.setAttribute(
-        "aria-label",
-        "Open service wheel"
-      );
+      trigger.setAttribute("aria-haspopup", "dialog");
+
+      if (!trigger.getAttribute("aria-label")) {
+        trigger.setAttribute(
+          "aria-label",
+          "Open the service menu"
+        );
+      }
 
       if (trigger.tagName.toLowerCase() === "button") {
         trigger.type = "button";
       }
-
-      trigger.innerHTML =
-        '<i class="fas fa-th-large"></i><span>Services</span>';
     });
   }
 
-  function toggleSign(card) {
+  function toggleSign(element) {
+    if (!element) {
+      return;
+    }
+
+    const card =
+      element.classList &&
+      element.classList.contains("sign-card")
+        ? element
+        : element.closest
+        ? element.closest(".sign-card")
+        : null;
+
     if (!card) {
       return;
     }
 
-    card.classList.toggle("active");
+    const isActive = card.classList.toggle("active");
+
+    const toggle =
+      card.querySelector(".sign-toggle");
+
+    if (toggle) {
+      toggle.setAttribute(
+        "aria-expanded",
+        String(isActive)
+      );
+    }
   }
 
   function toggleAccordion(header) {
@@ -286,6 +435,7 @@
         .querySelectorAll(".accordion-header")
         .forEach(function (item) {
           item.classList.remove("active");
+          item.setAttribute("aria-expanded", "false");
         });
 
       accordion
@@ -298,6 +448,8 @@
 
     if (!isOpen) {
       header.classList.add("active");
+      header.setAttribute("aria-expanded", "true");
+
       content.classList.add("active");
 
       content.style.maxHeight =
@@ -308,7 +460,32 @@
   window.toggleSign = toggleSign;
   window.toggleAccordion = toggleAccordion;
 
+  function scrollBehaviour() {
+    return prefersReducedMotion() ? "auto" : "smooth";
+  }
+
+  function prefersReducedMotion() {
+    return (
+      typeof window.matchMedia === "function" &&
+      window
+        .matchMedia("(prefers-reduced-motion: reduce)")
+        .matches
+    );
+  }
+
   function initAOS() {
+    if (prefersReducedMotion()) {
+      document
+        .querySelectorAll("[data-aos]")
+        .forEach(function (element) {
+          element.removeAttribute("data-aos");
+          element.removeAttribute("data-aos-delay");
+          element.removeAttribute("data-aos-duration");
+        });
+
+      return;
+    }
+
     if (window.AOS) {
       window.AOS.init({
         duration: 800,
@@ -332,25 +509,80 @@
       return;
     }
 
-    function openMenu() {
-      navMenu.classList.add("active");
-      document.body.classList.add("menu-open");
+    if (!navMenu.id) {
+      navMenu.id = "nav-menu";
     }
 
-    function closeMobileMenu() {
+    menuToggle.setAttribute("aria-controls", navMenu.id);
+    menuToggle.setAttribute("aria-expanded", "false");
+
+    if (!menuToggle.getAttribute("aria-label")) {
+      menuToggle.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+      );
+    }
+
+    let lastFocusedBeforeMenu = null;
+
+    function isMenuOpen() {
+      return navMenu.classList.contains("active");
+    }
+
+    function openMenu() {
+      lastFocusedBeforeMenu = document.activeElement;
+
+      navMenu.classList.add("active");
+      document.body.classList.add("menu-open");
+
+      menuToggle.setAttribute("aria-expanded", "true");
+
+      const firstFocusable =
+        closeMenu || navMenu.querySelector("a");
+
+      if (firstFocusable) {
+        firstFocusable.focus();
+      }
+    }
+
+    function closeMobileMenu(restoreFocus) {
+      const wasOpen = isMenuOpen();
+
       navMenu.classList.remove("active");
       document.body.classList.remove("menu-open");
+
+      menuToggle.setAttribute("aria-expanded", "false");
+
+      if (!wasOpen || restoreFocus === false) {
+        return;
+      }
+
+      const target =
+        lastFocusedBeforeMenu &&
+        document.contains(lastFocusedBeforeMenu)
+          ? lastFocusedBeforeMenu
+          : menuToggle;
+
+      target.focus();
     }
 
     menuToggle.addEventListener(
       "click",
-      openMenu
+      function () {
+        if (isMenuOpen()) {
+          closeMobileMenu();
+        } else {
+          openMenu();
+        }
+      }
     );
 
     if (closeMenu) {
       closeMenu.addEventListener(
         "click",
-        closeMobileMenu
+        function () {
+          closeMobileMenu();
+        }
       );
     }
 
@@ -359,9 +591,23 @@
       .forEach(function (link) {
         link.addEventListener(
           "click",
-          closeMobileMenu
+          function () {
+            closeMobileMenu(false);
+          }
         );
       });
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+        if (
+          event.key === "Escape" &&
+          isMenuOpen()
+        ) {
+          closeMobileMenu();
+        }
+      }
+    );
 
     window.closeMobileMenu = closeMobileMenu;
   }
@@ -370,16 +616,22 @@
     const radialOverlay =
       document.getElementById("radial-menu-overlay");
 
+    if (!radialOverlay) {
+      return;
+    }
+
     const radialClose =
-      document.querySelector(".radial-close");
+      radialOverlay.querySelector(".radial-close");
 
     const triggers =
       document.querySelectorAll(
         "[data-service-menu-trigger]"
       );
 
-    if (!radialOverlay) {
-      return;
+    let lastFocusedBeforeWheel = null;
+
+    function isRadialOpen() {
+      return radialOverlay.classList.contains("active");
     }
 
     function openRadialMenu(event) {
@@ -387,7 +639,11 @@
         event.preventDefault();
       }
 
+      lastFocusedBeforeWheel = document.activeElement;
+
       radialOverlay.classList.add("active");
+      radialOverlay.removeAttribute("aria-hidden");
+
       document.body.classList.add(
         "radial-menu-open"
       );
@@ -399,15 +655,91 @@
         navMenu.classList.remove("active");
       }
 
+      const navToggle =
+        document.getElementById("menu-toggle");
+
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+
       document.body.classList.remove("menu-open");
+
+      const firstFocusable =
+        radialClose ||
+        radialOverlay.querySelector("a");
+
+      if (firstFocusable) {
+        firstFocusable.focus();
+      }
     }
 
-    function closeRadialMenu() {
+    function closeRadialMenu(restoreFocus) {
+      const wasOpen = isRadialOpen();
+
       radialOverlay.classList.remove("active");
+      radialOverlay.setAttribute("aria-hidden", "true");
+
       document.body.classList.remove(
         "radial-menu-open"
       );
+
+      if (!wasOpen || restoreFocus === false) {
+        return;
+      }
+
+      const target =
+        lastFocusedBeforeWheel &&
+        document.contains(lastFocusedBeforeWheel)
+          ? lastFocusedBeforeWheel
+          : document.querySelector(
+              "[data-service-menu-trigger]"
+            );
+
+      if (target) {
+        target.focus();
+      }
     }
+
+    radialOverlay.setAttribute("aria-hidden", "true");
+
+    const FOCUSABLE_SELECTOR =
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    function focusableItems() {
+      return Array.prototype.slice.call(
+        radialOverlay.querySelectorAll(FOCUSABLE_SELECTOR)
+      );
+    }
+
+    // Keep Tab inside the dialog while it is open.
+    radialOverlay.addEventListener(
+      "keydown",
+      function (event) {
+        if (event.key !== "Tab" || !isRadialOpen()) {
+          return;
+        }
+
+        const items = focusableItems();
+
+        if (!items.length) {
+          return;
+        }
+
+        const first = items[0];
+        const last = items[items.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (
+          !event.shiftKey &&
+          document.activeElement === last
+        ) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    );
 
     triggers.forEach(function (trigger) {
       trigger.addEventListener(
@@ -419,7 +751,9 @@
     if (radialClose) {
       radialClose.addEventListener(
         "click",
-        closeRadialMenu
+        function () {
+          closeRadialMenu();
+        }
       );
     }
 
@@ -437,14 +771,19 @@
       .forEach(function (link) {
         link.addEventListener(
           "click",
-          closeRadialMenu
+          function () {
+            closeRadialMenu(false);
+          }
         );
       });
 
     document.addEventListener(
       "keydown",
       function (event) {
-        if (event.key === "Escape") {
+        if (
+          event.key === "Escape" &&
+          isRadialOpen()
+        ) {
           closeRadialMenu();
         }
       }
@@ -473,7 +812,8 @@
     const inputs = [
       "linearFeet",
       "stories",
-      "debris"
+      "debris",
+      "access"
     ]
       .map(function (id) {
         return document.getElementById(id);
@@ -494,44 +834,143 @@
   }
 
   function initSeasonTabs() {
-    const tabs =
-      document.querySelectorAll(".season-tab");
+    const tabList =
+      document.querySelector(".season-tabs");
 
-    const contents =
-      document.querySelectorAll(".season-content");
+    const tabs = Array.prototype.slice.call(
+      document.querySelectorAll(".season-tab")
+    );
 
-    if (!tabs.length || !contents.length) {
+    const panels = Array.prototype.slice.call(
+      document.querySelectorAll(".season-content")
+    );
+
+    if (!tabs.length || !panels.length) {
       return;
     }
 
-    tabs.forEach(function (tab) {
+    if (tabList) {
+      tabList.setAttribute("role", "tablist");
+      tabList.setAttribute(
+        "aria-label",
+        "Seasonal gutter maintenance guide"
+      );
+    }
+
+    function panelForTab(tab) {
+      const season =
+        tab.getAttribute("data-season");
+
+      return season
+        ? document.getElementById(season + "-content")
+        : null;
+    }
+
+    tabs.forEach(function (tab, index) {
+      const panel = panelForTab(tab);
+
+      if (tab.tagName.toLowerCase() === "button") {
+        tab.type = "button";
+      }
+
+      tab.setAttribute("role", "tab");
+
+      if (!tab.id) {
+        tab.id =
+          "season-tab-" +
+          (tab.getAttribute("data-season") || index);
+      }
+
+      if (panel) {
+        tab.setAttribute("aria-controls", panel.id);
+
+        panel.setAttribute("role", "tabpanel");
+        panel.setAttribute("tabindex", "0");
+        panel.setAttribute("aria-labelledby", tab.id);
+      }
+    });
+
+    function activate(index, moveFocus) {
+      const tab = tabs[index];
+
+      if (!tab) {
+        return;
+      }
+
+      tabs.forEach(function (item) {
+        item.classList.remove("active");
+        item.setAttribute("aria-selected", "false");
+        item.setAttribute("tabindex", "-1");
+      });
+
+      panels.forEach(function (panel) {
+        panel.classList.remove("active");
+      });
+
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+      tab.setAttribute("tabindex", "0");
+
+      const activePanel = panelForTab(tab);
+
+      if (activePanel) {
+        activePanel.classList.add("active");
+      }
+
+      if (moveFocus) {
+        tab.focus();
+      }
+    }
+
+    tabs.forEach(function (tab, index) {
       tab.addEventListener(
         "click",
         function () {
-          const season =
-            tab.getAttribute("data-season");
+          activate(index, false);
+        }
+      );
 
-          tabs.forEach(function (item) {
-            item.classList.remove("active");
-          });
+      tab.addEventListener(
+        "keydown",
+        function (event) {
+          let nextIndex = null;
 
-          contents.forEach(function (content) {
-            content.classList.remove("active");
-          });
-
-          tab.classList.add("active");
-
-          const activeContent =
-            document.getElementById(
-              season + "-content"
-            );
-
-          if (activeContent) {
-            activeContent.classList.add("active");
+          if (
+            event.key === "ArrowRight" ||
+            event.key === "ArrowDown"
+          ) {
+            nextIndex = (index + 1) % tabs.length;
+          } else if (
+            event.key === "ArrowLeft" ||
+            event.key === "ArrowUp"
+          ) {
+            nextIndex =
+              (index - 1 + tabs.length) % tabs.length;
+          } else if (event.key === "Home") {
+            nextIndex = 0;
+          } else if (event.key === "End") {
+            nextIndex = tabs.length - 1;
           }
+
+          if (nextIndex === null) {
+            return;
+          }
+
+          event.preventDefault();
+          activate(nextIndex, true);
         }
       );
     });
+
+    let initialIndex = tabs.findIndex(function (tab) {
+      return tab.classList.contains("active");
+    });
+
+    if (initialIndex < 0) {
+      initialIndex = 0;
+    }
+
+    activate(initialIndex, false);
   }
 
   function initSmoothScrolling() {
@@ -558,7 +997,7 @@
             event.preventDefault();
 
             target.scrollIntoView({
-              behavior: "smooth",
+              behavior: scrollBehaviour(),
               block: "start"
             });
 
@@ -642,7 +1081,7 @@
         function () {
           window.scrollTo({
             top: 0,
-            behavior: "smooth"
+            behavior: scrollBehaviour()
           });
         }
       );
@@ -662,65 +1101,68 @@
         window.location.search
       );
 
-    const submitted =
-      params.get("submitted");
-
-    if (submitted === "true") {
+    if (params.get("submitted") === "true") {
       formMessage.textContent =
         "Thank you. Your quote request was sent successfully. We will follow up as soon as possible.";
 
       formMessage.classList.add("success");
       formMessage.style.display = "block";
     }
+  }
 
-    if (submitted === "error") {
-      formMessage.textContent =
-        "Something went wrong. Please call or text 937-478-0689 for the fastest response.";
+  /**
+   * Normalise a pathname so the clean routes, the .html forms that still
+   * resolve, and any trailing slash all compare equal.
+   *   /index.html -> /   ;   /services.html -> /services
+   *   /services/gutter-cleaning/ -> /services/gutter-cleaning
+   */
+  function normalisePath(path) {
+    let normalised = String(path || "/")
+      .split("#")[0]
+      .split("?")[0]
+      .replace(/\/index\.html$/, "/")
+      .replace(/\.html$/, "");
 
-      formMessage.classList.add("error");
-      formMessage.style.display = "block";
+    if (normalised.length > 1) {
+      normalised = normalised.replace(/\/+$/, "");
     }
+
+    return normalised === "" ? "/" : normalised;
   }
 
   function initActiveNavLinks() {
-    const currentPath =
-      window.location.pathname.replace(
-        /\/$/,
-        ""
-      );
+    const currentPath = normalisePath(
+      window.location.pathname
+    );
 
-    const links =
-      document.querySelectorAll("nav a");
+    document
+      .querySelectorAll("nav a")
+      .forEach(function (link) {
+        const href = link.getAttribute("href");
 
-    links.forEach(function (link) {
-      const href =
-        link.getAttribute("href");
+        link.classList.remove("active");
+        link.removeAttribute("aria-current");
 
-      if (!href) {
-        return;
-      }
+        if (!href || href.charAt(0) !== "/") {
+          return;
+        }
 
-      link.classList.remove("active");
+        const linkPath = normalisePath(href);
 
-      if (
-        (currentPath === "" && href === "index.html") ||
-        (currentPath === "/" && href === "index.html") ||
-        currentPath.endsWith(
-          href.replace(".html", "")
-        ) ||
-        currentPath.endsWith(href) ||
-        (
-          currentPath.includes("/services") &&
-          href === "services.html"
-        ) ||
-        (
-          currentPath.includes("/services") &&
-          href === "../services.html"
-        )
-      ) {
-        link.classList.add("active");
-      }
-    });
+        // The home link matches only the home page. Every other nav
+        // link also matches its descendants, so a dedicated service
+        // page keeps "Services" highlighted.
+        const isActive =
+          linkPath === "/"
+            ? currentPath === "/"
+            : currentPath === linkPath ||
+              currentPath.indexOf(linkPath + "/") === 0;
+
+        if (isActive) {
+          link.classList.add("active");
+          link.setAttribute("aria-current", "page");
+        }
+      });
   }
 
   function initReviewCarousel() {
@@ -787,6 +1229,10 @@
           "Go to review " + (index + 1)
         );
 
+        if (index === 0) {
+          dot.setAttribute("aria-current", "true");
+        }
+
         dot.addEventListener(
           "click",
           function () {
@@ -829,10 +1275,15 @@
 
     function updateDots() {
       dots.forEach(function (dot, index) {
-        dot.classList.toggle(
-          "active",
-          index === currentIndex
-        );
+        const isCurrent = index === currentIndex;
+
+        dot.classList.toggle("active", isCurrent);
+
+        if (isCurrent) {
+          dot.setAttribute("aria-current", "true");
+        } else {
+          dot.removeAttribute("aria-current");
+        }
       });
     }
 
@@ -986,13 +1437,6 @@
       "focusin",
       function () {
         stopAuto();
-      }
-    );
-
-    carousel.addEventListener(
-      "focusout",
-      function () {
-        startAuto();
       }
     );
 
@@ -2169,11 +2613,174 @@
 
     const answers = [];
 
+    const CHECKUP_MAX_PHOTOS = 8;
+    const CHECKUP_MAX_FILE_BYTES = 8 * 1024 * 1024;
+    const CHECKUP_MAX_TOTAL_BYTES = 25 * 1024 * 1024;
+
+    const CHECKUP_ALLOWED_IMAGE_TYPES = [
+      "image/jpeg",
+      "image/jpg",
+      "image/png",
+      "image/webp",
+      "image/gif",
+      "image/heic",
+      "image/heic-sequence",
+      "image/heif",
+      "image/heif-sequence"
+    ];
+
+    const CHECKUP_ALLOWED_EXTENSIONS = [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".webp",
+      ".gif",
+      ".heic",
+      ".heif"
+    ];
+
+    const uploadError =
+      document.getElementById("gcUploadError");
+
     function escapeAttribute(value) {
       return String(value).replace(
         /"/g,
         "&quot;"
       );
+    }
+
+    function formatMegabytes(bytes) {
+      return Math.round((bytes / (1024 * 1024)) * 10) / 10 + " MB";
+    }
+
+    function hasAllowedType(type) {
+      if (!type) {
+        return false;
+      }
+
+      return (
+        CHECKUP_ALLOWED_IMAGE_TYPES.indexOf(
+          type.toLowerCase()
+        ) !== -1
+      );
+    }
+
+    function hasAllowedExtension(name) {
+      const lower = String(name).toLowerCase();
+
+      return CHECKUP_ALLOWED_EXTENSIONS.some(
+        function (extension) {
+          return lower.endsWith(extension);
+        }
+      );
+    }
+
+    /**
+     * Client-side photo checks. These catch the common failures before
+     * the browser starts a multipart POST; they do not and cannot
+     * guarantee that the form provider accepts the attachments.
+     */
+    function validateCheckupPhotos() {
+      if (!checkupPhotos || !checkupPhotos.files) {
+        return null;
+      }
+
+      const files = Array.prototype.slice.call(
+        checkupPhotos.files
+      );
+
+      if (!files.length) {
+        return null;
+      }
+
+      if (files.length > CHECKUP_MAX_PHOTOS) {
+        return (
+          "Please attach no more than " +
+          CHECKUP_MAX_PHOTOS +
+          " photos. You selected " +
+          files.length +
+          "."
+        );
+      }
+
+      let totalBytes = 0;
+
+      for (let index = 0; index < files.length; index += 1) {
+        const file = files[index];
+
+        // Mobile browsers report HEIC inconsistently: sometimes
+        // image/heic, sometimes an empty string, sometimes a generic
+        // binary type. Accept when either the MIME type or the file
+        // extension is one we support, so a genuine photo is not
+        // rejected, while unsupported formats still fail both checks.
+        const typeAllowed =
+          hasAllowedType(file.type) ||
+          hasAllowedExtension(file.name);
+
+        if (!typeAllowed) {
+          return (
+            '"' +
+            file.name +
+            '" is not a supported image. Please use JPG, PNG, WEBP, GIF, or HEIC.'
+          );
+        }
+
+        if (file.size > CHECKUP_MAX_FILE_BYTES) {
+          return (
+            '"' +
+            file.name +
+            '" is ' +
+            formatMegabytes(file.size) +
+            ". Please keep each photo under " +
+            formatMegabytes(CHECKUP_MAX_FILE_BYTES) +
+            "."
+          );
+        }
+
+        totalBytes += file.size;
+      }
+
+      if (totalBytes > CHECKUP_MAX_TOTAL_BYTES) {
+        return (
+          "Your photos total " +
+          formatMegabytes(totalBytes) +
+          ". Please keep the total under " +
+          formatMegabytes(CHECKUP_MAX_TOTAL_BYTES) +
+          "."
+        );
+      }
+
+      return null;
+    }
+
+    function showUploadError(message) {
+      if (!uploadError) {
+        return;
+      }
+
+      uploadError.textContent = message;
+      uploadError.classList.add("active");
+    }
+
+    function clearUploadError() {
+      if (!uploadError) {
+        return;
+      }
+
+      uploadError.textContent = "";
+      uploadError.classList.remove("active");
+    }
+
+    function setSubmitStatus(message, state) {
+      if (!submitStatus) {
+        return;
+      }
+
+      submitStatus.textContent = message;
+
+      submitStatus.className = message
+        ? "gc-submit-status active " + state
+        : "gc-submit-status";
     }
 
     function openCheckup() {
@@ -2201,7 +2808,7 @@
       window.setTimeout(
         function () {
           checkup.scrollIntoView({
-            behavior: "smooth",
+            behavior: scrollBehaviour(),
             block: "start"
           });
         },
@@ -2687,7 +3294,7 @@
       );
 
       resultPanel.scrollIntoView({
-        behavior: "smooth",
+        behavior: scrollBehaviour(),
         block: "start"
       });
     }
@@ -2817,19 +3424,50 @@
       resetCheckup
     );
 
+    if (checkupPhotos) {
+      checkupPhotos.addEventListener(
+        "change",
+        function () {
+          const problem = validateCheckupPhotos();
+
+          if (problem) {
+            showUploadError(problem);
+          } else {
+            clearUploadError();
+          }
+        }
+      );
+    }
+
     checkupForm.addEventListener(
       "submit",
-      function () {
+      function (event) {
+        const problem = validateCheckupPhotos();
+
+        if (problem) {
+          event.preventDefault();
+
+          showUploadError(problem);
+          setSubmitStatus("", "");
+
+          if (checkupPhotos) {
+            checkupPhotos.focus();
+          }
+
+          return;
+        }
+
+        clearUploadError();
+
         hiddenMessage.value =
           buildMessage();
 
-        if (submitStatus) {
-          submitStatus.textContent =
-            "Sending your checkup...";
-
-          submitStatus.className =
-            "gc-submit-status active success";
-        }
+        // Deliberately not a success state. Success is only shown
+        // after the form provider redirects back with ?checkup=submitted.
+        setSubmitStatus(
+          "Sending your checkup. Please keep this page open until it finishes.",
+          "submitting"
+        );
       }
     );
 

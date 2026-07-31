@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" preserveAspectRatio="xMidYMid slice" role="presentation" aria-hidden="true">
+  <title>CleanFlow of Ohio decorative roofline and water-flow pattern</title>
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- distant roofline -->
+    <g stroke-opacity="0.07" stroke-width="3">
+      <path d="M-40 250 L140 140 L320 250"/>
+      <path d="M320 250 L470 160 L620 250"/>
+      <path d="M620 250 L820 120 L1020 250"/>
+      <path d="M1020 250 L1160 165 L1300 250"/>
+      <path d="M-40 250 H1300"/>
+    </g>
+
+    <!-- mid roofline with gutter run and downspouts -->
+    <g stroke-opacity="0.10" stroke-width="4">
+      <path d="M-40 430 L200 268 L440 430"/>
+      <path d="M560 430 L800 268 L1040 430"/>
+      <path d="M-40 430 H440"/>
+      <path d="M560 430 H1240"/>
+      <path d="M96 430 V560"/>
+      <path d="M372 430 V520"/>
+      <path d="M700 430 V560"/>
+      <path d="M968 430 V520"/>
+    </g>
+
+    <!-- gutter sections, drawn as open channels -->
+    <g stroke-opacity="0.13" stroke-width="5">
+      <path d="M-40 430 v22 a16 16 0 0 0 16 16 H424 a16 16 0 0 0 16 -16 v-22"/>
+      <path d="M560 430 v22 a16 16 0 0 0 16 16 H1224 a16 16 0 0 0 16 -16 v-22"/>
+    </g>
+  </g>
+
+  <!-- falling droplets -->
+  <g fill="#ffffff" fill-opacity="0.10">
+    <path d="M262 92c9 12 14 20 14 27a14 14 0 0 1-28 0c0-7 5-15 14-27z"/>
+    <path d="M905 196c7 10 11 16 11 22a11 11 0 0 1-22 0c0-6 4-12 11-22z"/>
+    <path d="M470 500c6 8 10 14 10 19a10 10 0 0 1-20 0c0-5 4-11 10-19z"/>
+    <path d="M1120 360c8 11 12 18 12 24a12 12 0 0 1-24 0c0-6 4-13 12-24z"/>
+    <path d="M150 540c5 7 8 12 8 16a8 8 0 0 1-16 0c0-4 3-9 8-16z"/>
+  </g>
+
+  <g fill="#f39c12" fill-opacity="0.14">
+    <path d="M700 500c7 10 11 16 11 22a11 11 0 0 1-22 0c0-6 4-12 11-22z"/>
+    <path d="M96 300c6 9 10 15 10 20a10 10 0 0 1-20 0c0-5 4-11 10-20z"/>
+  </g>
+</svg>
