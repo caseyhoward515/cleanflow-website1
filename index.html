@@ -474,20 +474,21 @@
                 <div class="gc-invite" id="gcInvite">
                     <div class="gc-invite-copy">
                         <span class="gc-kicker">
-                            <i class="fas fa-clipboard-check"></i>
-                            The 60-Second CleanFlow Checkup
+                            <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+                            Quick CleanFlow Checkup
                         </span>
 
-                        <h2>Not Sure What Service You Need?</h2>
+                        <h2>Help Us Prepare for Your Estimate</h2>
 
                         <p>
-                            Answer a few quick questions and upload any photos you have. Your checkup
-                            helps us understand the issue before we follow up, so we can point you in
-                            the right direction faster.
+                            Answer a few quick questions about what you&rsquo;re seeing and add photos
+                            if you have them. We&rsquo;ll review the details before we follow up, so the
+                            first conversation is more useful and we know what to look for if an onsite
+                            estimate is needed.
                         </p>
 
                         <p class="gc-value-line">
-                            No guessing. Get a better starting point before we contact you.
+                            Less back-and-forth. A clearer starting point. Better-prepared service.
                         </p>
 
                         <button
@@ -497,8 +498,8 @@
                             aria-expanded="false"
                             aria-controls="cleanFlowCheckup"
                         >
-                            <i class="fas fa-play-circle"></i>
-                            Start My Checkup
+                            <i class="fas fa-play-circle" aria-hidden="true"></i>
+                            Start the Quick Checkup
                         </button>
                     </div>
 
@@ -554,27 +555,28 @@
                     data-cleanflow-checkup
                     hidden
                 >
-                    <div class="gc-question-panel" id="gcQuestionPanel">
-                        <div class="gc-progress-wrap">
-                            <div class="gc-progress-top">
-                                <span id="gcStepLabel">Step 1 · Start</span>
-                                <span id="gcTrackLabel">Home exterior checkup</span>
-                            </div>
-
-                            <div class="gc-progress">
-                                <div
-                                    class="gc-progress-fill"
-                                    id="gcProgressFill"
-                                ></div>
-                            </div>
-
-                            <div
-                                class="gc-step-dots"
-                                id="gcStepDots"
-                                aria-hidden="true"
-                            ></div>
+                    <div class="gc-progress-wrap">
+                        <div class="gc-progress-top">
+                            <span id="gcStepLabel">Question 1 of 7</span>
                         </div>
 
+                        <div
+                            class="gc-progress"
+                            role="progressbar"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                            aria-valuenow="0"
+                            id="gcProgressBar"
+                            aria-labelledby="gcStepLabel"
+                        >
+                            <div
+                                class="gc-progress-fill"
+                                id="gcProgressFill"
+                            ></div>
+                        </div>
+                    </div>
+
+                    <div class="gc-question-panel" id="gcQuestionPanel">
                         <div class="gc-question-copy">
                             <h3 id="gcQuestion">
                                 What is the main thing you want checked?
@@ -683,12 +685,12 @@
                                 </div>
 
                                 <div class="gc-result-block gc-result-block-soft">
-                                    <strong>Add your details and photos</strong>
+                                    <strong>Final step: add your details and photos</strong>
 
                                     <p>
-                                        Add your contact details below. Photos and address are
-                                        optional, but they can help us better understand what you’re
-                                        seeing before we follow up.
+                                        Add your contact details below and send the checkup to finish.
+                                        Photos and address are optional, but they can help us better
+                                        understand what you’re seeing before we follow up.
                                     </p>
                                 </div>
 

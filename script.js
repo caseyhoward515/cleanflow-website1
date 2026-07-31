@@ -1522,11 +1522,6 @@
         "gcStepLabel"
       );
 
-    const trackLabel =
-      document.getElementById(
-        "gcTrackLabel"
-      );
-
     const questionTitle =
       document.getElementById(
         "gcQuestion"
@@ -1547,9 +1542,9 @@
         "gcProgressFill"
       );
 
-    const dotsWrap =
+    const progressBar =
       document.getElementById(
-        "gcStepDots"
+        "gcProgressBar"
       );
 
     const backBtn =
@@ -1630,12 +1625,10 @@
     if (
       !questionPanel ||
       !stepLabel ||
-      !trackLabel ||
       !questionTitle ||
       !questionHint ||
       !optionsWrap ||
       !progressFill ||
-      !dotsWrap ||
       !backBtn ||
       !resetBtn ||
       !resultPanel ||
@@ -2783,6 +2776,27 @@
         : "gc-submit-status";
     }
 
+    function scrollCheckupIntoView(element) {
+      if (!element) {
+        return;
+      }
+
+      const header = document.getElementById("header");
+
+      const offset =
+        (header ? header.getBoundingClientRect().height : 0) + 16;
+
+      const top =
+        element.getBoundingClientRect().top +
+        window.pageYOffset -
+        offset;
+
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: scrollBehaviour()
+      });
+    }
+
     function openCheckup() {
       invite.classList.add("is-hidden");
 
@@ -2807,10 +2821,7 @@
 
       window.setTimeout(
         function () {
-          checkup.scrollIntoView({
-            behavior: scrollBehaviour(),
-            block: "start"
-          });
+          scrollCheckupIntoView(checkup);
         },
         80
       );
@@ -2820,71 +2831,65 @@
       return activeQuestions.length;
     }
 
-    function renderDots() {
-      dotsWrap.innerHTML = "";
+    /**
+     * The funnel is every diagnostic question plus the contact-and-photo
+     * form, which is a real step the customer still has to complete. Using
+     * that as the denominator is what keeps the bar honest: answering the
+     * last question cannot read as 100% when the checkup has not been sent.
+     */
+    function getTotalStages() {
+      return getTotalSteps() + 1;
+    }
 
-      activeQuestions.forEach(
-        function (_question, index) {
-          const dot =
-            document.createElement("span");
+    function setProgress(percent, label) {
+      const clamped = Math.max(0, Math.min(100, Math.round(percent)));
 
-          dot.className =
-            "gc-step-dot";
+      progressFill.style.width = clamped + "%";
+      stepLabel.textContent = label;
 
-          if (index === currentStep) {
-            dot.classList.add("active");
-          }
+      if (progressBar) {
+        progressBar.setAttribute(
+          "aria-valuenow",
+          String(clamped)
+        );
 
-          if (answers[index]) {
-            dot.classList.add("complete");
-          }
-
-          dotsWrap.appendChild(dot);
-        }
-      );
+        progressBar.setAttribute("aria-valuetext", label);
+      }
     }
 
     function updateProgress() {
       const answeredCount =
         answers.filter(Boolean).length;
 
-      const totalSteps =
-        getTotalSteps();
+      // Before the opening question is answered the branch is unknown, so
+      // the real total is unknown too. Showing "Question 1 of 1" there
+      // would be wrong the moment the customer picks a track, so the
+      // denominator is simply omitted until there is one to state.
+      const label =
+        activeTrack === null
+          ? "Question " + (currentStep + 1)
+          : "Question " +
+            (currentStep + 1) +
+            " of " +
+            getTotalSteps();
 
-      const progress =
-        Math.round(
-          (
-            answeredCount /
-            totalSteps
-          ) *
-            100
-        );
+      setProgress(
+        (answeredCount / getTotalStages()) * 100,
+        label
+      );
+    }
 
-      const question =
-        activeQuestions[currentStep];
+    // Every question answered, contact form still outstanding.
+    function setFinalStepProgress() {
+      setProgress(
+        (getTotalSteps() / getTotalStages()) * 100,
+        "Final step · Your details and photos"
+      );
+    }
 
-      progressFill.style.width =
-        progress + "%";
-
-      stepLabel.textContent =
-        "Step " +
-        (currentStep + 1) +
-        " of " +
-        totalSteps +
-        " · " +
-        (
-          question &&
-          question.theme
-            ? question.theme
-            : "Checkup"
-        );
-
-      trackLabel.textContent =
-        activeTrack === "dryer"
-          ? "Dryer vent checkup"
-          : "Home exterior checkup";
-
-      renderDots();
+    // Only reachable once the form provider has accepted the submission.
+    function setCompletedProgress() {
+      setProgress(100, "Checkup sent");
     }
 
     function renderQuestion() {
@@ -3293,10 +3298,9 @@
         "gc-tool--report"
       );
 
-      resultPanel.scrollIntoView({
-        behavior: scrollBehaviour(),
-        block: "start"
-      });
+      setFinalStepProgress();
+
+      scrollCheckupIntoView(checkup);
     }
 
     function resetCheckup() {
@@ -3351,6 +3355,8 @@
 
       questionPanel.hidden = true;
       resultPanel.hidden = false;
+
+      setCompletedProgress();
 
       resultPanel.innerHTML = `
         <div class="gc-result-ready">
