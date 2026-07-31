@@ -311,6 +311,18 @@
                     value="https://www.cleanflowohio.com/?submitted=true"
                 >
 
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="New CleanFlow Quote Request"
+                >
+
+                <input
+                    type="hidden"
+                    name="company"
+                    value="CleanFlow of Ohio"
+                >
+
                 <h2>Request Your Free Quote</h2>
 
                 <div class="form-group">
@@ -345,6 +357,27 @@
                         </option>
                         <option value="Multiple Services">Multiple Services</option>
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quoteNotes">
+                        Anything we should know?
+                        <span class="form-optional">Optional</span>
+                    </label>
+
+                    <textarea
+                        id="quoteNotes"
+                        name="notes"
+                        rows="3"
+                        placeholder="Tell us what you&rsquo;re seeing, where it is, or what you&rsquo;d like help with."
+                        aria-describedby="quotePhotoHelp"
+                    ></textarea>
+
+                    <p class="form-helper" id="quotePhotoHelp">
+                        If photos would help, use the
+                        <a href="#gutter-checkup">CleanFlow Checkup</a> below or text them to
+                        <a href="tel:9374780689">937-478-0689</a>.
+                    </p>
                 </div>
 
                 <div class="form-submit">
