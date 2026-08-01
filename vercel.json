@@ -19,6 +19,10 @@
     {
       "source": "/services/gutter-installation",
       "destination": "/services/gutter-installation.html"
+    },
+    {
+      "source": "/services/underground-downspout-drainage",
+      "destination": "/services/underground-downspout-drainage.html"
     }
   ],
   "redirects": [

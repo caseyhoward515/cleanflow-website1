@@ -259,7 +259,7 @@
         </a>
 
         <a
-          href="/services#underground-drainage-service"
+          href="/services/underground-downspout-drainage"
           class="radial-item item-6"
         >
           <i class="fas fa-water" aria-hidden="true"></i>
@@ -1522,11 +1522,6 @@
         "gcStepLabel"
       );
 
-    const trackLabel =
-      document.getElementById(
-        "gcTrackLabel"
-      );
-
     const questionTitle =
       document.getElementById(
         "gcQuestion"
@@ -1547,9 +1542,9 @@
         "gcProgressFill"
       );
 
-    const dotsWrap =
+    const progressBar =
       document.getElementById(
-        "gcStepDots"
+        "gcProgressBar"
       );
 
     const backBtn =
@@ -1630,12 +1625,10 @@
     if (
       !questionPanel ||
       !stepLabel ||
-      !trackLabel ||
       !questionTitle ||
       !questionHint ||
       !optionsWrap ||
       !progressFill ||
-      !dotsWrap ||
       !backBtn ||
       !resetBtn ||
       !resultPanel ||
@@ -1721,897 +1714,985 @@
       }
     };
 
-    const startQuestion = {
-      title:
-        "What is the main thing you want checked?",
+    /* ============================================================
+       ADAPTIVE CHECKUP ROUTING MODEL
 
-      theme: "Start",
+       Questions form a directed graph keyed by stable ids. Each
+       option names the question that follows it, so a customer's
+       route is a pure function of the answers they have given.
+       Nothing about the flow lives in click handlers.
 
-      hint:
-        "Start with the concern that brought you here today.",
+       A route's length is measured from the graph itself, never
+       declared alongside the questions, so a question whose options
+       lead to routes of different lengths is reported as unknown
+       instead of guessed at.
+       ============================================================ */
 
-      options: [
-        {
-          icon: "fas fa-home",
-          title:
-            "Gutters, downspouts, or drainage",
+    const ENTRY_QUESTION_ID = "start";
 
-          detail:
-            "Overflow, leaks, clogs, guards, new gutters, or water near the home.",
-
-          track: "gutter",
-
-          echo:
-            "Main concern: Gutters, downspouts, or drainage",
-
-          scores: {}
-        },
-
-        {
-          icon:
-            "fas fa-fire-extinguisher",
-
-          title:
-            "Dryer vent airflow or lint buildup",
-
-          detail:
-            "Long dry times, hot dryer, lint concern, or vent cleaning.",
-
-          track: "dryer",
-
-          echo:
-            "Main concern: Dryer vent airflow or lint buildup",
-
-          scores: {
-            dryer: 5
+    const QUESTIONS = {
+      start: {
+        id: "start",
+        theme: "Main concern",
+        title: "What is the main thing you want checked?",
+        hint: "Start with the concern that brought you here today.",
+        options: [
+          {
+            id: "gutters",
+            icon: "fas fa-home",
+            title: "Gutters, downspouts, or drainage",
+            detail: "Overflow, leaks, clogs, guards, new gutters, or water near the home.",
+            echo: "Main concern: Gutters, downspouts, or drainage",
+            track: "gutter",
+            next: "g_intent",
+            scores: {}
+          },
+          {
+            id: "dryer",
+            icon: "fas fa-fire-extinguisher",
+            title: "Dryer vent airflow or lint buildup",
+            detail: "Long dry times, hot dryer, lint concern, or vent cleaning.",
+            echo: "Main concern: Dryer vent airflow or lint buildup",
+            track: "dryer",
+            next: "dr_symptom",
+            scores: { dryer: 6 }
           }
-        }
-      ]
+        ]
+      },
+
+      /* ---------- gutter triage ---------- */
+      g_intent: {
+        id: "g_intent",
+        theme: "What you need",
+        title: "What best describes what you'd like help with?",
+        hint: "Pick the closest match. We will narrow it down from here.",
+        options: [
+          {
+            id: "clean",
+            icon: "fas fa-broom",
+            title: "Cleaning or clogged gutters",
+            detail: "Routine cleaning, visible debris, or gutters that look full.",
+            echo: "Looking for: Cleaning or clogged gutters",
+            next: "c_history",
+            scores: { cleaning: 4 }
+          },
+          {
+            id: "overflow",
+            icon: "fas fa-water",
+            title: "Overflow or a downspout that will not drain",
+            detail: "Water spills over, or a downspout backs up during rain.",
+            echo: "Looking for: Overflow or a downspout that will not drain",
+            next: "o_where",
+            scores: { cleaning: 2, drainage: 1 }
+          },
+          {
+            id: "repair",
+            icon: "fas fa-wrench",
+            title: "A leak, sag, loose or damaged section",
+            detail: "Something is physically wrong with the gutter itself.",
+            echo: "Looking for: A leak, sag, loose or damaged section",
+            next: "r_condition",
+            scores: { repairs: 4 }
+          },
+          {
+            id: "drainage",
+            icon: "fas fa-arrow-down",
+            title: "Buried downspout, backup, or standing water",
+            detail: "Underground pipe, water pooling, or a yard drainage concern.",
+            echo: "Looking for: Buried downspout, backup, or standing water",
+            next: "d_where",
+            scores: { drainage: 4 }
+          },
+          {
+            id: "guards",
+            icon: "fas fa-shield-alt",
+            title: "Recurring debris or gutter guards",
+            detail: "They fill up again quickly, or you are considering guards.",
+            echo: "Looking for: Recurring debris or gutter guards",
+            next: "gu_debris",
+            scores: { guards: 4 }
+          },
+          {
+            id: "replace",
+            icon: "fas fa-tools",
+            title: "Old, undersized, or replacement gutters",
+            detail: "You are thinking about replacing the gutters.",
+            echo: "Looking for: Old, undersized, or replacement gutters",
+            next: "rp_reason",
+            scores: { installation: 4 }
+          },
+          {
+            id: "unsure",
+            icon: "fas fa-question-circle",
+            title: "Not sure, please assess it",
+            detail: "Something is off and you would like CleanFlow to look.",
+            echo: "Looking for: Not sure, would like an assessment",
+            next: "u_symptom",
+            scores: {}
+          }
+        ]
+      },
+
+      /* ---------- cleaning route ---------- */
+      c_history: {
+        id: "c_history",
+        theme: "Cleaning history",
+        title: "When were the gutters last cleaned?",
+        hint: "This tells us how much is likely sitting in the system.",
+        options: [
+          { id: "recent_refill", icon: "fas fa-redo-alt", title: "Recently, but they fill again fast",
+            detail: "Cleaned within the last year and already filling up.",
+            echo: "Cleaning history: Recent, but refills quickly",
+            next: "c_downspout", scores: { cleaning: 1, guards: 5 } },
+          { id: "within_year", icon: "fas fa-calendar-alt", title: "Within the last year",
+            detail: "Serviced fairly recently.",
+            echo: "Cleaning history: Within the last year",
+            next: "c_downspout", scores: { cleaning: 2 } },
+          { id: "one_two", icon: "fas fa-history", title: "One to two years ago",
+            detail: "It has been a while.",
+            echo: "Cleaning history: One to two years ago",
+            next: "c_downspout", scores: { cleaning: 3 } },
+          { id: "long_never", icon: "fas fa-exclamation-circle", title: "Over two years, or never",
+            detail: "Debris has had a long time to build up.",
+            echo: "Cleaning history: Over two years or never",
+            next: "c_downspout", scores: { cleaning: 5 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "I am not sure",
+            detail: "You do not know when they were last done.",
+            echo: "Cleaning history: Not sure",
+            next: "c_downspout", scores: { cleaning: 3 } }
+        ]
+      },
+
+      c_downspout: {
+        id: "c_downspout",
+        theme: "Downspout flow",
+        title: "During heavy rain, what do the downspouts do?",
+        hint: "Water movement tells us whether the problem stops at the gutter.",
+        options: [
+          { id: "flows_fine", icon: "fas fa-check", title: "Water runs out normally",
+            detail: "The downspouts appear to drain the way they should.",
+            echo: "Downspout flow: Runs out normally",
+            next: null, scores: { cleaning: 4 } },
+          { id: "backs_up_top", icon: "fas fa-arrow-up", title: "It backs up at the top",
+            detail: "Water pools where the gutter meets the downspout.",
+            echo: "Downspout flow: Backs up at the top of a downspout",
+            next: null, scores: { cleaning: 5 } },
+          { id: "buried", icon: "fas fa-arrow-down", title: "It goes into the ground",
+            detail: "The downspout enters a buried pipe and you cannot see the outlet.",
+            echo: "Downspout flow: Enters an underground line",
+            next: null, scores: { cleaning: 1, drainage: 5 } },
+          // Gating: the customer has watched water leave the downspout
+          // and collect against the house. The gutter and downspout are
+          // demonstrably moving water, so this is a direct observation
+          // of a drainage failure rather than a clue about a clog, and
+          // it outweighs the cleaning enquiry they arrived with.
+          { id: "pools_base", icon: "fas fa-water", title: "Water pools at the bottom",
+            detail: "It drains out but collects right beside the house.",
+            echo: "Downspout flow: Pools at the base of the downspout",
+            next: null, scores: { drainage: 12 } },
+          { id: "not_watched", icon: "fas fa-question-circle", title: "I have not watched",
+            detail: "You have not seen them during a real downpour.",
+            echo: "Downspout flow: Not observed",
+            next: null, scores: { cleaning: 2 } }
+        ]
+      },
+
+      /* ---------- overflow route ---------- */
+      o_where: {
+        id: "o_where",
+        theme: "Where it backs up",
+        title: "Where does the water back up or spill?",
+        hint: "This locates where the system stops moving water.",
+        options: [
+          { id: "front_edge", icon: "fas fa-water", title: "Over the front edge",
+            detail: "Water sheets over the outside of the gutter.",
+            echo: "Backup location: Over the front edge",
+            next: "o_discharge", scores: { cleaning: 5 } },
+          { id: "downspout_top", icon: "fas fa-arrow-up", title: "At the top of a downspout",
+            detail: "It pools where the gutter feeds into the downspout.",
+            echo: "Backup location: Top of a downspout",
+            next: "o_discharge", scores: { cleaning: 5 } },
+          { id: "behind", icon: "fas fa-home", title: "Behind the gutter",
+            detail: "Water gets behind the gutter or runs down the fascia.",
+            echo: "Backup location: Behind the gutter or fascia",
+            next: "o_discharge", scores: { repairs: 6, installation: 1 } },
+          { id: "bottom", icon: "fas fa-arrow-down", title: "At the bottom of the downspout",
+            detail: "The top drains but water backs up where it discharges.",
+            echo: "Backup location: Bottom of the downspout",
+            next: "o_discharge", scores: { drainage: 6 } }
+        ]
+      },
+
+      o_discharge: {
+        id: "o_discharge",
+        theme: "Downspout discharge",
+        title: "What does the downspout do at the bottom?",
+        hint: "Where the water goes next matters as much as the gutter itself.",
+        options: [
+          { id: "onto_ground", icon: "fas fa-check", title: "Runs out onto the ground",
+            detail: "It discharges above ground and flows away.",
+            echo: "Downspout discharge: Onto the ground, flows away",
+            next: "o_cleaned", scores: { cleaning: 2 } },
+          { id: "into_ground", icon: "fas fa-arrow-down", title: "Goes into a buried pipe",
+            detail: "It disappears into the ground.",
+            echo: "Downspout discharge: Into a buried pipe",
+            next: "o_cleaned", scores: { drainage: 5 } },
+          { id: "pools", icon: "fas fa-water", title: "Water pools right there",
+            detail: "It collects beside the foundation instead of draining away.",
+            echo: "Downspout discharge: Pools beside the home",
+            next: "o_cleaned", scores: { drainage: 6 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "I am not sure",
+            detail: "You have not looked at where it ends up.",
+            echo: "Downspout discharge: Not sure",
+            next: "o_cleaned", scores: { cleaning: 1, drainage: 1 } }
+        ]
+      },
+
+      o_cleaned: {
+        id: "o_cleaned",
+        theme: "Has cleaning helped",
+        title: "Has a cleaning fixed this before?",
+        hint: "If cleaning has already been tried, the cause is usually elsewhere.",
+        options: [
+          { id: "yes_returns", icon: "fas fa-redo-alt", title: "Yes, but it comes back",
+            detail: "Cleaning helps for a while, then the problem returns.",
+            echo: "Cleaning outcome: Helps, but the problem returns",
+            next: null, scores: { guards: 4, drainage: 3 } },
+          { id: "no_change", icon: "fas fa-ban", title: "No, it did not help",
+            detail: "It was cleaned and the problem stayed the same.",
+            echo: "Cleaning outcome: Cleaning did not resolve it",
+            next: null, scores: { repairs: 4, drainage: 3, installation: 1 } },
+          { id: "never_tried", icon: "fas fa-broom", title: "It has not been cleaned",
+            detail: "No recent cleaning to compare against.",
+            echo: "Cleaning outcome: Not cleaned recently",
+            next: null, scores: { cleaning: 5 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "I am not sure",
+            detail: "You do not know the service history.",
+            echo: "Cleaning outcome: Not sure",
+            next: null, scores: { cleaning: 2 } }
+        ]
+      },
+
+      /* ---------- repair route ---------- */
+      r_condition: {
+        id: "r_condition",
+        theme: "Visible condition",
+        title: "What can you see?",
+        hint: "Describe the part that looks wrong.",
+        options: [
+          { id: "leak_seam", icon: "fas fa-tint", title: "A leak at a seam, corner, or end cap",
+            detail: "Water drips from a joint rather than over the edge.",
+            echo: "Visible condition: Leaking seam, corner, or end cap",
+            next: "r_extent", scores: { repairs: 6 } },
+          { id: "sagging", icon: "fas fa-weight-hanging", title: "Sagging or pulling away",
+            detail: "A section droops or has separated from the fascia.",
+            echo: "Visible condition: Sagging or pulling away",
+            next: "r_extent", scores: { repairs: 5, installation: 2 } },
+          { id: "loose", icon: "fas fa-unlink", title: "Loose or missing fasteners",
+            detail: "Hangers, spikes, or brackets have come out.",
+            echo: "Visible condition: Loose or missing fasteners",
+            next: "r_extent", scores: { repairs: 6 } },
+          { id: "damaged", icon: "fas fa-exclamation-circle", title: "Dented or damaged section",
+            detail: "Physical damage from ice, a ladder, or a branch.",
+            echo: "Visible condition: Dented or damaged section",
+            next: "r_extent", scores: { repairs: 5, installation: 3 } },
+          { id: "fascia", icon: "fas fa-home", title: "Water damage behind the gutter",
+            detail: "Staining or soft wood on the fascia or soffit.",
+            echo: "Visible condition: Water damage behind the gutter",
+            next: "r_extent", scores: { repairs: 5, installation: 2 } }
+        ]
+      },
+
+      r_extent: {
+        id: "r_extent",
+        theme: "How widespread",
+        title: "Is it one area or much of the home?",
+        hint: "Scope is what separates a repair from a replacement.",
+        options: [
+          { id: "one_spot", icon: "fas fa-map-marker-alt", title: "One spot",
+            detail: "A single section or corner.",
+            echo: "Extent: One spot",
+            next: null, scores: { repairs: 5 } },
+          { id: "few_spots", icon: "fas fa-stream", title: "A few separate spots",
+            detail: "More than one area, but not everywhere.",
+            echo: "Extent: A few separate spots",
+            next: null, scores: { repairs: 4, installation: 2 } },
+          { id: "most", icon: "fas fa-house-user", title: "Most of the gutters",
+            detail: "The whole system looks tired or is failing in several places.",
+            echo: "Extent: Most of the gutters",
+            next: null, scores: { installation: 11, repairs: 1 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "I am not sure",
+            detail: "Hard to tell from the ground.",
+            echo: "Extent: Not sure",
+            next: null, scores: { repairs: 3 } }
+        ]
+      },
+
+      /* ---------- drainage route ---------- */
+      d_where: {
+        id: "d_where",
+        theme: "Where water collects",
+        title: "Where does the water show up?",
+        hint: "This tells us where the water is stopping.",
+        options: [
+          { id: "foundation", icon: "fas fa-home", title: "Against the foundation",
+            detail: "Water pools right beside the house.",
+            echo: "Water collects: Against the foundation",
+            next: "d_outlet", scores: { drainage: 6 } },
+          { id: "downspout_base", icon: "fas fa-arrow-down", title: "At the base of a downspout",
+            detail: "It backs up where the downspout meets the ground.",
+            echo: "Water collects: At the base of a downspout",
+            next: "d_outlet", scores: { drainage: 6 } },
+          { id: "yard", icon: "fas fa-seedling", title: "Standing water in the yard",
+            detail: "Puddles that sit for a long time after rain.",
+            echo: "Water collects: Standing water in the yard",
+            next: "d_outlet", scores: { drainage: 6 } },
+          { id: "low_area", icon: "fas fa-mountain", title: "A low area away from the house",
+            detail: "Water gathers somewhere downhill.",
+            echo: "Water collects: A low area away from the house",
+            next: "d_outlet", scores: { drainage: 5 } },
+          { id: "indoors", icon: "fas fa-exclamation-circle", title: "Damp basement or crawlspace",
+            detail: "Moisture is showing up inside.",
+            echo: "Water collects: Damp basement or crawlspace",
+            next: "d_outlet", scores: { drainage: 7 } }
+        ]
+      },
+
+      d_outlet: {
+        id: "d_outlet",
+        theme: "Underground line",
+        title: "Does the downspout go into the ground?",
+        hint: "Buried lines behave very differently from open discharge.",
+        options: [
+          { id: "buried_unknown", icon: "fas fa-arrow-down", title: "Yes, and I do not know where it goes",
+            detail: "It enters a buried pipe with no visible outlet.",
+            echo: "Underground line: Buried, outlet unknown",
+            next: "d_rain", scores: { drainage: 6 } },
+          { id: "buried_known", icon: "fas fa-route", title: "Yes, and I know where it comes out",
+            detail: "There is a visible outlet or pop-up.",
+            echo: "Underground line: Buried, outlet known",
+            next: "d_rain", scores: { drainage: 5 } },
+          { id: "above_ground", icon: "fas fa-check", title: "No, it discharges on the ground",
+            detail: "The downspout ends above ground.",
+            echo: "Underground line: None, discharges above ground",
+            next: "d_rain", scores: { drainage: 4 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "I am not sure",
+            detail: "You have not looked closely.",
+            echo: "Underground line: Not sure",
+            next: "d_rain", scores: { drainage: 4 } }
+        ]
+      },
+
+      d_rain: {
+        id: "d_rain",
+        theme: "During heavy rain",
+        title: "What happens during heavy rain?",
+        hint: "How the system behaves under load points to the cause.",
+        options: [
+          { id: "backs_out", icon: "fas fa-arrow-up", title: "Water backs up out of the ground",
+            detail: "It surfaces at the connection instead of draining.",
+            echo: "Heavy rain: Backs up out of the ground connection",
+            next: null, scores: { drainage: 6 } },
+          { id: "drains_slow", icon: "fas fa-clock", title: "It pools, then drains slowly",
+            detail: "The water eventually goes away.",
+            echo: "Heavy rain: Pools, then drains slowly",
+            next: null, scores: { drainage: 5 } },
+          { id: "never_drains", icon: "fas fa-ban", title: "It never really drains",
+            detail: "Water sits there for days.",
+            echo: "Heavy rain: Never really drains",
+            next: null, scores: { drainage: 6 } },
+          { id: "gutters_overflow", icon: "fas fa-water", title: "The gutters overflow too",
+            detail: "Water is coming over the gutters as well as collecting below.",
+            echo: "Heavy rain: Gutters overflow as well",
+            next: null, scores: { cleaning: 8, drainage: 3 } },
+          { id: "not_watched", icon: "fas fa-question-circle", title: "I have not watched",
+            detail: "You have only seen the aftermath.",
+            echo: "Heavy rain: Not observed",
+            next: null, scores: { drainage: 4 } }
+        ]
+      },
+
+      /* ---------- gutter guard route ---------- */
+      gu_debris: {
+        id: "gu_debris",
+        theme: "Debris type",
+        title: "What keeps filling the gutters?",
+        hint: "Debris type decides whether guards will actually help.",
+        options: [
+          { id: "leaves", icon: "fas fa-leaf", title: "Leaves",
+            detail: "Mostly broad leaves in autumn.",
+            echo: "Debris type: Leaves",
+            next: "gu_existing", scores: { guards: 6 } },
+          { id: "needles", icon: "fas fa-tree", title: "Pine needles or seeds",
+            detail: "Fine material that packs down.",
+            echo: "Debris type: Pine needles or seeds",
+            next: "gu_existing", scores: { guards: 5, cleaning: 2 } },
+          { id: "grit", icon: "fas fa-mountain", title: "Roof grit or shingle granules",
+            detail: "Sandy material washing off the roof.",
+            echo: "Debris type: Roof grit or shingle granules",
+            next: "gu_existing", scores: { cleaning: 6 } },
+          { id: "mixed", icon: "fas fa-stream", title: "A mix of everything",
+            detail: "Leaves, needles, grit, and whatever blows in.",
+            echo: "Debris type: Mixed",
+            next: "gu_existing", scores: { guards: 5, cleaning: 2 } }
+        ]
+      },
+
+      gu_existing: {
+        id: "gu_existing",
+        theme: "Existing guards",
+        title: "Do you already have gutter guards?",
+        hint: "Existing guards change what we would recommend.",
+        options: [
+          { id: "none", icon: "fas fa-ban", title: "No guards",
+            detail: "The gutters are open.",
+            echo: "Existing guards: None",
+            next: "gu_condition", scores: { guards: 3 } },
+          { id: "yes_clog", icon: "fas fa-redo-alt", title: "Yes, and they still clog",
+            detail: "Guards are installed but debris still gets in.",
+            echo: "Existing guards: Installed, still clogging",
+            next: "gu_condition", scores: { cleaning: 6 } },
+          { id: "yes_damaged", icon: "fas fa-exclamation-circle", title: "Yes, but they are damaged",
+            detail: "Guards are loose, bent, or falling out.",
+            echo: "Existing guards: Installed but damaged",
+            next: "gu_condition", scores: { repairs: 5, guards: 2 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "I am not sure",
+            detail: "You cannot tell from the ground.",
+            echo: "Existing guards: Not sure",
+            next: "gu_condition", scores: { guards: 2, cleaning: 2 } }
+        ]
+      },
+
+      gu_condition: {
+        id: "gu_condition",
+        theme: "Gutter condition",
+        title: "How do the gutters themselves look?",
+        hint: "Guards only work on a system that is sound and draining.",
+        options: [
+          { id: "solid", icon: "fas fa-check", title: "Solid and straight",
+            detail: "No obvious sagging or leaks.",
+            echo: "Gutter condition: Solid and straight",
+            next: null, scores: { guards: 6 } },
+          { id: "sagging", icon: "fas fa-weight-hanging", title: "Some sagging or loose sections",
+            detail: "Parts of the run are not sitting right.",
+            echo: "Gutter condition: Some sagging or loose sections",
+            next: null, scores: { repairs: 12 } },
+          { id: "leaking", icon: "fas fa-tint", title: "Leaking in places",
+            detail: "Joints or corners drip.",
+            echo: "Gutter condition: Leaking in places",
+            next: null, scores: { repairs: 12 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "I am not sure",
+            detail: "Hard to judge from the ground.",
+            echo: "Gutter condition: Not sure",
+            next: null, scores: { guards: 2, cleaning: 3 } }
+        ]
+      },
+
+      /* ---------- replacement route ---------- */
+      rp_reason: {
+        id: "rp_reason",
+        theme: "Reason for replacing",
+        title: "What is driving the replacement?",
+        hint: "This tells us whether replacement is really the right step.",
+        options: [
+          { id: "old", icon: "fas fa-history", title: "They are simply old",
+            detail: "Original gutters that have done their time.",
+            echo: "Reason: Gutters are old",
+            next: "rp_extent", scores: { installation: 6 } },
+          { id: "undersized", icon: "fas fa-water", title: "They overflow in heavy rain",
+            detail: "They cannot keep up with the roof.",
+            echo: "Reason: Overflow in heavy rain, possibly undersized",
+            next: "rp_extent", scores: { installation: 4, cleaning: 4 } },
+          { id: "damaged", icon: "fas fa-exclamation-circle", title: "Damaged or sagging badly",
+            detail: "Physical condition has deteriorated.",
+            echo: "Reason: Damaged or sagging badly",
+            next: "rp_extent", scores: { installation: 4, repairs: 4 } },
+          { id: "cosmetic", icon: "fas fa-paint-brush", title: "Appearance or a remodel",
+            detail: "New roof, new siding, or you want them to look right.",
+            echo: "Reason: Appearance or remodel",
+            next: "rp_extent", scores: { installation: 6 } },
+          { id: "unsure", icon: "fas fa-question-circle", title: "I am not sure they need replacing",
+            detail: "You would like an honest opinion first.",
+            echo: "Reason: Not sure replacement is needed",
+            next: "rp_condition", scores: {} }
+        ]
+      },
+
+      rp_condition: {
+        id: "rp_condition",
+        theme: "Current condition",
+        title: "What is actually wrong with them today?",
+        hint: "Asked only because replacement may not be the right first step.",
+        options: [
+          { id: "leaks", icon: "fas fa-tint", title: "They leak in places",
+            detail: "Drips at joints or corners.",
+            echo: "Current condition: Leaking in places",
+            next: "rp_extent", scores: { repairs: 7 } },
+          { id: "overflow", icon: "fas fa-water", title: "They overflow",
+            detail: "Water comes over the edge in rain.",
+            echo: "Current condition: Overflowing",
+            next: "rp_extent", scores: { cleaning: 7 } },
+          { id: "sag", icon: "fas fa-weight-hanging", title: "They sag or feel loose",
+            detail: "Sections are not held properly.",
+            echo: "Current condition: Sagging or loose",
+            next: "rp_extent", scores: { repairs: 6, installation: 2 } },
+          { id: "look_bad", icon: "fas fa-paint-brush", title: "They just look bad",
+            detail: "They work, but they are stained or dated.",
+            echo: "Current condition: Cosmetic only",
+            next: "rp_extent", scores: { installation: 6 } }
+        ]
+      },
+
+      rp_extent: {
+        id: "rp_extent",
+        theme: "How much of the home",
+        title: "How much of the home is affected?",
+        hint: "Scope decides whether this is a section or a full system.",
+        options: [
+          { id: "one", icon: "fas fa-map-marker-alt", title: "One section",
+            detail: "A single run or elevation.",
+            echo: "Scope: One section",
+            next: null, scores: { repairs: 6, installation: 2 } },
+          { id: "few", icon: "fas fa-stream", title: "A few sections",
+            detail: "Several runs, but not everything.",
+            echo: "Scope: A few sections",
+            next: null, scores: { installation: 5, repairs: 2 } },
+          { id: "whole", icon: "fas fa-house-user", title: "The whole home",
+            detail: "You are thinking about the full system.",
+            echo: "Scope: The whole home",
+            next: null, scores: { installation: 7 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "I am not sure",
+            detail: "You would like a recommendation.",
+            echo: "Scope: Not sure",
+            next: null, scores: { installation: 3, repairs: 2 } }
+        ]
+      },
+
+      /* ---------- not-sure route ---------- */
+      u_symptom: {
+        id: "u_symptom",
+        theme: "What you noticed",
+        title: "What have you noticed?",
+        hint: "Anything you have seen is enough to start from.",
+        options: [
+          { id: "overflow", icon: "fas fa-water", title: "Water spilling over in rain",
+            detail: "It comes over the edge during a downpour.",
+            echo: "Noticed: Water spilling over during rain",
+            next: "u_when", scores: { cleaning: 6, drainage: 2 } },
+          { id: "drip_stain", icon: "fas fa-tint", title: "Dripping, staining, or a leak",
+            detail: "Marks on the fascia, siding, or a steady drip.",
+            echo: "Noticed: Dripping, staining, or a leak",
+            next: "u_when", scores: { repairs: 6 } },
+          { id: "full", icon: "fas fa-leaf", title: "The gutters look full",
+            detail: "You can see debris or plants growing.",
+            echo: "Noticed: Gutters look full of debris",
+            next: "u_when", scores: { cleaning: 7 } },
+          { id: "pooling", icon: "fas fa-arrow-down", title: "Water pooling near the house",
+            detail: "Wet ground or puddles against the foundation.",
+            echo: "Noticed: Water pooling near the house",
+            next: "u_when", scores: { drainage: 7 } },
+          { id: "old", icon: "fas fa-history", title: "They look old or damaged",
+            detail: "Sagging, dents, or general wear.",
+            echo: "Noticed: Gutters look old or damaged",
+            next: "u_when", scores: { installation: 5, repairs: 3 } },
+          { id: "nothing", icon: "fas fa-question-circle", title: "Nothing specific",
+            detail: "You would just like them looked at.",
+            echo: "Noticed: Nothing specific, wants an assessment",
+            next: "u_when", scores: {} }
+        ]
+      },
+
+      u_when: {
+        id: "u_when",
+        theme: "When it happens",
+        title: "When do you notice it?",
+        hint: "Timing separates a blockage from a capacity or drainage issue.",
+        options: [
+          { id: "heavy_rain", icon: "fas fa-water", title: "Only in heavy rain",
+            detail: "Light rain seems fine.",
+            echo: "When: Only in heavy rain",
+            next: "u_history", scores: { cleaning: 3, installation: 2, drainage: 2 } },
+          { id: "every_rain", icon: "fas fa-cloud-showers-heavy", title: "Every time it rains",
+            detail: "It happens consistently.",
+            echo: "When: Every time it rains",
+            next: "u_history", scores: { cleaning: 4, repairs: 2 } },
+          { id: "always", icon: "fas fa-clock", title: "All the time",
+            detail: "It is visible even when it is dry.",
+            echo: "When: All the time, even when dry",
+            next: "u_history", scores: { repairs: 4, drainage: 3 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "It has not rained recently",
+            detail: "You have not been able to watch it.",
+            echo: "When: Not recently observed",
+            next: "u_history", scores: {} }
+        ]
+      },
+
+      u_history: {
+        id: "u_history",
+        theme: "Service history",
+        title: "When were the gutters last serviced?",
+        hint: "Last, so we know where to start.",
+        options: [
+          { id: "within_year", icon: "fas fa-calendar-alt", title: "Within the last year",
+            detail: "Cleaned or serviced fairly recently.",
+            echo: "Service history: Within the last year",
+            next: null, scores: { repairs: 4, drainage: 3 } },
+          { id: "one_two", icon: "fas fa-history", title: "One to two years ago",
+            detail: "It has been a while.",
+            echo: "Service history: One to two years ago",
+            next: null, scores: { cleaning: 4 } },
+          { id: "long_never", icon: "fas fa-exclamation-circle", title: "Over two years, or never",
+            detail: "No recent service.",
+            echo: "Service history: Over two years or never",
+            next: null, scores: { cleaning: 7 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "I am not sure",
+            detail: "You do not know the history.",
+            echo: "Service history: Not sure",
+            next: null, scores: { cleaning: 3 } }
+        ]
+      },
+
+      /* ---------- dryer route ---------- */
+      dr_symptom: {
+        id: "dr_symptom",
+        theme: "Dryer symptoms",
+        title: "What is happening with the dryer?",
+        hint: "Pick the closest match to what you are seeing.",
+        options: [
+          { id: "slow", icon: "fas fa-clock", title: "Clothes take too long",
+            detail: "Loads need more than one cycle.",
+            echo: "Dryer symptoms: Clothes take too long",
+            next: "dr_airflow", scores: { dryer: 6 } },
+          { id: "hot", icon: "fas fa-temperature-high", title: "Hot laundry area",
+            detail: "The dryer, room, or clothes feel hotter than expected.",
+            echo: "Dryer symptoms: Hot laundry area",
+            next: "dr_airflow", scores: { dryer: 6 } },
+          { id: "weak_flap", icon: "fas fa-wind", title: "Exterior flap barely opens",
+            detail: "The outside vent does not push air strongly.",
+            echo: "Dryer symptoms: Exterior flap barely opens",
+            next: "dr_history", scores: { dryer: 7 } },
+          { id: "lint", icon: "fas fa-fire-extinguisher", title: "Lint or safety concern",
+            detail: "You are concerned about lint buildup or fire risk.",
+            echo: "Dryer symptoms: Lint or safety concern",
+            next: "dr_airflow", scores: { dryer: 6 } },
+          { id: "hose", icon: "fas fa-compress-arrows-alt", title: "Crushed or kinked hose",
+            detail: "The transition hose looks bent or restricted.",
+            echo: "Dryer symptoms: Crushed or restricted hose",
+            next: "dr_airflow", scores: { dryer: 6 } }
+        ]
+      },
+
+      dr_airflow: {
+        id: "dr_airflow",
+        theme: "Exterior airflow",
+        title: "What is the airflow like outside?",
+        hint: "Check the exterior vent hood while the dryer runs.",
+        options: [
+          { id: "strong", icon: "fas fa-check", title: "Strong airflow",
+            detail: "The vent pushes air well.",
+            echo: "Exterior airflow: Strong",
+            next: "dr_history", scores: { dryer: 4 } },
+          { id: "weak", icon: "fas fa-wind", title: "Weak airflow",
+            detail: "Some air, but not much.",
+            echo: "Exterior airflow: Weak",
+            next: "dr_history", scores: { dryer: 6 } },
+          { id: "none", icon: "fas fa-ban", title: "Little or no airflow",
+            detail: "The vent barely moves air or does not open.",
+            echo: "Exterior airflow: Little or none",
+            next: "dr_history", scores: { dryer: 7 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "I have not checked",
+            detail: "You are not sure what it does outside.",
+            echo: "Exterior airflow: Not checked",
+            next: "dr_history", scores: { dryer: 5 } }
+        ]
+      },
+
+      dr_history: {
+        id: "dr_history",
+        theme: "Cleaning history",
+        title: "When was the full vent run last cleaned?",
+        hint: "The full run, not just the lint trap.",
+        options: [
+          { id: "within_year", icon: "fas fa-calendar-alt", title: "Within the last year",
+            detail: "Cleaned recently, but something still feels off.",
+            echo: "Dryer vent cleaning history: Within the last year",
+            next: "dr_exit", scores: { dryer: 4 } },
+          { id: "over_year", icon: "fas fa-history", title: "Over a year ago",
+            detail: "More than a year since service.",
+            echo: "Dryer vent cleaning history: Over a year ago",
+            next: "dr_exit", scores: { dryer: 7 } },
+          { id: "never", icon: "fas fa-exclamation-circle", title: "Never, as far as I know",
+            detail: "It has not been done since you moved in.",
+            echo: "Dryer vent cleaning history: Never",
+            next: "dr_exit", scores: { dryer: 8 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "I am not sure",
+            detail: "You do not know when it was last cleaned.",
+            echo: "Dryer vent cleaning history: Not sure",
+            next: "dr_exit", scores: { dryer: 7 } }
+        ]
+      },
+
+      dr_exit: {
+        id: "dr_exit",
+        theme: "Vent exit",
+        title: "Where does the vent exit?",
+        hint: "Access affects how we quote and schedule the work.",
+        options: [
+          { id: "wall_low", icon: "fas fa-home", title: "Side wall, ground level",
+            detail: "Reachable from the ground.",
+            echo: "Vent exit: Side wall at ground level",
+            next: null, scores: { dryer: 6 } },
+          { id: "wall_high", icon: "fas fa-level-up-alt", title: "Upper wall",
+            detail: "Above the first floor.",
+            echo: "Vent exit: Upper wall",
+            next: null, scores: { dryer: 6 } },
+          { id: "roof", icon: "fas fa-mountain", title: "Through the roof",
+            detail: "The vent terminates on the roof.",
+            echo: "Vent exit: Through the roof",
+            next: null, scores: { dryer: 6 } },
+          { id: "unknown", icon: "fas fa-question-circle", title: "I am not sure",
+            detail: "You have not located the exterior vent.",
+            echo: "Vent exit: Not sure",
+            next: null, scores: { dryer: 6 } }
+        ]
+      }
     };
 
-    const gutterQuestions = [
-      {
-        title:
-          "Where do you see the water problem?",
+    /* ---------- routing helpers (pure, testable) ---------- */
 
-        theme: "Water Location",
-
-        hint:
-          "This helps locate where the water issue starts in the system.",
-
-        options: [
-          {
-            icon: "fas fa-water",
-            title: "Over the front edge",
-            detail:
-              "Water spills over the gutter during rain.",
-            echo:
-              "Water location: Over the front edge",
-            scores: {
-              cleaning: 4,
-              repairs: 1,
-              installation: 1
-            }
-          },
-
-          {
-            icon: "fas fa-home",
-            title: "Behind the gutter",
-            detail:
-              "Water seems to be getting behind the gutter or near the fascia.",
-            echo:
-              "Water location: Behind the gutter or near fascia",
-            scores: {
-              repairs: 5,
-              installation: 1,
-              cleaning: 1
-            }
-          },
-
-          {
-            icon: "fas fa-tint",
-            title: "Corner or seam leak",
-            detail:
-              "A specific joint, corner, or end cap leaks.",
-            echo:
-              "Water location: Corner or seam leak",
-            scores: {
-              repairs: 5,
-              cleaning: 1
-            }
-          },
-
-          {
-            icon:
-              "fas fa-arrow-down",
-            title:
-              "Top of a downspout",
-            detail:
-              "Water backs up where the gutter meets the downspout.",
-            echo:
-              "Water location: Top of a downspout",
-            scores: {
-              cleaning: 5,
-              repairs: 1,
-              drainage: 1
-            }
-          },
-
-          {
-            icon: "fas fa-route",
-            title:
-              "Downspout enters ground",
-            detail:
-              "Water backs up or pools at the underground connection.",
-            echo:
-              "Water location: Downspout enters ground",
-            scores: {
-              drainage: 5,
-              cleaning: 2
-            }
-          },
-
-          {
-            icon: "fas fa-water",
-            title:
-              "Pooling near the home",
-            detail:
-              "Water collects near the foundation, walkway, patio, or landscaping.",
-            echo:
-              "Water location: Pooling near the home",
-            scores: {
-              drainage: 5,
-              cleaning: 1
-            }
-          },
-
-          {
-            icon:
-              "fas fa-question-circle",
-            title: "I am not sure",
-            detail:
-              "You know something is off, but you are not sure where it starts.",
-            echo:
-              "Water location: Not sure",
-            scores: {
-              cleaning: 2,
-              repairs: 1,
-              drainage: 1
-            }
-          }
-        ]
-      },
-
-      {
-        title:
-          "What happens at the downspout?",
-
-        theme: "Downspout Flow",
-
-        hint:
-          "This separates a gutter issue from a downspout or underground drainage issue.",
-
-        options: [
-          {
-            icon:
-              "fas fa-check-circle",
-            title: "Strong flow",
-            detail:
-              "You can see water exiting with good flow.",
-            echo:
-              "Downspout flow: Strong flow",
-            scores: {
-              drainage: 2,
-              repairs: 1,
-              guards: 1
-            }
-          },
-
-          {
-            icon: "fas fa-stream",
-            title: "Weak flow",
-            detail:
-              "Water comes out, but the flow does not look strong.",
-            echo:
-              "Downspout flow: Weak flow",
-            scores: {
-              cleaning: 4,
-              drainage: 2
-            }
-          },
-
-          {
-            icon: "fas fa-ban",
-            title: "No visible water",
-            detail:
-              "Rain goes in, but you do not see water exiting.",
-            echo:
-              "Downspout flow: No visible water",
-            scores: {
-              cleaning: 5,
-              drainage: 3
-            }
-          },
-
-          {
-            icon:
-              "fas fa-level-up-alt",
-            title:
-              "Backs up underground",
-            detail:
-              "The underground line may be restricted or overwhelmed.",
-            echo:
-              "Downspout flow: Backs up underground",
-            scores: {
-              drainage: 6,
-              cleaning: 2
-            }
-          },
-
-          {
-            icon:
-              "fas fa-question-circle",
-            title: "Unknown outlet",
-            detail:
-              "The downspout disappears underground or the outlet is unknown.",
-            echo:
-              "Downspout flow: Unknown outlet",
-            scores: {
-              drainage: 5,
-              cleaning: 1
-            }
-          }
-        ]
-      },
-
-      {
-        title:
-          "Has cleaning solved it before?",
-
-        theme: "Cleaning History",
-
-        hint:
-          "This helps decide whether cleaning is the baseline or whether another issue may be involved.",
-
-        options: [
-          {
-            icon: "fas fa-check",
-            title:
-              "Yes, cleaning fixes it",
-            detail:
-              "The system works better after a normal cleaning.",
-            echo:
-              "Cleaning history: Cleaning usually fixes it",
-            scores: {
-              cleaning: 4,
-              guards: 2
-            }
-          },
-
-          {
-            icon:
-              "fas fa-redo-alt",
-            title: "It comes back",
-            detail:
-              "Cleaning helps for a while, but the problem returns.",
-            echo:
-              "Cleaning history: It improves, then comes back",
-            scores: {
-              guards: 4,
-              cleaning: 2,
-              repairs: 1
-            }
-          },
-
-          {
-            icon:
-              "fas fa-exclamation-circle",
-            title:
-              "Still happens after cleaning",
-            detail:
-              "The issue continues even when debris is not obvious.",
-            echo:
-              "Cleaning history: Still happens after cleaning",
-            scores: {
-              repairs: 3,
-              drainage: 3,
-              installation: 2
-            }
-          },
-
-          {
-            icon:
-              "fas fa-question-circle",
-            title:
-              "Not sure downspouts were flushed",
-            detail:
-              "The gutters may have been cleaned, but flow was not verified.",
-            echo:
-              "Cleaning history: Not sure downspouts were flushed",
-            scores: {
-              cleaning: 4,
-              drainage: 2
-            }
-          },
-
-          {
-            icon: "fas fa-history",
-            title:
-              "Over a year or unknown",
-            detail:
-              "The system may be overdue for a full clean and flow check.",
-            echo:
-              "Cleaning history: Over a year or unknown",
-            scores: {
-              cleaning: 5,
-              guards: 1
-            }
-          }
-        ]
-      },
-
-      {
-        title:
-          "What condition are the gutters in?",
-
-        theme: "Gutter Condition",
-
-        hint:
-          "This makes the difference between cleaning, repair, and replacement clearer.",
-
-        options: [
-          {
-            icon:
-              "fas fa-check-circle",
-            title:
-              "Straight and secure",
-            detail:
-              "The gutters appear attached and mostly in good shape.",
-            echo:
-              "Gutter condition: Straight and secure",
-            scores: {
-              cleaning: 2,
-              guards: 2,
-              drainage: 1
-            }
-          },
-
-          {
-            icon:
-              "fas fa-weight-hanging",
-            title: "Sagging sections",
-            detail:
-              "Sections dip, hold water, or look uneven.",
-            echo:
-              "Gutter condition: Sagging sections",
-            scores: {
-              repairs: 5,
-              installation: 2
-            }
-          },
-
-          {
-            icon: "fas fa-unlink",
-            title: "Pulling away",
-            detail:
-              "The gutter is separating from the board behind it.",
-            echo:
-              "Gutter condition: Pulling away",
-            scores: {
-              repairs: 5,
-              installation: 2
-            }
-          },
-
-          {
-            icon: "fas fa-tint",
-            title: "Leaking corners",
-            detail:
-              "The problem is mostly at joints or corners.",
-            echo:
-              "Gutter condition: Leaking corners",
-            scores: {
-              repairs: 5,
-              cleaning: 1
-            }
-          },
-
-          {
-            icon: "fas fa-tools",
-            title: "Old or worn out",
-            detail:
-              "The system may be near replacement territory.",
-            echo:
-              "Gutter condition: Old, worn out, or undersized",
-            scores: {
-              installation: 5,
-              repairs: 2
-            }
-          },
-
-          {
-            icon:
-              "fas fa-shield-alt",
-            title:
-              "Guards, but water skips",
-            detail:
-              "Water still runs over or past the guarded gutter.",
-            echo:
-              "Gutter condition: Existing guards, but water skips or overflows",
-            scores: {
-              repairs: 2,
-              cleaning: 2,
-              installation: 2,
-              guards: 1
-            }
-          }
-        ]
-      },
-
-      {
-        title:
-          "What is around the home?",
-
-        theme: "Roof & Debris",
-
-        hint:
-          "Tree coverage, roof shape, and debris type affect what solution makes sense.",
-
-        options: [
-          {
-            icon: "fas fa-tree",
-            title:
-              "Heavy trees or leaves",
-            detail:
-              "Leaves are a recurring issue around the roofline.",
-            echo:
-              "Roof and debris: Heavy trees or leaves",
-            scores: {
-              guards: 4,
-              cleaning: 3
-            }
-          },
-
-          {
-            icon: "fas fa-leaf",
-            title:
-              "Pine needles or small debris",
-            detail:
-              "Fine debris gets into the gutter system.",
-            echo:
-              "Roof and debris: Pine needles or small debris",
-            scores: {
-              guards: 3,
-              cleaning: 3
-            }
-          },
-
-          {
-            icon: "fas fa-mountain",
-            title:
-              "Roof grit or granules",
-            detail:
-              "Fine roof material collects in the gutters.",
-            echo:
-              "Roof and debris: Roof grit or granules",
-            scores: {
-              cleaning: 4,
-              guards: 1
-            }
-          },
-
-          {
-            icon: "fas fa-sun",
-            title: "Not many trees",
-            detail:
-              "The issue may be about flow, pitch, or discharge.",
-            echo:
-              "Roof and debris: Not many trees",
-            scores: {
-              repairs: 2,
-              drainage: 2,
-              installation: 1
-            }
-          },
-
-          {
-            icon: "fas fa-home",
-            title:
-              "Large roof area hits one spot",
-            detail:
-              "A roof valley or large roof face sends heavy water to one section.",
-            echo:
-              "Roof and debris: Large roof area hits one spot",
-            scores: {
-              installation: 4,
-              repairs: 2,
-              drainage: 1
-            }
-          },
-
-          {
-            icon:
-              "fas fa-question-circle",
-            title: "I am not sure",
-            detail:
-              "You are not sure what roof or debris conditions matter.",
-            echo:
-              "Roof and debris: Not sure",
-            scores: {
-              cleaning: 1,
-              repairs: 1,
-              drainage: 1
-            }
-          }
-        ]
-      },
-
-      {
-        title:
-          "What outcome are you hoping for?",
-
-        theme: "Best Outcome",
-
-        hint:
-          "This helps shape the recommendation into a practical next step.",
-
-        options: [
-          {
-            icon: "fas fa-broom",
-            title:
-              "Clean it and verify flow",
-            detail:
-              "I want the gutters cleared and the downspouts checked.",
-            echo:
-              "Best outcome: Clean it and verify flow",
-            scores: {
-              cleaning: 5
-            }
-          },
-
-          {
-            icon: "fas fa-wrench",
-            title:
-              "Fix problem sections",
-            detail:
-              "I want leaking, sagging, or loose areas corrected.",
-            echo:
-              "Best outcome: Fix problem sections",
-            scores: {
-              repairs: 5
-            }
-          },
-
-          {
-            icon:
-              "fas fa-shield-alt",
-            title:
-              "Reduce future clogs",
-            detail:
-              "I want a longer-term solution for recurring debris.",
-            echo:
-              "Best outcome: Reduce future clogs",
-            scores: {
-              guards: 5
-            }
-          },
-
-          {
-            icon: "fas fa-tools",
-            title:
-              "Replace the old system",
-            detail:
-              "I want new gutters with better sizing and downspout planning.",
-            echo:
-              "Best outcome: Replace the old system",
-            scores: {
-              installation: 5
-            }
-          },
-
-          {
-            icon: "fas fa-water",
-            title:
-              "Move water farther away",
-            detail:
-              "I want better control after water leaves the downspouts.",
-            echo:
-              "Best outcome: Move water farther away",
-            scores: {
-              drainage: 5
-            }
-          },
-
-          {
-            icon:
-              "fas fa-user-check",
-            title:
-              "I need someone to look",
-            detail:
-              "I am not sure which service is the right starting point.",
-            echo:
-              "Best outcome: I need someone to look",
-            scores: {
-              cleaning: 2,
-              repairs: 2,
-              drainage: 2
-            }
-          }
-        ]
+    function findOption(question, optionId) {
+      if (!question || !optionId) {
+        return null;
       }
+
+      for (let i = 0; i < question.options.length; i += 1) {
+        if (question.options[i].id === optionId) {
+          return question.options[i];
+        }
+      }
+
+      return null;
+    }
+
+    /* ---------- route length, measured from the graph ----------
+
+       Both figures below are derived from the graph itself rather than
+       from hand-written projection hints, so adding a branch can never
+       leave the displayed total out of step with the real flow.
+
+       exactRemaining  the number of questions still to come, counting
+                       the unanswered one, but ONLY when every option
+                       from here leads to a route of the same length.
+                       null means the length genuinely depends on an
+                       answer the customer has not given yet.
+
+       maxRemaining    the longest that tail can possibly be. Used for
+                       the bar, never for the label: answering a
+                       question can only shorten the longest remaining
+                       tail, so a denominator built from it can never
+                       force the bar backward.
+       -------------------------------------------------------------- */
+
+    const exactRemainingCache = {};
+    const maxRemainingCache = {};
+
+    function exactRemaining(questionId) {
+      if (!questionId || !QUESTIONS[questionId]) {
+        return 0;
+      }
+
+      if (questionId in exactRemainingCache) {
+        return exactRemainingCache[questionId];
+      }
+
+      // Seeded as unknown so a malformed cycle degrades to "unknown"
+      // rather than recursing forever.
+      exactRemainingCache[questionId] = null;
+
+      const options = QUESTIONS[questionId].options;
+      let agreed = null;
+
+      for (let i = 0; i < options.length; i += 1) {
+        const tail = exactRemaining(options[i].next);
+
+        if (tail === null) {
+          return null;
+        }
+
+        if (i === 0) {
+          agreed = tail;
+        } else if (tail !== agreed) {
+          // Two options lead to routes of different lengths, so the
+          // total cannot honestly be stated until one is chosen.
+          return null;
+        }
+      }
+
+      exactRemainingCache[questionId] = agreed + 1;
+
+      return exactRemainingCache[questionId];
+    }
+
+    function maxRemaining(questionId) {
+      if (!questionId || !QUESTIONS[questionId]) {
+        return 0;
+      }
+
+      if (questionId in maxRemainingCache) {
+        return maxRemainingCache[questionId];
+      }
+
+      maxRemainingCache[questionId] = 0;
+
+      const options = QUESTIONS[questionId].options;
+      let longest = 0;
+
+      options.forEach(function (option) {
+        const tail = maxRemaining(option.next);
+
+        if (tail > longest) {
+          longest = tail;
+        }
+      });
+
+      maxRemainingCache[questionId] = longest + 1;
+
+      return maxRemainingCache[questionId];
+    }
+
+    /**
+     * Walk the graph using the answers given so far.
+     *
+     * route     every answered question, plus the one now being asked
+     * answered  how many of those carry an answer
+     * exact     the true total, or null while it is not yet knowable
+     * upper     the largest the total could still turn out to be
+     */
+    function routeState(current) {
+      const route = [];
+      const seen = {};
+      let answered = 0;
+      let id = ENTRY_QUESTION_ID;
+
+      while (id && QUESTIONS[id] && !seen[id]) {
+        seen[id] = true;
+        route.push(id);
+
+        const option = findOption(QUESTIONS[id], current[id]);
+
+        if (!option) {
+          break;
+        }
+
+        answered += 1;
+        id = option.next || null;
+      }
+
+      const pending =
+        route.length > answered
+          ? route[route.length - 1]
+          : null;
+
+      if (pending === null) {
+        return {
+          route: route,
+          answered: answered,
+          exact: answered,
+          upper: answered
+        };
+      }
+
+      const tail = exactRemaining(pending);
+
+      return {
+        route: route,
+        answered: answered,
+        exact: tail === null ? null : answered + tail,
+        upper: answered + maxRemaining(pending)
+      };
+    }
+
+    /** Only the questions the customer has actually answered. */
+    function computeRoute(current) {
+      const state = routeState(current);
+
+      return state.route.slice(0, state.answered);
+    }
+
+    /** Drop answers whose questions are no longer on the route. */
+    function pruneAnswers(current) {
+      const route = routeState(current).route;
+      const allowed = {};
+
+      route.forEach(function (questionId) {
+        allowed[questionId] = true;
+      });
+
+      Object.keys(current).forEach(function (questionId) {
+        if (!allowed[questionId]) {
+          delete current[questionId];
+        }
+      });
+    }
+
+    /* ---------- scoring policy ----------
+
+       Each answer awards points on a 0-12 scale:
+
+         1-3   context: consistent with a service but not evidence for it
+         4-8   diagnostic: this answer genuinely points at that service
+         9-12  gating: this answer alone should decide the starting point,
+               e.g. guards cannot go on a gutter run that is sagging, and
+               water pooling at the foot of a working downspout is a
+               drainage problem whatever the customer came in asking for
+
+       Totals are divided by the number of *scored* answers before the
+       thresholds below are applied. Precisely what that division does,
+       and does not, do:
+
+         - It makes AMBIGUITY_MARGIN comparable across routes. The margin
+           is an absolute number of points, so without normalising, a
+           four-question route would clear a fixed gap more easily than a
+           three-question one purely by having more answers to add up.
+
+         - It does NOT change the ranking within a route. Every service
+           is divided by the same count, so the order is untouched.
+
+         - It does NOT affect SECONDARY_MIN_SHARE either, because that
+           test is a ratio of two normalised scores and the common
+           divisor cancels. The threshold is stated on the normalised
+           figures only for consistency with the margin above.
+       ------------------------------------------------------ */
+
+    // Gap, in points per scored answer, within which two services are
+    // treated as tied rather than ranked.
+    const AMBIGUITY_MARGIN = 0.75;
+
+    // A secondary service is only offered when it reaches this share of the
+    // primary's score. Below it, there is no "also worth checking" line.
+    const SECONDARY_MIN_SHARE = 0.45;
+
+    // Used only to break a genuine tie: least-committal service first, so
+    // ambiguous evidence never lands on the largest job.
+    const CONSERVATIVE_ORDER = [
+      "cleaning",
+      "repairs",
+      "drainage",
+      "guards",
+      "installation"
     ];
 
-    const dryerQuestions = [
-      {
-        title:
-          "What is happening with the dryer?",
-
-        theme: "Dryer Symptoms",
-
-        hint:
-          "These questions focus on airflow, lint buildup, and possible vent restriction.",
-
-        options: [
-          {
-            icon: "fas fa-clock",
-            title: "Long dry times",
-            detail:
-              "Loads need extra cycles or take longer than they used to.",
-            echo:
-              "Dryer symptoms: Long dry times",
-            scores: {
-              dryer: 6
-            }
-          },
-
-          {
-            icon:
-              "fas fa-temperature-high",
-            title:
-              "Hot laundry area",
-            detail:
-              "The dryer, laundry room, or clothes feel hotter than expected.",
-            echo:
-              "Dryer symptoms: Hot laundry area",
-            scores: {
-              dryer: 6
-            }
-          },
-
-          {
-            icon: "fas fa-wind",
-            title:
-              "Exterior flap barely opens",
-            detail:
-              "The outside vent does not seem to push air strongly.",
-            echo:
-              "Dryer symptoms: Exterior flap barely opens",
-            scores: {
-              dryer: 6
-            }
-          },
-
-          {
-            icon:
-              "fas fa-fire-extinguisher",
-            title:
-              "Lint or safety concern",
-            detail:
-              "You are concerned about lint buildup or fire risk.",
-            echo:
-              "Dryer symptoms: Lint or safety concern",
-            scores: {
-              dryer: 6
-            }
-          },
-
-          {
-            icon:
-              "fas fa-compress-arrows-alt",
-            title: "Crushed hose",
-            detail:
-              "The transition hose may be bent, kinked, or restricted.",
-            echo:
-              "Dryer symptoms: Crushed or restricted hose",
-            scores: {
-              dryer: 6
-            }
-          }
-        ]
-      },
-
-      {
-        title:
-          "What is the airflow like outside?",
-
-        theme: "Exterior Airflow",
-
-        hint:
-          "Exterior airflow is one of the clearest clues that the vent may be restricted.",
-
-        options: [
-          {
-            icon:
-              "fas fa-check-circle",
-            title: "Strong airflow",
-            detail:
-              "Air seems to move strongly from the exterior vent.",
-            echo:
-              "Exterior airflow: Strong airflow",
-            scores: {
-              dryer: 3
-            }
-          },
-
-          {
-            icon: "fas fa-stream",
-            title: "Weak airflow",
-            detail:
-              "You can feel air, but it seems weak.",
-            echo:
-              "Exterior airflow: Weak airflow",
-            scores: {
-              dryer: 6
-            }
-          },
-
-          {
-            icon: "fas fa-ban",
-            title:
-              "Little or no airflow",
-            detail:
-              "The exterior vent barely moves air or does not open.",
-            echo:
-              "Exterior airflow: Little or no airflow",
-            scores: {
-              dryer: 7
-            }
-          },
-
-          {
-            icon:
-              "fas fa-question-circle",
-            title:
-              "I have not checked",
-            detail:
-              "You are not sure what the vent does outside.",
-            echo:
-              "Exterior airflow: Not checked",
-            scores: {
-              dryer: 5
-            }
-          }
-        ]
-      },
-
-      {
-        title:
-          "When was the full vent run last cleaned?",
-
-        theme: "Cleaning History",
-
-        hint:
-          "Cleaning the lint screen is not the same as cleaning the full exhaust route.",
-
-        options: [
-          {
-            icon:
-              "fas fa-calendar-check",
-            title:
-              "Within the last year",
-            detail:
-              "It was cleaned recently, but something still feels off.",
-            echo:
-              "Dryer vent cleaning history: Within the last year",
-            scores: {
-              dryer: 4
-            }
-          },
-
-          {
-            icon:
-              "fas fa-calendar-alt",
-            title:
-              "Over a year ago",
-            detail:
-              "It has been more than a year since service.",
-            echo:
-              "Dryer vent cleaning history: Over a year ago",
-            scores: {
-              dryer: 7
-            }
-          },
-
-          {
-            icon:
-              "fas fa-question-circle",
-            title: "I am not sure",
-            detail:
-              "You do not know when the full vent run was cleaned.",
-            echo:
-              "Dryer vent cleaning history: Not sure",
-            scores: {
-              dryer: 7
-            }
-          }
-        ]
-      },
-
-      {
-        title:
-          "Where does the vent exit?",
-
-        theme: "Vent Exit",
-
-        hint:
-          "Access and routing can affect what we check and how the service is quoted.",
-
-        options: [
-          {
-            icon: "fas fa-home",
-            title:
-              "Ground-level wall",
-            detail:
-              "The vent exits low on an outside wall.",
-            echo:
-              "Vent exit: Ground-level wall",
-            scores: {
-              dryer: 4
-            }
-          },
-
-          {
-            icon: "fas fa-arrow-up",
-            title:
-              "Elevated or roof-area exit",
-            detail:
-              "The vent exits high, through a second story, or near the roof.",
-            echo:
-              "Vent exit: Elevated or roof-area exit",
-            scores: {
-              dryer: 5
-            }
-          },
-
-          {
-            icon: "fas fa-route",
-            title: "Long vent route",
-            detail:
-              "The vent may travel a long distance before exiting.",
-            echo:
-              "Vent exit: Long vent route",
-            scores: {
-              dryer: 5
-            }
-          },
-
-          {
-            icon:
-              "fas fa-question-circle",
-            title: "I am not sure",
-            detail:
-              "You are not sure where the dryer vent exits.",
-            echo:
-              "Vent exit: Not sure",
-            scores: {
-              dryer: 4
-            }
-          }
-        ]
-      }
-    ];
-
+    // Index into the current route. The route itself is never stored.
     let currentStep = 0;
-    let activeTrack = null;
-
-    let activeQuestions = [
-      startQuestion
-    ];
 
     let currentBestService = null;
     let currentSecondService = null;
+    let currentAmbiguous = false;
 
-    const answers = [];
+    // questionId -> optionId. The single source of truth for the whole
+    // checkup: route, progress, score, result, and submitted message are
+    // all derived from this object.
+    const answers = {};
 
     const CHECKUP_MAX_PHOTOS = 8;
     const CHECKUP_MAX_FILE_BYTES = 8 * 1024 * 1024;
@@ -2783,6 +2864,27 @@
         : "gc-submit-status";
     }
 
+    function scrollCheckupIntoView(element) {
+      if (!element) {
+        return;
+      }
+
+      const header = document.getElementById("header");
+
+      const offset =
+        (header ? header.getBoundingClientRect().height : 0) + 16;
+
+      const top =
+        element.getBoundingClientRect().top +
+        window.pageYOffset -
+        offset;
+
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: scrollBehaviour()
+      });
+    }
+
     function openCheckup() {
       invite.classList.add("is-hidden");
 
@@ -2807,89 +2909,111 @@
 
       window.setTimeout(
         function () {
-          checkup.scrollIntoView({
-            behavior: scrollBehaviour(),
-            block: "start"
-          });
+          scrollCheckupIntoView(checkup);
         },
         80
       );
     }
 
-    function getTotalSteps() {
-      return activeQuestions.length;
+    /** The track is a property of the opening answer, never stored state. */
+    function getActiveTrack() {
+      const option = findOption(
+        QUESTIONS[ENTRY_QUESTION_ID],
+        answers[ENTRY_QUESTION_ID]
+      );
+
+      return option && option.track
+        ? option.track
+        : null;
     }
 
-    function renderDots() {
-      dotsWrap.innerHTML = "";
+    // The longest the route could still turn out to be. Once every
+    // question is answered this is simply the route length.
+    function getTotalSteps() {
+      return routeState(answers).upper;
+    }
 
-      activeQuestions.forEach(
-        function (_question, index) {
-          const dot =
-            document.createElement("span");
+    /**
+     * The funnel is every diagnostic question plus the contact-and-photo
+     * form, which is a real step the customer still has to complete. Using
+     * that as the denominator is what keeps the bar honest: answering the
+     * last question cannot read as 100% when the checkup has not been sent.
+     */
+    function getTotalStages() {
+      return getTotalSteps() + 1;
+    }
 
-          dot.className =
-            "gc-step-dot";
+    function setProgress(percent, label) {
+      const clamped = Math.max(0, Math.min(100, Math.round(percent)));
 
-          if (index === currentStep) {
-            dot.classList.add("active");
-          }
+      progressFill.style.width = clamped + "%";
+      stepLabel.textContent = label;
 
-          if (answers[index]) {
-            dot.classList.add("complete");
-          }
+      if (progressBar) {
+        progressBar.setAttribute(
+          "aria-valuenow",
+          String(clamped)
+        );
 
-          dotsWrap.appendChild(dot);
-        }
-      );
+        progressBar.setAttribute("aria-valuetext", label);
+      }
     }
 
     function updateProgress() {
-      const answeredCount =
-        answers.filter(Boolean).length;
+      const state = routeState(answers);
 
-      const totalSteps =
-        getTotalSteps();
+      const position = Math.min(
+        currentStep + 1,
+        Math.max(1, state.route.length)
+      );
 
-      const progress =
-        Math.round(
-          (
-            answeredCount /
-            totalSteps
-          ) *
-            100
-        );
+      // The denominator is stated only when the total is genuinely
+      // settled. While the question on screen can still lead to routes
+      // of different lengths -- the opening triage, the replacement
+      // reason, the dryer symptom -- no total is claimed at all.
+      const label =
+        state.exact === null
+          ? "Question " + position
+          : "Question " +
+            position +
+            " of " +
+            state.exact;
 
-      const question =
-        activeQuestions[currentStep];
+      // The bar uses the longest the route could still be, which only
+      // ever shrinks as questions are answered, so it cannot slip back.
+      setProgress(
+        (state.answered / (state.upper + 1)) * 100,
+        label
+      );
+    }
 
-      progressFill.style.width =
-        progress + "%";
+    // Every question answered, contact form still outstanding.
+    function setFinalStepProgress() {
+      setProgress(
+        (getTotalSteps() / getTotalStages()) * 100,
+        "Final step \u00b7 Your details and photos"
+      );
+    }
 
-      stepLabel.textContent =
-        "Step " +
-        (currentStep + 1) +
-        " of " +
-        totalSteps +
-        " · " +
-        (
-          question &&
-          question.theme
-            ? question.theme
-            : "Checkup"
-        );
-
-      trackLabel.textContent =
-        activeTrack === "dryer"
-          ? "Dryer vent checkup"
-          : "Home exterior checkup";
-
-      renderDots();
+    // Only reachable once the form provider has accepted the submission.
+    function setCompletedProgress() {
+      setProgress(100, "Checkup sent");
     }
 
     function renderQuestion() {
-      const question =
-        activeQuestions[currentStep];
+      const route = routeState(answers).route;
+
+      if (currentStep > route.length - 1) {
+        currentStep = route.length - 1;
+      }
+
+      if (currentStep < 0) {
+        currentStep = 0;
+      }
+
+      const questionId = route[currentStep];
+
+      const question = QUESTIONS[questionId];
 
       if (!question) {
         return;
@@ -2914,8 +3038,8 @@
             document.createElement("button");
 
           const isActive =
-            answers[currentStep] ===
-            option;
+            answers[question.id] ===
+            option.id;
 
           button.type = "button";
 
@@ -2956,32 +3080,21 @@
           button.addEventListener(
             "click",
             function () {
-              answers[currentStep] =
-                option;
+              answers[question.id] =
+                option.id;
 
-              if (
-                currentStep === 0 &&
-                option.track
-              ) {
-                activeTrack =
-                  option.track;
+              // Choosing a different answer can move the customer onto a
+              // different route. Anything the old route asked that the new
+              // one does not is dropped here, so it can never reach the
+              // score, the recommendation, or the submitted message.
+              pruneAnswers(answers);
 
-                activeQuestions =
-                  option.track === "dryer"
-                    ? [startQuestion].concat(
-                        dryerQuestions
-                      )
-                    : [startQuestion].concat(
-                        gutterQuestions
-                      );
-
-                answers.length = 1;
-                answers[0] = option;
-              }
+              const nextRoute =
+                routeState(answers).route;
 
               if (
                 currentStep <
-                activeQuestions.length - 1
+                nextRoute.length - 1
               ) {
                 currentStep += 1;
 
@@ -3005,55 +3118,94 @@
       updateProgress();
     }
 
+    /**
+     * Sum the answers actually on the customer's route, then divide by the
+     * number of answers that carried any weight. Returns both figures so a
+     * recommendation can be audited from the submitted message.
+     */
     function getScores() {
-      const scores = {};
+      const totals = {};
 
       serviceOrder.forEach(
         function (serviceKey) {
-          scores[serviceKey] = 0;
+          totals[serviceKey] = 0;
         }
       );
 
-      answers.forEach(
-        function (answer) {
-          if (
-            !answer ||
-            !answer.scores
-          ) {
+      let scoredAnswers = 0;
+
+      computeRoute(answers).forEach(
+        function (questionId) {
+          const option = findOption(
+            QUESTIONS[questionId],
+            answers[questionId]
+          );
+
+          if (!option || !option.scores) {
             return;
           }
 
-          Object.keys(
-            answer.scores
-          ).forEach(
+          const serviceKeys =
+            Object.keys(option.scores);
+
+          if (!serviceKeys.length) {
+            return;
+          }
+
+          scoredAnswers += 1;
+
+          serviceKeys.forEach(
             function (serviceKey) {
-              scores[serviceKey] +=
-                answer.scores[
-                  serviceKey
-                ];
+              if (serviceKey in totals) {
+                totals[serviceKey] +=
+                  option.scores[serviceKey];
+              }
             }
           );
         }
       );
 
-      return scores;
+      const divisor = Math.max(1, scoredAnswers);
+      const normalised = {};
+
+      serviceOrder.forEach(
+        function (serviceKey) {
+          normalised[serviceKey] =
+            totals[serviceKey] / divisor;
+        }
+      );
+
+      return {
+        totals: totals,
+        normalised: normalised,
+        scoredAnswers: scoredAnswers
+      };
     }
 
-    function getRankedServiceKeys() {
-      const scores = getScores();
+    /**
+     * Rank the gutter services by normalised score. When the leaders are
+     * within AMBIGUITY_MARGIN of each other, or when barely any answer
+     * carried weight, the least-committal contender is promoted instead of
+     * asserting a precision the answers do not support.
+     */
+    function getRankedServiceKeys(scored) {
+      if (getActiveTrack() === "dryer") {
+        currentAmbiguous = false;
 
-      if (activeTrack === "dryer") {
         return ["dryer"];
       }
 
-      return serviceOrder
+      const result = scored || getScores();
+      const normalised = result.normalised;
+
+      const ranked = serviceOrder
         .filter(function (serviceKey) {
           return serviceKey !== "dryer";
         })
         .sort(function (first, second) {
           if (
-            scores[second] ===
-            scores[first]
+            normalised[second] ===
+            normalised[first]
           ) {
             return (
               serviceOrder.indexOf(first) -
@@ -3062,40 +3214,125 @@
           }
 
           return (
-            scores[second] -
-            scores[first]
+            normalised[second] -
+            normalised[first]
           );
         });
+
+      const top = normalised[ranked[0]];
+
+      const contenders = ranked.filter(
+        function (serviceKey) {
+          return (
+            normalised[serviceKey] > 0 &&
+            top - normalised[serviceKey] <=
+              AMBIGUITY_MARGIN
+          );
+        }
+      );
+
+      currentAmbiguous =
+        contenders.length > 1 ||
+        result.scoredAnswers < 2 ||
+        top <= 0;
+
+      if (contenders.length > 1) {
+        const conservative = contenders
+          .slice()
+          .sort(function (first, second) {
+            return (
+              CONSERVATIVE_ORDER.indexOf(first) -
+              CONSERVATIVE_ORDER.indexOf(second)
+            );
+          })[0];
+
+        return [conservative].concat(
+          ranked.filter(
+            function (serviceKey) {
+              return serviceKey !== conservative;
+            }
+          )
+        );
+      }
+
+      return ranked;
     }
 
+    /**
+     * Only the questions the customer was actually shown, each with the
+     * answer they chose. Questions the route skipped are absent entirely
+     * rather than reported as unanswered.
+     */
     function getAnswerSummary() {
-      return activeQuestions
-        .map(
-          function (
-            question,
-            index
-          ) {
-            const answer =
-              answers[index];
+      const lines = [];
 
-            return (
-              index +
-              1 +
-              ". " +
-              (
-                question.theme ||
-                question.title
-              ) +
-              ": " +
-              (
-                answer
-                  ? answer.title
-                  : "Not answered"
-              )
-            );
+      let number = 0;
+
+      computeRoute(answers).forEach(
+        function (questionId) {
+          const question = QUESTIONS[questionId];
+
+          const option = findOption(
+            question,
+            answers[questionId]
+          );
+
+          if (!question || !option) {
+            return;
           }
+
+          number += 1;
+
+          lines.push(
+            number +
+            ". " +
+            question.title
+          );
+
+          lines.push(
+            "   " +
+            (option.echo || option.title)
+          );
+        }
+      );
+
+      return lines.join("\n");
+    }
+
+    /** Which route the customer took, in the words they chose. */
+    function getRouteSummary() {
+      const startOption = findOption(
+        QUESTIONS[ENTRY_QUESTION_ID],
+        answers[ENTRY_QUESTION_ID]
+      );
+
+      const intentOption = findOption(
+        QUESTIONS.g_intent,
+        answers.g_intent
+      );
+
+      const lines = [
+        "Concern: " +
+        (
+          startOption
+            ? startOption.title
+            : "Not selected"
         )
-        .join("\n");
+      ];
+
+      if (intentOption) {
+        lines.push(
+          "What they want help with: " +
+          intentOption.title
+        );
+      }
+
+      lines.push(
+        "Questions asked: " +
+        computeRoute(answers).length
+      );
+
+      return lines.join("\n");
     }
 
     function preselectQuoteService(service) {
@@ -3162,6 +3399,9 @@
         "Phone: " + phone,
         "Address or Area: " + address,
         "",
+        "Checkup Route:",
+        getRouteSummary(),
+        "",
         "Best Starting Point:",
         currentBestService
           ? currentBestService.title
@@ -3170,9 +3410,14 @@
         "Also Worth Checking:",
         currentSecondService
           ? currentSecondService.title
-          : "None",
+          : "None indicated by the answers",
         "",
-        "Answers:",
+        "Confidence:",
+        currentAmbiguous
+          ? "Answers point in more than one direction. Confirm on site."
+          : "Answers point consistently in one direction.",
+        "",
+        "Questions Asked And Answered:",
         getAnswerSummary(),
         "",
         "Notes:",
@@ -3187,24 +3432,41 @@
     }
 
     function renderResult() {
+      const scored = getScores();
+
       const rankedKeys =
-        getRankedServiceKeys();
+        getRankedServiceKeys(scored);
 
-      const bestService =
-        services[rankedKeys[0]];
-
-      const secondService =
-        services[rankedKeys[1]];
+      const bestKey = rankedKeys[0];
+      const bestService = services[bestKey];
 
       if (!bestService) {
         return;
+      }
+
+      // A secondary is offered only when the answers genuinely support it,
+      // never merely because the panel has a line for one.
+      const secondKey = rankedKeys[1];
+
+      let secondService = null;
+
+      if (
+        secondKey &&
+        services[secondKey] &&
+        scored.normalised[bestKey] > 0 &&
+        scored.normalised[secondKey] > 0 &&
+        scored.normalised[secondKey] /
+          scored.normalised[bestKey] >=
+          SECONDARY_MIN_SHARE
+      ) {
+        secondService = services[secondKey];
       }
 
       currentBestService =
         bestService;
 
       currentSecondService =
-        secondService || null;
+        secondService;
 
       preselectQuoteService(
         bestService
@@ -3223,9 +3485,13 @@
         bestService.title;
 
       resultSummary.innerHTML =
-        'Based on your answers, the best starting point appears to be <span class="gc-result-service">' +
-        bestService.title +
-        "</span>. Add your contact details and any photos below. We’ll review everything before following up.";
+        currentAmbiguous
+          ? 'Your answers point in more than one direction, so the safest place to start looks like <span class="gc-result-service">' +
+            bestService.title +
+            "</span>. Add your contact details and any photos below. We\u2019ll confirm what\u2019s actually needed before any work begins."
+          : 'Based on your answers, the best starting point appears to be <span class="gc-result-service">' +
+            bestService.title +
+            "</span>. Add your contact details and any photos below. We\u2019ll review everything before following up.";
 
       reviewList.innerHTML = "";
 
@@ -3268,11 +3534,23 @@
         nextItem
       );
 
+      if (currentAmbiguous) {
+        const confirmItem =
+          document.createElement("li");
+
+        confirmItem.textContent =
+          "This is a starting point, not a diagnosis. We\u2019ll confirm it on site.";
+
+        reviewList.appendChild(
+          confirmItem
+        );
+      }
+
       const photoItem =
         document.createElement("li");
 
       photoItem.textContent =
-        "Your answers, notes, and photos will help us understand what you’re seeing.";
+        "Your answers, notes, and photos will help us understand what you\u2019re seeing.";
 
       reviewList.appendChild(
         photoItem
@@ -3293,24 +3571,25 @@
         "gc-tool--report"
       );
 
-      resultPanel.scrollIntoView({
-        behavior: scrollBehaviour(),
-        block: "start"
-      });
+      setFinalStepProgress();
+
+      scrollCheckupIntoView(checkup);
     }
 
     function resetCheckup() {
       currentStep = 0;
-      activeTrack = null;
 
-      activeQuestions = [
-        startQuestion
-      ];
-
-      answers.length = 0;
+      // Route state is derived entirely from the answers, so clearing them
+      // clears the route as well.
+      Object.keys(answers).forEach(
+        function (questionId) {
+          delete answers[questionId];
+        }
+      );
 
       currentBestService = null;
       currentSecondService = null;
+      currentAmbiguous = false;
 
       resultPanel.hidden = true;
       checkupForm.hidden = true;
@@ -3351,6 +3630,8 @@
 
       questionPanel.hidden = true;
       resultPanel.hidden = false;
+
+      setCompletedProgress();
 
       resultPanel.innerHTML = `
         <div class="gc-result-ready">
@@ -3402,17 +3683,13 @@
           return;
         }
 
-        if (currentStep === 1) {
-          activeTrack = null;
-
-          activeQuestions = [
-            startQuestion
-          ];
-
-          answers.length = 1;
-        }
-
         currentStep -= 1;
+
+        // Stepping back can leave answers behind that the shortened route
+        // no longer contains. Drop them before anything reads the route
+        // again, so progress, scoring, and the submitted message are all
+        // recalculated from what is still on the route.
+        pruneAnswers(answers);
 
         renderQuestion();
         updateProgress();

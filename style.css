@@ -1304,7 +1304,7 @@ h2 {
 
 .gc-kicker i { color: var(--accent); }
 
-.gc-tool { background: #ffffff; border: 1px solid rgba(30, 60, 114, 0.08); border-radius: 30px; overflow: hidden; box-shadow: 0 24px 70px rgba(30, 60, 114, 0.13); animation: gcExpandIn 0.35s ease; max-width: 900px; margin: 0 auto; }
+.gc-tool { scroll-margin-top: 96px; background: #ffffff; border: 1px solid rgba(30, 60, 114, 0.08); border-radius: 30px; overflow: hidden; box-shadow: 0 24px 70px rgba(30, 60, 114, 0.13); animation: gcExpandIn 0.35s ease; max-width: 900px; margin: 0 auto; }
 
 .gc-tool[hidden] { display: none; }
 
@@ -1314,27 +1314,17 @@ h2 {
 
 @keyframes gcExpandIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
-.gc-question-panel { padding: 38px; background: #ffffff; }
+.gc-question-panel { padding: 28px 38px 38px; background: #ffffff; }
 
 .gc-question-panel[hidden] { display: none; }
 
-.gc-progress-wrap { margin-bottom: 28px; }
+.gc-progress-wrap { padding: 26px 38px 0; margin-bottom: 0; background: #ffffff; }
 
-.gc-progress-top { display: flex; align-items: center; justify-content: space-between; gap: 15px; color: var(--primary-dark); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 12px; }
-
-.gc-progress-top span:last-child { color: var(--accent-dark); }
+.gc-progress-top { display: flex; align-items: center; justify-content: flex-start; gap: 15px; color: var(--primary-dark); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 12px; }
 
 .gc-progress { height: 10px; background: rgba(30, 60, 114, 0.08); border-radius: 999px; overflow: hidden; }
 
 .gc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent-dark)); border-radius: inherit; transition: width 0.35s ease; }
-
-.gc-step-dots { display: flex; gap: 8px; margin-top: 12px; }
-
-.gc-step-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(30, 60, 114, 0.16); transition: transform 0.25s ease, background 0.25s ease; }
-
-.gc-step-dot.active { background: var(--primary); transform: scale(1.25); }
-
-.gc-step-dot.complete { background: var(--accent); }
 
 .gc-question-copy h3 { font-size: clamp(1.7rem, 3vw, 2.35rem); line-height: 1.12; color: var(--primary-dark); margin-bottom: 10px; }
 
@@ -1827,3 +1817,77 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, summary:focus-v
 
     .service-detail-image.brand-media i { width: 84px; height: 84px; border-radius: 26px; font-size: 38px; }
 }
+
+
+/* ============================================================
+   CHECKUP PROGRESS + MOBILE REFINEMENT
+   One honest progress treatment spanning the question panel and
+   the final contact step, and a quieter Start Over on phones.
+   ============================================================ */
+
+.gc-progress-wrap + .gc-result-panel { border-top: 1px solid rgba(30, 60, 114, 0.08); }
+
+.gc-nav .gc-secondary-btn#gcReset { margin-left: auto; }
+
+@media screen and (max-width: 767.98px) {
+    .gc-tool { scroll-margin-top: 84px; }
+
+    .gc-progress-wrap { padding: 20px 20px 0; }
+
+    /* Back stays the primary navigation control. Start Over drops to a
+       quiet text action so it no longer reads as a second main button.
+       Overrides the earlier mobile rule that stacked both controls
+       full-width, which made them look equally important. */
+    .gc-nav {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+
+    .gc-nav .gc-secondary-btn {
+        width: auto;
+        flex: 0 0 auto;
+    }
+
+    .gc-nav .gc-secondary-btn#gcReset {
+        background: none;
+        border-color: transparent;
+        color: var(--gray);
+        font-weight: 600;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        padding: 10px 6px;
+        min-height: 44px;
+    }
+
+    .gc-nav .gc-secondary-btn#gcReset:hover:not(:disabled),
+    .gc-nav .gc-secondary-btn#gcReset:focus-visible:not(:disabled) {
+        background: none;
+        border-color: transparent;
+        color: var(--primary-dark);
+        transform: none;
+    }
+}
+
+/* ---------------------------------------------------------------
+   Homepage service grid and drainage spotlight.
+   Scoped to #services-overview / #drainage-overview so the shared
+   .service-card, .grid and .btn rules used by services.html and the
+   dedicated service pages are left exactly as they are.
+   --------------------------------------------------------------- */
+
+#services-overview .service-card { display: flex; flex-direction: column; }
+
+#services-overview .service-content { flex: 1; display: flex; flex-direction: column; }
+
+/* Copy lengths differ slightly between services, so the CTA is pushed to a
+   common baseline instead of floating under the shortest paragraph. */
+#services-overview .service-content .service-btn { margin-top: auto; align-self: flex-start; }
+
+#drainage-overview .drainage-symptoms { list-style: none; margin: 0 auto 30px; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 900px; }
+
+#drainage-overview .drainage-symptoms li { display: inline-flex; align-items: center; gap: 10px; background: var(--light); border: 1px solid rgba(30, 60, 114, 0.10); border-radius: 999px; padding: 11px 18px; color: var(--primary-dark); font-weight: 600; font-size: 0.95rem; line-height: 1.4; }
+
+#drainage-overview .drainage-symptoms i { color: var(--accent); }
