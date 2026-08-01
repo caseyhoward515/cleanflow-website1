@@ -1710,7 +1710,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, summary:focus-v
 /* ============================================================
    REDUCED MOTION
    Honour prefers-reduced-motion across pulsing CTAs, the
-   floating controls, hero CTAs, carousel, checkup, and AOS.
+   floating controls, hero CTAs, carousel, checkup, and reveals.
    Content and usability are preserved; only motion is removed.
    ============================================================ */
 
@@ -1743,14 +1743,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, summary:focus-v
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
-    }
-
-    /* Safety net: keep AOS-managed content visible even if the
-       script never runs to strip the attributes. */
-    [data-aos] {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
     }
 }
 
@@ -1891,3 +1883,95 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, summary:focus-v
 #drainage-overview .drainage-symptoms li { display: inline-flex; align-items: center; gap: 10px; background: var(--light); border: 1px solid rgba(30, 60, 114, 0.10); border-radius: 999px; padding: 11px 18px; color: var(--primary-dark); font-weight: 600; font-size: 0.95rem; line-height: 1.4; }
 
 #drainage-overview .drainage-symptoms i { color: var(--accent); }
+
+/* ============================================================
+   SCROLL REVEAL
+   Fail-open by construction.
+
+   ".reveal" only marks an element as eligible. It sets no
+   properties at all, so eligible content is visible as soon as
+   this stylesheet parses and stays visible if the script is
+   blocked, throws, arrives late, or never runs.
+
+   ".reveal-pending" is the only class that hides anything, and
+   script.js adds it exclusively to elements it has already
+   validated, measured and registered. ".is-in" completes the
+   transition; the script then removes ".reveal-pending" so no
+   reveal-imposed transform, transition or will-change survives
+   to interfere with hover states or compositing.
+   ============================================================ */
+
+.reveal-pending {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition:
+        opacity 560ms cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform 560ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-pending.is-in {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+/* Alternating entrance, desktop only, non-interactive media
+   panels only. Below 992px these fall back to the vertical
+   entrance above so nothing ever travels horizontally on a
+   touch device. */
+@media (min-width: 992px) {
+
+    .reveal-pending.reveal-from-left {
+        transform: translate3d(-28px, 0, 0);
+    }
+
+    .reveal-pending.reveal-from-right {
+        transform: translate3d(28px, 0, 0);
+    }
+
+    .reveal-pending.reveal-from-left.is-in,
+    .reveal-pending.reveal-from-right.is-in {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Shorter travel on small screens. */
+@media (max-width: 767.98px) {
+
+    .reveal-pending {
+        transform: translate3d(0, 10px, 0);
+    }
+
+    .reveal-pending.is-in {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Second safety net. The script already refuses to hide anything
+   when reduced motion is active, and stands down if the
+   preference changes at runtime. */
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal,
+    .reveal-pending,
+    .reveal-pending.is-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        will-change: auto !important;
+    }
+}
+
+/* Printing must never lose content. */
+@media print {
+
+    .reveal,
+    .reveal-pending,
+    .reveal-pending.is-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+        will-change: auto !important;
+    }
+}

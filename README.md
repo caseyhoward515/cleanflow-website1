@@ -112,7 +112,7 @@ page only wires up the components it actually contains.
 | Review carousel | Auto-advancing with pause control, dot navigation with `aria-current`, and reduced-motion handling. |
 | Accordions | Semantic buttons with `aria-expanded` and `aria-controls`. |
 | Seasonal tabs | Full `tablist` / `tab` / `tabpanel` pattern with arrow, Home, and End key navigation. |
-| Reduced motion | When `prefers-reduced-motion: reduce` is set, infinite pulses stop, transitions are neutralised, and AOS attributes are stripped so content stays visible without animating. |
+| Reduced motion | When `prefers-reduced-motion: reduce` is set, infinite pulses stop, transitions are neutralised, and the scroll-reveal system never hides anything, so content stays visible without animating. |
 
 ---
 
@@ -126,13 +126,18 @@ the corresponding part of the page degrades.
 | --- | --- | --- | --- |
 | Poppins | `fonts.googleapis.com` / `fonts.gstatic.com` | Site typeface | Falls back to the system sans-serif |
 | Font Awesome Free 6.4.0 | `cdn.jsdelivr.net` | All icons, including the CSS pseudo-element glyphs | Icons do not render |
-| AOS 2.3.4 | `cdn.jsdelivr.net` | Scroll-reveal animations | Handled: `initAOS` strips `data-aos` when reduced motion is requested, and the reduced-motion stylesheet keeps `[data-aos]` content visible |
 | Formspree | `formspree.io` | Quote form and CleanFlow Checkup submissions | Form submissions fail; the phone and text fallback is always shown |
 | — | — | Imagery is **not** an external dependency. Every image is tracked in `assets/`, or drawn with CSS. See [`assets/README.md`](assets/README.md). | — |
 
-Both CDN dependencies are version-pinned. Icons still come from the Font
-Awesome CDN; bringing them in-repo is not yet done. **Imagery is already
-local** — the site references no external image host.
+Scroll reveals are no longer an external dependency. They are handled by
+`initReveal` in `script.js` and the `.reveal` / `.reveal-pending` / `.is-in`
+rules in `style.css`: `.reveal` applies no styling, so eligible content is
+visible the moment the stylesheet parses and stays visible if the script is
+blocked, throws, or never runs.
+
+Icons still come from the version-pinned Font Awesome CDN; bringing them
+in-repo is not yet done. **Imagery is already local** — the site references
+no external image host.
 
 There is no analytics, tag manager, or tracking script on the site.
 

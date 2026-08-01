@@ -473,27 +473,525 @@
     );
   }
 
-  function initAOS() {
-    if (prefersReducedMotion()) {
-      document
-        .querySelectorAll("[data-aos]")
-        .forEach(function (element) {
-          element.removeAttribute("data-aos");
-          element.removeAttribute("data-aos-delay");
-          element.removeAttribute("data-aos-duration");
+  /* ----------------------------------------------------------------
+     Scroll reveal.
+
+     Fail-open by construction. ".reveal" only marks an element as
+     eligible and carries no styling, so eligible content is visible
+     the moment the stylesheet parses. The hiding class,
+     ".reveal-pending", is added by this function alone, and only
+     after reduced motion has been ruled out, IntersectionObserver
+     has been confirmed, the observer has been built, every candidate
+     has passed the safety gate, and the element has been registered.
+     Anything that throws, or any browser that cannot take part,
+     leaves the page exactly as the stylesheet rendered it.
+     ---------------------------------------------------------------- */
+
+  const REVEAL_DURATION_MS = 560;
+  const REVEAL_STAGGER_MS = 60;
+  const REVEAL_STAGGER_MAX_STEP = 2;
+  const REVEAL_PRE_REVEAL_MIN_PX = 120;
+  const REVEAL_PRE_REVEAL_VH = 0.15;
+
+  const REVEAL_INTERACTIVE =
+    'a, button, input, select, textarea, summary, form,' +
+    ' dialog, [tabindex], [contenteditable], [role="button"],' +
+    ' [aria-live], [role="alert"]';
+
+  const REVEAL_PROTECTED =
+    'header, nav, form, #gutter-checkup, #calculator,' +
+    ' .accordion, .season-tabs, .season-content, .review-carousel';
+
+  let revealRegister = null;
+
+  function initReveal() {
+    const observerOptions = {
+      threshold: 0.05,
+      rootMargin: "0px 0px -8% 0px"
+    };
+
+    let observer = null;
+    let pending = [];
+    let disabled = false;
+
+    /* Strip every trace of the pending state so the element is left
+       in the same condition the stylesheet alone would produce. */
+    function release(element) {
+      element.classList.remove("reveal-pending");
+      element.style.transitionDelay = "";
+      element.style.transitionProperty = "";
+      element.style.willChange = "";
+    }
+
+    function releaseAll() {
+      const stale = pending;
+      pending = [];
+
+      stale.forEach(function (element) {
+        release(element);
+      });
+    }
+
+    /* Used by every failure path: stop observing, show everything
+       that is still hidden, and never hide anything again. */
+    function standDown() {
+      disabled = true;
+
+      if (observer) {
+        try {
+          observer.disconnect();
+        } catch (error) {
+          /* A disconnect failure must not block the reveal below. */
+        }
+
+        observer = null;
+      }
+
+      releaseAll();
+    }
+
+    function isSafeCandidate(element) {
+      if (!element || element.nodeType !== 1) {
+        return false;
+      }
+
+      if (
+        typeof element.matches !== "function" ||
+        typeof element.closest !== "function" ||
+        typeof element.querySelector !== "function"
+      ) {
+        return false;
+      }
+
+      if (element.tagName === "H1") {
+        return false;
+      }
+
+      if (element.matches(REVEAL_INTERACTIVE)) {
+        return false;
+      }
+
+      if (element.querySelector(REVEAL_INTERACTIVE)) {
+        return false;
+      }
+
+      if (element.closest(REVEAL_PROTECTED)) {
+        return false;
+      }
+
+      return true;
+    }
+
+    function delayOf(element) {
+      const raw = element.style.transitionDelay;
+
+      if (!raw) {
+        return 0;
+      }
+
+      const value = parseFloat(raw);
+
+      if (isNaN(value)) {
+        return 0;
+      }
+
+      return raw.indexOf("ms") === -1 ? value * 1000 : value;
+    }
+
+    function forget(element) {
+      const index = pending.indexOf(element);
+
+      if (index !== -1) {
+        pending.splice(index, 1);
+      }
+
+      if (observer) {
+        try {
+          observer.unobserve(element);
+        } catch (error) {
+          /* Nothing further is required; the element is revealed. */
+        }
+      }
+    }
+
+    function reveal(element, immediate) {
+      forget(element);
+
+      if (!element.classList.contains("reveal-pending")) {
+        return;
+      }
+
+      if (immediate) {
+        element.style.transitionDelay = "0s";
+      }
+
+      element.classList.add("is-in");
+
+      let settled = false;
+
+      function settle() {
+        if (settled) {
+          return;
+        }
+
+        settled = true;
+        element.removeEventListener("transitionend", settle);
+        release(element);
+      }
+
+      element.addEventListener("transitionend", settle);
+
+      window.setTimeout(
+        settle,
+        REVEAL_DURATION_MS + delayOf(element) + 120
+      );
+    }
+
+    /* Row-aware stagger. Elements are grouped by their parent and
+       then by their measured top edge, so every grid row restarts at
+       zero no matter how many columns the layout resolved to. */
+    function assignStagger() {
+      if (!pending.length) {
+        return;
+      }
+
+      const compact =
+        typeof window.matchMedia === "function" &&
+        window.matchMedia("(max-width: 767.98px)").matches;
+
+      if (compact) {
+        pending.forEach(function (element) {
+          element.style.transitionDelay = "";
         });
 
+        return;
+      }
+
+      const groups = [];
+
+      pending.forEach(function (element) {
+        const parent = element.parentElement;
+        let group = null;
+
+        for (let i = 0; i < groups.length; i += 1) {
+          if (groups[i].parent === parent) {
+            group = groups[i];
+            break;
+          }
+        }
+
+        if (!group) {
+          group = { parent: parent, items: [] };
+          groups.push(group);
+        }
+
+        group.items.push(element);
+      });
+
+      groups.forEach(function (group) {
+        if (group.items.length < 2) {
+          group.items[0].style.transitionDelay = "";
+          return;
+        }
+
+        let rowTop = null;
+        let column = 0;
+
+        group.items.forEach(function (element) {
+          const top = Math.round(
+            element.getBoundingClientRect().top
+          );
+
+          if (rowTop === null || Math.abs(top - rowTop) > 4) {
+            rowTop = top;
+            column = 0;
+          } else {
+            column += 1;
+          }
+
+          element.style.transitionDelay =
+            Math.min(column, REVEAL_STAGGER_MAX_STEP) *
+              REVEAL_STAGGER_MS +
+            "ms";
+        });
+      });
+    }
+
+    function preRevealMargin() {
+      return Math.max(
+        REVEAL_PRE_REVEAL_MIN_PX,
+        window.innerHeight * REVEAL_PRE_REVEAL_VH
+      );
+    }
+
+    /* Only elements comfortably below the fold are ever hidden. */
+    function isFarBelowFold(element) {
+      return (
+        element.getBoundingClientRect().top >
+        window.innerHeight + preRevealMargin()
+      );
+    }
+
+    /* transitionProperty is suppressed rather than the transition
+       shorthand, because clearing the shorthand would also clear the
+       staggered transition-delay assigned above. */
+    function hide(elements) {
+      elements.forEach(function (element) {
+        element.style.transitionProperty = "none";
+        element.classList.add("reveal-pending");
+      });
+
+      /* One forced reflow so the elements never animate *out*. */
+      void document.body.offsetHeight;
+
+      elements.forEach(function (element) {
+        element.style.transitionProperty = "";
+      });
+    }
+
+    function register(elements) {
+      if (disabled) {
+        return;
+      }
+
+      const safe = elements.filter(function (element) {
+        return isSafeCandidate(element) && isFarBelowFold(element);
+      });
+
+      if (!safe.length) {
+        return;
+      }
+
+      if (!observer) {
+        try {
+          observer = new window.IntersectionObserver(
+            onIntersect,
+            observerOptions
+          );
+        } catch (error) {
+          return;
+        }
+      }
+
+      pending = pending.concat(safe);
+      assignStagger();
+      hide(safe);
+
+      safe.forEach(function (element) {
+        observer.observe(element);
+      });
+    }
+
+    function onIntersect(entries) {
+      try {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            reveal(entry.target, false);
+          }
+        });
+
+        if (!pending.length && observer) {
+          observer.disconnect();
+          observer = null;
+        }
+      } catch (error) {
+        /* The callback protects itself: everything still hidden is
+           revealed rather than left stranded. */
+        standDown();
+      }
+    }
+
+    /* Reveal an element and every pending ancestor immediately, with
+       no stagger delay, so focus and navigation never land inside
+       content that is still transitioning in. */
+    function revealChain(node) {
+      let element = node;
+
+      if (element && element.nodeType !== 1) {
+        element = element.parentElement;
+      }
+
+      while (element) {
+        if (
+          element.classList &&
+          element.classList.contains("reveal-pending")
+        ) {
+          reveal(element, true);
+        }
+
+        element = element.parentElement;
+      }
+    }
+
+    function revealHashTarget() {
+      const hash = window.location.hash;
+
+      if (!hash || hash.length < 2) {
+        return;
+      }
+
+      let target = null;
+
+      try {
+        target = document.getElementById(hash.slice(1));
+      } catch (error) {
+        target = null;
+      }
+
+      if (target) {
+        revealChain(target);
+      }
+    }
+
+    /* Anything already inside the viewport is revealed at once.
+       Covers resize, orientation change and bfcache restores. */
+    function sweep() {
+      pending.slice().forEach(function (element) {
+        const rect = element.getBoundingClientRect();
+
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          reveal(element, true);
+        }
+      });
+    }
+
+    function bindRuntimeHandlers() {
+      let resizeTimer = null;
+
+      function onResize() {
+        window.clearTimeout(resizeTimer);
+
+        resizeTimer = window.setTimeout(function () {
+          if (disabled) {
+            return;
+          }
+
+          assignStagger();
+          sweep();
+        }, 150);
+      }
+
+      window.addEventListener("resize", onResize);
+      window.addEventListener("orientationchange", onResize);
+
+      document.addEventListener(
+        "focusin",
+        function (event) {
+          revealChain(event.target);
+        },
+        true
+      );
+
+      window.addEventListener("hashchange", revealHashTarget);
+      window.addEventListener("popstate", revealHashTarget);
+
+      window.addEventListener("pageshow", function () {
+        sweep();
+        revealHashTarget();
+      });
+
+      if (typeof window.matchMedia === "function") {
+        const query = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        );
+
+        const onMotionPreference = function () {
+          if (query.matches) {
+            standDown();
+          }
+        };
+
+        if (typeof query.addEventListener === "function") {
+          query.addEventListener("change", onMotionPreference);
+        } else if (typeof query.addListener === "function") {
+          query.addListener(onMotionPreference);
+        }
+      }
+
+      window.addEventListener("beforeprint", function () {
+        releaseAll();
+      });
+    }
+
+    try {
+      /* 1-2. Reduced motion wins outright; nothing is ever hidden. */
+      if (prefersReducedMotion()) {
+        return;
+      }
+
+      /* 3. No IntersectionObserver means no motion, not no content. */
+      if (typeof window.IntersectionObserver !== "function") {
+        return;
+      }
+
+      /* 4. Collect candidates. */
+      const candidates = Array.prototype.slice.call(
+        document.querySelectorAll(".reveal")
+      );
+
+      if (!candidates.length) {
+        return;
+      }
+
+      /* 5. Reject anything focusable or containing interactive,
+            live, or critical content. */
+      const safe = candidates.filter(isSafeCandidate);
+
+      if (!safe.length) {
+        return;
+      }
+
+      /* 6. Build the observer before anything is hidden. */
+      observer = new window.IntersectionObserver(
+        onIntersect,
+        observerOptions
+      );
+
+      /* 7-8. Measure while everything is still visible; anything in
+              or near the viewport is simply left alone. */
+      const offscreen = safe.filter(isFarBelowFold);
+
+      if (!offscreen.length) {
+        observer.disconnect();
+        observer = null;
+        return;
+      }
+
+      /* 9-10. Register first, then hide. */
+      pending = offscreen.slice();
+      assignStagger();
+      hide(offscreen);
+
+      /* 11. Observe. */
+      offscreen.forEach(function (element) {
+        observer.observe(element);
+      });
+
+      /* 12. Elements that were skipped keep no class at all and stay
+             permanently visible. */
+      bindRuntimeHandlers();
+      revealHashTarget();
+
+      revealRegister = register;
+    } catch (error) {
+      standDown();
+    }
+  }
+
+  /* Explicit opt-in for content added after load. Dynamically
+     inserted ".reveal" elements are never hidden automatically. */
+  function registerRevealElements(nodes) {
+    if (typeof revealRegister !== "function" || !nodes) {
       return;
     }
 
-    if (window.AOS) {
-      window.AOS.init({
-        duration: 800,
-        once: true,
-        offset: 80
-      });
-    }
+    const list =
+      typeof nodes.length === "number" ? nodes : [nodes];
+
+    revealRegister(Array.prototype.slice.call(list));
   }
+
+  window.cleanflowRegisterReveal = registerRevealElements;
 
   function initMobileMenu() {
     const menuToggle =
@@ -3769,7 +4267,7 @@
     "DOMContentLoaded",
     function () {
       ensureSitewideServiceWheel();
-      initAOS();
+      initReveal();
       initMobileMenu();
       initRadialMenu();
       initCalculator();
