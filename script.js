@@ -503,8 +503,17 @@
     ' .accordion, .season-tabs, .season-content, .review-carousel';
 
   let revealRegister = null;
+  let revealInitialised = false;
 
   function initReveal() {
+    /* Idempotent. A second call must not build a second observer or
+       bind a second copy of the runtime handlers. */
+    if (revealInitialised) {
+      return;
+    }
+
+    revealInitialised = true;
+
     const observerOptions = {
       threshold: 0.05,
       rootMargin: "0px 0px -8% 0px"
@@ -629,9 +638,26 @@
 
       let settled = false;
 
-      function settle() {
+      /* Called both as a transitionend listener and by the timeout
+         fallback. Transitions inside the revealed content bubble up
+         to this element, so only this element's own opacity and
+         transform transitions may settle it. */
+      function settle(event) {
         if (settled) {
           return;
+        }
+
+        if (event && event.type === "transitionend") {
+          if (event.target !== element) {
+            return;
+          }
+
+          if (
+            event.propertyName !== "opacity" &&
+            event.propertyName !== "transform"
+          ) {
+            return;
+          }
         }
 
         settled = true;
@@ -641,10 +667,9 @@
 
       element.addEventListener("transitionend", settle);
 
-      window.setTimeout(
-        settle,
-        REVEAL_DURATION_MS + delayOf(element) + 120
-      );
+      window.setTimeout(function () {
+        settle();
+      }, REVEAL_DURATION_MS + delayOf(element) + 120);
     }
 
     /* Row-aware stagger. Elements are grouped by their parent and
@@ -749,37 +774,80 @@
       });
     }
 
+    /* Dynamic registration, fail-open like the initial pass.
+       Candidates are deduplicated and filtered, then observed in
+       full before anything is hidden, so a throw at any point can
+       only leave content visible. */
     function register(elements) {
       if (disabled) {
         return;
       }
 
-      const safe = elements.filter(function (element) {
-        return isSafeCandidate(element) && isFarBelowFold(element);
-      });
+      const observed = [];
 
-      if (!safe.length) {
-        return;
-      }
+      try {
+        const safe = [];
 
-      if (!observer) {
-        try {
+        elements.forEach(function (element) {
+          if (!element || element.nodeType !== 1 || !element.classList) {
+            return;
+          }
+
+          /* Already pending, already revealed, already registered,
+             or a duplicate within this same call. */
+          if (
+            element.classList.contains("reveal-pending") ||
+            element.classList.contains("is-in") ||
+            pending.indexOf(element) !== -1 ||
+            safe.indexOf(element) !== -1
+          ) {
+            return;
+          }
+
+          if (!isSafeCandidate(element) || !isFarBelowFold(element)) {
+            return;
+          }
+
+          safe.push(element);
+        });
+
+        if (!safe.length) {
+          return;
+        }
+
+        if (!observer) {
           observer = new window.IntersectionObserver(
             onIntersect,
             observerOptions
           );
-        } catch (error) {
-          return;
         }
+
+        /* Observe first. Nothing is hidden until every candidate in
+           this batch is known to be registered. */
+        safe.forEach(function (element) {
+          observer.observe(element);
+          observed.push(element);
+        });
+
+        pending = pending.concat(safe);
+        assignStagger();
+        hide(safe);
+      } catch (error) {
+        /* Undo the registrations made by this attempt, then fall
+           back to the shared fail-open cleanup, which reveals
+           everything still pending and stops hiding for good. */
+        if (observer) {
+          observed.forEach(function (element) {
+            try {
+              observer.unobserve(element);
+            } catch (unobserveError) {
+              /* The element is about to be revealed regardless. */
+            }
+          });
+        }
+
+        standDown();
       }
-
-      pending = pending.concat(safe);
-      assignStagger();
-      hide(safe);
-
-      safe.forEach(function (element) {
-        observer.observe(element);
-      });
     }
 
     function onIntersect(entries) {
