@@ -473,25 +473,68 @@
     );
   }
 
+  const AOS_ATTRIBUTES = [
+    "data-aos",
+    "data-aos-delay",
+    "data-aos-duration",
+    "data-aos-easing",
+    "data-aos-offset",
+    "data-aos-anchor",
+    "data-aos-anchor-placement",
+    "data-aos-once",
+    "data-aos-mirror"
+  ];
+
+  const AOS_CLASSES = ["aos-init", "aos-animate"];
+
+  function revealAOSElements() {
+    const selector = AOS_ATTRIBUTES.map(function (attribute) {
+      return "[" + attribute + "]";
+    })
+      .concat(
+        AOS_CLASSES.map(function (className) {
+          return "." + className;
+        })
+      )
+      .join(",");
+
+    document
+      .querySelectorAll(selector)
+      .forEach(function (element) {
+        AOS_ATTRIBUTES.forEach(function (attribute) {
+          element.removeAttribute(attribute);
+        });
+
+        AOS_CLASSES.forEach(function (className) {
+          element.classList.remove(className);
+        });
+      });
+  }
+
   function initAOS() {
     if (prefersReducedMotion()) {
-      document
-        .querySelectorAll("[data-aos]")
-        .forEach(function (element) {
-          element.removeAttribute("data-aos");
-          element.removeAttribute("data-aos-delay");
-          element.removeAttribute("data-aos-duration");
-        });
+      revealAOSElements();
 
       return;
     }
 
-    if (window.AOS) {
+    if (
+      !window.AOS ||
+      typeof window.AOS.init !== "function"
+    ) {
+      revealAOSElements();
+
+      return;
+    }
+
+    try {
       window.AOS.init({
         duration: 800,
         once: true,
         offset: 80
       });
+    } catch (error) {
+      revealAOSElements();
     }
   }
 
