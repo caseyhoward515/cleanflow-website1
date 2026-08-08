@@ -489,19 +489,19 @@
           <div class="gi-review-stage" id="giReviewStage">
             <article class="gi-review-card active">
               <div class="gi-review-stars" aria-hidden="true">★★★★★</div>
-              <blockquote>“I could not be more happy and satisfied with the work, communication and price that CleanFlow delivered. Casey was friendly and helpful from our initial conversation. Arrived at my property on time the following day. Cleaned gutters and downspouts. Provided photos of his work. Just top notch all around. 10/10 highly recommend!”</blockquote>
+              <blockquote>“I could not be more happy and satisfied with the work, communication and price that CleanFlow delivered... Just top notch all around.”</blockquote>
               <div class="gi-review-meta"><strong>Brian Stokes</strong><span>Gutter service · Google Review</span></div>
             </article>
 
             <article class="gi-review-card">
               <div class="gi-review-stars" aria-hidden="true">★★★★★</div>
-              <blockquote>“Great professional cleaning — fair quote and readily available versus the competition. Gutters were filled to the brim with debris and not fully secure in some places. CleanFlow went out of their way to get gutter brackets in order to resecure gutters to fascia board. Nice to have peace of mind knowing my gutters are clean and ready for the next storm!”</blockquote>
+              <blockquote>“CleanFlow went out of their way to get gutter brackets in order to resecure gutters to fascia board.”</blockquote>
               <div class="gi-review-meta"><strong>Andrew Greenspan</strong><span>Gutter cleaning &amp; repairs · Google Review</span></div>
             </article>
 
             <article class="gi-review-card">
               <div class="gi-review-stars" aria-hidden="true">★★★★★</div>
-              <blockquote>“The crew did a fantastic job. We had gutters clogged and drainage issues. They built a French drain system with additional drains to move the water and it works great. I highly recommend CleanFlow of Ohio for your rain water drainage issues.”</blockquote>
+              <blockquote>“The crew did a fantastic job. We had gutters clogged and drainage issues... I highly recommend CleanFlow of Ohio.”</blockquote>
               <div class="gi-review-meta"><strong>Mike Miller</strong><span>Gutters &amp; drainage · Google Review</span></div>
             </article>
           </div>
@@ -618,7 +618,7 @@
     dock.className = "gi-mobile-dock";
     dock.setAttribute("aria-label", "Quick contact options");
     dock.innerHTML = `
-      <a class="gi-mobile-call" href="tel:${PHONE}"><i class="fas fa-phone-alt" aria-hidden="true"></i> Call / Text</a>
+      <a class="gi-mobile-call" href="tel:${PHONE}"><i class="fas fa-phone-alt" aria-hidden="true"></i> Call</a>
       <a class="gi-mobile-estimate gi-scroll-quote" href="#gutter-quote"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Free Estimate</a>
     `;
     document.body.appendChild(dock);
