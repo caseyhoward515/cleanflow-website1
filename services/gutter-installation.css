@@ -1,0 +1,590 @@
+/* Seamless gutter installation page only. Keep all selectors scoped. */
+.gutter-install-page .gi-section-intro {
+  max-width: 820px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.gutter-install-page .gi-section-intro h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gutter-install-page .gi-section-intro h2:after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gutter-install-page .gi-section-intro p {
+  color: var(--gray);
+  font-size: 1.08rem;
+}
+
+.gutter-install-page .gi-premium-grid,
+.gutter-install-page .gi-roof-grid,
+.gutter-install-page .gi-no-grid,
+.gutter-install-page .gi-process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.gutter-install-page .gi-premium-card,
+.gutter-install-page .gi-roof-card,
+.gutter-install-page .gi-no-card,
+.gutter-install-page .gi-process-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid rgba(30, 60, 114, 0.1);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 14px 34px rgba(30, 60, 114, 0.08);
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.gutter-install-page .gi-premium-card:hover,
+.gutter-install-page .gi-roof-card:hover,
+.gutter-install-page .gi-no-card:hover,
+.gutter-install-page .gi-process-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 22px 46px rgba(30, 60, 114, 0.14);
+  border-color: rgba(243, 156, 18, 0.45);
+}
+
+.gutter-install-page .gi-card-icon {
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: rgba(44, 90, 160, 0.09);
+  color: var(--primary);
+  font-size: 1.45rem;
+  margin-bottom: 18px;
+}
+
+.gutter-install-page .gi-premium-card h3,
+.gutter-install-page .gi-roof-card h3,
+.gutter-install-page .gi-no-card h3,
+.gutter-install-page .gi-process-card h3 {
+  font-size: 1.22rem;
+  margin-bottom: 10px;
+}
+
+.gutter-install-page .gi-premium-card p,
+.gutter-install-page .gi-roof-card p,
+.gutter-install-page .gi-no-card p,
+.gutter-install-page .gi-process-card p {
+  color: #4f5965;
+  font-size: 0.98rem;
+  margin-bottom: 0;
+}
+
+.gutter-install-page .gi-comparison-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  max-width: 1000px;
+  margin: 38px auto 0;
+}
+
+.gutter-install-page .gi-size-card {
+  position: relative;
+  padding: 34px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: white;
+  overflow: hidden;
+}
+
+.gutter-install-page .gi-size-card--preferred {
+  border: 2px solid rgba(243, 156, 18, 0.85);
+  background: linear-gradient(145deg, rgba(243, 156, 18, 0.16), rgba(255,255,255,0.08));
+  box-shadow: 0 22px 55px rgba(0,0,0,0.2);
+}
+
+.gutter-install-page .gi-size-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(243, 156, 18, 0.18);
+  border: 1px solid rgba(243, 156, 18, 0.55);
+  color: #ffd89a;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 14px;
+}
+
+.gutter-install-page .gi-size-card h3 {
+  color: white;
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+.gutter-install-page .gi-size-card p,
+.gutter-install-page .gi-size-card li {
+  color: rgba(255,255,255,0.84);
+}
+
+.gutter-install-page .gi-size-card ul {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.gutter-install-page .gi-size-card li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  line-height: 1.55;
+}
+
+.gutter-install-page .gi-size-card li:before {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--accent);
+}
+
+.gutter-install-page .gi-tools-shell {
+  max-width: 1040px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid rgba(30,60,114,0.12);
+  border-radius: 24px;
+  box-shadow: 0 24px 65px rgba(30,60,114,0.12);
+  overflow: hidden;
+}
+
+.gutter-install-page .gi-tool-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background: #edf2f8;
+  border-bottom: 1px solid rgba(30,60,114,0.12);
+}
+
+.gutter-install-page .gi-tool-tab {
+  border: 0;
+  background: transparent;
+  color: var(--primary-dark);
+  font: inherit;
+  font-weight: 800;
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.gutter-install-page .gi-tool-tab:hover,
+.gutter-install-page .gi-tool-tab:focus-visible {
+  background: rgba(44,90,160,0.08);
+}
+
+.gutter-install-page .gi-tool-tab.active {
+  background: var(--primary-dark);
+  color: white;
+}
+
+.gutter-install-page .gi-tool-panel {
+  display: none;
+  padding: 34px;
+}
+
+.gutter-install-page .gi-tool-panel.active {
+  display: block;
+}
+
+.gutter-install-page .gi-tool-panel h3 {
+  font-size: 1.55rem;
+  margin-bottom: 8px;
+}
+
+.gutter-install-page .gi-tool-lead {
+  color: var(--gray);
+  max-width: 760px;
+  margin-bottom: 26px;
+}
+
+.gutter-install-page .gi-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 22px;
+}
+
+.gutter-install-page .gi-form-group label {
+  display: block;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
+.gutter-install-page .gi-form-group select,
+.gutter-install-page .gi-form-group input {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid #ccd6e2;
+  border-radius: 10px;
+  background: white;
+  padding: 10px 13px;
+  color: var(--dark);
+  font: inherit;
+}
+
+.gutter-install-page .gi-form-group select:focus,
+.gutter-install-page .gi-form-group input:focus {
+  outline: 3px solid rgba(243,156,18,0.35);
+  border-color: var(--primary);
+}
+
+.gutter-install-page .gi-tool-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.gutter-install-page .gi-tool-result {
+  display: none;
+  margin-top: 26px;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(44,90,160,0.22);
+  background: linear-gradient(145deg, #f7faff, #eef4fb);
+}
+
+.gutter-install-page .gi-tool-result.active {
+  display: block;
+}
+
+.gutter-install-page .gi-tool-result h4 {
+  color: var(--primary-dark);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.gutter-install-page .gi-tool-result p:last-child {
+  margin-bottom: 0;
+}
+
+.gutter-install-page .gi-budget-number {
+  display: block;
+  color: var(--primary-dark);
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1;
+  margin: 10px 0 14px;
+}
+
+.gutter-install-page .gi-disclaimer {
+  color: var(--gray);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-top: 14px;
+}
+
+.gutter-install-page .gi-corner-lead {
+  max-width: 960px;
+  margin: 0 auto 34px;
+  padding: 32px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #1e3c72, #254d86);
+  color: white;
+  box-shadow: 0 22px 60px rgba(30,60,114,0.22);
+}
+
+.gutter-install-page .gi-corner-lead h2 {
+  color: white;
+  margin-bottom: 16px;
+}
+
+.gutter-install-page .gi-corner-lead h2:after {
+  background: var(--accent);
+}
+
+.gutter-install-page .gi-corner-lead p {
+  color: rgba(255,255,255,0.88);
+}
+
+.gutter-install-page .gi-corner-lead strong {
+  color: #ffd08a;
+}
+
+.gutter-install-page .gi-callout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-top: 24px;
+  padding: 18px 20px;
+  background: rgba(243,156,18,0.12);
+  border: 1px solid rgba(243,156,18,0.45);
+  border-radius: 14px;
+}
+
+.gutter-install-page .gi-callout i {
+  color: var(--accent);
+  font-size: 1.35rem;
+  margin-top: 4px;
+}
+
+.gutter-install-page .gi-callout p {
+  margin: 0;
+}
+
+.gutter-install-page .gi-two-column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+.gutter-install-page .gi-feature-panel {
+  border-radius: 20px;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid rgba(30,60,114,0.1);
+  box-shadow: 0 14px 38px rgba(30,60,114,0.08);
+}
+
+.gutter-install-page .gi-feature-panel--accent {
+  background: linear-gradient(145deg, #f9fbff, #eef4fb);
+  border-color: rgba(44,90,160,0.2);
+}
+
+.gutter-install-page .gi-feature-panel h3 {
+  font-size: 1.45rem;
+  margin-bottom: 12px;
+}
+
+.gutter-install-page .gi-feature-panel ul {
+  margin: 18px 0 0;
+}
+
+.gutter-install-page .gi-drainage-bridge {
+  position: relative;
+  overflow: hidden;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 38px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #1e3c72, #2c5aa0);
+  color: white;
+  box-shadow: 0 26px 70px rgba(30,60,114,0.28);
+}
+
+.gutter-install-page .gi-drainage-bridge:after {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  right: -90px;
+  top: -120px;
+  background: rgba(243,156,18,0.15);
+}
+
+.gutter-install-page .gi-drainage-bridge > * {
+  position: relative;
+  z-index: 1;
+}
+
+.gutter-install-page .gi-drainage-bridge h2,
+.gutter-install-page .gi-drainage-bridge h3 {
+  color: white;
+}
+
+.gutter-install-page .gi-drainage-bridge p {
+  color: rgba(255,255,255,0.87);
+  max-width: 820px;
+}
+
+.gutter-install-page .gi-drainage-link {
+  color: #ffd08a;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.gutter-install-page .gi-drainage-link:hover {
+  color: white;
+}
+
+.gutter-install-page .gi-no-card {
+  border-top: 4px solid var(--accent);
+}
+
+.gutter-install-page .gi-no-card .gi-card-icon {
+  color: #b45309;
+  background: #fff3df;
+}
+
+.gutter-install-page .gi-process-number {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--primary-dark);
+  color: white;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+
+.gutter-install-page .gi-warranty-box {
+  max-width: 940px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 32px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid rgba(30,60,114,0.13);
+  box-shadow: 0 16px 42px rgba(30,60,114,0.1);
+}
+
+.gutter-install-page .gi-warranty-icon {
+  width: 66px;
+  height: 66px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: rgba(44,90,160,0.1);
+  color: var(--primary);
+  font-size: 1.8rem;
+}
+
+.gutter-install-page .gi-area-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.gutter-install-page .gi-area-pills span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(30,60,114,0.12);
+  color: var(--primary-dark);
+  font-weight: 650;
+  box-shadow: 0 6px 16px rgba(30,60,114,0.05);
+}
+
+.gutter-install-page .gi-area-pills i {
+  color: var(--accent);
+}
+
+.gutter-install-page .gi-related-links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.gutter-install-page .gi-related-links a {
+  font-weight: 700;
+}
+
+.gutter-install-page .gi-fact-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.gutter-install-page .gi-fact-line span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 8px 13px;
+  background: rgba(44,90,160,0.07);
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.gutter-install-page .gi-fact-line i {
+  color: var(--accent-dark);
+}
+
+@media (max-width: 900px) {
+  .gutter-install-page .gi-premium-grid,
+  .gutter-install-page .gi-roof-grid,
+  .gutter-install-page .gi-no-grid,
+  .gutter-install-page .gi-process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gutter-install-page .gi-comparison-wrap,
+  .gutter-install-page .gi-two-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .gutter-install-page .gi-premium-grid,
+  .gutter-install-page .gi-roof-grid,
+  .gutter-install-page .gi-no-grid,
+  .gutter-install-page .gi-process-grid,
+  .gutter-install-page .gi-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gutter-install-page .gi-tool-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .gutter-install-page .gi-tool-panel,
+  .gutter-install-page .gi-corner-lead,
+  .gutter-install-page .gi-drainage-bridge,
+  .gutter-install-page .gi-feature-panel,
+  .gutter-install-page .gi-warranty-box {
+    padding: 24px 20px;
+  }
+
+  .gutter-install-page .gi-warranty-box {
+    grid-template-columns: 1fr;
+  }
+
+  .gutter-install-page .gi-size-card {
+    padding: 26px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gutter-install-page .gi-premium-card,
+  .gutter-install-page .gi-roof-card,
+  .gutter-install-page .gi-no-card,
+  .gutter-install-page .gi-process-card,
+  .gutter-install-page .gi-tool-tab {
+    transition: none;
+  }
+
+  .gutter-install-page .gi-premium-card:hover,
+  .gutter-install-page .gi-roof-card:hover,
+  .gutter-install-page .gi-no-card:hover,
+  .gutter-install-page .gi-process-card:hover {
+    transform: none;
+  }
+}
