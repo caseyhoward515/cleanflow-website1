@@ -144,7 +144,7 @@
       } else if (capacityScore >= 4) {
         recommendation = "6-inch system worth discussing";
         heading.textContent = "A 6-inch system is worth discussing";
-        copy.textContent = "Your answers include roof conditions that can concentrate or accelerate runoff. CleanFlow normally pairs 6-inch gutters with 3x4 downspouts and confirms final sizing, outlet placement, roof geometry and discharge during the onsite assessment.";
+        copy.textContent = "Your answers include roof conditions that can concentrate or accelerate runoff. CleanFlow normally pairs 6-inch gutters with 3x4 downspouts and confirms final sizing, outlet placement, roof geometry and discharge during the onsite assessment." + (overflow.value === "yes" ? " Because you also reported active overflow, we will still verify the cause on site — a clog, restricted outlet, downspout bottleneck or failed underground line can create the same symptom regardless of gutter size." : "");
       } else {
         recommendation = "5-inch may be sufficient";
         heading.textContent = "A 5-inch system may be enough — but we still size the whole system";
@@ -202,7 +202,7 @@
       if (complexityInput.value === "moderate") centre += Math.max(125, feet * 0.55);
       else if (complexityInput.value === "complex") centre += Math.max(300, feet * 1.25);
 
-      const low = Math.max(feet * basePerFoot * 0.92, centre * 0.92);
+      const low = centre * 0.92;
       const high = centre * 1.30;
       const range = money(low) + " – " + money(high);
       number.textContent = range;
