@@ -1,0 +1,12 @@
+/* Final gutter-installation hardening pass. Page-scoped overrides only. */
+.gutter-install-page .gi-section-intro p { color: #586474; }
+.gutter-install-page .gi-quote-review { margin: 22px 0 0; padding: 18px 20px; border: 1px solid rgba(30,60,114,.13); border-left: 4px solid var(--accent); border-radius: 14px; background: rgba(255,255,255,.78); box-shadow: 0 10px 26px rgba(30,60,114,.07); }
+.gutter-install-page .gi-quote-review .gi-review-stars { color: var(--accent); letter-spacing: 2px; margin-bottom: 8px; }
+.gutter-install-page .gi-quote-review blockquote { margin: 0 0 8px; color: var(--primary-dark); font-weight: 600; line-height: 1.6; }
+.gutter-install-page .gi-quote-review figcaption { color: #586474; font-size: .9rem; }
+.gutter-install-page .gi-budget-error { min-height: 1.35em; margin: 10px 0 0; color: #8f2f21; font-weight: 700; }
+.gutter-install-page .gi-inline-cta .btn, .gutter-install-page .gi-result-convert .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.gutter-install-page .gi-review-dot { position: relative; width: 44px !important; height: 44px !important; min-width: 44px; min-height: 44px; border: 0 !important; background: transparent !important; box-shadow: none !important; padding: 0; }
+.gutter-install-page .gi-review-dot::after { content: ''; position: absolute; width: 9px; height: 9px; border-radius: 50%; left: 50%; top: 50%; transform: translate(-50%,-50%); background: #b5bdc8; transition: transform .2s ease, background .2s ease; }
+.gutter-install-page .gi-review-dot.active::after, .gutter-install-page .gi-review-dot[aria-current="true"]::after { background: var(--accent); transform: translate(-50%,-50%) scale(1.35); }
+@media (prefers-reduced-motion: reduce) { .gutter-install-page .gi-review-dot::after { transition: none; } }
