@@ -10,3 +10,69 @@
 .gutter-install-page .gi-review-dot::after { content: ''; position: absolute; width: 9px; height: 9px; border-radius: 50%; left: 50%; top: 50%; transform: translate(-50%,-50%); background: #b5bdc8; transition: transform .2s ease, background .2s ease; }
 .gutter-install-page .gi-review-dot.active::after, .gutter-install-page .gi-review-dot[aria-current="true"]::after { background: var(--accent); transform: translate(-50%,-50%) scale(1.35); }
 @media (prefers-reduced-motion: reduce) { .gutter-install-page .gi-review-dot::after { transition: none; } }
+
+/* --- Layout pass: anchor offset, column balance, floating-control density --- */
+
+/* The site header is fixed (74px scrolled). Without this, every CTA that jumps
+   to the form parks the kicker and the form heading underneath it. */
+.gutter-install-page #gutter-quote,
+.gutter-install-page #gutter-planner,
+.gutter-install-page #main-content { scroll-margin-top: 96px; }
+
+/* The copy column (benefits + review) runs taller than the form column, so the
+   height difference used to collect as one dead white block under the button.
+   Centering the form splits it evenly and reads as padding. */
+.gutter-install-page .gi-quote-form { display: flex; flex-direction: column; justify-content: center; }
+.gutter-install-page .gi-quote-form > * { flex: none; }
+
+/* Keep the navy headline from breaking into a four-line rag in a narrow column. */
+.gutter-install-page .gi-quote-copy h2 { font-size: clamp(1.8rem, 2.8vw, 2.5rem); line-height: 1.16; }
+
+/* This page already repeats Call in the hero, every inline CTA, the form helper
+   and the mobile dock. The floating phone bubble is redundant clutter next to
+   the Services pill and back-to-top control. */
+.gutter-install-page .floating-cta { display: none !important; }
+
+/* The shared header is rgba(255,255,255,.95); content scrolling under it ghosts
+   through and turns the trust strip into a smear. Opaque on this page. */
+.gutter-install-page header { background-color: #fff; }
+
+@media (max-width: 820px) {
+  /* Stacked, the copy panel used to push the fields ~860px below the fold, so a
+     "Free Estimate" tap landed on marketing copy instead of the form. Fields
+     first; the copy panel still follows as reinforcement. The copy panel holds
+     no focusable elements, so visual order and tab order stay in agreement. */
+  .gutter-install-page .gi-quote-form { order: -1; }
+  .gutter-install-page .gi-quote-copy h2 { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+}
+
+/* --- Bottom cluster: nothing is removed, nothing overlaps --- */
+
+/* The Services pill and back-to-top were on different offsets (82px / 84px) and
+   tall enough to land on the footer's last row at every width. Put them on one
+   shared baseline and extend the footer's own padding so they sit inside the
+   footer's background instead of on top of its content. */
+.gutter-install-page .floating-service-trigger,
+.gutter-install-page .back-to-top { bottom: 20px; }
+.gutter-install-page footer { padding-bottom: 104px; }
+
+@media (max-width: 640px) {
+  /* Above the fixed dock, still on one shared baseline. */
+  .gutter-install-page .floating-service-trigger,
+  .gutter-install-page .back-to-top { bottom: 80px; }
+  .gutter-install-page footer { padding-bottom: 104px; }
+}
+
+/* Mid-page, the pill and the arrow could still land on the estimate form's
+   submit button. They step aside while the form is on screen and return
+   immediately after — present everywhere else, never covering the CTA. */
+.gutter-install-page .floating-service-trigger,
+.gutter-install-page .back-to-top { transition: opacity .25s ease, transform .25s ease, visibility .25s ease; }
+.gutter-install-page.gi-form-in-view .floating-service-trigger,
+.gutter-install-page.gi-form-in-view .back-to-top {
+  opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(10px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .gutter-install-page .floating-service-trigger,
+  .gutter-install-page .back-to-top { transition: none; }
+}

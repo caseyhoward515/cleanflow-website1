@@ -308,6 +308,25 @@
     });
   }
 
+  /* The sitewide Services pill and back-to-top control are fixed page furniture.
+     While the estimate form is on screen they can land on top of its submit
+     button, so they step aside for that section only and return straight after.
+     If IntersectionObserver is unavailable the controls simply stay put. */
+  function initBottomClearance() {
+    const quote = document.getElementById("gutter-quote");
+    if (!quote || typeof window.IntersectionObserver !== "function") {
+      return;
+    }
+
+    const observer = new window.IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        document.body.classList.toggle("gi-form-in-view", entry.isIntersecting);
+      });
+    }, { rootMargin: "-12% 0px -12% 0px" });
+
+    observer.observe(quote);
+  }
+
   function refreshAOS() {
     window.setTimeout(function () {
       if (window.AOS && typeof window.AOS.refreshHard === "function") window.AOS.refreshHard();
@@ -323,6 +342,7 @@
     initSystemPlanner();
     initBudgetEstimator();
     initReviews();
+    initBottomClearance();
     updateLeadFields();
     showSubmissionStatus();
     refreshAOS();
