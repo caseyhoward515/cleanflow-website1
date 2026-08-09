@@ -21,7 +21,7 @@ name and icon, and never imply a job result.
 | Path | Type | Size | Ownership / licence | Used by |
 | --- | --- | --- | --- | --- |
 | `assets/brand/cleanflow-mascot.png` | PNG, 820x365, RGBA | ~275 KB | **Owner-approved CleanFlow of Ohio artwork**, supplied by the owner. This is the company's official mascot and logo lockup. Cropped to its content box and downscaled from the 1536x1024 original; artwork itself is unaltered. | Default social-preview source |
-| `assets/og-image.png` | PNG, 1200x630 | ~1.1 MB | **Owner-approved, AI-assisted CleanFlow of Ohio global promotional artwork**, using the owner's approved mascot and professional gutter-and-drainage visual direction. | Default `og:image` and `twitter:image` for home, services, and about |
+| `assets/og-image-v2.png` | PNG, 1200x630 | ~1.1 MB | **Owner-approved, AI-assisted CleanFlow of Ohio global promotional artwork**, using the owner's approved mascot and professional gutter-and-drainage visual direction. The versioned filename forces social-preview systems to request the replacement instead of reusing the prior cached asset. | Default `og:image` and `twitter:image` for home, services, and about |
 | `assets/og-seamless-gutter-installation.png` | PNG, 1200x630 | ~403 KB | **Owner-approved, AI-assisted CleanFlow of Ohio page-specific promotional artwork**, refined under the owner's direction from an approved social-preview concept. The Ohio hat emblem was corrected against cartographic boundary references. | Page-specific `og:image` and `twitter:image` for `/services/gutter-installation` |
 | `assets/og-gutter-cleaning.png` | PNG, 1200x630 | ~685 KB | **Owner-approved, AI-assisted CleanFlow of Ohio page-specific promotional artwork**, using the owner's approved mascot and gutter-cleaning visual direction. | Page-specific `og:image` and `twitter:image` for `/services/gutter-cleaning` |
 | `assets/og-dryer-vent-cleaning.png` | PNG, 1200x630 | ~700 KB | **Owner-approved, AI-assisted CleanFlow of Ohio page-specific promotional artwork**, using the owner's approved mascot and dryer-vent-cleaning visual direction. | Page-specific `og:image` and `twitter:image` for `/services/dryer-vent-cleaning` |
@@ -46,7 +46,7 @@ used in a logo position.
 
 ## Updating the global social preview
 
-The current `assets/og-image.png` is owner-approved raster artwork. Replace it
+The current `assets/og-image-v2.png` is owner-approved raster artwork. Replace it
 only with a final approved 1200x630 PNG, preserve the exact CleanFlow mascot,
 and verify both the full-size card and a phone-size thumbnail before committing.
 `assets/brand/og-image.source.html` is retained only as the historical source
