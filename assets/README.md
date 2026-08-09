@@ -21,13 +21,13 @@ name and icon, and never imply a job result.
 | Path | Type | Size | Ownership / licence | Used by |
 | --- | --- | --- | --- | --- |
 | `assets/brand/cleanflow-mascot.png` | PNG, 820x365, RGBA | ~275 KB | **Owner-approved CleanFlow of Ohio artwork**, supplied by the owner. This is the company's official mascot and logo lockup. Cropped to its content box and downscaled from the 1536x1024 original; artwork itself is unaltered. | Default social-preview source |
-| `assets/og-image.png` | PNG, 1200x630 | ~454 KB | Layout and typography are original work for CleanFlow of Ohio; the brand mark within it is the owner's mascot lockup above. Rendered from `assets/brand/og-image.source.html`. Typeface: Liberation Sans (SIL Open Font License 1.1). | Default `og:image` and `twitter:image` for home, services, and about |
+| `assets/og-image.png` | PNG, 1200x630 | ~752 KB | **Owner-approved, AI-assisted CleanFlow of Ohio global promotional artwork**, using the owner's approved mascot and professional gutter-and-drainage visual direction. | Default `og:image` and `twitter:image` for home, services, and about |
 | `assets/og-seamless-gutter-installation.png` | PNG, 1200x630 | ~403 KB | **Owner-approved, AI-assisted CleanFlow of Ohio page-specific promotional artwork**, refined under the owner's direction from an approved social-preview concept. The Ohio hat emblem was corrected against cartographic boundary references. | Page-specific `og:image` and `twitter:image` for `/services/gutter-installation` |
 | `assets/og-gutter-cleaning.png` | PNG, 1200x630 | ~685 KB | **Owner-approved, AI-assisted CleanFlow of Ohio page-specific promotional artwork**, using the owner's approved mascot and gutter-cleaning visual direction. | Page-specific `og:image` and `twitter:image` for `/services/gutter-cleaning` |
 | `assets/og-dryer-vent-cleaning.png` | PNG, 1200x630 | ~700 KB | **Owner-approved, AI-assisted CleanFlow of Ohio page-specific promotional artwork**, using the owner's approved mascot and dryer-vent-cleaning visual direction. | Page-specific `og:image` and `twitter:image` for `/services/dryer-vent-cleaning` |
 | `assets/og-underground-drainage.png` | PNG, 1200x630 | ~700 KB | **Owner-approved, AI-assisted CleanFlow of Ohio page-specific promotional artwork**, using the owner's approved mascot and underground-drainage visual direction. | Page-specific `og:image` and `twitter:image` for `/services/underground-downspout-drainage` |
 | `assets/brand/hero-pattern.svg` | SVG, 1200x600 | ~2.0 KB | Original **decorative background texture** created for this site — abstract roofline, gutter run, and droplet motif. It is a pattern, not a brand mark, and is not used as a logo anywhere. | `#hero` and `.services-hero-wow` backgrounds in `style.css`; `/services/dryer-vent-cleaning` hero |
-| `assets/brand/og-image.source.html` | HTML | ~4.5 KB | Build source for the social preview. Marked `noindex, nofollow`; not linked from the site. | Regenerating `og-image.png` |
+| `assets/brand/og-image.source.html` | HTML | ~4.5 KB | Historical build source for the previous global social preview. Marked `noindex, nofollow`; not linked from the site. | Retained for design history; it does not generate the current `og-image.png` |
 
 ## Brand mark policy
 
@@ -44,16 +44,13 @@ do not draw a replacement mark.
 `hero-pattern.svg` is a decorative background texture, not a mark, and is never
 used in a logo position.
 
-## Regenerating the social preview
+## Updating the global social preview
 
-`assets/og-image.png` is rendered from its HTML source with headless Chromium,
-captured through the DevTools Protocol so the output is exactly 1200x630
-(`--window-size` alone under-reports the layout viewport and leaves a white
-band at the bottom).
-
-Edit `assets/brand/og-image.source.html`, then re-render and confirm the header
-reports `1200x630`. The source references `cleanflow-mascot.png` from the same
-directory, so the preview always carries the owner's real mark.
+The current `assets/og-image.png` is owner-approved raster artwork. Replace it
+only with a final approved 1200x630 PNG, preserve the exact CleanFlow mascot,
+and verify both the full-size card and a phone-size thumbnail before committing.
+`assets/brand/og-image.source.html` is retained only as the historical source
+for the previous design and does not regenerate the current global image.
 
 ## Contrast
 
