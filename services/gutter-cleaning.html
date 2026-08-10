@@ -39,99 +39,77 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": "https://www.cleanflowohio.com/services/gutter-cleaning#service",
-    "name": "Professional Gutter Cleaning",
-    "serviceType": "Gutter Cleaning",
-    "url": "https://www.cleanflowohio.com/services/gutter-cleaning",
-    "description": "Professional hand-cleaned gutter service with downspout flushing, connected underground drainage flow checks, cleanup, visible gutter assessment, minor complimentary tune-ups when reasonable, and proof-of-work photo documentation.",
-    "provider": {
-      "@type": "LocalBusiness",
-      "@id": "https://www.cleanflowohio.com/#business",
-      "name": "CleanFlow of Ohio",
-      "url": "https://www.cleanflowohio.com",
-      "telephone": "+1-937-478-0689",
-      "email": "cleanflowofohio@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dayton",
-        "addressRegion": "OH",
-        "addressCountry": "US"
-      }
-    },
-    "areaServed": [
-      {"@type": "City", "name": "Dayton, Ohio"},
-      {"@type": "City", "name": "Kettering, Ohio"},
-      {"@type": "City", "name": "Centerville, Ohio"},
-      {"@type": "AdministrativeArea", "name": "Washington Township, Ohio"},
-      {"@type": "City", "name": "Oakwood, Ohio"},
-      {"@type": "City", "name": "Beavercreek, Ohio"},
-      {"@type": "City", "name": "Miamisburg, Ohio"},
-      {"@type": "City", "name": "Bellbrook, Ohio"},
-      {"@type": "City", "name": "Fairborn, Ohio"},
-      {"@type": "City", "name": "Xenia, Ohio"}
-    ],
-    "offers": {
-      "@type": "Offer",
-      "price": "150",
-      "priceCurrency": "USD",
-      "description": "Gutter cleaning starts at $150 for standard homes. Final pricing depends on access, height, debris, guards, downspout restrictions, and overall job difficulty."
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
       {
-        "@type": "Question",
-        "name": "What is included with CleanFlow gutter cleaning?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "CleanFlow hand-cleans the gutters, flushes every downspout, checks connected underground drainage lines for water flow when accessible, cleans the grounds, performs an overall visible assessment, handles minor complimentary spike and hanger tune-ups when reasonable, and provides proof-of-work photo documentation."
+        "@type": "Service",
+        "@id": "https://www.cleanflowohio.com/services/gutter-cleaning#service",
+        "name": "Professional Gutter Cleaning",
+        "serviceType": "Gutter Cleaning",
+        "url": "https://www.cleanflowohio.com/services/gutter-cleaning",
+        "description": "Professional hand-cleaned gutter service with downspout flushing, connected underground drainage flow checks, cleanup, visible gutter assessment, minor complimentary tune-ups when reasonable, and proof-of-work photo documentation.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "@id": "https://www.cleanflowohio.com/#business",
+          "name": "CleanFlow of Ohio",
+          "url": "https://www.cleanflowohio.com/",
+          "telephone": "+1-937-478-0689",
+          "email": "cleanflowofohio@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dayton",
+            "addressRegion": "OH",
+            "addressCountry": "US"
+          }
+        },
+        "areaServed": [
+          {"@type": "City", "name": "Dayton, Ohio"},
+          {"@type": "City", "name": "Kettering, Ohio"},
+          {"@type": "City", "name": "Centerville, Ohio"},
+          {"@type": "AdministrativeArea", "name": "Washington Township, Ohio"},
+          {"@type": "City", "name": "Oakwood, Ohio"},
+          {"@type": "City", "name": "Miamisburg, Ohio"},
+          {"@type": "City", "name": "Huber Heights, Ohio"},
+          {"@type": "City", "name": "Englewood, Ohio"},
+          {"@type": "City", "name": "Beavercreek, Ohio"},
+          {"@type": "City", "name": "Bellbrook, Ohio"},
+          {"@type": "City", "name": "Fairborn, Ohio"},
+          {"@type": "City", "name": "Xenia, Ohio"},
+          {"@type": "City", "name": "Yellow Springs, Ohio"},
+          {"@type": "City", "name": "Cedarville, Ohio"},
+          {"@type": "City", "name": "Springboro, Ohio"},
+          {"@type": "City", "name": "Waynesville, Ohio"}
+        ],
+        "offers": {
+          "@type": "Offer",
+          "@id": "https://www.cleanflowohio.com/services/gutter-cleaning#starting-offer",
+          "url": "https://www.cleanflowohio.com/services/gutter-cleaning",
+          "price": "150.00",
+          "priceCurrency": "USD",
+          "description": "Gutter cleaning starts at $150 for standard homes. Final pricing depends on access, height, debris, guards, downspout restrictions, and overall job difficulty."
         }
       },
       {
-        "@type": "Question",
-        "name": "Do you flush every downspout?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Downspout flushing and water-flow verification are included with every standard gutter cleaning."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you check underground downspout lines?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. When a downspout connects to an accessible underground drainage line, CleanFlow checks whether the line accepts and moves water. If it does not flow properly, the concern is documented and discussed."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much does gutter cleaning cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Gutter cleaning starts at $150 for standard homes. Final pricing depends on height, access, debris, guards, downspout restrictions, and overall job difficulty."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why is gutter cleaning important before winter?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Wet debris can trap water in gutters and downspouts. During freezing and thawing, that water can expand, add weight, stress seams and connections, crack downspout sections, loosen gutters, and contribute to ice buildup."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer gutter service plans?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. CleanFlow offers one-year, two-year, and three-year service-plan options with priority scheduling, complimentary qualifying unclog visits between scheduled services, and plan savings. Ask about current plan and Easy Pay options."
-        }
+        "@type": "BreadcrumbList",
+        "@id": "https://www.cleanflowohio.com/services/gutter-cleaning#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.cleanflowohio.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.cleanflowohio.com/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Professional Gutter Cleaning"
+          }
+        ]
       }
     ]
   }

@@ -39,39 +39,66 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": "https://www.cleanflowohio.com/services/underground-downspout-drainage#service",
-    "name": "Underground Downspout & Yard Drainage Solutions",
-    "serviceType": "Underground Downspout and Yard Drainage Solutions",
-    "url": "https://www.cleanflowohio.com/services/underground-downspout-drainage",
-    "description": "Diagnosis and flow testing of underground downspout lines, unclogging of accessible buried lines, repair and replacement of failed underground downspout drainage, new solid PVC downspout conveyance, catch basins, surface and channel drains, French drains where appropriate, grading and water channeling, dedicated sump-pump discharge routing, and approved discharge connections where permitted.",
-    "provider": {
-      "@type": "LocalBusiness",
-      "@id": "https://www.cleanflowohio.com/#business",
-      "name": "CleanFlow of Ohio",
-      "url": "https://www.cleanflowohio.com",
-      "telephone": "+1-937-478-0689",
-      "email": "cleanflowofohio@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dayton",
-        "addressRegion": "OH",
-        "addressCountry": "US"
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://www.cleanflowohio.com/services/underground-downspout-drainage#service",
+        "name": "Underground Downspout & Yard Drainage Solutions",
+        "serviceType": "Underground Downspout and Yard Drainage Services",
+        "url": "https://www.cleanflowohio.com/services/underground-downspout-drainage",
+        "description": "Diagnosis and flow testing of underground downspout lines, unclogging of accessible buried lines, repair and replacement of failed underground downspout drainage, new solid PVC downspout conveyance, catch basins, surface and channel drains, French drains where appropriate, grading and water channeling, dedicated sump-pump discharge routing, and approved discharge connections where permitted.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "@id": "https://www.cleanflowohio.com/#business",
+          "name": "CleanFlow of Ohio",
+          "url": "https://www.cleanflowohio.com/",
+          "telephone": "+1-937-478-0689",
+          "email": "cleanflowofohio@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dayton",
+            "addressRegion": "OH",
+            "addressCountry": "US"
+          }
+        },
+        "areaServed": [
+          {"@type": "City", "name": "Dayton, Ohio"},
+          {"@type": "City", "name": "Kettering, Ohio"},
+          {"@type": "City", "name": "Centerville, Ohio"},
+          {"@type": "City", "name": "Beavercreek, Ohio"},
+          {"@type": "City", "name": "Oakwood, Ohio"},
+          {"@type": "AdministrativeArea", "name": "Washington Township, Ohio"},
+          {"@type": "City", "name": "Springboro, Ohio"},
+          {"@type": "City", "name": "Xenia, Ohio"},
+          {"@type": "City", "name": "Fairborn, Ohio"},
+          {"@type": "City", "name": "Huber Heights, Ohio"},
+          {"@type": "City", "name": "Englewood, Ohio"},
+          {"@type": "City", "name": "Waynesville, Ohio"}
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.cleanflowohio.com/services/underground-downspout-drainage#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.cleanflowohio.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.cleanflowohio.com/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Underground Downspout & Yard Drainage Solutions"
+          }
+        ]
       }
-    },
-    "areaServed": [
-      {"@type": "City", "name": "Dayton, Ohio"},
-      {"@type": "City", "name": "Kettering, Ohio"},
-      {"@type": "City", "name": "Centerville, Ohio"},
-      {"@type": "City", "name": "Beavercreek, Ohio"},
-      {"@type": "City", "name": "Oakwood, Ohio"},
-      {"@type": "AdministrativeArea", "name": "Washington Township, Ohio"},
-      {"@type": "City", "name": "Springboro, Ohio"},
-      {"@type": "City", "name": "Xenia, Ohio"},
-      {"@type": "City", "name": "Fairborn, Ohio"},
-      {"@type": "City", "name": "Huber Heights, Ohio"},
-      {"@type": "City", "name": "Englewood, Ohio"},
-      {"@type": "City", "name": "Waynesville, Ohio"}
     ]
   }
   </script>
