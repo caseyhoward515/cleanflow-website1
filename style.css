@@ -112,7 +112,7 @@ header.sticky .header-container, header.scrolled .header-container { padding: 10
 
 .logo { font-size: 24px; font-weight: 700; color: var(--primary-dark); display: flex; align-items: center; cursor: pointer; text-decoration: none; }
 
-.logo span { color: var(--accent); margin-left: 5px; }
+.logo span { color: var(--accent); }
 
 nav ul { display: flex; gap: 30px; list-style: none; }
 
