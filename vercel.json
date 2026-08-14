@@ -9,6 +9,14 @@
       "destination": "/about.html"
     },
     {
+      "source": "/resources",
+      "destination": "/resources.html"
+    },
+    {
+      "source": "/resources/why-gutters-overflow-dayton-ohio",
+      "destination": "/resources/why-gutters-overflow-dayton-ohio.html"
+    },
+    {
       "source": "/services/gutter-cleaning",
       "destination": "/services/gutter-cleaning.html"
     },
