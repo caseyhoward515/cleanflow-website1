@@ -413,7 +413,7 @@
 
 .resource-service-router-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 12px;
   margin: 0;
   padding: 0;
@@ -421,12 +421,33 @@
 }
 
 .resource-service-router-list li {
+  display: grid;
   min-width: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, max-content);
+  column-gap: 24px;
+  align-items: center;
   margin: 0;
   padding: 18px;
   border: 1px solid #dce4ed;
   border-radius: 13px;
   background: #fff;
+}
+
+.resource-service-router-list li > .resource-service-router-symptom {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.resource-service-router-list li > .resource-service-router-service {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.resource-service-router-list li > a,
+.resource-service-router-list li > .resource-service-router-links {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
 }
 
 .resource-service-router .resource-service-router-symptom {
@@ -722,6 +743,10 @@
 
   .resource-service-router-list {
     grid-template-columns: 1fr;
+  }
+
+  .resource-service-router-list li {
+    display: block;
   }
 
   .resource-cta-actions {
