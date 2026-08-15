@@ -664,7 +664,77 @@
   margin-top: 13px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+  /* The shared desktop header is wider than the 720px tablet container.
+     Use its existing mobile controls at Fold-open/tablet widths so the
+     phone number and navigation cannot wrap over the resource hero. */
+  .resource-page nav ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    background: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    z-index: 1001;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .resource-page nav ul.active {
+    right: 0;
+  }
+
+  .resource-page .menu-toggle {
+    display: block;
+    padding: 10px;
+  }
+
+  .resource-page .close-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .resource-page .phone-btn {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+  }
+
+  .resource-page .phone-btn span {
+    display: none;
+  }
+
+  .resource-page .phone-btn i {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .resource-page .logo {
+    font-size: 20px;
+  }
+
+  .resource-page .header-container {
+    padding: 12px 0;
+  }
+
+  .resource-page header.sticky .header-container,
+  .resource-page header.scrolled .header-container {
+    padding: 8px 0;
+  }
+
+}
+
 @media screen and (max-width: 991.98px) {
+
   .resource-hero-grid,
   .resource-card {
     grid-template-columns: 1fr;
