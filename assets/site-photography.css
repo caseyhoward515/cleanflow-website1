@@ -18,16 +18,6 @@
     height: auto;
 }
 
-.site-photo-figure figcaption,
-.site-job-photo figcaption {
-    padding: 13px 17px;
-    background: var(--primary-dark);
-    color: rgba(255, 255, 255, 0.94);
-    font-size: 0.88rem;
-    font-weight: 600;
-    line-height: 1.45;
-}
-
 /* Homepage field-proof section */
 
 .home-field-photo-section {
@@ -156,12 +146,6 @@
     object-position: center 38%;
 }
 
-.service-detail-image.site-job-photo figcaption {
-    position: relative;
-    z-index: 2;
-    margin: 0;
-}
-
 .proof-feature-photo {
     width: min(100%, 780px);
     margin: 0 auto 34px;
@@ -216,9 +200,4 @@
         height: 340px;
     }
 
-    .site-photo-figure figcaption,
-    .site-job-photo figcaption {
-        padding: 12px 14px;
-        font-size: 0.82rem;
-    }
 }
